@@ -24,6 +24,7 @@ AudioComponentInstance audioUnit;
 AudioStreamBasicDescription audioFormat;
 
 -(OSStatus)start{
+	
 	OSStatus status = AudioOutputUnitStart(audioUnit);
 	return status;
 }
@@ -93,7 +94,7 @@ static OSStatus playbackCallback(void *inRefCon,
 			int remainer = fmod(frameCounter, 44100*60/120);
 			if(remainer == 0){
 				tick++;
-				//[remoteIOplayer inMemoryAudioFile].note++;
+				[remoteIOplayer inMemoryAudioFile].note++;
 			}
 			// frameBuffer[j] = j%80>40?500:0;
 		}
@@ -101,6 +102,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	//dodgy return :)
     return noErr;
 }
+
 
 // Below code is a cut down version (for output only) of the code written by
 // Micheal "Code Fighter" Tyson (punch on Mike)

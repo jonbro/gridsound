@@ -27,7 +27,7 @@ float sampleIndex = 0;
 		packetIndex = 0;
 		sampleIndex = 0;
 		//note--;
-		//NSLog(@"Reset player to beginning of file. from sample instrument");
+		//NSLog(@"Reset player to beginning of file.");
 	}
 	
 	//i always like to set a variable and then return it during development so i can
@@ -45,6 +45,7 @@ float sampleIndex = 0;
 	
 	return returnValue;
 }
+
 //-(SInt64)getIndex;
 
 @end

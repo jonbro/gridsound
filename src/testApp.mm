@@ -24,7 +24,7 @@ void testApp::setup(){
 	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"MS20-VCO1-Tri-C1" ofType:@"wav"]];
 	//set the players inMemoryAudioFile
 	[player setInMemoryAudioFile: inMemoryAudioFile];
-	[[player inMemoryAudioFile] reset];
+	[[player inMemoryAudioFile]reset];
 	[player start];
 	
 }
@@ -48,7 +48,7 @@ void testApp::update(){
 void testApp::draw(){	
 	for(int i = 0; i < 16; i++){
 		ofSetColor(0xAFCFCF);
-		ofRect(0, i*ofGetHeight()/16, ofGetWidth()/2, 38);
+		ofRect(0, i*ofGetHeight()/16, ofGetWidth()/2, i*ofGetHeight()/16-2);
 	}
 	
 }

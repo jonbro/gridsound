@@ -1,10 +1,9 @@
 #pragma once
 
-#import "RemoteIOPlayer.h"
 #include "ofMain.h"
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
-//#import "Phrase.h"
+#import "RemoteIOPlayer.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -33,8 +32,8 @@ public:
 	ofImage tdfSmall;
 	ofImage transparency;
 	ofImage bikeIcon;
+
 	RemoteIOPlayer *player;
-	
-	
+
 };
 
