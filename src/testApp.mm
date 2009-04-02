@@ -111,6 +111,7 @@ void testApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
+	
 	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
 }
