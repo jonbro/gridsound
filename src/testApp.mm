@@ -19,12 +19,24 @@ void testApp::setup(){
 	//initialise the audio player
 	[player intialiseAudio];
 	//initialise the inMemoryAudiofile (holds a wav file in memory)
+	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:2];
+
+	[player setInstrumentGroup: instrumentGroup];
+	
 	SampleInstrument *inMemoryAudioFile = [[SampleInstrument alloc]init];
 	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"MS20-VCO1-Tri-C1" ofType:@"wav"]];
+	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"reggae_174" ofType:@"wav"]];
 	//set the players inMemoryAudioFile
-	[player setInMemoryAudioFile: inMemoryAudioFile];
-	[[player inMemoryAudioFile] reset];
+	[[player instrumentGroup] addObject:inMemoryAudioFile];
+	[inMemoryAudioFile reset];
+
+	inMemoryAudioFile = [[SampleInstrument alloc]init];
+	//open the a wav file from the application resources
+	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"amen_174" ofType:@"wav"]];
+	//set the players inMemoryAudioFile
+	[[player instrumentGroup] addObject:inMemoryAudioFile];
+	[inMemoryAudioFile reset];
+	
 	[player start];
 	
 }
@@ -46,9 +58,10 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){	
-	for(int i = 0; i < 16; i++){
+	for(int i = 0; i < 12; i++){
 		ofSetColor(0xAFCFCF);
-		ofRect(0, i*ofGetHeight()/16, ofGetWidth()/2, i*ofGetHeight()/16-2);
+		float rectY = i*ofGetHeight()/12;
+		ofRect(0, rectY, ofGetWidth()/2, rectY+38.0f);
 	}
 	
 }

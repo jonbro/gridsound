@@ -13,7 +13,7 @@
 
 @implementation RemoteIOPlayer
 
-@synthesize inMemoryAudioFile;
+@synthesize instrumentGroup;
 @synthesize tick;
 @synthesize frameCounter;
 
@@ -32,8 +32,6 @@ AudioStreamBasicDescription audioFormat;
 -(OSStatus)stop{
 	OSStatus status = AudioOutputUnitStop(audioUnit);
 	//RemoteIOPlayer *remoteIOplayer = (RemoteIOPlayer *)inRefCon;
-	inMemoryAudioFile.note = 0;
-	frameCounter = 0;
 	return status;
 }
 
@@ -89,12 +87,18 @@ static OSStatus playbackCallback(void *inRefCon,
 		
 		for (int j = 0; j < inNumberFrames; j++){
 			// get NextPacket returns a 32 bit value, one frame.
-			frameBuffer[j] = [[remoteIOplayer inMemoryAudioFile] getNextPacket];
+			
+			id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:0];
+			frameBuffer[j] = [currentInstrument getNextPacket];
+
+			currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:1];
+			frameBuffer[j] += [currentInstrument getNextPacket];
+			
 			frameCounter++;
 			int remainer = fmod(frameCounter, 44100*60/120);
 			if(remainer == 0){
 				tick++;
-				[remoteIOplayer inMemoryAudioFile].note++;
+				//[remoteIOplayer inMemoryAudioFile].note++;
 			}
 			// frameBuffer[j] = j%80>40?500:0;
 		}

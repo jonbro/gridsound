@@ -109,7 +109,7 @@
 	//if the packetCount has gone to the end of the file, reset it. Audio will loop.
 	if (packetIndex >= packetCount){
 		packetIndex = 0;
-		NSLog(@"Reset player to beginning of file.");
+		//NSLog(@"Reset player to beginning of file.");
 	}
 	
 	//i always like to set a variable and then return it during development so i can

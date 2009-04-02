@@ -10,6 +10,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8D0F8451E000F5E00E /* amen_174.wav */; };
+		5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8F0F8451EF00F5E00E /* reggae_174.wav */; };
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
 		5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */; };
 		5E4FEB150F805A64003018CA /* SampleInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB120F805A64003018CA /* SampleInstrument.m */; };
@@ -53,6 +55,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
+		5E410C8D0F8451E000F5E00E /* amen_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = amen_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/amen_174.wav"; sourceTree = DEVELOPER_DIR; };
+		5E410C8F0F8451EF00F5E00E /* reggae_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = reggae_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/reggae_174.wav"; sourceTree = DEVELOPER_DIR; };
 		5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InMemoryAudioFile.h; path = src/InMemoryAudioFile.h; sourceTree = "<group>"; };
 		5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InMemoryAudioFile.m; path = src/InMemoryAudioFile.m; sourceTree = "<group>"; };
 		5E4FEB0F0F805A64003018CA /* RemoteIOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteIOPlayer.h; path = src/RemoteIOPlayer.h; sourceTree = "<group>"; };
@@ -545,6 +549,8 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E410C8F0F8451EF00F5E00E /* reggae_174.wav */,
+				5E410C8D0F8451E000F5E00E /* amen_174.wav */,
 				5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */,
 				BB3F148C0F4C6DAB00A33527 /* images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -794,6 +800,8 @@
 				BBD1C2790F39143F007FCFB3 /* Icon.png in Resources */,
 				BB3F14940F4C6DAB00A33527 /* images in Resources */,
 				5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */,
+				5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */,
+				5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

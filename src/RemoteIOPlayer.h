@@ -11,12 +11,14 @@
 #import "SampleInstrument.h"
 
 @interface RemoteIOPlayer : NSObject {
-	SampleInstrument *inMemoryAudioFile;
+	//SampleInstrument *inMemoryAudioFile[];
+	NSMutableArray *instrumentGroup;
 	int tick;
 	int frameCounter;
 }
 
-@property (nonatomic, retain) SampleInstrument *inMemoryAudioFile;
+//@property (nonatomic, retain) SampleInstrument *inMemoryAudioFile[];
+@property (nonatomic, retain) NSMutableArray *instrumentGroup;
 @property int tick;
 @property int frameCounter;
 
