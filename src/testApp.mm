@@ -24,7 +24,7 @@ void testApp::setup(){
 	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"MS20-VCO1-Tri-C1" ofType:@"wav"]];
 	//set the players inMemoryAudioFile
 	[player setInMemoryAudioFile: inMemoryAudioFile];
-	[[player inMemoryAudioFile]reset];
+	[[player inMemoryAudioFile] reset];
 	[player start];
 	
 }

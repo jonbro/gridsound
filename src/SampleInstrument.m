@@ -27,7 +27,7 @@ float sampleIndex = 0;
 		packetIndex = 0;
 		sampleIndex = 0;
 		//note--;
-		//NSLog(@"Reset player to beginning of file.");
+		NSLog(@"Reset player to beginning of file.");
 	}
 	
 	//i always like to set a variable and then return it during development so i can
