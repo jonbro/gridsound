@@ -58,10 +58,22 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){	
-	for(int i = 0; i < 12; i++){
-		ofSetColor(0xAFCFCF);
-		float rectY = i*ofGetHeight()/12;
-		ofRect(0, rectY, ofGetWidth()/2, rectY+38.0f);
+	ofSetColor(0xBC2F2A);
+	for(int i = 0; i < 4; i++){
+		for(int j = 0; j < 2; j++){
+			ofRect(i*80, j*80, 78, 78);		
+		}
+	}
+	ofSetColor(0xFEF14C);
+	for(int i = 0; i < 4; i++){
+		for(int j = 0; j < 2; j++){
+			ofRect(i*80, j*80+160, 78, 78);		
+		}
+	}
+	// #418845
+	ofSetColor(0x418845);
+	for(int i = 0; i < 4; i++){
+		ofRect(i*80, 320, 78, 78);		
 	}
 	
 }
@@ -99,7 +111,7 @@ void testApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
-	[[player inMemoryAudioFile] setNote:(int)y/40];
+	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
