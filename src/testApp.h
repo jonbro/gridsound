@@ -4,6 +4,7 @@
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
 #import "RemoteIOPlayer.h"
+#import "SampleInstrument.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
