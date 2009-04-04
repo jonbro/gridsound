@@ -87,6 +87,32 @@ static OSStatus playbackCallback(void *inRefCon,
 		//loop through the buffer and fill the frames
 		
 		for (int j = 0; j < inNumberFrames; j++){
+			// check to see if we need to update the tick
+			frameCounter++;
+			int remainer = fmod(frameCounter, 44100*60/174);
+			
+			// if we are updating the tick do all the sample updating as well
+			if(remainer == 0){
+				remoteIOplayer.tick++;
+				int currentTick = fmod(remoteIOplayer.tick, 8);
+				for(int k=0;k<2;k++){
+					id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
+					bool toMute = [remoteIOplayer getMute:k];
+					if([remoteIOplayer getMute:k]){
+						if([currentInstrument volume]==255){
+							[currentInstrument setVolume:0];
+						}else{
+							[currentInstrument setVolume:255];
+						}
+						[remoteIOplayer setMuteChannel:k];
+					}
+				}
+				id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:1];
+				float startPercentage = ((float)[remoteIOplayer getStep:currentTick])/8;
+				[currentInstrument setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+				[currentInstrument reset];
+				//[remoteIOplayer inMemoryAudioFile].note++;
+			}
 			// get NextPacket returns a 32 bit value, one frame.
 			
 			id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:0];
@@ -95,12 +121,6 @@ static OSStatus playbackCallback(void *inRefCon,
 			currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:1];
 			frameBuffer[j] += [currentInstrument getNextPacket];
 			
-			frameCounter++;
-			int remainer = fmod(frameCounter, 44100*60/120);
-			if(remainer == 0){
-				tick++;
-				//[remoteIOplayer inMemoryAudioFile].note++;
-			}
 			// frameBuffer[j] = j%80>40?500:0;
 		}
 	}
@@ -184,6 +204,14 @@ static OSStatus playbackCallback(void *inRefCon,
 	//notice i do nothing with status, i should error check.
 }
 
-
+-(void)setMuteChannel:(int)i
+{
+	toMute[i] = !toMute[i];
+	//just a line
+}
+-(bool)getMute:(int)i
+{
+	return toMute[i];
+}
 
 @end

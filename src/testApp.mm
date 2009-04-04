@@ -66,18 +66,35 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){	
 	//ofSetColor(0xBC2F2A);
+
+	// draw the channel looper
 	ofSetColor(0xEB008B);
 	for(int i = 0; i < 8; i++){
 		for(int j = 0; j < 8; j++){
-			if(steps[j] == i){
+			ofSetColor(0xEB008B);
+			if([player getStep:j] == i){
 				ofFill();
 			}else{
+				if(fmod(player.tick, 8)!=j){
+					ofSetColor(0, 0, 0);
+				}
 				ofNoFill();
 			}
 			ofRect(i*40+2, j*40+2, 35, 35);		
 		}
 	}
 	
+	// draw the mute boxes
+	ofSetColor(0x45FF00);
+	for(int i=0;i<2;i++){
+		id currentInstrument = [[player instrumentGroup] objectAtIndex:i];
+		if([currentInstrument volume]==255){
+			ofFill();
+		}else{
+			ofNoFill();
+		}
+		ofRect(i*160, 320, 155, 80);
+	}
 	/*ofSetColor(0xFEF14C);
 	for(int i = 0; i < 4; i++){
 		for(int j = 0; j < 2; j++){
@@ -97,7 +114,6 @@ void testApp::exit() {
 }
 
 void testApp::setOffset(float x, float y){
-	steps[(int)(y/320.0*8.0)] = (int)(x/320.0*8.0);
 	[player setStep:(int)(y/320.0*8.0) stepValue:(int)(x/320.0*8.0)];
 }
 
@@ -132,8 +148,13 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
 	if(y<320){
 		setOffset(x, y);
-//		[[[player instrumentGroup] objectAtIndex:1] setLoopOffsetStartPercentage: offset endPercentage: fmod(offset+(1.0/16), 1)];
-		//NSLog(@"offset %f\n", offset);
+	}else if(y<400){
+		if(x<160){
+			NSLog(@"here");
+			[player setMuteChannel:0];
+		}else{
+			[player setMuteChannel:1];
+		}
 	}
 	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);

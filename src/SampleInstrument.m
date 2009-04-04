@@ -12,8 +12,7 @@
 
 @synthesize note;
 @synthesize sampleIndex;
-
-
+@synthesize volume;
 @synthesize loopStart;
 
 float loopStart = 0;
@@ -23,6 +22,7 @@ float sampleIndex = 0;
 
 - (OSStatus) getFileInfo {
 	OSStatus status = [super getFileInfo];
+	volume = 255;
 	loopEnd = (float)packetCount;
 	return status;
 }
@@ -53,7 +53,8 @@ float sampleIndex = 0;
 	}
 	
 	returnValue = audioData[packetIndex];
-	
+	float volMultiplier = ((float)volume)/255.0;
+	returnValue = ((float)returnValue)*volMultiplier;
 	return returnValue;
 }
 
@@ -62,7 +63,9 @@ float sampleIndex = 0;
 	loopStart = (float)packetCount*startPercentage;
 	loopEnd = (float)packetCount*endPercentage;
 }
-
+-(void)reset{
+	sampleIndex = loopStart;
+}
 //-(SInt64)getIndex;
 
 @end
