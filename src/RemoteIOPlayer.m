@@ -14,6 +14,7 @@
 @implementation RemoteIOPlayer
 
 @synthesize instrumentGroup;
+@synthesize offsetArray;
 @synthesize tick;
 @synthesize frameCounter;
 
@@ -107,7 +108,15 @@ static OSStatus playbackCallback(void *inRefCon,
     return noErr;
 }
 
+-(void)setStep:(int)i stepValue:(int)j
+{
+	steps[i] = j;
+}
 
+-(int)getStep:(int)i
+{
+	return steps[i];
+}
 // Below code is a cut down version (for output only) of the code written by
 // Micheal "Code Fighter" Tyson (punch on Mike)
 // See http://michael.tyson.id.au/2008/11/04/using-remoteio-audio-unit/ for details

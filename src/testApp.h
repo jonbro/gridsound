@@ -26,6 +26,8 @@ public:
 	void touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	
+	void setOffset(float x, float y);	
+	
 	ofImage bikers;
 	ofImage gears;
 	ofImage tdf;
@@ -35,6 +37,8 @@ public:
 
 	RemoteIOPlayer *player;
 
+	int steps[8];
+	
 };
 
 

@@ -5,14 +5,17 @@
 //--------------------------------------------------------------
 void testApp::setup(){	
 	
-	ofBackground(50, 50, 50);
+	ofBackground(255, 255, 255);
 	ofSetBackgroundAuto(true);
 	// initialize the accelerometer
 	ofxAccelerometer.setup();
 	
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
-		
+	
+	for(int i=0;i<8;i++){
+		steps[i] = i;
+	}
 
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
@@ -39,6 +42,10 @@ void testApp::setup(){
 	
 	[player start];
 	
+	for(int i=0;i<8;i++){
+		[player setStep:i stepValue:i];
+	}
+	
 }
 
 
@@ -58,13 +65,20 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){	
-	ofSetColor(0xBC2F2A);
-	for(int i = 0; i < 4; i++){
-		for(int j = 0; j < 2; j++){
-			ofRect(i*80, j*80, 78, 78);		
+	//ofSetColor(0xBC2F2A);
+	ofSetColor(0xEB008B);
+	for(int i = 0; i < 8; i++){
+		for(int j = 0; j < 8; j++){
+			if(steps[j] == i){
+				ofFill();
+			}else{
+				ofNoFill();
+			}
+			ofRect(i*40+2, j*40+2, 35, 35);		
 		}
 	}
-	ofSetColor(0xFEF14C);
+	
+	/*ofSetColor(0xFEF14C);
 	for(int i = 0; i < 4; i++){
 		for(int j = 0; j < 2; j++){
 			ofRect(i*80, j*80+160, 78, 78);		
@@ -75,11 +89,16 @@ void testApp::draw(){
 	for(int i = 0; i < 4; i++){
 		ofRect(i*80, 320, 78, 78);		
 	}
-	
+	*/
 }
 
 void testApp::exit() {
 	printf("exit()\n");
+}
+
+void testApp::setOffset(float x, float y){
+	steps[(int)(y/320.0*8.0)] = (int)(x/320.0*8.0);
+	[player setStep:(int)(y/320.0*8.0) stepValue:(int)(x/320.0*8.0)];
 }
 
 //--------------------------------------------------------------
@@ -111,21 +130,19 @@ void testApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
-	if(y>160 && y<320){
-		float offset = (float)(int)(x/320.0*16.0);
-		offset = offset/16.0;
-		if(y>240){
-			offset += 0.5;
-		}
-		[[[player instrumentGroup] objectAtIndex:1] setLoopOffsetStartPercentage: offset endPercentage: fmod(offset+(1.0/16), 1)];
-		NSLog(@"offset %f\n", offset);
+	if(y<320){
+		setOffset(x, y);
+//		[[[player instrumentGroup] objectAtIndex:1] setLoopOffsetStartPercentage: offset endPercentage: fmod(offset+(1.0/16), 1)];
+		//NSLog(@"offset %f\n", offset);
 	}
 	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	NSLog(@"touch %i moved at (%i,%i)\n", touchId, (int)x, (int)y);
+	if(y<320){
+		setOffset(x, y);
+	}
 //	printf("touch %i moved at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
