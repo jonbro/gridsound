@@ -13,8 +13,19 @@
 @synthesize note;
 @synthesize sampleIndex;
 
+
+@synthesize loopStart;
+
+float loopStart = 0;
 int note = 0;
 float sampleIndex = 0;
+
+
+- (OSStatus) getFileInfo {
+	OSStatus status = [super getFileInfo];
+	loopEnd = (float)packetCount;
+	return status;
+}
 
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
 -(UInt32)getNextPacket{
@@ -23,9 +34,9 @@ float sampleIndex = 0;
 	
 	sampleIndex += pow(2, (float)note/12.0f);
 	//if the packetCount has gone to the end of the file, reset it. Audio will loop.
-	if (packetIndex >= packetCount){
-		packetIndex = 0;
-		sampleIndex = 0;
+	if (sampleIndex >= loopEnd){
+		sampleIndex = loopStart;
+		packetIndex = loopStart;
 		//note--;
 		//NSLog(@"Reset player to beginning of file.");
 	}
@@ -44,6 +55,12 @@ float sampleIndex = 0;
 	returnValue = audioData[packetIndex];
 	
 	return returnValue;
+}
+
+-(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
+{
+	loopStart = (float)packetCount*startPercentage;
+	loopEnd = (float)packetCount*endPercentage;
 }
 
 //-(SInt64)getIndex;

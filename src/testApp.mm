@@ -111,17 +111,27 @@ void testApp::mouseReleased(int x, int y, int button){
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
-	
+	if(y>160 && y<320){
+		float offset = (float)(int)(x/320.0*16.0);
+		offset = offset/16.0;
+		if(y>240){
+			offset += 0.5;
+		}
+		[[[player instrumentGroup] objectAtIndex:1] setLoopOffsetStartPercentage: offset endPercentage: fmod(offset+(1.0/16), 1)];
+		NSLog(@"offset %f\n", offset);
+	}
 	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	printf("touch %i moved at (%i,%i)\n", touchId, x,y);
+	NSLog(@"touch %i moved at (%i,%i)\n", touchId, (int)x, (int)y);
+//	printf("touch %i moved at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
 	printf("touch %i up at (%i,%i)\n", touchId, x,y);
+	[[[player instrumentGroup] objectAtIndex:0] setLoopOffsetStartPercentage:0.0 endPercentage:1.0];
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){

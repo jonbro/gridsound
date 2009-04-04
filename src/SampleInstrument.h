@@ -9,16 +9,23 @@
 #import "InMemoryAudioFile.h"
 
 @interface SampleInstrument : InMemoryAudioFile {
-	float							sampleIndex;
-	int								note;
+	float	sampleIndex;
+	int		note;
+	float	loopStart;
+	float	loopEnd;
 }
 
 @property float sampleIndex;
 @property int note;
+@property float loopStart;
 
 
 //gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
 -(UInt32)getNextPacket;
+
+-(OSStatus)getFileInfo;
+
+-(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage;
 
 //gets the current index (where we are up to in the buffer)
 //-(SInt64)getIndex;
