@@ -872,7 +872,7 @@
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
 				PRODUCT_NAME = rastaman;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 			};
 			name = Debug;
 		};
@@ -895,7 +895,7 @@
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
 				PRODUCT_NAME = rastaman;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 			};
 			name = Release;
 		};
@@ -908,7 +908,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Distribution;
@@ -931,7 +931,7 @@
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
 				PRODUCT_NAME = rastaman;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 			};
 			name = Distribution;
 		};
@@ -945,7 +945,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;
@@ -959,7 +959,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;
