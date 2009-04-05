@@ -7,6 +7,7 @@
 //
 
 #import "InMemoryAudioFile.h"
+//#include "MoogFilter.h"
 
 @interface SampleInstrument : InMemoryAudioFile {
 	float	sampleIndex;
@@ -14,6 +15,7 @@
 	int		volume;
 	float	loopStart;
 	float	loopEnd;
+	//MoogFilter filter;
 }
 
 @property float sampleIndex;

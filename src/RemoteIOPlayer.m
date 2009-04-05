@@ -97,7 +97,6 @@ static OSStatus playbackCallback(void *inRefCon,
 				int currentTick = fmod(remoteIOplayer.tick, 8);
 				for(int k=0;k<2;k++){
 					id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-					bool toMute = [remoteIOplayer getMute:k];
 					if([remoteIOplayer getMute:k]){
 						if([currentInstrument volume]==255){
 							[currentInstrument setVolume:0];
