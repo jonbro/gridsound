@@ -18,6 +18,7 @@
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
 		5EC067170F8852D0001E5268 /* MoogFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EC067160F8852D0001E5268 /* MoogFilter.cpp */; };
+		5EC8A85E0F891EB3005D9004 /* the_lion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8A85D0F891EB3005D9004 /* the_lion.jpg */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
 		BB16E9D50F2B1E6900518274 /* ofUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9BC0F2B1E6900518274 /* ofUtils.cpp */; };
@@ -52,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* oF iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oF iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* rastaman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rastaman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "MS20-VCO1-Tri-C1.wav"; sourceTree = "<group>"; };
 		5EC067150F8852D0001E5268 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
 		5EC067160F8852D0001E5268 /* MoogFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MoogFilter.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter.cpp"; sourceTree = DEVELOPER_DIR; };
+		5EC8A85D0F891EB3005D9004 /* the_lion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = the_lion.jpg; path = /Users/jonbro5556/Desktop/the_lion.jpg; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
 		BB16E9970F2B1E6900518274 /* ofAppGlutWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofAppGlutWindow.cpp; sourceTree = "<group>"; };
@@ -264,7 +266,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* oF iPhone.app */,
+				1D6058910D05DD3D006BFB54 /* rastaman.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -554,6 +556,7 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EC8A85D0F891EB3005D9004 /* the_lion.jpg */,
 				5E410C8F0F8451EF00F5E00E /* reggae_174.wav */,
 				5E410C8D0F8451E000F5E00E /* amen_174.wav */,
 				5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */,
@@ -776,7 +779,7 @@
 			);
 			name = gandsound;
 			productName = iPhone;
-			productReference = 1D6058910D05DD3D006BFB54 /* oF iPhone.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* rastaman.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -807,6 +810,7 @@
 				5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */,
 				5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */,
 				5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */,
+				5EC8A85E0F891EB3005D9004 /* the_lion.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,7 +871,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = "oF iPhone";
+				PRODUCT_NAME = rastaman;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 			};
 			name = Debug;
@@ -890,7 +894,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = "oF iPhone";
+				PRODUCT_NAME = rastaman;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 			};
 			name = Release;
@@ -926,7 +930,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = "oF iPhone";
+				PRODUCT_NAME = rastaman;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 			};
 			name = Distribution;

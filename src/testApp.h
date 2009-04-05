@@ -27,6 +27,8 @@ public:
 	void touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	
 	void setOffset(float x, float y);	
+	void startAccell();	
+	void stopAccell();
 	
 	ofImage bikers;
 	ofImage gears;
@@ -34,9 +36,13 @@ public:
 	ofImage tdfSmall;
 	ofImage transparency;
 	ofImage bikeIcon;
+	ofImage theLion;
 
 	RemoteIOPlayer *player;
-
+	
+	bool accellOn;
+	ofPoint initialPos;
+	
 	int steps[8];
 	
 };
