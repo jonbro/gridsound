@@ -22,10 +22,9 @@ float sampleIndex = 0;
 -(id)init
 {
 	[super init];
-	filter = [[MoogFilter alloc]init];
-	filter.cutoff = 0.2;
-	filter.res = 0;
-	[filter calc];
+	filter = [[TunableFilter alloc]init];
+	[filter setRes:(float)2.0];
+	[filter setCutoff:(float)400.0];
 	return self;
 }
 - (OSStatus) getFileInfo {
@@ -62,18 +61,19 @@ float sampleIndex = 0;
 	returnValue = audioData[packetIndex];
 
 	// mute one of the channels
-	
 	int leftChannel = returnValue>>16;
 	int rightChannel = returnValue&0xFFFF;
+	
 	
 	float volMultiplier = ((float)volume)/255.0;
 	rightChannel = ((float)rightChannel)*volMultiplier;
 	leftChannel  = ((float)leftChannel)*volMultiplier;
 	
 	// pass the left channel throught the filter
-	leftChannel = (int)[filter process:(float)leftChannel];
-	rightChannel = (int)[filter process:(float)rightChannel];
-
+	
+	leftChannel = [filter processSample:leftChannel];
+	/* rightChannel = [filter processSample:rightChannel];
+	 */
 	returnValue = ((UInt32)rightChannel)+(((UInt32)leftChannel)<<16);
 	
 	return returnValue;
