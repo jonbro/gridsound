@@ -14,13 +14,9 @@ MoogFilter::MoogFilter()
 	fs=44100.0;
 	init();
 }
-
-MoogFilter::~MoogFilter()
+-(void)init
 {
-}
-
-void MoogFilter::init()
-{
+	[super init]
     // initialize values
     y1=y2=y3=y4=oldx=oldy1=oldy2=oldy3=0;
     calc();

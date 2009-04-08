@@ -48,6 +48,7 @@ void testApp::setup(){
 		[player setStep:i stepValue:i];
 	}
 	accellOn = false;
+	//[player setMuteChannel:1];
 }
 
 

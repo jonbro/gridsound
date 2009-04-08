@@ -1,3 +1,4 @@
+
 @interface MoogFilter : NSObject {
 	float cutoff;
 	float res;
@@ -12,7 +13,8 @@
 }
 
 -(void)calc;
--(float)processBuffer:(float)x;
+-(float)process:(float)input;
+
 @property float cutoff;
 @property float res;
 

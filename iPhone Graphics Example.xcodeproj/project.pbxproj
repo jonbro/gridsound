@@ -17,8 +17,8 @@
 		5E4FEB150F805A64003018CA /* SampleInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB120F805A64003018CA /* SampleInstrument.m */; };
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
-		5EC067170F8852D0001E5268 /* MoogFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EC067160F8852D0001E5268 /* MoogFilter.cpp */; };
 		5EC8A85E0F891EB3005D9004 /* the_lion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5EC8A85D0F891EB3005D9004 /* the_lion.jpg */; };
+		5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAABC50F8C25CE00F80933 /* MoogFilter.m */; };
 		5EE024300F892E2A00B050C3 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE0242F0F892E2A00B050C3 /* dist.plist */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
@@ -69,9 +69,9 @@
 		5E7C468A0F830F6600538ECA /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.h"; sourceTree = DEVELOPER_DIR; };
 		5E7C468B0F830F6600538ECA /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phrase.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.m"; sourceTree = DEVELOPER_DIR; };
 		5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "MS20-VCO1-Tri-C1.wav"; sourceTree = "<group>"; };
-		5EC067150F8852D0001E5268 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
-		5EC067160F8852D0001E5268 /* MoogFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MoogFilter.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter.cpp"; sourceTree = DEVELOPER_DIR; };
 		5EC8A85D0F891EB3005D9004 /* the_lion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = the_lion.jpg; path = /Users/jonbro5556/Desktop/the_lion.jpg; sourceTree = "<absolute>"; };
+		5ECAABC40F8C25CE00F80933 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
+		5ECAABC50F8C25CE00F80933 /* MoogFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoogFilter.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.m"; sourceTree = DEVELOPER_DIR; };
 		5EE0242F0F892E2A00B050C3 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/dist.plist"; sourceTree = DEVELOPER_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
@@ -310,14 +310,14 @@
 		5E4FEB160F805A6A003018CA /* audio_src */ = {
 			isa = PBXGroup;
 			children = (
+				5ECAABC40F8C25CE00F80933 /* MoogFilter.h */,
+				5ECAABC50F8C25CE00F80933 /* MoogFilter.m */,
 				5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */,
 				5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */,
 				5E4FEB0F0F805A64003018CA /* RemoteIOPlayer.h */,
 				5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */,
 				5E4FEB110F805A64003018CA /* SampleInstrument.h */,
 				5E4FEB120F805A64003018CA /* SampleInstrument.m */,
-				5EC067150F8852D0001E5268 /* MoogFilter.h */,
-				5EC067160F8852D0001E5268 /* MoogFilter.cpp */,
 			);
 			name = audio_src;
 			path = ..;
@@ -849,7 +849,7 @@
 				5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */,
 				5E4FEB150F805A64003018CA /* SampleInstrument.m in Sources */,
 				5E7C468C0F830F6600538ECA /* Phrase.m in Sources */,
-				5EC067170F8852D0001E5268 /* MoogFilter.cpp in Sources */,
+				5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
