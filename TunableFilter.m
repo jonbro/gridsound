@@ -30,7 +30,7 @@
 	// get pi in here.
 	//cutoff = 400;
 	tunedCutoff = 2.0*3.14*cutoff/sampleRate;
-	res = 0.1;
+	res = 2;
 	// ideal tuning:
 	//F1 = 2 * sin(pi * F / Fs)
 //	Delay1 = 0xFFFF/2;
@@ -60,7 +60,7 @@
 	Delay1 = B;
 	Delay2 = L;
 	
-	return H;
+	return L;
 }
 
 @end

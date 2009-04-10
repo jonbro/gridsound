@@ -13,19 +13,9 @@
 
 - (id)init 
 { 
-    [super init]; 
-	//set the index
-	for(int i=0;i<16;i++){
-		notes[i] = 0;
-	}
+	note = 0;
+	cutoff = 44100.0;
+	res = 2;
 	return self;
 }
-
--(void) setStep:(int)_step :(int)_note{
-	notes[_step] = _note;
-}
--(int) getStep:(int)_step{
-	return notes[_step];
-}
-
 @end

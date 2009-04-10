@@ -28,7 +28,7 @@ float sampleIndex = 0;
 	cutoff = 200;
 	rightFilter = [[TunableFilter alloc]init];
 	[rightFilter setRes:(float)2.0f];
-	[rightFilter setCutoff:(float)100.0f];
+	[rightFilter setCutoff:(float)4410.0];
 	return self;
 }
 - (OSStatus) getFileInfo {
@@ -48,7 +48,6 @@ float sampleIndex = 0;
 	if (sampleIndex >= loopEnd){
 		sampleIndex = loopStart;
 		packetIndex = loopStart;
-		cutoff = fmod(cutoff+200, 10000);
 //		[leftFilter setCutoff:(float)cutoff];
 //		[leftFilter calc];
 		//note--;

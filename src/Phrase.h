@@ -10,8 +10,8 @@
 
 
 @interface Phrase : NSObject {
-	int notes[16];
+	int note;
+	float cutoff;
+	float res;
 }
--(void) setStep:(int)_step :(int)_note;
--(int) getStep:(int)_step;
 @end

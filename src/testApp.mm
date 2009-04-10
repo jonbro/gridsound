@@ -23,9 +23,17 @@ void testApp::setup(){
 	player = [[RemoteIOPlayer alloc]init];
 	//initialise the audio player
 	[player intialiseAudio];
+	
+	NSMutableArray *phrases = [[NSMutableArray alloc]initWithCapacity:16];
+	for(int i=0;i<16;i++){
+		Phrase *newPhrase = [[Phrase alloc]init];
+		[phrases addObject:newPhrase];
+	}
+	
+	
 	//initialise the inMemoryAudiofile (holds a wav file in memory)
 	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:2];
-
+	
 	[player setInstrumentGroup: instrumentGroup];
 	
 	SampleInstrument *inMemoryAudioFile = [[SampleInstrument alloc]init];
@@ -43,12 +51,12 @@ void testApp::setup(){
 	[inMemoryAudioFile reset];
 	
 	[player start];
+	[player setMuteChannel:1];
 	
 	for(int i=0;i<8;i++){
 		[player setStep:i stepValue:i];
 	}
 	accellOn = false;
-	[player setMuteChannel:1];
 }
 
 
@@ -61,7 +69,10 @@ void testApp::update(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){	
+void testApp::draw(){
+	
+}
+void drawRastaCutter(){
 	//rasta pallete
 	// ofSetColor(0xBC2F2A);
 	// ofSetColor(0xFEF14C);
@@ -101,21 +112,20 @@ void testApp::draw(){
 		ofRect(i*160+2, 320+2, 155, 80);
 	}
 	theLion.draw(0,400);
-
+	
 	/*ofSetColor(0xFEF14C);
-	for(int i = 0; i < 4; i++){
-		for(int j = 0; j < 2; j++){
-			ofRect(i*80, j*80+160, 78, 78);		
-		}
-	}
-	// #418845
-	ofSetColor(0x418845);
-	for(int i = 0; i < 4; i++){
-		ofRect(i*80, 320, 78, 78);		
-	}
-	*/
+	 for(int i = 0; i < 4; i++){
+	 for(int j = 0; j < 2; j++){
+	 ofRect(i*80, j*80+160, 78, 78);		
+	 }
+	 }
+	 // #418845
+	 ofSetColor(0x418845);
+	 for(int i = 0; i < 4; i++){
+	 ofRect(i*80, 320, 78, 78);		
+	 }
+	 */	
 }
-
 void testApp::exit() {
 	printf("exit()\n");
 }
