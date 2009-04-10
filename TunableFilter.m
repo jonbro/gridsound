@@ -28,15 +28,15 @@
 	// simple frequency tuning with error towards nyquist
 	// F is the filter's center frequency, and Fs is the sampling rate
 	// get pi in here.
-	cutoff = 400;
+	//cutoff = 400;
 	tunedCutoff = 2.0*3.14*cutoff/sampleRate;
-	res = 15;
+	res = 0.1;
 	// ideal tuning:
 	//F1 = 2 * sin(pi * F / Fs)
-	Delay1 = 0xFFFF/2;
-	Delay2 = 0xFFFF/2;
+//	Delay1 = 0xFFFF/2;
+//	Delay2 = 0xFFFF/2;
 }
--(int)processSample:(int)inputSample
+-(SInt16)processSample:(SInt16)inputSample
 {
 	/*
 	 L = D2 + F1 * D1
@@ -50,17 +50,17 @@
 	 */	 
 	
 	// loop
-	float L = Delay2 + tunedCutoff * Delay1;
-	float H = inputSample - L - res*Delay1;
-	float B = tunedCutoff * H + Delay1;
+	SInt16 L = Delay2 + tunedCutoff * Delay1;
+	SInt16 H = inputSample - L - res*Delay1;
+	SInt16 B = tunedCutoff * H + Delay1;
 	
 //	N = H + L
 	
 	// store delays
 	Delay1 = B;
-	Delay2 = (int)L;
+	Delay2 = L;
 	
-	return (int)H;
+	return H;
 }
 
 @end

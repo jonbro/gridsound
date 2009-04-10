@@ -16,7 +16,8 @@
 	int		cutoff;
 	float	loopStart;
 	float	loopEnd;
-	TunableFilter *filter;
+	TunableFilter *leftFilter;
+	TunableFilter *rightFilter;
 }
 
 @property float sampleIndex;

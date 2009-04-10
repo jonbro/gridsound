@@ -22,9 +22,13 @@ float sampleIndex = 0;
 -(id)init
 {
 	[super init];
-	filter = [[TunableFilter alloc]init];
-	[filter setRes:(float)2.0];
-	[filter setCutoff:(float)400.0];
+	leftFilter = [[TunableFilter alloc]init];
+	[leftFilter setRes:1.0f];
+	[leftFilter setCutoff:1000.0f];
+	cutoff = 200;
+	rightFilter = [[TunableFilter alloc]init];
+	[rightFilter setRes:(float)2.0f];
+	[rightFilter setCutoff:(float)100.0f];
 	return self;
 }
 - (OSStatus) getFileInfo {
@@ -44,6 +48,9 @@ float sampleIndex = 0;
 	if (sampleIndex >= loopEnd){
 		sampleIndex = loopStart;
 		packetIndex = loopStart;
+		cutoff = fmod(cutoff+200, 10000);
+//		[leftFilter setCutoff:(float)cutoff];
+//		[leftFilter calc];
 		//note--;
 		//NSLog(@"Reset player to beginning of file.");
 	}
@@ -61,19 +68,21 @@ float sampleIndex = 0;
 	returnValue = audioData[packetIndex];
 
 	// mute one of the channels
-	int leftChannel = returnValue>>16;
-	int rightChannel = returnValue&0xFFFF;
-	
-	
+	SInt16 leftChannel = returnValue>>16;
+	SInt16 rightChannel = returnValue&0xFFFF;
 	float volMultiplier = ((float)volume)/255.0;
-	rightChannel = ((float)rightChannel)*volMultiplier;
-	leftChannel  = ((float)leftChannel)*volMultiplier;
-	
+
+	rightChannel = rightChannel*volMultiplier;
+	leftChannel  = leftChannel*volMultiplier;
+		
 	// pass the left channel throught the filter
 	
-	leftChannel = [filter processSample:leftChannel];
-	/* rightChannel = [filter processSample:rightChannel];
-	 */
+	leftChannel = [leftFilter processSample:leftChannel];
+	rightChannel = [rightFilter processSample:rightChannel];
+	/* rightChannel = [filter processSample:rightChannel]; */
+//	leftChannel = leftChannel + 0xFF;
+//	rightChannel = rightChannel + 0xFF;
+//	
 	returnValue = ((UInt32)rightChannel)+(((UInt32)leftChannel)<<16);
 	
 	return returnValue;

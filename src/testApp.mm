@@ -30,7 +30,7 @@ void testApp::setup(){
 	
 	SampleInstrument *inMemoryAudioFile = [[SampleInstrument alloc]init];
 	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"reggae_174" ofType:@"wav"]];
+	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"square" ofType:@"wav"]];
 	//set the players inMemoryAudioFile
 	[[player instrumentGroup] addObject:inMemoryAudioFile];
 	[inMemoryAudioFile reset];
@@ -48,7 +48,7 @@ void testApp::setup(){
 		[player setStep:i stepValue:i];
 	}
 	accellOn = false;
-	//[player setMuteChannel:1];
+	[player setMuteChannel:1];
 }
 
 
@@ -170,7 +170,8 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 		}
 	}else{
 		// pass to accell handler
-		startAccell();
+		//startAccell();
+		
 	}
 	//[[player inMemoryAudioFile] setNote:(int)y/40];
 	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
