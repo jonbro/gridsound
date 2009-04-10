@@ -17,6 +17,10 @@ void testApp::setup(){
 		steps[i] = i;
 	}
 
+	// load font
+	//good at 16 or 8
+	
+	littlefont.loadFont(ofToDataPath("FreeSans.ttf"),10, true, false);
 	theLion.loadImage("the_lion.jpg");
 
 	//setup sound
@@ -70,9 +74,12 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	
+	for(int i =0;i<16;i++){
+		ofSetColor(0x00FF00);
+		littlefont.drawString("C-4", 10,i*480/16+10);
+	}
 }
-void drawRastaCutter(){
+void testApp::drawRastaCutter(){
 	//rasta pallete
 	// ofSetColor(0xBC2F2A);
 	// ofSetColor(0xFEF14C);

@@ -30,13 +30,10 @@ public:
 	void setOffset(float x, float y);	
 	void startAccell();	
 	void stopAccell();
+	void drawRastaCutter();
 	
-	ofImage bikers;
-	ofImage gears;
-	ofImage tdf;
-	ofImage tdfSmall;
-	ofImage transparency;
-	ofImage bikeIcon;
+	ofTrueTypeFont  littlefont;
+
 	ofImage theLion;
 
 	RemoteIOPlayer *player;
