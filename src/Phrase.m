@@ -11,11 +11,14 @@
 
 @implementation Phrase
 
-- (id)init 
-{ 
+- (id)init
+{
+	[super init];
 	note = 0;
 	cutoff = 44100.0;
 	res = 2;
+	hasNote = false;
 	return self;
 }
+
 @end

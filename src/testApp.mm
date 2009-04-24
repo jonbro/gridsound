@@ -1,14 +1,16 @@
 
 #include "testApp.h"
 
+const char *notes__[12] = {
+	"C ","C#","D ","D#","E ","F ","F#","G ","G#","A ","A#","B " 
+} ;
+
 
 //--------------------------------------------------------------
 void testApp::setup(){	
 	
-	ofBackground(50, 50, 50);
+	ofBackground(0, 0, 0);
 	ofSetBackgroundAuto(true);
-	// initialize the accelerometer
-	ofxAccelerometer.setup();
 	
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
@@ -20,8 +22,9 @@ void testApp::setup(){
 	// load font
 	//good at 16 or 8
 	
-	littlefont.loadFont(ofToDataPath("FreeSans.ttf"),10, true, false);
-	theLion.loadImage("the_lion.jpg");
+	littlefont.loadFont(ofToDataPath("FreeSans.ttf"), 10, true, false);
+//	littlefont.loadFont(ofToDataPath("04B_11__.ttf"), 8, false, false);
+	//theLion.loadImage("the_lion.jpg");
 
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
@@ -61,6 +64,8 @@ void testApp::setup(){
 		[player setStep:i stepValue:i];
 	}
 	accellOn = false;
+	yHeight = ((480-60)/16)-1;
+	half_yHeight = yHeight/2;
 }
 
 
@@ -74,64 +79,33 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
+	// draw menu bar
+
+	ofSetColor(0xFF0000);
+	ofRect(0, 0, 320, 60);
+
+	ofSetColor(0x000000);
+	
+	char fpsStr[255]; // an array of chars
+	sprintf(fpsStr, "frame rate: %f", ofGetFrameRate());
+	littlefont.drawString(fpsStr, 100,100);
+	
 	for(int i =0;i<16;i++){
-		ofSetColor(0x00FF00);
-		littlefont.drawString("C-4", 10,i*480/16+10);
-	}
-}
-void testApp::drawRastaCutter(){
-	//rasta pallete
-	// ofSetColor(0xBC2F2A);
-	// ofSetColor(0xFEF14C);
-	// ofSetColor(0x418845);
-	
-	// designy pallet
-	// 0xEB008B
-	// 0x45FF00
-	
-	// draw the channel looper
-	ofSetColor(0xEB008B);
-	ofFill();
-	for(int i = 0; i < 8; i++){
-		for(int j = 0; j < 8; j++){
-			ofSetColor(0xBC2F2A);
-			ofFill();
-			if([player getStep:j] != i){
-				if(fmod(player.tick, 8)!=j){
-					ofSetColor(0xFEF14C);
-				}else{
-					ofSetColor(0x418845);
-				}
-			}
-			ofRect(i*40+2, j*40+2, 35, 35);		
-		}
-	}
-	
-	// draw the mute boxes
-	ofSetColor(0x418845);
-	for(int i=0;i<2;i++){
-		id currentInstrument = [[player instrumentGroup] objectAtIndex:i];
-		if([currentInstrument volume]==255){
-			ofFill();
+		yPos = (yHeight+1)*i;
+		if(editing && currentEdit == i){
+			ofSetColor(0xFF0000);			
 		}else{
-			ofNoFill();
+			ofSetColor(0x000000);
 		}
-		ofRect(i*160+2, 320+2, 155, 80);
+		ofRect(0, yPos+60, 320, yHeight);
+		ofSetColor(0xFFFFFF);
+
+		char data=10;
+		char buffer[4];
+		note2char(data,buffer);
+
+		littlefont.drawString(buffer, 60, yPos+60+half_yHeight+2);
 	}
-	theLion.draw(0,400);
-	
-	/*ofSetColor(0xFEF14C);
-	 for(int i = 0; i < 4; i++){
-	 for(int j = 0; j < 2; j++){
-	 ofRect(i*80, j*80+160, 78, 78);		
-	 }
-	 }
-	 // #418845
-	 ofSetColor(0x418845);
-	 for(int i = 0; i < 4; i++){
-	 ofRect(i*80, 320, 78, 78);		
-	 }
-	 */	
 }
 void testApp::exit() {
 	printf("exit()\n");
@@ -160,12 +134,11 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-	ofEnableSmoothing();
+	//ofEnableSmoothing();
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(){
-//	printf("mouseReleased\n");
 	printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
 }
 
@@ -175,35 +148,25 @@ void testApp::mouseReleased(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	NSLog(@"touch %i down at (%i,%i)\n", touchId, (int)x, (int)y);
-	if(y<320){
-		setOffset(x, y);
-	}else if(y<400){
-		if(x<160){
-			[player setMuteChannel:0];
-		}else{
-			[player setMuteChannel:1];
-		}
-	}else{
-		// pass to accell handler
-		//startAccell();
-		
+void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){	
+	if(touchId == 0 && y>60){
+		editing = true;
+		currentEdit = (int)((y-60)/(480.0-60.0)*16.0);
 	}
-	//[[player inMemoryAudioFile] setNote:(int)y/40];
-	//printf("touch %i down at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	if(y<320){
-		setOffset(x, y);
-		stopAccell();
-	}
+	if(touchId == 0 && y>60){
+		editing = true;
+		currentEdit = (int)((y-60)/(480.0-60.0)*16.0);
+	}	
 //	printf("touch %i moved at (%i,%i)\n", touchId, x,y);
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	stopAccell();
+	if(touchId == 0){
+		editing = false;
+	}
 	//printf("touch %i up at (%i,%i)\n", touchId, x,y);
 	//[[[player instrumentGroup] objectAtIndex:0] setLoopOffsetStartPercentage:0.0 endPercentage:1.0];
 }

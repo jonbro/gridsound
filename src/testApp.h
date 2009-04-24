@@ -5,6 +5,7 @@
 #include "ofxMultiTouch.h"
 #import "RemoteIOPlayer.h"
 #import "Phrase.h"
+#import "parentController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -32,20 +33,39 @@ public:
 	void stopAccell();
 	void drawRastaCutter();
 	
-	ofTrueTypeFont  littlefont;
-
-	ofImage theLion;
-
-	RemoteIOPlayer *player;
+	ofTrueTypeFont	littlefont;
+	RemoteIOPlayer	*player;
 	
-	bool accellOn;
-	ofPoint initialPos;
+	bool			accellOn;
+	ofPoint			initialPos;
 	
-	NSMutableArray *phrases;
+	// stuff for the phrase controller
+	int				currentEdit;
+	bool			editing;
+	
+	//random optomization shit
+	int yHeight;
+	int half_yHeight;
+	int yPos;
+	NSMutableArray	*phrases;
+	
+	string noteArray[12];
 	
 	int steps[8];
-	
 };
 
+extern const char *notes__[12] ;
 
+inline void note2char(char d,char *s) {
+	int oct=d/12-2 ;
+	int note=d%12 ;
+	strcpy(s,notes__[note]) ;
+	if (oct<0) {
+		s[2]='-' ;
+        oct=-oct ;
+    } else {		
+		s[2]=' ' ;
+    }
+	s[3]='0'+oct ;
+} ;
 

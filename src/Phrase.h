@@ -13,5 +13,6 @@
 	int note;
 	float cutoff;
 	float res;
+	bool hasNote;
 }
 @end
