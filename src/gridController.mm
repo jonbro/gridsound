@@ -54,9 +54,9 @@
 	ofRect(285, 453, 25, 9); 
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
-	steps[(int)(y/320.0*8.0)] = (int)(x/320.0*8.0);
-	if(x>285 && y>453){
-		
+	int touchedStep = (int)(y/320.0*8.0);
+	if(touchedStep<8){
+		steps[touchedStep] = (int)(x/320.0*8.0);
 	}
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{

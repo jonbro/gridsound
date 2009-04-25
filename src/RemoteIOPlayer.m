@@ -85,7 +85,7 @@ static OSStatus playbackCallback(void *inRefCon,
 		UInt32 *frameBuffer = buffer.mData;
 		
 		//loop through the buffer and fill the frames
-		
+		NSAutoreleasePool *autoreleasepool = [[NSAutoreleasePool alloc] init];
 		for (int j = 0; j < inNumberFrames; j++){
 			// check to see if we need to update the tick
 			frameCounter++;
@@ -111,6 +111,7 @@ static OSStatus playbackCallback(void *inRefCon,
 			
 			// frameBuffer[j] = j%80>40?500:0;
 		}
+		[autoreleasepool release];
 	}
 	//dodgy return :)
     return noErr;
