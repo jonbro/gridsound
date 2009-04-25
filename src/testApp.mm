@@ -20,10 +20,9 @@ void testApp::setup(){
 	//initialise the audio player
 	[player intialiseAudio];
 	
-	grids = [[NSMutableArray alloc]initWithCapacity:6];
+	mainController = [[parentController alloc] init];
 	for(int i=0;i<6;i++){
-		gridController *newGrid = [[gridController alloc]init:player];
-		[grids addObject:newGrid];
+		[mainController addChild:[[gridController alloc]init:player]];
 	}
 	
 	
@@ -58,7 +57,7 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	[[grids objectAtIndex:currentGrid] draw];
+	[mainController render];
 }
 void testApp::exit() {
 	printf("exit()\n");
@@ -95,11 +94,11 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){	
-	[[grids objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
+	[mainController touchDownX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[[grids objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
+	[mainController touchDownX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){

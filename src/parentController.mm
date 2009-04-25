@@ -11,15 +11,45 @@
 
 @implementation parentController
 
--(id) initWithSongData:_songData mainFont:_font;
+-(id) init;
 {
 	[super init];
-	songData = _songData;
-	font = font;
+	renderSmall = false;
+	currentGrid = 0;
+	children = [[NSMutableArray alloc]initWithCapacity:1];
 	return self;
 }
--(void) render
+-(void)render
 {
-	// do nothing
+	if(renderSmall){
+//		NSEnumerator *enumerator = [children objectEnumerator];
+//		id object;
+//		while ((object = [enumerator nextObject])) {
+//			[object render];
+//		}		
+		
+	}else{
+		[[children objectAtIndex:currentGrid] render];
+	}
 }
+-(void)addChild:(NSObject *)_child
+{
+	[children addObject:_child];
+}
+-(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
+	if(!renderSmall){
+		[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
+		if(x>285 && y>453){
+			renderSmall = true;
+		}		
+	}
+}
+-(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
+	if(!renderSmall){
+		[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
+	}	
+}
+-(void)touchUp:(float)x y:(float)y touchId:(int)touchId{
+}
+
 @end

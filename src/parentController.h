@@ -7,16 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "gridController.h"
 #include "ofMain.h"
 
 //#import "phraseController.h"
 
 @interface parentController : NSObject {
-	NSArray *songData;
-	ofTrueTypeFont *font;
+	bool renderSmall;
+	int currentGrid;
+	NSMutableArray	*children;
 }
 
--(id) initWithSongData;
--(void) render;
+-(void)render;
+-(void) addChild:(NSObject *)_child;
+-(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
+-(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
+-(void)touchUp:(float)x y:(float)y touchId:(int)touchId;
 
 @end

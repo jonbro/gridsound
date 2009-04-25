@@ -9,6 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RemoteIOPlayer.h"
+#import "parentController.h"
 #include "ofMain.h"
 
 @interface gridController : NSObject {
@@ -17,8 +18,8 @@
 }
 
 -(id) init:(RemoteIOPlayer *)_player;
--(void)draw;
-
+-(void)render;
+-(void)drawBottomBar;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchUp:(float)x y:(float)y touchId:(int)touchId;

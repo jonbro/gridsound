@@ -50,7 +50,8 @@ public:
 	int half_yHeight;
 	int yPos;
 	
-	NSMutableArray	*grids;
+	parentController *mainController;
+	
 
 	string noteArray[12];
 	
