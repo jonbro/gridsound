@@ -20,7 +20,7 @@ void testApp::setup(){
 	//initialise the audio player
 	[player intialiseAudio];
 	
-	NSMutableArray *grids = [[NSMutableArray alloc]initWithCapacity:6];
+	grids = [[NSMutableArray alloc]initWithCapacity:6];
 	for(int i=0;i<6;i++){
 		gridController *newGrid = [[gridController alloc]init];
 		[grids addObject:newGrid];
@@ -45,7 +45,7 @@ void testApp::setup(){
 	[[player instrumentGroup] addObject:inMemoryAudioFile];
 	[inMemoryAudioFile reset];
 	
-	currentGrid = 1;
+	currentGrid = 0;
 	
 //	[player start];
 //	[player setMuteChannel:1];
@@ -58,8 +58,8 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	id current = [grids objectAtIndex:0];
-	[current doAnythingPlease];
+	id current = [grids objectAtIndex:currentGrid];
+	[current draw];
 }
 void testApp::exit() {
 	printf("exit()\n");

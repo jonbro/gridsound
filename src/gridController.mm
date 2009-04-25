@@ -9,36 +9,21 @@
 
 #import "gridController.h"
 
-GridControllerC::GridControllerC()
-{
-}
-
-//--------------------------------------------------------------
-GridControllerC::~GridControllerC()
-{
-}
-
-
-//--------------------------------------------------------------
-void GridControllerC::draw()
-{
-	printf("anything");
-}
-
-
 @implementation gridController
--(id)init;
+
+-(id) init
 {
-	if (self = [super init]) {
-        gridC = new GridControllerC();
-    }
+	self = [super init];
 	return self;
 }
 
-- (void)doAnythingPlease
+-(void) draw
 {
-	NSLog(@"HERE");
-	gridC->draw();
+	steps[0] =9;
+	printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
+	printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
+	printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
+
 }
 
 @end

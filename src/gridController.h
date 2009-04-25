@@ -10,21 +10,11 @@
 #import <Foundation/Foundation.h>
 #include "ofMain.h"
 
-
-class GridControllerC {
-public:
-	GridControllerC();
-	~GridControllerC();	
-	void draw();
-};
-
-
 @interface gridController : NSObject {
 	int steps[8];
-	GridControllerC *gridC;
 }
 
 -(id)init;
--(void)doAnythingPlease;
+-(void)draw;
 
 @end

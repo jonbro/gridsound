@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
+
 #import "RemoteIOPlayer.h"
 #import "Phrase.h"
 #import "parentController.h"
@@ -48,6 +49,7 @@ public:
 	int yHeight;
 	int half_yHeight;
 	int yPos;
+	
 	NSMutableArray	*grids;
 
 	string noteArray[12];
