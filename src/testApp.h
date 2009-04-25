@@ -6,6 +6,7 @@
 #import "RemoteIOPlayer.h"
 #import "Phrase.h"
 #import "parentController.h"
+#import "gridController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -40,18 +41,17 @@ public:
 	ofPoint			initialPos;
 	
 	// stuff for the phrase controller
-	int				currentEdit;
+	int				currentGrid;
 	bool			editing;
 	
 	//random optomization shit
 	int yHeight;
 	int half_yHeight;
 	int yPos;
-	NSMutableArray	*phrases;
-	
+	NSMutableArray	*grids;
+
 	string noteArray[12];
 	
-	int steps[8];
 };
 
 extern const char *notes__[12] ;

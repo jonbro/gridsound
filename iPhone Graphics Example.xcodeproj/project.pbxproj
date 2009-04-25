@@ -15,6 +15,7 @@
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
 		5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */; };
 		5E4FEB150F805A64003018CA /* SampleInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB120F805A64003018CA /* SampleInstrument.m */; };
+		5E5E179A0FA278740015E258 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E17990FA278740015E258 /* gridController.mm */; };
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
 		5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAABC50F8C25CE00F80933 /* MoogFilter.m */; };
@@ -71,6 +72,8 @@
 		5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteIOPlayer.m; path = src/RemoteIOPlayer.m; sourceTree = "<group>"; };
 		5E4FEB110F805A64003018CA /* SampleInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleInstrument.h; path = src/SampleInstrument.h; sourceTree = "<group>"; };
 		5E4FEB120F805A64003018CA /* SampleInstrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleInstrument.m; path = src/SampleInstrument.m; sourceTree = "<group>"; };
+		5E5E17980FA278740015E258 /* gridController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gridController.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridController.h"; sourceTree = DEVELOPER_DIR; };
+		5E5E17990FA278740015E258 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridController.mm"; sourceTree = DEVELOPER_DIR; };
 		5E7C468A0F830F6600538ECA /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.h"; sourceTree = DEVELOPER_DIR; };
 		5E7C468B0F830F6600538ECA /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phrase.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.m"; sourceTree = DEVELOPER_DIR; };
 		5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "MS20-VCO1-Tri-C1.wav"; sourceTree = "<group>"; };
@@ -351,9 +354,11 @@
 			isa = PBXGroup;
 			children = (
 				5EE74F240F94048B0075C0CF /* phraseController.h */,
-				5EE74F200F9404450075C0CF /* parentController.h */,
 				5EE873E60F901593005E3C3C /* phraseController.mm */,
+				5EE74F200F9404450075C0CF /* parentController.h */,
 				5EE873E90F9015BE005E3C3C /* parentController.mm */,
+				5E5E17980FA278740015E258 /* gridController.h */,
+				5E5E17990FA278740015E258 /* gridController.mm */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -884,6 +889,7 @@
 				5ECAACC60F8C3AF500F80933 /* TunableFilter.m in Sources */,
 				5EE873E70F901593005E3C3C /* phraseController.mm in Sources */,
 				5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */,
+				5E5E179A0FA278740015E258 /* gridController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
