@@ -6,11 +6,11 @@
  *  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
  *
  */
-
+#pragma once
+#include "ofMain.h"
 #import <Foundation/Foundation.h>
 #import "RemoteIOPlayer.h"
 #import "parentController.h"
-#include "ofMain.h"
 
 @interface gridController : NSObject {
 	int steps[8];

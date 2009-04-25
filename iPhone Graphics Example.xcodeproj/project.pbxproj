@@ -27,6 +27,9 @@
 		5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE873E90F9015BE005E3C3C /* parentController.mm */; };
 		5EEEB67A0FA35EF200D766A5 /* drum_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB6790FA35EF200D766A5 /* drum_stem.wav */; };
 		5EEEB67C0FA35F1300D766A5 /* bass_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */; };
+		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
+		5EEEB8230FA3A1A700D766A5 /* flat_bottom_right_chan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */; };
+		5EEEB9030FA3B16500D766A5 /* note.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB9020FA3B16500D766A5 /* note.wav */; };
 		5EFB016B0F8D923200E1FD8E /* square.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB016A0F8D923200E1FD8E /* square.wav */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
@@ -47,7 +50,6 @@
 		BB4B3E550F7AFE100030C0C6 /* ofxiPhoneUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E260F7AFE100030C0C6 /* ofxiPhoneUtils.mm */; };
 		BB4B3E580F7AFE100030C0C6 /* ofxMultiTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E2B0F7AFE100030C0C6 /* ofxMultiTouch.cpp */; };
 		BB4B3E5B0F7AFE100030C0C6 /* ofxAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E320F7AFE100030C0C6 /* ofxAccelerometer.cpp */; };
-		BB73D3DB0F4B08B60092FC06 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB73D3DA0F4B08B60092FC06 /* testApp.mm */; };
 		BB91E5520F4085C900AD1FB1 /* ofTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9AD0F2B1E6900518274 /* ofTexture.cpp */; };
 		BBD1C2780F39143F007FCFB3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		BBD1C2790F39143F007FCFB3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
@@ -92,6 +94,9 @@
 		5EE873E90F9015BE005E3C3C /* parentController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = parentController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentController.mm"; sourceTree = DEVELOPER_DIR; };
 		5EEEB6790FA35EF200D766A5 /* drum_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drum_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/drum_stem.wav"; sourceTree = DEVELOPER_DIR; };
 		5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bass_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/bass_stem.wav"; sourceTree = DEVELOPER_DIR; };
+		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/testApp.mm"; sourceTree = DEVELOPER_DIR; };
+		5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flat_bottom_right_chan.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/flat_bottom_right_chan.wav"; sourceTree = DEVELOPER_DIR; };
+		5EEEB9020FA3B16500D766A5 /* note.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = note.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/note.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFB016A0F8D923200E1FD8E /* square.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = square.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/square.wav"; sourceTree = DEVELOPER_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
@@ -169,7 +174,6 @@
 		BB4B3E300F7AFE100030C0C6 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		BB4B3E320F7AFE100030C0C6 /* ofxAccelerometer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAccelerometer.cpp; sourceTree = "<group>"; };
 		BB4B3E330F7AFE100030C0C6 /* ofxAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAccelerometer.h; sourceTree = "<group>"; };
-		BB73D3DA0F4B08B60092FC06 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = testApp.mm; sourceTree = "<group>"; };
 		BBD1C2760F39143F007FCFB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BBD1C2770F39143F007FCFB3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		BBE5E9560F497C3100F28951 /* ftconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftconfig.h; sourceTree = "<group>"; };
@@ -499,8 +503,8 @@
 				5EE873E40F90155D005E3C3C /* controllers */,
 				5E7C46890F830F5300538ECA /* models */,
 				5E4FEB160F805A6A003018CA /* audio_src */,
+				5EEEB79C0FA3947A00D766A5 /* testApp.mm */,
 				BB16F3AA0F2B73B000518274 /* testApp.h */,
-				BB73D3DA0F4B08B60092FC06 /* testApp.mm */,
 				BB16F3A80F2B73B000518274 /* main.cpp */,
 			);
 			path = src;
@@ -594,6 +598,8 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EEEB9020FA3B16500D766A5 /* note.wav */,
+				5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */,
 				5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */,
 				5EEEB6790FA35EF200D766A5 /* drum_stem.wav */,
 				5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */,
@@ -859,6 +865,8 @@
 				5EE873D50F8EE7B8005E3C3C /* FreeSans.ttf in Resources */,
 				5EEEB67A0FA35EF200D766A5 /* drum_stem.wav in Resources */,
 				5EEEB67C0FA35F1300D766A5 /* bass_stem.wav in Resources */,
+				5EEEB8230FA3A1A700D766A5 /* flat_bottom_right_chan.wav in Resources */,
+				5EEEB9030FA3B16500D766A5 /* note.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,7 +885,6 @@
 				BB91E5520F4085C900AD1FB1 /* ofTexture.cpp in Sources */,
 				BBE5E9F90F497D9200F28951 /* ofImage.cpp in Sources */,
 				BBE5E9FA0F497D9500F28951 /* ofTrueTypeFont.cpp in Sources */,
-				BB73D3DB0F4B08B60092FC06 /* testApp.mm in Sources */,
 				BB4B3E4D0F7AFE100030C0C6 /* EAGLView.mm in Sources */,
 				BB4B3E4E0F7AFE100030C0C6 /* iPhoneAppDelegate.mm in Sources */,
 				BB4B3E4F0F7AFE100030C0C6 /* iPhoneGlobals.mm in Sources */,
@@ -898,6 +905,7 @@
 				5EE873E70F901593005E3C3C /* phraseController.mm in Sources */,
 				5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */,
 				5E5E179A0FA278740015E258 /* gridController.mm in Sources */,
+				5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

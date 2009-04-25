@@ -87,29 +87,64 @@ static OSStatus playbackCallback(void *inRefCon,
 		//loop through the buffer and fill the frames
 		NSAutoreleasePool *autoreleasepool = [[NSAutoreleasePool alloc] init];
 		for (int j = 0; j < inNumberFrames; j++){
-			// check to see if we need to update the tick
 			frameCounter++;
-			int remainer = fmod(frameCounter, 44100*60/140);
-			
-			// if we are updating the tick do all the sample updating as well
+			// loop through all of the instruments
+
+			SInt16 leftChannel = 0;
+			SInt16 rightChannel = 0;
+			UInt32 nextPacket = 0;
+
+			NSEnumerator *enumerator = [[remoteIOplayer instrumentGroup] objectEnumerator];
+			SampleInstrument *samplePlayer;
+			int remainer = fmod(frameCounter, 44100*60/140);				
 			if(remainer == 0){
 				remoteIOplayer.tick++;
-				int currentTick = fmod(remoteIOplayer.tick, 8);
-				NSEnumerator *enumerator = [[remoteIOplayer instrumentGroup] objectEnumerator];
-				SampleInstrument *samplePlayer;
-				while ((samplePlayer = [enumerator nextObject])) {
-					float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
-					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
-					[samplePlayer reset];
-				}				
+			}
+			int currentTick = fmod(remoteIOplayer.tick, 8);
+			while ((samplePlayer = [enumerator nextObject])) {
+				// check to see if we need to update the tick			
+				// if we are updating the tick do all the sample updating as well
+				if(remainer == 0){
+					id *lpof = [samplePlayer.controllers objectForKey:@"lpof"];
+					if(lpof != nil){	
+						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
+						[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+					}
+					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
+						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
+					}					
+					[samplePlayer reset];					
+				}			
+				// do all of the mixdown
+				nextPacket = [samplePlayer getNextPacket];
+				SInt16 unmungedLeftChannel = (SInt16)(nextPacket>>16);
+				SInt16 unmungedRightChannel = (SInt16)(nextPacket&0xFFFF);
+				leftChannel += unmungedLeftChannel-sizeof(SInt16)/2;
+				rightChannel += unmungedRightChannel-sizeof(SInt16)/2;
 			}			
-			id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:0];
-			frameBuffer[j] = [currentInstrument getNextPacket];
-
-			currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:1];
-			frameBuffer[j] += [currentInstrument getNextPacket];
-			
-			// frameBuffer[j] = j%80>40?500:0;
+			// clip output
+//			if (leftChannel > sizeof(SInt16)/2) {
+//				leftChannel = sizeof(SInt16)/2;
+//			} else if (leftChannel < -sizeof(SInt16)/2) {
+//				leftChannel = -sizeof(SInt16)/2;
+//			}
+//			leftChannel += sizeof(SInt16)/2;
+//
+//			if (rightChannel > sizeof(SInt16)/2) {
+//				rightChannel= sizeof(SInt16)/2;
+//			} else if (rightChannel < -sizeof(SInt16)/2) {
+//				rightChannel = -sizeof(SInt16)/2;
+//			}
+//			rightChannel += sizeof(SInt16)/2;
+//			
+//			if (rightChannel > 32767.0) {
+//				rightChannel= 32767.0;
+//			} else if (rightChannel < -32767.0) {
+//				rightChannel = -32767.0;
+//			}
+//			rightChannel = rightChannel+32767.0;
+//			frameBuffer[j] = nextPacket;
+			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));
 		}
 		[autoreleasepool release];
 	}

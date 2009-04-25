@@ -36,7 +36,7 @@ float sampleIndex = 0;
 }
 - (OSStatus) getFileInfo {
 	OSStatus status = [super getFileInfo];
-	volume = 255;
+	volume = 128;
 	loopEnd = (float)packetCount;
 	return status;
 }
@@ -45,21 +45,12 @@ float sampleIndex = 0;
 -(UInt32)getNextPacket{
 	
 	UInt32 returnValue = 0;
-	
-	
+
 	sampleIndex += pow(2, (float)note/12.0f);
-	//if the packetCount has gone to the end of the file, reset it. Audio will loop.
 	if (sampleIndex >= loopEnd){
 		sampleIndex = loopStart;
 		packetIndex = loopStart;
-//		[leftFilter setCutoff:(float)cutoff];
-//		[leftFilter calc];
-		//note--;
-		//NSLog(@"Reset player to beginning of file.");
 	}
-	
-	//i always like to set a variable and then return it during development so i can
-	//see the value while debugging
 	
 	// nearest neighbor interpolation
 	float intHolder;
@@ -69,27 +60,22 @@ float sampleIndex = 0;
 		packetIndex = floor(sampleIndex);
 	}
 	returnValue = audioData[packetIndex];
-
-	// mute one of the channels
-	SInt16 leftChannel = returnValue>>16;
-	SInt16 rightChannel = returnValue&0xFFFF;
-	float volMultiplier = ((float)volume)/255.0;
-
-	rightChannel = rightChannel*volMultiplier;
-	leftChannel  = leftChannel*volMultiplier;
-		
-	// pass the left channel throught the filter
+// should put all of this in a loop
+	SInt16 leftChannel = (SInt16)(returnValue>>16);
+	SInt16 rightChannel = (SInt16)(returnValue&0xFFFF);
 	
-	leftChannel = [leftFilter processSample:leftChannel];
-	rightChannel = [rightFilter processSample:rightChannel];
+	leftChannel = leftChannel-sizeof(SInt16)/2;
+	rightChannel = rightChannel-sizeof(SInt16)/2;
+	
+	float volMultiplier = volume/255.0;
+	
+	leftChannel = ((float)leftChannel)*volMultiplier;
+	rightChannel = ((float)rightChannel)*volMultiplier;
+	
+	leftChannel = leftChannel+sizeof(SInt16)/2;
+	rightChannel = rightChannel+sizeof(SInt16)/2;
+	returnValue = (leftChannel<<16)+rightChannel;
 
-	/* rightChannel = [filter processSample:rightChannel]; */
-//	leftChannel = leftChannel + 0xFF;
-//	rightChannel = rightChannel + 0xFF;
-//	
-	
-	returnValue = ((UInt32)rightChannel)+(((UInt32)leftChannel)<<16);
-	
 	return returnValue;
 }
 
