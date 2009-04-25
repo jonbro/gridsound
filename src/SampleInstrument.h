@@ -16,15 +16,18 @@
 	int		cutoff;
 	float	loopStart;
 	float	loopEnd;
+	bool	dirty;
+	NSMutableDictionary *controllers;
 	TunableFilter *leftFilter;
 	TunableFilter *rightFilter;
 }
 
+@property bool	dirty;
 @property float sampleIndex;
 @property int	note;
 @property int	volume;
 @property float loopStart;
-
+@property (assign) NSMutableDictionary* controllers;
 
 //gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
 -(UInt32)getNextPacket;

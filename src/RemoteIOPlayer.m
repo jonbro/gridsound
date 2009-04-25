@@ -89,31 +89,20 @@ static OSStatus playbackCallback(void *inRefCon,
 		for (int j = 0; j < inNumberFrames; j++){
 			// check to see if we need to update the tick
 			frameCounter++;
-			int remainer = fmod(frameCounter, 44100*60/174);
+			int remainer = fmod(frameCounter, 44100*60/140);
 			
 			// if we are updating the tick do all the sample updating as well
 			if(remainer == 0){
 				remoteIOplayer.tick++;
 				int currentTick = fmod(remoteIOplayer.tick, 8);
-				for(int k=0;k<2;k++){
-					id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-					if([remoteIOplayer getMute:k]){
-						if([currentInstrument volume]==255){
-							[currentInstrument setVolume:0];
-						}else{
-							[currentInstrument setVolume:255];
-						}
-						[remoteIOplayer setMuteChannel:k];
-					}
-				}
-				id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:1];
-				float startPercentage = ((float)[remoteIOplayer getStep:currentTick])/8;
-				[currentInstrument setLoopOffsetStartPercentage:startPercentage endPercentage:1];
-				[currentInstrument reset];
-				//[remoteIOplayer inMemoryAudioFile].note++;
-			}
-			// get NextPacket returns a 32 bit value, one frame.
-			
+				NSEnumerator *enumerator = [[remoteIOplayer instrumentGroup] objectEnumerator];
+				SampleInstrument *samplePlayer;
+				while ((samplePlayer = [enumerator nextObject])) {
+					float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
+					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+					[samplePlayer reset];
+				}				
+			}			
 			id currentInstrument = [[remoteIOplayer instrumentGroup] objectAtIndex:0];
 			frameBuffer[j] = [currentInstrument getNextPacket];
 

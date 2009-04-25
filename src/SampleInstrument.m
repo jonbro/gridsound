@@ -13,7 +13,9 @@
 @synthesize note;
 @synthesize sampleIndex;
 @synthesize volume;
+@synthesize dirty;
 @synthesize loopStart;
+@synthesize controllers;
 
 float loopStart = 0;
 int note = 0;
@@ -29,6 +31,7 @@ float sampleIndex = 0;
 	rightFilter = [[TunableFilter alloc]init];
 	[rightFilter setRes:(float)2.0f];
 	[rightFilter setCutoff:(float)4410.0];
+	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
 	return self;
 }
 - (OSStatus) getFileInfo {
@@ -42,6 +45,7 @@ float sampleIndex = 0;
 -(UInt32)getNextPacket{
 	
 	UInt32 returnValue = 0;
+	
 	
 	sampleIndex += pow(2, (float)note/12.0f);
 	//if the packetCount has gone to the end of the file, reset it. Audio will loop.
@@ -78,10 +82,12 @@ float sampleIndex = 0;
 	
 	leftChannel = [leftFilter processSample:leftChannel];
 	rightChannel = [rightFilter processSample:rightChannel];
+
 	/* rightChannel = [filter processSample:rightChannel]; */
 //	leftChannel = leftChannel + 0xFF;
 //	rightChannel = rightChannel + 0xFF;
 //	
+	
 	returnValue = ((UInt32)rightChannel)+(((UInt32)leftChannel)<<16);
 	
 	return returnValue;

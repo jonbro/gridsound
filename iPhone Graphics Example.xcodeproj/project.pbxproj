@@ -25,6 +25,8 @@
 		5EE873D50F8EE7B8005E3C3C /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */; };
 		5EE873E70F901593005E3C3C /* phraseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE873E60F901593005E3C3C /* phraseController.mm */; };
 		5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE873E90F9015BE005E3C3C /* parentController.mm */; };
+		5EEEB67A0FA35EF200D766A5 /* drum_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB6790FA35EF200D766A5 /* drum_stem.wav */; };
+		5EEEB67C0FA35F1300D766A5 /* bass_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */; };
 		5EFB016B0F8D923200E1FD8E /* square.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB016A0F8D923200E1FD8E /* square.wav */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
@@ -88,6 +90,8 @@
 		5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/FreeSans.ttf"; sourceTree = DEVELOPER_DIR; };
 		5EE873E60F901593005E3C3C /* phraseController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = phraseController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/phraseController.mm"; sourceTree = DEVELOPER_DIR; };
 		5EE873E90F9015BE005E3C3C /* parentController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = parentController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentController.mm"; sourceTree = DEVELOPER_DIR; };
+		5EEEB6790FA35EF200D766A5 /* drum_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drum_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/drum_stem.wav"; sourceTree = DEVELOPER_DIR; };
+		5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bass_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/bass_stem.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFB016A0F8D923200E1FD8E /* square.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = square.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/square.wav"; sourceTree = DEVELOPER_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
@@ -590,6 +594,8 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */,
+				5EEEB6790FA35EF200D766A5 /* drum_stem.wav */,
 				5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */,
 				5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */,
 				5EFB016A0F8D923200E1FD8E /* square.wav */,
@@ -851,6 +857,8 @@
 				5EFB016B0F8D923200E1FD8E /* square.wav in Resources */,
 				5EE873B10F8EE2F8005E3C3C /* 04B_11__.TTF in Resources */,
 				5EE873D50F8EE7B8005E3C3C /* FreeSans.ttf in Resources */,
+				5EEEB67A0FA35EF200D766A5 /* drum_stem.wav in Resources */,
+				5EEEB67C0FA35F1300D766A5 /* bass_stem.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
