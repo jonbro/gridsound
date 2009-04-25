@@ -8,13 +8,19 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "RemoteIOPlayer.h"
 #include "ofMain.h"
 
 @interface gridController : NSObject {
 	int steps[8];
+	RemoteIOPlayer *player;
 }
 
--(id)init;
+-(id) init:(RemoteIOPlayer *)_player;
 -(void)draw;
+
+-(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
+-(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
+-(void)touchUp:(float)x y:(float)y touchId:(int)touchId;
 
 @end

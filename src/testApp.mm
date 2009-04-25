@@ -22,7 +22,7 @@ void testApp::setup(){
 	
 	grids = [[NSMutableArray alloc]initWithCapacity:6];
 	for(int i=0;i<6;i++){
-		gridController *newGrid = [[gridController alloc]init];
+		gridController *newGrid = [[gridController alloc]init:player];
 		[grids addObject:newGrid];
 	}
 	
@@ -58,8 +58,7 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	id current = [grids objectAtIndex:currentGrid];
-	[current draw];
+	[[grids objectAtIndex:currentGrid] draw];
 }
 void testApp::exit() {
 	printf("exit()\n");
@@ -96,9 +95,11 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){	
+	[[grids objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	[[grids objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
