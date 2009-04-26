@@ -12,6 +12,7 @@
 
 @interface RemoteIOPlayer : NSObject {
 	//SampleInstrument *inMemoryAudioFile[];
+	SampleInstrument *samplePlayer;
 	NSMutableArray *instrumentGroup;
 	NSMutableArray *offsetArray;
 	int tick;

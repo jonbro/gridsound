@@ -72,6 +72,11 @@ static OSStatus playbackCallback(void *inRefCon,
 	RemoteIOPlayer *remoteIOplayer = (RemoteIOPlayer *)inRefCon;
 	
 	//loop through all the buffers that need to be filled
+	SInt16 leftChannel = 0;
+	SInt16 rightChannel = 0;
+	UInt32 *nextPacket;	
+	int currentTick = 0;
+	int remainder = 0;
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
 		AudioBuffer buffer = ioData->mBuffers[i];
@@ -85,28 +90,18 @@ static OSStatus playbackCallback(void *inRefCon,
 		UInt32 *frameBuffer = buffer.mData;
 		
 		//loop through the buffer and fill the frames
-		SInt16 halfSize = sizeof(SInt16)/2;
 		for (int j = 0; j < inNumberFrames; j++){
+			rightChannel = 0;
+			leftChannel = 0;
 			frameCounter++;
 			// loop through all of the instruments
-
-			SInt16 leftChannel = 0;
-			SInt16 rightChannel = 0;
-			UInt32 nextPacket = 0;
-
-			SampleInstrument *samplePlayer;
-			int remainer = fmod(frameCounter, 44100*60/140);				
-			if(remainer == 0){
+			remainder = fmod(frameCounter, 44100*60/140);			
+			if(remainder == 0){
 				remoteIOplayer.tick++;
-			}
-			int currentTick = fmod(remoteIOplayer.tick, 8);
-			for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
-				samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-				// check to see if we need to update the tick			
-				// if we are updating the tick do all the sample updating as well
-				if(remainer == 0){
-					id *lpof = [samplePlayer.controllers objectForKey:@"lpof"];
-					if(lpof != nil){	
+				currentTick = fmod(remoteIOplayer.tick, 8);
+				for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
+					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
+					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){	
 						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
 						[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
 					}
@@ -114,40 +109,17 @@ static OSStatus playbackCallback(void *inRefCon,
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
 					}					
 					[samplePlayer reset];					
-				}			
-				// do all of the mixdown
-				nextPacket = [samplePlayer getNextPacket];
-				SInt16 unmungedLeftChannel = (SInt16)(nextPacket>>16);
-				SInt16 unmungedRightChannel = (SInt16)(nextPacket&0xFFFF);
-				leftChannel += unmungedLeftChannel-halfSize;
-				rightChannel += unmungedRightChannel-halfSize;
+				}
 			}
-			// clip outputdealloc
-//			if (leftChannel > sizeof(SInt16)/2) {
-//				leftChannel = sizeof(SInt16)/2;
-//			} else if (leftChannel < -sizeof(SInt16)/2) {
-//				leftChannel = -sizeof(SInt16)/2;
-//			}
-//			leftChannel += sizeof(SInt16)/2;
-//
-//			if (rightChannel > sizeof(SInt16)/2) {
-//				rightChannel= sizeof(SInt16)/2;
-//			} else if (rightChannel < -sizeof(SInt16)/2) {
-//				rightChannel = -sizeof(SInt16)/2;
-//			}
-//			rightChannel += sizeof(SInt16)/2;
-//			
-//			if (rightChannel > 32767.0) {
-//				rightChannel= 32767.0;
-//			} else if (rightChannel < -32767.0) {
-//				rightChannel = -32767.0;
-//			}
-//			rightChannel = rightChannel+32767.0;
-//			frameBuffer[j] = nextPacket;
+			nextPacket = &frameBuffer[j];
+			for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
+				[[[remoteIOplayer instrumentGroup] objectAtIndex:k] getNextPacket:nextPacket];
+				leftChannel += (*nextPacket>>16);
+				rightChannel += (*nextPacket&0xFFFF);
+			}
 			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));
 		}
 	}
-	//dodgy return :)
     return noErr;
 }
 

@@ -24,11 +24,6 @@
 -(void)render
 {
 	if(renderSmall){
-//		NSEnumerator *enumerator = [children objectEnumerator];
-//		id object;
-//		while ((object = [enumerator nextObject])) {
-//			[object render];
-//		}
 		for(int i=0;i<3;i++){
 			for(int j=0;j<2;j++){
 				ofSetColor(0xEB008B);
@@ -43,6 +38,7 @@
 -(void)addChild:(NSObject *)_child
 {
 	[children addObject:_child];
+	[_child release];
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if(!renderSmall){

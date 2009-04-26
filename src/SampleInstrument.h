@@ -17,9 +17,12 @@
 	float	loopStart;
 	float	loopEnd;
 	bool	dirty;
+	float volMultiplier;
 	NSMutableDictionary *controllers;
 	TunableFilter *leftFilter;
 	TunableFilter *rightFilter;
+	SInt16 leftChannel, rightChannel, halfSize;
+	
 }
 
 @property bool	dirty;
@@ -30,7 +33,7 @@
 @property (assign) NSMutableDictionary* controllers;
 
 //gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
--(UInt32)getNextPacket;
+-(void)getNextPacket:(UInt32 *)returnValue;
 -(OSStatus)getFileInfo;
 -(void)reset;
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage;

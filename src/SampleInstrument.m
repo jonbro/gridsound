@@ -32,53 +32,46 @@ float sampleIndex = 0;
 	[rightFilter setRes:(float)2.0f];
 	[rightFilter setCutoff:(float)4410.0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
+	halfSize = sizeof(SInt16)/2;
 	return self;
 }
 - (OSStatus) getFileInfo {
 	OSStatus status = [super getFileInfo];
-	volume = 128;
 	loopEnd = (float)packetCount;
 	return status;
 }
 
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
--(UInt32)getNextPacket{
+-(void)getNextPacket:(UInt32 *)returnValue{
 	
-	UInt32 returnValue = 0;
-
 	sampleIndex += pow(2, (float)note/12.0f);
-	if (sampleIndex >= loopEnd){
+	packetIndex = (int)sampleIndex;
+	if (packetIndex >= loopEnd){
 		sampleIndex = loopStart;
 		packetIndex = loopStart;
 	}
-	
-	// nearest neighbor interpolation
+
+//	// nearest neighbor interpolation
 	float intHolder;
 	if(modff(sampleIndex, &intHolder) > 0.5){
 		packetIndex = ceil(sampleIndex);
 	}else{
 		packetIndex = floor(sampleIndex);
 	}
-	returnValue = audioData[packetIndex];
-// should put all of this in a loop
-	SInt16 leftChannel = (SInt16)(returnValue>>16);
-	SInt16 rightChannel = (SInt16)(returnValue&0xFFFF);
+	*returnValue = audioData[packetIndex];
 	
-	leftChannel = leftChannel-sizeof(SInt16)/2;
-	rightChannel = rightChannel-sizeof(SInt16)/2;
-	
-	float volMultiplier = volume/255.0;
-	
+	leftChannel = *returnValue>>16;
+	rightChannel = *returnValue;
 	leftChannel = ((float)leftChannel)*volMultiplier;
 	rightChannel = ((float)rightChannel)*volMultiplier;
-	
-	leftChannel = leftChannel+sizeof(SInt16)/2;
-	rightChannel = rightChannel+sizeof(SInt16)/2;
-	returnValue = (leftChannel<<16)+rightChannel;
+	*returnValue = (leftChannel<<16)+rightChannel;
 
-	return returnValue;
 }
-
+-(void)setVolume:(int)_volume
+{
+	volume = _volume;
+	volMultiplier = volume/255.0;
+}
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
 {
 	loopStart = (float)packetCount*startPercentage;
@@ -87,6 +80,5 @@ float sampleIndex = 0;
 -(void)reset{
 	sampleIndex = loopStart;
 }
-//-(SInt64)getIndex;
 
 @end
