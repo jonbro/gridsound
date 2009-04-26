@@ -17,6 +17,7 @@
 		5E4FEB150F805A64003018CA /* SampleInstrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB120F805A64003018CA /* SampleInstrument.m */; };
 		5E5E179A0FA278740015E258 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5E17990FA278740015E258 /* gridController.mm */; };
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
+		5E93914F0FA50D4800180323 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E93914E0FA50D4800180323 /* fixed.cpp */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
 		5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAABC50F8C25CE00F80933 /* MoogFilter.m */; };
 		5ECAACC60F8C3AF500F80933 /* TunableFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAACC50F8C3AF500F80933 /* TunableFilter.m */; };
@@ -80,6 +81,8 @@
 		5E5E17990FA278740015E258 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridController.mm"; sourceTree = DEVELOPER_DIR; };
 		5E7C468A0F830F6600538ECA /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.h"; sourceTree = DEVELOPER_DIR; };
 		5E7C468B0F830F6600538ECA /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phrase.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.m"; sourceTree = DEVELOPER_DIR; };
+		5E93914D0FA50D4800180323 /* fixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fixed.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/fixed.h"; sourceTree = DEVELOPER_DIR; };
+		5E93914E0FA50D4800180323 /* fixed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fixed.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/fixed.cpp"; sourceTree = DEVELOPER_DIR; };
 		5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "MS20-VCO1-Tri-C1.wav"; sourceTree = "<group>"; };
 		5ECAABC40F8C25CE00F80933 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
 		5ECAABC50F8C25CE00F80933 /* MoogFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoogFilter.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.m"; sourceTree = DEVELOPER_DIR; };
@@ -358,6 +361,15 @@
 			name = models;
 			sourceTree = "<group>";
 		};
+		5E93914C0FA50D3600180323 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5E93914D0FA50D4800180323 /* fixed.h */,
+				5E93914E0FA50D4800180323 /* fixed.cpp */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		5EE873E40F90155D005E3C3C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +512,7 @@
 		BB16F3A50F2B73B000518274 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				5E93914C0FA50D3600180323 /* Utils */,
 				5EE873E40F90155D005E3C3C /* controllers */,
 				5E7C46890F830F5300538ECA /* models */,
 				5E4FEB160F805A6A003018CA /* audio_src */,
@@ -906,6 +919,7 @@
 				5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */,
 				5E5E179A0FA278740015E258 /* gridController.mm in Sources */,
 				5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */,
+				5E93914F0FA50D4800180323 /* fixed.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

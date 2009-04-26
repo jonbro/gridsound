@@ -92,7 +92,7 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-//	[mainController render];
+	[mainController render];
 }
 void testApp::exit() {
 	printf("exit()\n");

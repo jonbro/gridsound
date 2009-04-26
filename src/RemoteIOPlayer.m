@@ -94,8 +94,9 @@ static OSStatus playbackCallback(void *inRefCon,
 			rightChannel = 0;
 			leftChannel = 0;
 			frameCounter++;
+			remainder = fmod(frameCounter, 22050*60/140);			
+
 			// loop through all of the instruments
-			remainder = fmod(frameCounter, 44100*60/140);			
 			if(remainder == 0){
 				remoteIOplayer.tick++;
 				currentTick = fmod(remoteIOplayer.tick, 8);
@@ -163,7 +164,7 @@ static OSStatus playbackCallback(void *inRefCon,
 								  sizeof(flag));
 	
 	// Describe format
-	audioFormat.mSampleRate			= 44100.00;
+	audioFormat.mSampleRate			= 22050.00;
 	audioFormat.mFormatID			= kAudioFormatLinearPCM;
 	audioFormat.mFormatFlags		= kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
 	audioFormat.mFramesPerPacket	= 1;

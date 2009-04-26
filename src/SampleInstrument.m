@@ -44,7 +44,7 @@ float sampleIndex = 0;
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
 -(void)getNextPacket:(UInt32 *)returnValue{
 	
-	sampleIndex += pow(2, (float)note/12.0f);
+	sampleIndex += delta;
 	packetIndex = (int)sampleIndex;
 	if (packetIndex >= loopEnd){
 		sampleIndex = loopStart;
@@ -64,8 +64,12 @@ float sampleIndex = 0;
 	rightChannel = *returnValue;
 	leftChannel = ((float)leftChannel)*volMultiplier;
 	rightChannel = ((float)rightChannel)*volMultiplier;
-	*returnValue = (leftChannel<<16)+rightChannel;
-
+	*returnValue = rightChannel+(leftChannel<<16);
+}
+-(void)setNote:(int)_note
+{
+	note = _note;
+	delta = pow(2, (float)note/12.0f);
 }
 -(void)setVolume:(int)_volume
 {

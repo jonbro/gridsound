@@ -16,6 +16,7 @@
 	int		cutoff;
 	float	loopStart;
 	float	loopEnd;
+	float	delta;
 	bool	dirty;
 	float volMultiplier;
 	NSMutableDictionary *controllers;
