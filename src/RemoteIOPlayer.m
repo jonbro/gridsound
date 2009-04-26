@@ -112,10 +112,12 @@ static OSStatus playbackCallback(void *inRefCon,
 					[samplePlayer reset];					
 				}
 			}
+			frameBuffer[j] = 0;
 			nextPacket = &frameBuffer[j];
 			for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
-				[[[remoteIOplayer instrumentGroup] objectAtIndex:k] getNextPacket:nextPacket];
-				leftChannel += (*nextPacket>>16);
+				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
+				[samplePlayer getNextPacket:nextPacket];
+				leftChannel += *nextPacket>>16;
 				rightChannel += (*nextPacket&0xFFFF);
 			}
 			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));

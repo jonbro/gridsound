@@ -71,7 +71,7 @@ void testApp::setup(){
 	inMemoryAudioFile.volume = 80;
 	//set the controllers on the first instrument
 	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:2] forKey:@"note"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:5] forKey:@"fcut"];
+	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:5] forKey:@"lpof"];
 	[[mainController.children objectAtIndex:2] release];
 	[[mainController.children objectAtIndex:5] release];
 	//set the players inMemoryAudioFile
