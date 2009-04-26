@@ -39,7 +39,7 @@ void testApp::setup(){
 	inMemoryAudioFile.volume = 80;
 
 	//set the players inMemoryAudioFile
-	//[[player instrumentGroup] addObject:inMemoryAudioFile];
+	[[player instrumentGroup] addObject:inMemoryAudioFile];
 	[inMemoryAudioFile reset];
 
 	
@@ -61,7 +61,7 @@ void testApp::setup(){
 	inMemoryAudioFile = [[SampleInstrument alloc]init];
 	//open the a wav file from the application resources
 	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"note" ofType:@"wav"]];
-	inMemoryAudioFile.volume = 60;
+	inMemoryAudioFile.volume = 80;
 	//set the controllers on the first instrument
 	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:2] forKey:@"note"];
 	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:5] forKey:@"fcut"];

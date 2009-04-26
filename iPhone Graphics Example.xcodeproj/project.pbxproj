@@ -336,8 +336,8 @@
 			children = (
 				5ECAABC40F8C25CE00F80933 /* MoogFilter.h */,
 				5ECAABC50F8C25CE00F80933 /* MoogFilter.m */,
-				5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */,
 				5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */,
+				5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */,
 				5E4FEB0F0F805A64003018CA /* RemoteIOPlayer.h */,
 				5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */,
 				5E4FEB110F805A64003018CA /* SampleInstrument.h */,

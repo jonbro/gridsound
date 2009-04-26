@@ -75,7 +75,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
 		AudioBuffer buffer = ioData->mBuffers[i];
-		
+
 		//if needed we can get the number of bytes that will fill the buffer using
 		// int numberOfSamples = ioData->mBuffers[i].mDataByteSize;
 		
@@ -85,7 +85,7 @@ static OSStatus playbackCallback(void *inRefCon,
 		UInt32 *frameBuffer = buffer.mData;
 		
 		//loop through the buffer and fill the frames
-		NSAutoreleasePool *autoreleasepool = [[NSAutoreleasePool alloc] init];
+		SInt16 halfSize = sizeof(SInt16)/2;
 		for (int j = 0; j < inNumberFrames; j++){
 			frameCounter++;
 			// loop through all of the instruments
@@ -94,14 +94,14 @@ static OSStatus playbackCallback(void *inRefCon,
 			SInt16 rightChannel = 0;
 			UInt32 nextPacket = 0;
 
-			NSEnumerator *enumerator = [[remoteIOplayer instrumentGroup] objectEnumerator];
 			SampleInstrument *samplePlayer;
 			int remainer = fmod(frameCounter, 44100*60/140);				
 			if(remainer == 0){
 				remoteIOplayer.tick++;
 			}
 			int currentTick = fmod(remoteIOplayer.tick, 8);
-			while ((samplePlayer = [enumerator nextObject])) {
+			for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
+				samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				// check to see if we need to update the tick			
 				// if we are updating the tick do all the sample updating as well
 				if(remainer == 0){
@@ -119,10 +119,10 @@ static OSStatus playbackCallback(void *inRefCon,
 				nextPacket = [samplePlayer getNextPacket];
 				SInt16 unmungedLeftChannel = (SInt16)(nextPacket>>16);
 				SInt16 unmungedRightChannel = (SInt16)(nextPacket&0xFFFF);
-				leftChannel += unmungedLeftChannel-sizeof(SInt16)/2;
-				rightChannel += unmungedRightChannel-sizeof(SInt16)/2;
-			}			
-			// clip output
+				leftChannel += unmungedLeftChannel-halfSize;
+				rightChannel += unmungedRightChannel-halfSize;
+			}
+			// clip outputdealloc
 //			if (leftChannel > sizeof(SInt16)/2) {
 //				leftChannel = sizeof(SInt16)/2;
 //			} else if (leftChannel < -sizeof(SInt16)/2) {
@@ -146,7 +146,6 @@ static OSStatus playbackCallback(void *inRefCon,
 //			frameBuffer[j] = nextPacket;
 			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));
 		}
-		[autoreleasepool release];
 	}
 	//dodgy return :)
     return noErr;
