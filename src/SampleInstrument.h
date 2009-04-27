@@ -22,7 +22,8 @@
 	NSMutableDictionary *controllers;
 	TunableFilter *leftFilter;
 	TunableFilter *rightFilter;
-	SInt16 leftChannel, rightChannel, halfSize;
+	SInt16 *leftChannel, *rightChannel, halfSize;
+	float	f_leftChannel, f_rightChannel;
 	
 }
 

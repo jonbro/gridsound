@@ -31,6 +31,7 @@ float sampleIndex = 0;
 	rightFilter = [[TunableFilter alloc]init];
 	[rightFilter setRes:(float)2.0f];
 	[rightFilter setCutoff:(float)4410.0];
+	[self setNote:0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
 	halfSize = sizeof(SInt16)/2;
 	return self;
@@ -60,11 +61,13 @@ float sampleIndex = 0;
 	}
 	*returnValue = audioData[packetIndex];
 	
-	leftChannel = *returnValue>>16;
-	rightChannel = *returnValue;
-	leftChannel = ((float)leftChannel)*volMultiplier;
-	rightChannel = ((float)rightChannel)*volMultiplier;
-	*returnValue = rightChannel+(leftChannel<<16);
+	leftChannel = (SInt16*)returnValue+sizeof(SInt16);
+	rightChannel = (SInt16*)returnValue;
+	f_leftChannel = (float)*leftChannel;
+	f_rightChannel = (float)*rightChannel;
+	*leftChannel = (int)(f_leftChannel*volMultiplier);
+	*rightChannel = (int)(f_rightChannel*volMultiplier);
+	*returnValue = *rightChannel+(*leftChannel<<16);
 }
 -(void)setNote:(int)_note
 {

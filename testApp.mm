@@ -95,6 +95,8 @@ void testApp::draw(){
 	[mainController render];
 }
 void testApp::exit() {
+	// need to dealloc all my shit.
+	[player stop];
 	printf("exit()\n");
 }
 

@@ -77,6 +77,8 @@ static OSStatus playbackCallback(void *inRefCon,
 	UInt32 *nextPacket;	
 	int currentTick = 0;
 	int remainder = 0;
+	int groupCount = [[remoteIOplayer instrumentGroup] count];
+	float beatLength = 44100*60/140;
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
 		AudioBuffer buffer = ioData->mBuffers[i];
@@ -94,13 +96,13 @@ static OSStatus playbackCallback(void *inRefCon,
 			rightChannel = 0;
 			leftChannel = 0;
 			frameCounter++;
-			remainder = fmod(frameCounter, 22050*60/140);			
+			remainder = fmod(frameCounter, beatLength);			
 
 			// loop through all of the instruments
 			if(remainder == 0){
 				remoteIOplayer.tick++;
 				currentTick = fmod(remoteIOplayer.tick, 8);
-				for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
+				for(int k=0;k<groupCount;k++) {
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){	
 						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
@@ -114,7 +116,7 @@ static OSStatus playbackCallback(void *inRefCon,
 			}
 			frameBuffer[j] = 0;
 			nextPacket = &frameBuffer[j];
-			for(int k=0;k<[[remoteIOplayer instrumentGroup] count];k++) {
+			for(int k=0;k<groupCount;k++) {
 				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				[samplePlayer getNextPacket:nextPacket];
 				leftChannel += *nextPacket>>16;
@@ -166,7 +168,7 @@ static OSStatus playbackCallback(void *inRefCon,
 								  sizeof(flag));
 	
 	// Describe format
-	audioFormat.mSampleRate			= 22050.00;
+	audioFormat.mSampleRate			= 44100.0;
 	audioFormat.mFormatID			= kAudioFormatLinearPCM;
 	audioFormat.mFormatFlags		= kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
 	audioFormat.mFramesPerPacket	= 1;
