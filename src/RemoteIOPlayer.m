@@ -103,6 +103,7 @@ static OSStatus playbackCallback(void *inRefCon,
 				remoteIOplayer.tick++;
 				currentTick = fmod(remoteIOplayer.tick, 8);
 				for(int k=0;k<groupCount;k++) {
+					//should move this into the sample player to save on instantiation
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){	
 						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
@@ -110,7 +111,10 @@ static OSStatus playbackCallback(void *inRefCon,
 					}
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
-					}					
+					}		
+					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
+						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
+					}							
 					[samplePlayer reset];					
 				}
 			}

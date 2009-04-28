@@ -10,21 +10,19 @@
 
 @implementation InMemoryAudioFile
 
-//overide init method
-- (id)init 
-{ 
-    [super init]; 
-	//set the index
-	packetIndex = 0;
-	return self;
-}
-
 - (void)dealloc {
 	//release the AudioBuffer
 	free(audioData);
     [super dealloc];
 }
-
+-(UInt32)getPacket:(int)packetIndex
+{
+	return audioDataFloat[packetIndex];
+}
+-(int)getPacketCount
+{
+	return packetCount;
+}
 //open and read a wav file
 -(OSStatus)open:(NSString *)filePath{
 	
@@ -62,7 +60,18 @@
 			//allocate the buffer
 			audioData = (UInt32 *)malloc(sizeof(UInt32) * packetCount);
 			//read the packets
-			result = AudioFileReadPackets (mAudioFile, false, &numBytesRead, NULL, 0, &packetsRead,  audioData); 
+			result = AudioFileReadPackets (mAudioFile, false, &numBytesRead, NULL, 0, &packetsRead,  audioData);
+			// jam our audio data into a float thingu... this is probably a BAAAADDD IDEA!
+			// for now we assume stereo samples, there is probably a way to determine this....
+			audioDataFloat = (float *)malloc(sizeof(float) * packetCount * 2);
+			SInt16 leftChannel = 0;
+			SInt16 rightChannel = 0;
+			for(int i=0;i<packetCount;i+=2){
+				leftChannel = (SInt16)audioData[i+1]+sizeof(SInt16);
+				rightChannel = (SInt16)audioData[i];
+				audioDataFloat[i] = (float)leftChannel;
+				audioDataFloat[i+1] = (float)rightChannel;
+			}
 		}
 		if (result==noErr){
 			//print out general info about  the file
@@ -100,33 +109,5 @@
 	return result;
 }
 
-
-//gets the next packet from the buffer, if we have reached the end of the buffer return 0
--(UInt32)getNextPacket{
-	
-	UInt32 returnValue = 0;
-	
-	//if the packetCount has gone to the end of the file, reset it. Audio will loop.
-	if (packetIndex >= packetCount){
-		packetIndex = 0;
-		//NSLog(@"Reset player to beginning of file.");
-	}
-	
-	//i always like to set a variable and then return it during development so i can
-	//see the value while debugging
-	
-	returnValue = audioData[packetIndex++];
-	
-	return returnValue;
-}
-
-//gets the current index (where we are up to in the buffer)
--(SInt64)getIndex{
-	return packetIndex;
-}
-
--(void)reset{
-	packetIndex = 0;
-}
 
 @end

@@ -16,6 +16,8 @@
 @synthesize dirty;
 @synthesize loopStart;
 @synthesize controllers;
+@synthesize currentSample;
+@synthesize samplePool;
 
 float loopStart = 0;
 int note = 0;
@@ -25,21 +27,18 @@ float sampleIndex = 0;
 {
 	[super init];
 	leftFilter = [[TunableFilter alloc]init];
-	[leftFilter setRes:1.0f];
+	[leftFilter setRes:0.1f];
 	[leftFilter setCutoff:1000.0f];
-	cutoff = 200;
 	rightFilter = [[TunableFilter alloc]init];
 	[rightFilter setRes:(float)2.0f];
-	[rightFilter setCutoff:(float)4410.0];
+	[rightFilter setCutoff:(float)1000.0f];
 	[self setNote:0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
 	halfSize = sizeof(SInt16)/2;
+	packetIndex = 0;
+	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
+	rightChannel = (SInt16 *)malloc(sizeof(SInt16));
 	return self;
-}
-- (OSStatus) getFileInfo {
-	OSStatus status = [super getFileInfo];
-	loopEnd = (float)packetCount;
-	return status;
 }
 
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
@@ -59,12 +58,11 @@ float sampleIndex = 0;
 	}else{
 		packetIndex = floor(sampleIndex);
 	}
-	*returnValue = audioData[packetIndex];
-	
-	leftChannel = (SInt16*)returnValue+sizeof(SInt16);
-	rightChannel = (SInt16*)returnValue;
-	f_leftChannel = (float)*leftChannel;
-	f_rightChannel = (float)*rightChannel;
+	f_leftChannel = [currentSampleObject getPacket:packetIndex];
+	f_rightChannel = [currentSampleObject getPacket:packetIndex+1];
+	[leftFilter processSample:&f_leftChannel];
+	[rightFilter processSample:&f_rightChannel];
+
 	*leftChannel = (int)(f_leftChannel*volMultiplier);
 	*rightChannel = (int)(f_rightChannel*volMultiplier);
 	*returnValue = *rightChannel+(*leftChannel<<16);
@@ -74,18 +72,83 @@ float sampleIndex = 0;
 	note = _note;
 	delta = pow(2, (float)note/12.0f);
 }
+-(void)setCutoff:(int)_cutoff
+{
+	// LO (FUCKING) L
+	switch(_cutoff)
+	{
+		case 0:
+			[rightFilter setRes:2.0f];
+			[rightFilter setCutoff:100.0];
+			[leftFilter setRes:2.0f];
+			[leftFilter setCutoff:100.0];
+			break;			
+		case 1:
+			[rightFilter setRes:2.0f];
+			[rightFilter setCutoff:300.0];
+			[leftFilter setRes:2.0f];
+			[leftFilter setCutoff:300.0];
+			break;
+		case 2:
+			[rightFilter setRes:2.0f];
+			[rightFilter setCutoff:600.0];
+			[leftFilter setRes:2.0f];
+			[leftFilter setCutoff:600.0];
+			break;
+		case 3:
+			[rightFilter setRes:1.0f];
+			[rightFilter setCutoff:900.0];
+			[leftFilter setRes:1.0f];
+			[leftFilter setCutoff:900.0];
+			break;
+		case 4:
+			[rightFilter setRes:1.0f];
+			[rightFilter setCutoff:1200.0];
+			[leftFilter setRes:1.0f];
+			[leftFilter setCutoff:1200.0];
+			break;
+		case 5:
+			[rightFilter setRes:1.0f];
+			[rightFilter setCutoff:4000.0];
+			[leftFilter setRes:1.0f];
+			[leftFilter setCutoff:4000.0];
+			break;
+		case 6:
+			[rightFilter setRes:0.5f];
+			[rightFilter setCutoff:8000.0];
+			[leftFilter setRes:0.5f];
+			[leftFilter setCutoff:8000.0];
+			break;
+		case 7:
+			[rightFilter setRes:0.25f];
+			[rightFilter setCutoff:10000.0];
+			[leftFilter setRes:0.23f];
+			[leftFilter setCutoff:10000.0];
+			break;
+			
+		default:
+			break;
+			
+	}
+}
 -(void)setVolume:(int)_volume
 {
 	volume = _volume;
 	volMultiplier = volume/255.0;
 }
+-(void)setCurrentSample:(int)_currentSample
+{
+	currentSample = _currentSample;
+	currentSampleObject = [[samplePool objectAtIndex:currentSample] retain];
+}
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
 {
-	loopStart = (float)packetCount*startPercentage;
-	loopEnd = (float)packetCount*endPercentage;
+	loopStart = (float)[[samplePool objectAtIndex:currentSample] getPacketCount]*startPercentage;
+	loopEnd = (float)[[samplePool objectAtIndex:currentSample] getPacketCount]*endPercentage;
 }
 -(void)reset{
 	sampleIndex = loopStart;
+	loopEnd = (float)[currentSampleObject getPacketCount];
 }
 
 @end

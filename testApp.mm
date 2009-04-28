@@ -25,64 +25,41 @@ void testApp::setup(){
 		[mainController addChild:[[gridController alloc]init:player]];
 	}
 	
+	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"bass_stem", @"drum_stem", @"note", nil];
+	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
+	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
+	[player setInstrumentGroup: instrumentGroup];	
+	[instrumentGroup release];	
+	for(int i=0;i<2;i++){
+		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
+		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
+		
+		//open the a wav file from the application resources
+		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav"]];
+		
+		[samplePool addObject:inMemoryAudioFile];
+		sampleInstrument.samplePool = samplePool;
+		
+		//set the controllers on the first instrument
+		if(i!=2){
+			[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
+		}else{
+			[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"note"];
+		}
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"fcut"];
+		sampleInstrument.volume = 80;
+		sampleInstrument.currentSample = i;
+		
+		//set the players inMemoryAudioFile
+		[[player instrumentGroup] addObject:sampleInstrument];
+		
+		[sampleInstrument reset];
+		[sampleInstrument release];
+	}
+	[sampleArray dealloc];
 	
-	//initialise the inMemoryAudiofile (holds a wav file in memory)
-	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:2];
-	[player setInstrumentGroup: instrumentGroup];
-	[instrumentGroup release];
-	
-	SampleInstrument *inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"bass_stem" ofType:@"wav"]];
-	//set the controllers on the first instrument
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:0] forKey:@"lpof"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:3] forKey:@"fcut"];
-	inMemoryAudioFile.volume = 80;
-	[[mainController.children objectAtIndex:0] release];
-	[[mainController.children objectAtIndex:3] release];
-
-	//set the players inMemoryAudioFile
-	[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-	[inMemoryAudioFile release];
-	
-	// audio file 2
-	inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"drum_stem" ofType:@"wav"]];
-
-	//set the controllers on the first instrument
-	inMemoryAudioFile.volume = 80;
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:1] forKey:@"lpof"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:4] forKey:@"fcut"];
-	[[mainController.children objectAtIndex:1] release];
-	[[mainController.children objectAtIndex:4] release];
-	
-	//set the players inMemoryAudioFile
-	[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-	[inMemoryAudioFile release];
-	
-	
-	// audio file 3
-	inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"note" ofType:@"wav"]];
-	inMemoryAudioFile.volume = 80;
-	//set the controllers on the first instrument
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:2] forKey:@"note"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:5] forKey:@"lpof"];
-	[[mainController.children objectAtIndex:2] release];
-	[[mainController.children objectAtIndex:5] release];
-	//set the players inMemoryAudioFile
-	[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-	[inMemoryAudioFile release];
-
-	currentGrid = 0;
-	
+	currentGrid = 0;	
 	[player start];
-//	[player setMuteChannel:1];
 }
 
 

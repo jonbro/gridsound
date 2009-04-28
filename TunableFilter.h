@@ -51,13 +51,13 @@
 	float res;
 	float sampleRate;
 	float tunedCutoff;
-	SInt16 Delay1;
-	SInt16 Delay2;
+	float Delay1, Delay2;
+	float L, H, B;
 }
 
 -(void) setCutoff:(float)_cutoff;
 -(void) setRes:(float)_res;
 -(void) calc;
--(SInt16)processSample:(SInt16)inputSample;
+-(void)processSample:(float *)inputSample;
 
 @end

@@ -19,23 +19,15 @@
     UInt32							mNumPacketsToRead;              
     AudioStreamPacketDescription	*mPacketDescs;                  
 	SInt64							packetCount;
-	UInt32							*audioData;
-	SInt64							packetIndex;
-	
+	UInt32							*audioData;	
+	float							*audioDataFloat;
 }
 //opens a wav file
 -(OSStatus)open:(NSString *)filePath;
-//gets the infor about a wav file, stores it locally
+-(UInt32)getPacket:(int)packetIndex;
+//gets the info about a wav file, stores it locally
 -(OSStatus)getFileInfo;
 
-//gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
--(UInt32)getNextPacket;
-
-//gets the current index (where we are up to in the buffer)
--(SInt64)getIndex;
-
-//reset the index to the start of the file
--(void)reset;
-
+-(int)getPacketCount;
 
 @end

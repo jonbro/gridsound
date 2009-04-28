@@ -18,7 +18,7 @@
 -(void) setRes:(float)_res
 {
 	res = _res;
-	// [self calc];
+	[self calc];
 }
 -(void) calc
 {
@@ -30,13 +30,13 @@
 	// get pi in here.
 	//cutoff = 400;
 	tunedCutoff = 2.0*3.14*cutoff/sampleRate;
-	res = 2;
+	res = res;
 	// ideal tuning:
 	//F1 = 2 * sin(pi * F / Fs)
 //	Delay1 = 0xFFFF/2;
 //	Delay2 = 0xFFFF/2;
 }
--(SInt16)processSample:(SInt16)inputSample
+-(void)processSample:(float *)inputSample
 {
 	/*
 	 L = D2 + F1 * D1
@@ -50,9 +50,9 @@
 	 */	 
 	
 	// loop
-	SInt16 L = Delay2 + tunedCutoff * Delay1;
-	SInt16 H = inputSample - L - res*Delay1;
-	SInt16 B = tunedCutoff * H + Delay1;
+	L = Delay2 + tunedCutoff * Delay1;
+	H = *inputSample - L - res*Delay1;
+	B = tunedCutoff * H + Delay1;
 	
 //	N = H + L
 	
@@ -60,7 +60,7 @@
 	Delay1 = B;
 	Delay2 = L;
 	
-	return L;
+	*inputSample = L;
 }
 
 @end
