@@ -13,17 +13,17 @@
 //--------------------------------------------------------------
 ofxiPhonePickerView::ofxiPhonePickerView(int _x, int _y, int _w, int _h, NSArray* _array)
 {
+	pickerArray = [_array retain];
 	picker = [[ofxiPhonePickerViewDelegate alloc] 
 				init:	_x 
 				y:		_y 
 				width:	_w 
 				height:	_h
-				pickerArray: _array];
+				pickerArray: pickerArray];
 	x=_x;
 	y=_y;
 	w = _w;
-	h = _h;
-	pickerArray = [_array retain];
+	h = _h;	
 }
 
 //--------------------------------------------------------------

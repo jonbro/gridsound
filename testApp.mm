@@ -36,7 +36,7 @@ void testApp::setup(){
 	mainController = [[parentController alloc] init];
 	
 	for(int i=0;i<9;i++){
-		gridController *_gControl = [[gridController alloc]init:player loopSamples:[samplePool retain]];
+		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain]];
 		[mainController addChild:_gControl];
 	}
 	
