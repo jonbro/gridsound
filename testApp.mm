@@ -21,32 +21,35 @@ void testApp::setup(){
 	[player intialiseAudio];
 	
 	mainController = [[parentController alloc] init];
-	for(int i=0;i<6;i++){
+	for(int i=0;i<9;i++){
 		[mainController addChild:[[gridController alloc]init:player]];
 	}
 	
-	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"bass_stem", @"drum_stem", @"note", nil];
+	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Glock4", @"OldBeat", nil];
 	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
-	[player setInstrumentGroup: instrumentGroup];	
-	[instrumentGroup release];	
-	for(int i=0;i<2;i++){
-		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
+	[player setInstrumentGroup: instrumentGroup];
+	[instrumentGroup release];
+
+	for(int i=0;i<8;i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
-		
 		//open the a wav file from the application resources
 		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav"]];
-		
-		[samplePool addObject:inMemoryAudioFile];
+		[samplePool addObject:[inMemoryAudioFile retain]];
+	}
+	
+	for(int i=0;i<3;i++){
+		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
 		sampleInstrument.samplePool = samplePool;
 		
 		//set the controllers on the first instrument
-		if(i!=2){
+//		if(i!=2){
 			[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
-		}else{
-			[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"note"];
-		}
+//		}else{
+//			[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"note"];
+//		}
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"fcut"];
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"samp"];
 		sampleInstrument.volume = 80;
 		sampleInstrument.currentSample = i;
 		

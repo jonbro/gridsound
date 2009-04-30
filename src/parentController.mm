@@ -19,13 +19,15 @@
 	renderSmall = false;
 	currentGrid = 0;
 	children = [[NSMutableArray alloc]initWithCapacity:1];
+	picker = new ofxiPhonePickerView(0, 240, 320, 240);
+	picker->setVisible(true);
 	return self;
 }
 -(void)render
 {
 	if(renderSmall){
 		for(int i=0;i<3;i++){
-			for(int j=0;j<2;j++){
+			for(int j=0;j<3;j++){
 				ofSetColor(0xEB008B);
 				ofFill();
 				ofRect(111*i, 111*j, 98, 98);
@@ -49,7 +51,7 @@
 		}
 	}else{
 		for(int i=0;i<3;i++){
-			for(int j=0;j<2;j++){
+			for(int j=0;j<3;j++){
 				if(
 				   (int)x<(i+1)*111 &&
 				   (int)x>i*111 &&

@@ -10,15 +10,15 @@
 #import "TunableFilter.h"
 
 @interface SampleInstrument : NSObject {
-	float	sampleIndex;
+	float	sampleIndex, delta;
 	int		note;
 	int		volume;
 	int		cutoff;
 	float	loopStart;
 	float	loopEnd;
-	float	delta;
 	bool	dirty;
 	int		packetIndex;
+	int		packetCount;
 	float	volMultiplier;
 	NSMutableArray *samplePool;
 	InMemoryAudioFile *currentSampleObject;
@@ -32,7 +32,6 @@
 }
 
 @property bool	dirty;
-@property float sampleIndex;
 @property int	note;
 @property int	volume;
 @property int	currentSample;
@@ -43,6 +42,7 @@
 //gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
 -(void)getNextPacket:(UInt32 *)returnValue;
 -(void)reset;
+-(void)fixDelta;
 -(void)setCutoff:(int)_cutoff;
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage;
 

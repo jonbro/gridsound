@@ -11,7 +11,6 @@
 @implementation SampleInstrument
 
 @synthesize note;
-@synthesize sampleIndex;
 @synthesize volume;
 @synthesize dirty;
 @synthesize loopStart;
@@ -43,21 +42,21 @@ float sampleIndex = 0;
 
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
 -(void)getNextPacket:(UInt32 *)returnValue{
+
+	// 	 float* src_ptr_1;
+	// 	 float* src_ptr_2;
+	// 	 float* dst_ptr;
 	
-	sampleIndex += delta;
-	packetIndex = (int)sampleIndex;
-	if (packetIndex >= loopEnd){
+	
+	sampleIndex = delta + sampleIndex;
+	if(sampleIndex>loopEnd){
 		sampleIndex = loopStart;
-		packetIndex = loopStart;
 	}
+	
+	packetIndex = packetCount*sampleIndex;
 
 //	// nearest neighbor interpolation
-	float intHolder;
-	if(modff(sampleIndex, &intHolder) > 0.5){
-		packetIndex = ceil(sampleIndex);
-	}else{
-		packetIndex = floor(sampleIndex);
-	}
+
 	f_leftChannel = [currentSampleObject getPacket:packetIndex];
 	f_rightChannel = [currentSampleObject getPacket:packetIndex+1];
 	[leftFilter processSample:&f_leftChannel];
@@ -70,7 +69,7 @@ float sampleIndex = 0;
 -(void)setNote:(int)_note
 {
 	note = _note;
-	delta = pow(2, (float)note/12.0f);
+	[self fixDelta];
 }
 -(void)setCutoff:(int)_cutoff
 {
@@ -139,16 +138,24 @@ float sampleIndex = 0;
 -(void)setCurrentSample:(int)_currentSample
 {
 	currentSample = _currentSample;
-	currentSampleObject = [[samplePool objectAtIndex:currentSample] retain];
+	currentSampleObject = [samplePool objectAtIndex:currentSample];
 }
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
 {
-	loopStart = (float)[[samplePool objectAtIndex:currentSample] getPacketCount]*startPercentage;
-	loopEnd = (float)[[samplePool objectAtIndex:currentSample] getPacketCount]*endPercentage;
+	loopStart = startPercentage;
+	loopEnd = endPercentage;
 }
--(void)reset{
+-(void)fixDelta
+{
+	float num_packets = pow(2, (float)(note)/12.0f);
+	packetCount = [currentSampleObject getPacketCount];
+	delta = num_packets/(float)packetCount;
+}
+-(void)reset
+{
 	sampleIndex = loopStart;
-	loopEnd = (float)[currentSampleObject getPacketCount];
+	packetCount = [currentSampleObject getPacketCount];
+	[self fixDelta];
 }
 
 @end

@@ -78,7 +78,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	int currentTick = 0;
 	int remainder = 0;
 	int groupCount = [[remoteIOplayer instrumentGroup] count];
-	float beatLength = 44100*60/140;
+	float beatLength = 22050*60/107;
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
 		AudioBuffer buffer = ioData->mBuffers[i];
@@ -105,7 +105,7 @@ static OSStatus playbackCallback(void *inRefCon,
 				for(int k=0;k<groupCount;k++) {
 					//should move this into the sample player to save on instantiation
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){	
+					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
 						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
 						[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
 					}
@@ -114,6 +114,9 @@ static OSStatus playbackCallback(void *inRefCon,
 					}		
 					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
 						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
+					}							
+					if([samplePlayer.controllers objectForKey:@"samp"] != nil){	
+						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"samp"] getStep:currentTick]];
 					}							
 					[samplePlayer reset];					
 				}
@@ -172,7 +175,7 @@ static OSStatus playbackCallback(void *inRefCon,
 								  sizeof(flag));
 	
 	// Describe format
-	audioFormat.mSampleRate			= 44100.0;
+	audioFormat.mSampleRate			= 22050.0;
 	audioFormat.mFormatID			= kAudioFormatLinearPCM;
 	audioFormat.mFormatFlags		= kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
 	audioFormat.mFramesPerPacket	= 1;
