@@ -10,14 +10,12 @@
 #import "gridController.h"
 #include "ofMain.h"
 #include "ofxiPhoneKeyboard.h"
-#include "ofxiPhonePickerView.h"
 
 //#import "phraseController.h"
 
 @interface parentController : NSObject {
 	bool renderSmall;
 	int currentGrid;
-	ofxiPhonePickerView *picker;
 	NSMutableArray	*children;
 }
 

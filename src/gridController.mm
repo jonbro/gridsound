@@ -11,16 +11,16 @@
 
 @implementation gridController
 
--(id) init:(RemoteIOPlayer *)_player
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples
 {
 	self = [super init];
 	for(int i=0;i<8;i++){
 		steps[i] = i;
 	}
-	player = _player;
+	picker = new ofxiPhonePickerView(0, 240, 320, 240, [_loopSamples retain]);
+	picker->setVisible(true);
 	return self;
 }
-
 -(void) render
 {
 	ofSetColor(0xEB008B);

@@ -13,20 +13,24 @@
 @interface ofxiPhonePickerViewDelegate : NSObject <UIPickerViewDelegate>
 {
 	UIPickerView			*myPickerView;
+	NSArray					*pickerViewArray;
 }
-- (id) init: (int)x y:(int)y width:(int)w height:(int)h;
+- (id) init: (int)x y:(int)y width:(int)w height:(int)h pickerArray:(NSArray*)_array;
 - (void) showPicker;
 - (void) hidePicker;
+- (void) setArray:(NSArray*)_newArray;
 
 @end
 
 class ofxiPhonePickerView 
 {		
 	public:
-		ofxiPhonePickerView(int _x, int _y, int _w, int _h);
+		ofxiPhonePickerView(int _x, int _y, int _w, int _h, NSArray* _array);
 		~ofxiPhonePickerView();
+		void setNewArray(NSArray* _array);
 		void setVisible(bool visible);
 	protected:		
 		ofxiPhonePickerViewDelegate *picker;
 		int x,y,w,h;
+		NSArray* pickerArray;
 };

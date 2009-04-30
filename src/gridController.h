@@ -11,13 +11,15 @@
 #import <Foundation/Foundation.h>
 #import "RemoteIOPlayer.h"
 #import "parentController.h"
+#include "ofxiPhonePickerView.h"
 
 @interface gridController : NSObject {
 	int steps[8];
+	ofxiPhonePickerView *picker;
 	RemoteIOPlayer *player;
 }
 
--(id) init:(RemoteIOPlayer *)_player;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples;
 -(void)render;
 -(int)getStep:(int)_step;
 -(void)drawBottomBar;

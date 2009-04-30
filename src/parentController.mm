@@ -19,8 +19,6 @@
 	renderSmall = false;
 	currentGrid = 0;
 	children = [[NSMutableArray alloc]initWithCapacity:1];
-	picker = new ofxiPhonePickerView(0, 240, 320, 240);
-	picker->setVisible(true);
 	return self;
 }
 -(void)render
