@@ -35,6 +35,12 @@
 		[[children objectAtIndex:currentGrid] render];
 	}
 }
+-(void)update
+{
+	if(!renderSmall){
+		[[children objectAtIndex:currentGrid] update];
+	}
+}
 -(void)addChild:(NSObject *)_child
 {
 	[children addObject:_child];

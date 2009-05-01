@@ -21,22 +21,31 @@ void testApp::setup(){
 	[player intialiseAudio];
 	
 	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Glock4", @"OldBeat", nil];
+	NSArray *noteSampleArray = [[NSArray alloc] initWithObjects:@"blg", @"bng", @"chm", @"cht", @"crh", @"plk", @"tnk", @"wmm", nil];
+
 	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
+	
 	[player setInstrumentGroup: instrumentGroup];
 	[instrumentGroup release];
 	
-	for(int i=0;i<8;i++){
+	for(int i=0;i<[sampleArray count];i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
 		//open the a wav file from the application resources
 		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav"]];
 		[samplePool addObject:[inMemoryAudioFile retain]];
 	}
-
+	for(int i=0;i<[noteSampleArray count];i++){
+		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
+		//open the a wav file from the application resources
+		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[noteSampleArray objectAtIndex:i] ofType:@"wav"]];
+		[samplePool addObject:[inMemoryAudioFile retain]];
+	}
+	
 	mainController = [[parentController alloc] init];
 	
 	for(int i=0;i<9;i++){
-		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain]];
+		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain]];
 		[mainController addChild:_gControl];
 	}
 	
@@ -64,6 +73,7 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
+	[mainController update];
 }
 
 //--------------------------------------------------------------

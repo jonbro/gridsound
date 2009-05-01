@@ -6,7 +6,6 @@
  *  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
  *
  */
-#pragma once
 #include "ofMain.h"
 #import <Foundation/Foundation.h>
 #import "RemoteIOPlayer.h"
@@ -15,13 +14,26 @@
 
 @interface gridController : NSObject {
 	int steps[8];
+	int currentSample, numLoops;
+	float y_offset;
+	NSArray *noteSamples, *loopSamples;
+	NSMutableString *currentState;
+	UISegmentedControl	*pickerStyleSegmentedControl;
 	ofxiPhonePickerView *picker;
 	RemoteIOPlayer *player;
 }
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples;
+-(int)getPlaybackMode;
+-(void)showModePicker;
+-(void) hideModePicker;
+-(void)toggleMode:(id)sender;
+-(void)setModePickerPosition:(int)x y:(int)_y;
 -(void)render;
+-(int)getSample;
+-(void)update;
 -(int)getStep:(int)_step;
+-(int)playbackMode;
 -(void)drawBottomBar;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;

@@ -147,7 +147,7 @@ float sampleIndex = 0;
 }
 -(void)fixDelta
 {
-	float num_packets = pow(2, (float)(note)/12.0f);
+	float num_packets = pow(2, (float)(note+12)/12.0f);
 	packetCount = [currentSampleObject getPacketCount];
 	delta = num_packets/(float)packetCount;
 }

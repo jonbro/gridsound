@@ -106,17 +106,20 @@ static OSStatus playbackCallback(void *inRefCon,
 					//should move this into the sample player to save on instantiation
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
-						float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
-						[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
+						if(((int)[[samplePlayer.controllers objectForKey:@"lpof"] getPlaybackMode])==0){
+							float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
+							[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+						}else {
+							[samplePlayer setLoopOffsetStartPercentage:0.0 endPercentage:1];
+							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
+						}
 					}
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
 					}		
 					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
 						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
-					}							
-					if([samplePlayer.controllers objectForKey:@"samp"] != nil){	
-						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"samp"] getStep:currentTick]];
 					}							
 					[samplePlayer reset];					
 				}

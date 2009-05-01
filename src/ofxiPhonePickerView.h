@@ -18,6 +18,8 @@
 - (id) init: (int)x y:(int)y width:(int)w height:(int)h pickerArray:(NSArray*)_array;
 - (void) showPicker;
 - (void) hidePicker;
+- (int)getRow;
+- (void) setFrame: (CGRect) rect;
 - (void) setArray:(NSArray*)_newArray;
 
 @end
@@ -29,6 +31,8 @@ class ofxiPhonePickerView
 		~ofxiPhonePickerView();
 		void setNewArray(NSArray* _array);
 		void setVisible(bool visible);
+		int getRow();
+		void setPosition(int _x, int _y);
 	protected:		
 		ofxiPhonePickerViewDelegate *picker;
 		int x,y,w,h;

@@ -22,6 +22,7 @@
 @property (assign) NSMutableArray* children;
 
 -(void)render;
+-(void)update;
 -(void)addChild:(NSObject *)_child;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;

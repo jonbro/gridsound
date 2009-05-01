@@ -46,8 +46,16 @@ void ofxiPhonePickerView::setVisible(bool visible)
 	}
 	
 }
-
-
+void ofxiPhonePickerView::setPosition(int _x, int _y)
+{
+	x=_x;
+	y=_y;
+	[picker setFrame: CGRectMake(x,y,w,h)];
+}
+int ofxiPhonePickerView::getRow()
+{
+	return [picker getRow];
+}
 
 @implementation ofxiPhonePickerViewDelegate
 
@@ -67,6 +75,7 @@ void ofxiPhonePickerView::setVisible(bool visible)
 {
 	NSArray* oldArray = pickerViewArray;
 	pickerViewArray = [_newArray retain];
+	[myPickerView reloadAllComponents];
 	[oldArray release];
 }
 - (void) showPicker
@@ -78,7 +87,14 @@ void ofxiPhonePickerView::setVisible(bool visible)
 {
 	[myPickerView removeFromSuperview];
 }
-
+- (void) setFrame: (CGRect) rect
+{
+	[myPickerView setFrame:rect];
+}
+- (int)getRow
+{
+	return [myPickerView selectedRowInComponent:0];
+}
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
 	NSString *returnStr;
