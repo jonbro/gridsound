@@ -21,7 +21,6 @@
 float loopStart = 0;
 int note = 0;
 float sampleIndex = 0;
-
 -(id)init
 {
 	[super init];
@@ -33,6 +32,14 @@ float sampleIndex = 0;
 	[rightFilter setCutoff:(float)1000.0f];
 	[self setNote:0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
+	possibleNotes[0] = -3;
+	possibleNotes[1] = 0;
+	possibleNotes[2] = 2;
+	possibleNotes[3] = 4;
+	possibleNotes[4] = 7;
+	possibleNotes[5] = 9;
+	possibleNotes[6] = 11;
+	possibleNotes[7] = 12;
 	halfSize = sizeof(SInt16)/2;
 	packetIndex = 0;
 	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
@@ -68,7 +75,7 @@ float sampleIndex = 0;
 }
 -(void)setNote:(int)_note
 {
-	note = _note;
+	note = possibleNotes[_note];
 	[self fixDelta];
 }
 -(void)setCutoff:(int)_cutoff

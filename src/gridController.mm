@@ -12,6 +12,8 @@
 
 @implementation gridController
 
+@synthesize playbackMode;
+
 -(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples
 {
 	self = [super init];
@@ -37,20 +39,14 @@
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
 	currentSample = 0;
+	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
+	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
 	return self;
 }
 -(void)showModePicker
 {
 	[iPhoneGlobals.window addSubview:pickerStyleSegmentedControl];
-}
--(int)getPlaybackMode
-{
-	int nothing = 1;
-	if(pickerStyleSegmentedControl.selectedSegmentIndex>numLoops){
-		nothing = 0;
-	}
-	return nothing;
 }
 - (void)toggleMode:(id)sender
 {
@@ -59,11 +55,13 @@
 	{
 		case 0:	// UIPickerView
 		{
+			self.playbackMode = 0;
 			picker->setNewArray([loopSamples retain]);
 			break;
 		}
 		case 1: // UIDatePicker
 		{	
+			self.playbackMode = 1;
 			picker->setNewArray([noteSamples retain]);
 			break;
 		}			

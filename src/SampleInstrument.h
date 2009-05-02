@@ -21,6 +21,7 @@
 	int		packetCount;
 	float	volMultiplier;
 	NSMutableArray *samplePool;
+	int possibleNotes[8];
 	InMemoryAudioFile *currentSampleObject;
 	int		currentSample;
 	NSMutableDictionary *controllers;
@@ -37,7 +38,7 @@
 @property int	currentSample;
 @property float loopStart;
 @property (assign) NSMutableArray* samplePool;
-@property (assign) NSMutableDictionary* controllers;
+@property (retain) NSMutableDictionary* controllers;
 
 //gets the next packet from the buffer, returns -1 if we have reached the end of the buffer
 -(void)getNextPacket:(UInt32 *)returnValue;

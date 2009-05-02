@@ -8,6 +8,7 @@
 
 #import "RemoteIOPlayer.h"
 #include <AudioUnit/AudioUnit.h>
+
 #define kOutputBus 0
 #define kInputBus 1
 
@@ -92,6 +93,7 @@ static OSStatus playbackCallback(void *inRefCon,
 		UInt32 *frameBuffer = buffer.mData;
 		
 		//loop through the buffer and fill the frames
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		for (int j = 0; j < inNumberFrames; j++){
 			rightChannel = 0;
 			leftChannel = 0;
@@ -102,14 +104,16 @@ static OSStatus playbackCallback(void *inRefCon,
 			if(remainder == 0){
 				remoteIOplayer.tick++;
 				currentTick = fmod(remoteIOplayer.tick, 8);
+				
 				for(int k=0;k<groupCount;k++) {
 					//should move this into the sample player to save on instantiation
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
 						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
-						if(((int)[[samplePlayer.controllers objectForKey:@"lpof"] getPlaybackMode])==0){
+						if([[[samplePlayer controllers] objectForKey:@"lpof"] playbackMode]==0){
 							float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
 							[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+							[samplePlayer setNote:1];
 						}else {
 							[samplePlayer setLoopOffsetStartPercentage:0.0 endPercentage:1];
 							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
@@ -134,6 +138,7 @@ static OSStatus playbackCallback(void *inRefCon,
 			}
 			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));
 		}
+		[pool release];
 	}
     return noErr;
 }

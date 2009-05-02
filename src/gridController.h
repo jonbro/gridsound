@@ -14,7 +14,7 @@
 
 @interface gridController : NSObject {
 	int steps[8];
-	int currentSample, numLoops;
+	int currentSample, numLoops, playbackMode;
 	float y_offset;
 	NSArray *noteSamples, *loopSamples;
 	NSMutableString *currentState;
@@ -23,8 +23,9 @@
 	RemoteIOPlayer *player;
 }
 
+@property (assign) int playbackMode;
+
 -(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples;
--(int)getPlaybackMode;
 -(void)showModePicker;
 -(void) hideModePicker;
 -(void)toggleMode:(id)sender;
@@ -33,7 +34,6 @@
 -(int)getSample;
 -(void)update;
 -(int)getStep:(int)_step;
--(int)playbackMode;
 -(void)drawBottomBar;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
