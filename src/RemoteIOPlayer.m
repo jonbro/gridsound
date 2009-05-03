@@ -112,6 +112,7 @@ static OSStatus playbackCallback(void *inRefCon,
 							[samplePlayer setLoopOffsetStartPercentage:0.0 endPercentage:1];
 							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
 						}
+						[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
 					}
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];

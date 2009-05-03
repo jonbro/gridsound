@@ -39,6 +39,7 @@
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
 	currentSample = 0;
+	volumeLevel = 80;
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
@@ -93,6 +94,7 @@
 		}
 	}
 	[self drawBottomBar];
+	[self drawVolumeBar];
 }
 -(void)update
 {
@@ -120,6 +122,19 @@
 -(int)getStep:(int)_step
 {
 	return steps[_step];
+}
+-(int)volumeLevel
+{
+	return volumeLevel;
+}
+-(void)drawVolumeBar
+{
+	int volumeWidth = 320*((float)volumeLevel/255.0);
+	ofFill();
+	ofSetColor(0xCCCCCC);
+	ofRect(0, 322+y_offset, 320, 40); 
+	ofSetColor(0xEB008B);
+	ofRect(0, 322+y_offset, volumeWidth, 40);	
 }
 -(void)drawBottomBar
 {
@@ -152,7 +167,9 @@
 		int touchedStep = (int)(y/320.0*8.0);
 		if(touchedStep<8){
 			steps[touchedStep] = (int)(x/320.0*8.0);
-		}
+		}else if(touchedStep==8){
+			volumeLevel = (int)(x/320.0*255.0);
+		}	
 	}
 	if(x<45 && y > 435+y_offset){
 		if([currentState isEqual:@"display_grid"]){

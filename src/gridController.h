@@ -16,6 +16,7 @@
 	int steps[8];
 	int currentSample, numLoops, playbackMode;
 	float y_offset;
+	int volumeLevel;
 	NSArray *noteSamples, *loopSamples;
 	NSMutableString *currentState;
 	UISegmentedControl	*pickerStyleSegmentedControl;
@@ -34,7 +35,9 @@
 -(int)getSample;
 -(void)update;
 -(int)getStep:(int)_step;
+-(int)volumeLevel;
 -(void)drawBottomBar;
+-(void)drawVolumeBar;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchUp:(float)x y:(float)y touchId:(int)touchId;
