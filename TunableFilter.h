@@ -44,20 +44,20 @@
  
  
  */
+#include "fixed.h"
 
 
 @interface TunableFilter : NSObject {
-	float cutoff;
-	float res;
-	float sampleRate;
-	float tunedCutoff;
-	float Delay1, Delay2;
-	float L, H, B;
+	Newfixed res, cutoff;
+	int sampleRate;
+	Newfixed tunedCutoff;
+	Newfixed Delay1, Delay2;
+	Newfixed L, H, B;
 }
 
--(void) setCutoff:(float)_cutoff;
+-(void) setCutoff:(int)_cutoff;
 -(void) setRes:(float)_res;
 -(void) calc;
--(void)processSample:(float *)inputSample;
+-(void)processSample:(Newfixed *)inputSample;
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioFile.h>
 #include <sys/time.h>
-
+#include "fixed.h"
 
 @interface InMemoryAudioFile : NSObject {
 	AudioStreamBasicDescription		mDataFormat;                    
@@ -20,11 +20,11 @@
     AudioStreamPacketDescription	*mPacketDescs;                  
 	SInt64							packetCount;
 	UInt32							*audioData;	
-	float							*audioDataFloat;
 }
 //opens a wav file
 -(OSStatus)open:(NSString *)filePath;
 -(UInt32)getPacket:(int)packetIndex;
+-(Newfixed)getFixedPacket:(int)packetIndex;
 //gets the info about a wav file, stores it locally
 -(OSStatus)getFileInfo;
 

@@ -65,7 +65,7 @@ void testApp::setup(){
 		[sampleInstrument reset];
 		[sampleInstrument release];
 	}
-	
+		
 	currentGrid = 0;	
 	[player start];
 }

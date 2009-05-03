@@ -8,18 +8,17 @@
 
 #import "InMemoryAudioFile.h"
 #import "TunableFilter.h"
+#include "fixed.h"
 
 @interface SampleInstrument : NSObject {
-	float	sampleIndex, delta;
+	Newfixed	fpDelta, fpPos, volMultiplier;
+	int		sampleIndex, loopStart, loopEnd;
 	int		note;
 	int		volume;
 	int		cutoff;
-	float	loopStart;
-	float	loopEnd;
 	bool	dirty;
 	int		packetIndex;
 	int		packetCount;
-	float	volMultiplier;
 	NSMutableArray *samplePool;
 	int possibleNotes[8];
 	InMemoryAudioFile *currentSampleObject;
@@ -27,16 +26,14 @@
 	NSMutableDictionary *controllers;
 	TunableFilter *leftFilter;
 	TunableFilter *rightFilter;
-	SInt16 *leftChannel, *rightChannel, halfSize;
-	float	f_leftChannel, f_rightChannel;
-	
+	SInt16 *leftChannel, *rightChannel;
+	Newfixed f_leftChan, f_rightChan;
 }
 
 @property bool	dirty;
 @property int	note;
 @property int	volume;
 @property int	currentSample;
-@property float loopStart;
 @property (assign) NSMutableArray* samplePool;
 @property (retain) NSMutableDictionary* controllers;
 

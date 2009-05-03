@@ -13,7 +13,6 @@
 @synthesize note;
 @synthesize volume;
 @synthesize dirty;
-@synthesize loopStart;
 @synthesize controllers;
 @synthesize currentSample;
 @synthesize samplePool;
@@ -25,8 +24,8 @@ float sampleIndex = 0;
 {
 	[super init];
 	leftFilter = [[TunableFilter alloc]init];
-	[leftFilter setRes:0.1f];
-	[leftFilter setCutoff:1000.0f];
+	[leftFilter setRes:(float)2.0f];
+	[leftFilter setCutoff:(float)1000.0f];
 	rightFilter = [[TunableFilter alloc]init];
 	[rightFilter setRes:(float)2.0f];
 	[rightFilter setCutoff:(float)1000.0f];
@@ -40,7 +39,7 @@ float sampleIndex = 0;
 	possibleNotes[5] = 9;
 	possibleNotes[6] = 11;
 	possibleNotes[7] = 12;
-	halfSize = sizeof(SInt16)/2;
+	fpPos = i2fp(0);
 	packetIndex = 0;
 	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
 	rightChannel = (SInt16 *)malloc(sizeof(SInt16));
@@ -49,29 +48,40 @@ float sampleIndex = 0;
 
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
 -(void)getNextPacket:(UInt32 *)returnValue{
-
-	// 	 float* src_ptr_1;
-	// 	 float* src_ptr_2;
-	// 	 float* dst_ptr;
+	// update samples position
+	fpPos = fp_add(fpDelta, fpPos);
+	packetIndex = packetIndex + fp2i(fpPos);
+	fpPos &= FP_FRACMASK;
 	
-	
-	sampleIndex = delta + sampleIndex;
-	if(sampleIndex>loopEnd){
-		sampleIndex = loopStart;
+	//check to make sure we are within range
+	if(packetIndex > loopEnd){
+		packetIndex = loopStart;
 	}
+
+	//get the return value
+	*returnValue = [currentSampleObject getPacket:packetIndex];
 	
-	packetIndex = packetCount*sampleIndex;
+	leftChannel = (SInt16 *)returnValue;
+	rightChannel = &leftChannel[1];
+	// do all my shit in fp
+	f_leftChan = i2fp((*leftChannel));
+	f_rightChan = i2fp((*rightChannel));
+	
+	f_leftChan = fp_mul(volMultiplier, f_leftChan);
+	f_rightChan = fp_mul(volMultiplier, f_rightChan);
+	
+	[leftFilter processSample:&f_leftChan];
+	[rightFilter processSample:&f_rightChan];
+	
+	*leftChannel = (SInt16)fp2i(f_leftChan);
+	*rightChannel = (SInt16)fp2i(f_leftChan);
+	
+//	*returnValue = *returnValue*0.10;
+//	*rightChannel = [currentSampleObject getPacket:packetIndex+1];
+//	[leftFilter processSample:leftChannel];
+//	[rightFilter processSample:leftChannel];
 
-//	// nearest neighbor interpolation
-
-	f_leftChannel = [currentSampleObject getPacket:packetIndex];
-	f_rightChannel = [currentSampleObject getPacket:packetIndex+1];
-	[leftFilter processSample:&f_leftChannel];
-	[rightFilter processSample:&f_rightChannel];
-
-	*leftChannel = (int)(f_leftChannel*volMultiplier);
-	*rightChannel = (int)(f_rightChannel*volMultiplier);
-	*returnValue = *rightChannel+(*leftChannel<<16);
+//	* = rightChannel;
 }
 -(void)setNote:(int)_note
 {
@@ -84,9 +94,9 @@ float sampleIndex = 0;
 	switch(_cutoff)
 	{
 		case 0:
-			[rightFilter setRes:2.0f];
+			[rightFilter setRes:0.1f];
 			[rightFilter setCutoff:100.0];
-			[leftFilter setRes:2.0f];
+			[leftFilter setRes:0.1f];
 			[leftFilter setCutoff:100.0];
 			break;			
 		case 1:
@@ -140,7 +150,7 @@ float sampleIndex = 0;
 -(void)setVolume:(int)_volume
 {
 	volume = _volume;
-	volMultiplier = volume/255.0;
+	volMultiplier = fl2fp((float)volume/255.0);
 }
 -(void)setCurrentSample:(int)_currentSample
 {
@@ -149,18 +159,16 @@ float sampleIndex = 0;
 }
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
 {
-	loopStart = startPercentage;
-	loopEnd = endPercentage;
+	loopStart = [currentSampleObject getPacketCount]*startPercentage;
+	loopEnd = [currentSampleObject getPacketCount]*endPercentage;
 }
 -(void)fixDelta
 {
-	float num_packets = pow(2, (float)(note+12)/12.0f);
-	packetCount = [currentSampleObject getPacketCount];
-	delta = num_packets/(float)packetCount;
+	fpDelta = fl2fp(pow(2, (float)(note+12)/12.0f));
 }
 -(void)reset
 {
-	sampleIndex = loopStart;
+	packetIndex = loopStart;
 	packetCount = [currentSampleObject getPacketCount];
 	[self fixDelta];
 }

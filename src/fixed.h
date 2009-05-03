@@ -1,4 +1,4 @@
-// fixed point arithmatic
+// Newfixed point arithmatic
 
 #ifndef _FIXED_H
 #define _FIXED_H
@@ -23,7 +23,7 @@
 #define fp_mul(x, y)  \
 ({ int __hi;  \
 unsigned int __lo;  \
-fixed __result;  \
+Newfixed __result;  \
 asm ("smull	%0, %1, %3, %4\n\t"  \
 "movs	%0, %0, lsr %5\n\t"  \
 "adc	%2, %0, %1, lsl %6"  \
@@ -36,7 +36,7 @@ __result;  \
 
 #else 
 
-#define fp_mul(x,y)		((fixed)(((long long)(x) * (long long)(y)) >> FIXED_SHIFT))
+#define fp_mul(x,y)		((Newfixed)(((long long)(x) * (long long)(y)) >> FIXED_SHIFT))
 #endif
 
 #define fp_div(x,y)		((((x)<<2)/((y)>>8))<<10)
@@ -45,16 +45,16 @@ __result;  \
 #define FP_ONE		(1 << FIXED_SHIFT)
 #define FPONE		FP_ONE
 
-typedef signed int fixed;
+typedef signed int Newfixed;
 
-extern fixed fl2fp(float val);
-extern float fp2fl(fixed val);
+extern Newfixed fl2fp(float val);
+extern float fp2fl(Newfixed val);
 
 #else // uses float
 
-typedef float fixed ;
+typedef float Newfixed ;
 #define fp2i(a) (int)a
-#define i2fp(a) (fixed)a
+#define i2fp(a) (Newfixed)a
 #define fl2fp(a) a
 #define fp2fl(a) a
 #define fp_add(a,b) a+b

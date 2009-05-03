@@ -79,17 +79,11 @@ static OSStatus playbackCallback(void *inRefCon,
 	int currentTick = 0;
 	int remainder = 0;
 	int groupCount = [[remoteIOplayer instrumentGroup] count];
-	float beatLength = 22050*60/107;
+	float beatLength = 22050.0*60/107;
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
-		AudioBuffer buffer = ioData->mBuffers[i];
-
-		//if needed we can get the number of bytes that will fill the buffer using
-		// int numberOfSamples = ioData->mBuffers[i].mDataByteSize;
 		
-		//get the buffer and point to it as an UInt32 (as we will be filling it with 32 bit samples)
-		//if we wanted we could grab it as a 16 bit and put in the samples for left and right seperately
-		//but the loop below would be for(j = 0; j < inNumberFrames * 2; j++) as each frame is a 32 bit number
+		AudioBuffer buffer = ioData->mBuffers[i];
 		UInt32 *frameBuffer = buffer.mData;
 		
 		//loop through the buffer and fill the frames
@@ -128,15 +122,14 @@ static OSStatus playbackCallback(void *inRefCon,
 					[samplePlayer reset];					
 				}
 			}
-			frameBuffer[j] = 0;
 			nextPacket = &frameBuffer[j];
 			for(int k=0;k<groupCount;k++) {
 				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				[samplePlayer getNextPacket:nextPacket];
-				leftChannel += *nextPacket>>16;
-				rightChannel += (*nextPacket&0xFFFF);
+				rightChannel += (SInt16)(*nextPacket&0xFFFF)/groupCount;
+				leftChannel += (SInt16)(*nextPacket>>16)/groupCount;
 			}
-			frameBuffer[j] = (UInt32)(rightChannel+(leftChannel<<16));
+			*nextPacket = (UInt32)(rightChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
 		}
 		[pool release];
 	}
@@ -183,6 +176,16 @@ static OSStatus playbackCallback(void *inRefCon,
 								  sizeof(flag));
 	
 	// Describe format
+//	audioFormat.mSampleRate = 44100.0;
+//	audioFormat.mFormatID = kAudioFormatLinearPCM;
+//	audioFormat.mFormatFlags  = kAudioFormatFlagsAudioUnitCanonical;
+//	audioFormat.mBytesPerPacket = sizeof(AudioUnitSampleType);
+//	audioFormat.mFramesPerPacket = 1;
+//	audioFormat.mBytesPerFrame = sizeof(AudioUnitSampleType);
+//	audioFormat.mChannelsPerFrame = 1;
+//	audioFormat.mBitsPerChannel = 8 * sizeof(AudioUnitSampleType);
+//	audioFormat.mReserved = 0;
+	
 	audioFormat.mSampleRate			= 22050.0;
 	audioFormat.mFormatID			= kAudioFormatLinearPCM;
 	audioFormat.mFormatFlags		= kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;

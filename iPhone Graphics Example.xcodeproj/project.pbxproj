@@ -19,7 +19,7 @@
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
 		5EB5B6B40FAAAD1500C8C9F9 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5B6B30FAAAD1500C8C9F9 /* gridController.mm */; };
 		5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAABC50F8C25CE00F80933 /* MoogFilter.m */; };
-		5ECAACC60F8C3AF500F80933 /* TunableFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAACC50F8C3AF500F80933 /* TunableFilter.m */; };
+		5ECAACC60F8C3AF500F80933 /* TunableFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAACC50F8C3AF500F80933 /* TunableFilter.mm */; };
 		5ED5EFF60FAA9E50005AA5D4 /* blg.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFEE0FAA9E50005AA5D4 /* blg.wav */; };
 		5ED5EFF70FAA9E50005AA5D4 /* bng.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFEF0FAA9E50005AA5D4 /* bng.wav */; };
 		5ED5EFF80FAA9E50005AA5D4 /* chm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFF00FAA9E50005AA5D4 /* chm.wav */; };
@@ -107,7 +107,7 @@
 		5ECAABC40F8C25CE00F80933 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
 		5ECAABC50F8C25CE00F80933 /* MoogFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoogFilter.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.m"; sourceTree = DEVELOPER_DIR; };
 		5ECAACC40F8C3AF500F80933 /* TunableFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TunableFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/TunableFilter.h"; sourceTree = DEVELOPER_DIR; };
-		5ECAACC50F8C3AF500F80933 /* TunableFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TunableFilter.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/TunableFilter.m"; sourceTree = DEVELOPER_DIR; };
+		5ECAACC50F8C3AF500F80933 /* TunableFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TunableFilter.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/TunableFilter.mm"; sourceTree = DEVELOPER_DIR; };
 		5ED5EFEE0FAA9E50005AA5D4 /* blg.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = blg.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/noteSamples/blg.wav"; sourceTree = DEVELOPER_DIR; };
 		5ED5EFEF0FAA9E50005AA5D4 /* bng.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bng.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/noteSamples/bng.wav"; sourceTree = DEVELOPER_DIR; };
 		5ED5EFF00FAA9E50005AA5D4 /* chm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = chm.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/noteSamples/chm.wav"; sourceTree = DEVELOPER_DIR; };
@@ -391,7 +391,7 @@
 				5E4FEB110F805A64003018CA /* SampleInstrument.h */,
 				5EF1ABE70FA6B35200BF814F /* SampleInstrument.mm */,
 				5ECAACC40F8C3AF500F80933 /* TunableFilter.h */,
-				5ECAACC50F8C3AF500F80933 /* TunableFilter.m */,
+				5ECAACC50F8C3AF500F80933 /* TunableFilter.mm */,
 			);
 			name = audio_src;
 			path = ..;
@@ -1044,7 +1044,7 @@
 				5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */,
 				5E7C468C0F830F6600538ECA /* Phrase.m in Sources */,
 				5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */,
-				5ECAACC60F8C3AF500F80933 /* TunableFilter.m in Sources */,
+				5ECAACC60F8C3AF500F80933 /* TunableFilter.mm in Sources */,
 				5EE873E70F901593005E3C3C /* phraseController.mm in Sources */,
 				5EE873EA0F9015BE005E3C3C /* parentController.mm in Sources */,
 				5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */,
@@ -1112,11 +1112,12 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = dist.plist;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Brodsky";
-				GCC_AUTO_VECTORIZATION = NO;
+				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-fno-regmove";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "208837C2-68AC-4577-9DD2-B9092642DE87";
 				SDKROOT = iphoneos2.2;
