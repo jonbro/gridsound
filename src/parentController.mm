@@ -19,16 +19,23 @@
 	renderSmall = false;
 	currentGrid = 0;
 	children = [[NSMutableArray alloc]initWithCapacity:1];
+	currentState = [[NSMutableString alloc] initWithString:@"small"];
+	y_offset = 0;
+	x_offset = 0;
+	target_y = 0;
+	target_x = 0;
+	scale = 1;
+	target_scale = 1;
 	return self;
 }
 -(void)render
 {
-	if(renderSmall){
+	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"] || [currentState isEqual:@"small"]){
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
 				ofSetColor(0xEB008B);
 				ofFill();
-				ofRect(111*i, 111*j, 98, 98);
+				ofRect((111*i+x_offset)*scale, (111*j+y_offset)*scale, 98*scale, 98*scale);
 			}
 		}
 	}else{
@@ -37,7 +44,22 @@
 }
 -(void)update
 {
-	if(!renderSmall){
+	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"]){
+		if(fabs(y_offset-target_y)<1){
+			y_offset -= (y_offset-target_y)/2;
+			x_offset -= (x_offset-target_x)/2;
+			scale -= (target_scale-scale)/2;
+		}else{
+			y_offset = target_y;
+			x_offset = target_x;
+			scale = target_scale;
+			if([currentState isEqual:@"to_small"]){
+				[currentState setString:@"small"];
+			}else{
+				[currentState setString:@"large"];
+			}
+		}
+	}else if([currentState isEqual:@"large"]){
 		[[children objectAtIndex:currentGrid] update];
 	}
 }
@@ -47,13 +69,17 @@
 	[_child release];
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
-	if(!renderSmall){
+	if([currentState isEqual:@"large"]){
 		if(x>275 && y>435){
-			renderSmall = true;
+			[currentState setString:@"to_small"];
+			//set initial scale and offset
+			target_y = 0;
+			target_x = 0;
+			target_scale = 1;
 		}else{
 			[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 		}
-	}else{
+	}else if([currentState isEqual:@"small"]){
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
 				if(
@@ -62,7 +88,11 @@
 				   (int)y<(j+1)*111 &&
 				   (int)y>j*111
 				   ){
-					renderSmall = false;
+					[currentState setString:@"to_large"];
+					//set target scale and offset
+					target_y = -j*111;
+					target_x = -i*111;
+					target_scale = 3;
 					currentGrid = j*3+i;
 				}
 			}

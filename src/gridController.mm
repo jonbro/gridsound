@@ -169,7 +169,7 @@
 			steps[touchedStep] = (int)(x/320.0*8.0);
 		}else if(touchedStep==8){
 			volumeLevel = (int)(x/320.0*255.0);
-		}	
+		}
 	}
 	if(x<45 && y > 435+y_offset){
 		if([currentState isEqual:@"display_grid"]){

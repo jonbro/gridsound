@@ -12,7 +12,6 @@
 
 @synthesize note;
 @synthesize volume;
-@synthesize dirty;
 @synthesize controllers;
 @synthesize currentSample;
 @synthesize samplePool;
@@ -40,6 +39,7 @@ float sampleIndex = 0;
 	possibleNotes[6] = 11;
 	possibleNotes[7] = 12;
 	fpPos = i2fp(0);
+	filtering = true;
 	packetIndex = 0;
 	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
 	rightChannel = (SInt16 *)malloc(sizeof(SInt16));
@@ -69,19 +69,13 @@ float sampleIndex = 0;
 	
 	f_leftChan = fp_mul(volMultiplier, f_leftChan);
 	f_rightChan = fp_mul(volMultiplier, f_rightChan);
-	
-	[leftFilter processSample:&f_leftChan];
-	[rightFilter processSample:&f_rightChan];
-	
+	if(filtering){
+		[leftFilter processSample:&f_leftChan];
+		[rightFilter processSample:&f_rightChan];
+	}
 	*leftChannel = (SInt16)fp2i(f_leftChan);
 	*rightChannel = (SInt16)fp2i(f_leftChan);
 	
-//	*returnValue = *returnValue*0.10;
-//	*rightChannel = [currentSampleObject getPacket:packetIndex+1];
-//	[leftFilter processSample:leftChannel];
-//	[rightFilter processSample:leftChannel];
-
-//	* = rightChannel;
 }
 -(void)setNote:(int)_note
 {
@@ -90,62 +84,19 @@ float sampleIndex = 0;
 }
 -(void)setCutoff:(int)_cutoff
 {
-	// LO (FUCKING) L
-	switch(_cutoff)
-	{
-		case 0:
-			[rightFilter setRes:0.1f];
-			[rightFilter setCutoff:100.0];
-			[leftFilter setRes:0.1f];
-			[leftFilter setCutoff:100.0];
-			break;			
-		case 1:
-			[rightFilter setRes:2.0f];
-			[rightFilter setCutoff:300.0];
-			[leftFilter setRes:2.0f];
-			[leftFilter setCutoff:300.0];
-			break;
-		case 2:
-			[rightFilter setRes:2.0f];
-			[rightFilter setCutoff:600.0];
-			[leftFilter setRes:2.0f];
-			[leftFilter setCutoff:600.0];
-			break;
-		case 3:
-			[rightFilter setRes:1.0f];
-			[rightFilter setCutoff:900.0];
-			[leftFilter setRes:1.0f];
-			[leftFilter setCutoff:900.0];
-			break;
-		case 4:
-			[rightFilter setRes:1.0f];
-			[rightFilter setCutoff:1200.0];
-			[leftFilter setRes:1.0f];
-			[leftFilter setCutoff:1200.0];
-			break;
-		case 5:
-			[rightFilter setRes:1.0f];
-			[rightFilter setCutoff:4000.0];
-			[leftFilter setRes:1.0f];
-			[leftFilter setCutoff:4000.0];
-			break;
-		case 6:
-			[rightFilter setRes:0.5f];
-			[rightFilter setCutoff:8000.0];
-			[leftFilter setRes:0.5f];
-			[leftFilter setCutoff:8000.0];
-			break;
-		case 7:
-			[rightFilter setRes:0.25f];
-			[rightFilter setCutoff:10000.0];
-			[leftFilter setRes:0.23f];
-			[leftFilter setCutoff:10000.0];
-			break;
-			
-		default:
-			break;
-			
+	if(_cutoff >= 7){
+		filtering = false;
+	}else{
+		filtering = true;
+		_cutoff = (int)400.0*(pow(2, (float)(_cutoff*3+12)/12.0f));
+		[rightFilter setCutoff:_cutoff];
+		[leftFilter setCutoff:_cutoff];
 	}
+}
+-(void)setRes:(int)_res
+{
+	[rightFilter setRes:((float)(255-_res)/255.0)*2.0];
+	[leftFilter setRes:((float)(255-_res)/255.0)*2.0];
 }
 -(void)setVolume:(int)_volume
 {

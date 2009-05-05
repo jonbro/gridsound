@@ -16,6 +16,8 @@
 @interface parentController : NSObject {
 	bool renderSmall;
 	int currentGrid;
+	float y_offset, x_offset, scale, target_y, target_x, target_scale; // lol, should move this shit into vectors
+	NSMutableString *currentState;
 	NSMutableArray	*children;
 }
 

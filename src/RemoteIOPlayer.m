@@ -119,6 +119,7 @@ static OSStatus playbackCallback(void *inRefCon,
 					}		
 					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
 						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
+						[samplePlayer setRes:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
 					}							
 					[samplePlayer reset];					
 				}

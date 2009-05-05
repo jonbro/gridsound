@@ -16,7 +16,7 @@
 	int		note;
 	int		volume;
 	int		cutoff;
-	bool	dirty;
+	bool	filtering;
 	int		packetIndex;
 	int		packetCount;
 	NSMutableArray *samplePool;
@@ -30,7 +30,6 @@
 	Newfixed f_leftChan, f_rightChan;
 }
 
-@property bool	dirty;
 @property int	note;
 @property int	volume;
 @property int	currentSample;
