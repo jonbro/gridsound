@@ -24,35 +24,34 @@
 	x_offset = 0;
 	target_y = 0;
 	target_x = 0;
-	scale = 1;
+	scale = 2;
 	target_scale = 1;
 	return self;
 }
 -(void)render
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"] || [currentState isEqual:@"small"]){
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++){
+		for(int i=0;i<1;i++){
+			for(int j=0;j<1;j++){
 				ofSetColor(0xEB008B);
 				ofFill();
-				ofRect((111*i+x_offset)*scale, (111*j+y_offset)*scale, 98*scale, 98*scale);
+				int width = (int)((float)98)*scale;
+				ofRect(111*i+x_offset, 111*j+y_offset, width, ((float)98)*scale);
 			}
 		}
 	}else{
 		[[children objectAtIndex:currentGrid] render];
 	}
+
 }
 -(void)update
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"]){
-		if(fabs(y_offset-target_y)<1){
-			y_offset -= (y_offset-target_y)/2;
-			x_offset -= (x_offset-target_x)/2;
-			scale -= (target_scale-scale)/2;
+		if(ofGetElapsedTimeMillis() < endTime){
+			scale = [self tweenCurrentTime:(float)ofGetElapsedTimeMillis() startValue:-1.0f valueChange:2.0f endTime:endTime];
+			NSLog(@"startTime = %f\n", endTime);
 		}else{
-			y_offset = target_y;
-			x_offset = target_x;
-			scale = target_scale;
+			scale = 1;
 			if([currentState isEqual:@"to_small"]){
 				[currentState setString:@"small"];
 			}else{
@@ -63,6 +62,16 @@
 		[[children objectAtIndex:currentGrid] update];
 	}
 }
+
+// quadratic tween
+-(float)tweenCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime:(float)d
+{
+	t /= d/2;
+	if (t < 1) return c/2*t*t + b;
+	return -c/2 * ((--t)*(t-2) - 1) + b;
+}
+
+
 -(void)addChild:(NSObject *)_child
 {
 	[children addObject:_child];
@@ -75,11 +84,12 @@
 			//set initial scale and offset
 			target_y = 0;
 			target_x = 0;
-			target_scale = 1;
+			target_scale = -2;
 		}else{
 			[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 		}
 	}else if([currentState isEqual:@"small"]){
+		endTime = ofGetElapsedTimeMillis() + 2000;
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
 				if(
@@ -92,7 +102,7 @@
 					//set target scale and offset
 					target_y = -j*111;
 					target_x = -i*111;
-					target_scale = 3;
+					target_scale = 2;
 					currentGrid = j*3+i;
 				}
 			}
