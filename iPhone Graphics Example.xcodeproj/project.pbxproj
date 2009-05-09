@@ -31,6 +31,7 @@
 		5E5DB1D70FB51794006D05D1 /* hr_vox3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C60FB51794006D05D1 /* hr_vox3.wav */; };
 		5E5DB1D80FB51794006D05D1 /* hr_vox4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C70FB51794006D05D1 /* hr_vox4.wav */; };
 		5E5DB1D90FB51794006D05D1 /* hr_vox5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C80FB51794006D05D1 /* hr_vox5.wav */; };
+		5E5DB2000FB529AE006D05D1 /* MoogFilter2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5DB1FF0FB529AE006D05D1 /* MoogFilter2.mm */; };
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E93914F0FA50D4800180323 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E93914E0FA50D4800180323 /* fixed.cpp */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
@@ -131,6 +132,8 @@
 		5E5DB1C60FB51794006D05D1 /* hr_vox3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox3.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox3.wav"; sourceTree = DEVELOPER_DIR; };
 		5E5DB1C70FB51794006D05D1 /* hr_vox4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox4.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox4.wav"; sourceTree = DEVELOPER_DIR; };
 		5E5DB1C80FB51794006D05D1 /* hr_vox5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox5.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox5.wav"; sourceTree = DEVELOPER_DIR; };
+		5E5DB1FE0FB529AE006D05D1 /* MoogFilter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter2.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter2.h"; sourceTree = DEVELOPER_DIR; };
+		5E5DB1FF0FB529AE006D05D1 /* MoogFilter2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoogFilter2.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter2.mm"; sourceTree = DEVELOPER_DIR; };
 		5E7C468A0F830F6600538ECA /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.h"; sourceTree = DEVELOPER_DIR; };
 		5E7C468B0F830F6600538ECA /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phrase.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.m"; sourceTree = DEVELOPER_DIR; };
 		5E93914D0FA50D4800180323 /* fixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fixed.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/fixed.h"; sourceTree = DEVELOPER_DIR; };
@@ -426,6 +429,8 @@
 				5EF1ABE70FA6B35200BF814F /* SampleInstrument.mm */,
 				5ECAACC40F8C3AF500F80933 /* TunableFilter.h */,
 				5ECAACC50F8C3AF500F80933 /* TunableFilter.mm */,
+				5E5DB1FE0FB529AE006D05D1 /* MoogFilter2.h */,
+				5E5DB1FF0FB529AE006D05D1 /* MoogFilter2.mm */,
 			);
 			name = audio_src;
 			path = ..;
@@ -1130,6 +1135,7 @@
 				5EFC90DE0FA9364800E4C94A /* ofxiPhoneKeyboard.mm in Sources */,
 				5EFC910A0FA9394C00E4C94A /* ofxiPhonePickerView.mm in Sources */,
 				5EB5B6B40FAAAD1500C8C9F9 /* gridController.mm in Sources */,
+				5E5DB2000FB529AE006D05D1 /* MoogFilter2.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

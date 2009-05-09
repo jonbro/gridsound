@@ -22,12 +22,8 @@ float sampleIndex = 0;
 -(id)init
 {
 	[super init];
-	leftFilter = [[TunableFilter alloc]init];
-	[leftFilter setRes:(float)2.0f];
-	[leftFilter setCutoff:(float)1000.0f];
-	rightFilter = [[TunableFilter alloc]init];
-	[rightFilter setRes:(float)2.0f];
-	[rightFilter setCutoff:(float)1000.0f];
+	leftFilter = [[MoogFilter2 alloc]init];
+	rightFilter = [[MoogFilter2 alloc]init];
 	[self setNote:0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
 	possibleNotes[0] = -3;
@@ -69,10 +65,12 @@ float sampleIndex = 0;
 	
 	f_leftChan = fp_mul(volMultiplier, f_leftChan);
 	f_rightChan = fp_mul(volMultiplier, f_rightChan);
+
 	if(filtering){
 		[leftFilter processSample:&f_leftChan];
 		[rightFilter processSample:&f_rightChan];
 	}
+	
 	*leftChannel = (SInt16)fp2i(f_leftChan);
 	*rightChannel = (SInt16)fp2i(f_leftChan);
 	
@@ -88,15 +86,15 @@ float sampleIndex = 0;
 		filtering = false;
 	}else{
 		filtering = true;
-		_cutoff = (int)400.0*(pow(2, (float)(_cutoff*3+12)/12.0f));
-		[rightFilter setCutoff:_cutoff];
-		[leftFilter setCutoff:_cutoff];
+//		_cutoff = ((float)(_cutoff+1))/8.0;
+		[rightFilter setCutoff:((float)(_cutoff+1))/8.0];
+		[leftFilter setCutoff:((float)(_cutoff+1))/8.0];
 	}
 }
 -(void)setRes:(int)_res
 {
-	[rightFilter setRes:((float)(255-_res)/255.0)*2.0];
-	[leftFilter setRes:((float)(255-_res)/255.0)*2.0];
+	[rightFilter setRes:((float)(255-_res)/255.0)];
+	[leftFilter setRes:((float)(255-_res)/255.0)];
 }
 -(void)setVolume:(int)_volume
 {

@@ -8,6 +8,7 @@
 
 #import "InMemoryAudioFile.h"
 #import "TunableFilter.h"
+#import "MoogFilter2.h"
 #include "fixed.h"
 
 @interface SampleInstrument : NSObject {
@@ -24,8 +25,8 @@
 	InMemoryAudioFile *currentSampleObject;
 	int		currentSample;
 	NSMutableDictionary *controllers;
-	TunableFilter *leftFilter;
-	TunableFilter *rightFilter;
+	MoogFilter2 *leftFilter;
+	MoogFilter2 *rightFilter;
 	SInt16 *leftChannel, *rightChannel;
 	Newfixed f_leftChan, f_rightChan;
 }
