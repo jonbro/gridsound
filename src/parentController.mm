@@ -31,12 +31,12 @@
 -(void)render
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"] || [currentState isEqual:@"small"]){
-		for(int i=0;i<1;i++){
-			for(int j=0;j<1;j++){
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
 				ofSetColor(0xEB008B);
 				ofFill();
 				int width = (int)((float)98)*scale;
-				ofRect(111*i+x_offset, 111*j+y_offset, width, ((float)98)*scale);
+				ofRect(111*i+x_offset, 111*j+y_offset, 98, 98);
 			}
 		}
 	}else{
@@ -89,7 +89,7 @@
 			[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 		}
 	}else if([currentState isEqual:@"small"]){
-		endTime = ofGetElapsedTimeMillis() + 2000;
+		endTime = ofGetElapsedTimeMillis() + 500;
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
 				if(

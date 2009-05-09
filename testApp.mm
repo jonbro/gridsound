@@ -54,7 +54,7 @@ void testApp::setup(){
 		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
 		sampleInstrument.samplePool = samplePool;
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
-		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"fcut"];
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"samp"];
 		sampleInstrument.volume = 80;
 		sampleInstrument.currentSample = i;

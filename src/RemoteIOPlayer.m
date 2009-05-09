@@ -76,6 +76,8 @@ static OSStatus playbackCallback(void *inRefCon,
 	SInt16 leftChannel = 0;
 	SInt16 rightChannel = 0;
 	UInt32 *nextPacket;	
+	Float32 startPercentage;
+	Float32 endPercentage;
 	int currentTick = 0;
 	int remainder = 0;
 	int groupCount = [[remoteIOplayer instrumentGroup] count];
@@ -105,14 +107,19 @@ static OSStatus playbackCallback(void *inRefCon,
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
 						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
 						if([[[samplePlayer controllers] objectForKey:@"lpof"] playbackMode]==0){
-							float startPercentage = ((float)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
-							[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:1];
+							startPercentage = ((Float32)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
 							[samplePlayer setNote:1];
 						}else {
-							[samplePlayer setLoopOffsetStartPercentage:0.0 endPercentage:1];
+							startPercentage = 0.0;
 							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
 						}
 						[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
+					}
+					
+					if([samplePlayer.controllers objectForKey:@"rtgr"] != nil && [[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick] > 0){
+						endPercentage = startPercentage+1/(8.0*([[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick]+1));
+					}else{
+						endPercentage = 1.0;
 					}
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
@@ -120,7 +127,9 @@ static OSStatus playbackCallback(void *inRefCon,
 					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
 						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
 						[samplePlayer setRes:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
-					}							
+					}
+					
+					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
 					[samplePlayer reset];					
 				}
 			}
