@@ -38,8 +38,7 @@
 			for(int j=0;j<3;j++){
 				ofSetColor(0xEB008B);
 				ofFill();
-				int width = (int)((float)98)*scale;
-				ofRect(111*i+x_offset, 111*j+y_offset, 98, 98);
+				ofRect((111*i+x_offset)*scale, (111*j+y_offset)*scale, 98.0*scale, 98*scale);
 			}
 		}
 	}else{
@@ -50,9 +49,10 @@
 -(void)update
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"]){
-		if(ofGetElapsedTimeMillis() < endTime){
-			scale = [self tweenCurrentTime:(float)ofGetElapsedTimeMillis() startValue:-1.0f valueChange:2.0f endTime:endTime];
-//			NSLog(@"startTime = %f\n", endTime);
+		if(ofGetElapsedTimeMillis() < endTime+500){
+			scale = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:1.0 valueChange:2.0 endTime_:500];
+			x_offset = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:0 valueChange:target_x endTime_:500];
+			y_offset = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:0 valueChange:target_y endTime_:500];
 		}else{
 			scale = 1;
 			if([currentState isEqual:@"to_small"]){
@@ -72,9 +72,15 @@
 		}
 	}
 }
+//tween linear
+-(float)tweenLinearCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d
+{
+	return c*t/d + b;
+}
+
 
 // quadratic tween
--(float)tweenCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime:(float)d
+-(float)tweenQuadraticCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d
 {
 	t /= d/2.0;
 	if (t < 1) return c/2.0*t*t + b;
@@ -93,14 +99,14 @@
 		if(x>275 && y>435){
 			[currentState setString:@"to_small"];
 			//set initial scale and offset
-			target_y = 0;
-			target_x = 0;
-			target_scale = -2;
+			x_offset = 0;
+			y_offset = 0;
+			scale = 1;
 		}else{
 			[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
 		}
 	}else if([currentState isEqual:@"small"]){
-		endTime = ofGetElapsedTimeMillis() + 500;
+		endTime = ofGetElapsedTimeMillis();
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
 				if(

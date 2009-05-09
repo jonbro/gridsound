@@ -105,6 +105,7 @@ float sampleIndex = 0;
 		filtering = false;
 	}else{
 		filtering = true;
+		[self setRes:100];
 		[rightFilter setCutoff:_cutoff];
 		[leftFilter setCutoff:_cutoff];
 	}

@@ -30,7 +30,8 @@
 -(void)render;
 -(void)update;
 -(void)addChild:(NSObject *)_child;
--(float)tweenCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime:(float)d;
+-(float)tweenQuadraticCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;
+-(float)tweenLinearCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchUpX:(float)x y:(float)y touchId:(int)touchId;
