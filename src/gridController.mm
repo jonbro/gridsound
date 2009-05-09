@@ -68,6 +68,12 @@
 		}			
 	}
 }
+-(void)setAll:(int)stepValue
+{
+	for(int i=0;i<8;i++){
+		steps[i] = stepValue;
+	}	
+}
 - (void) hideModePicker
 {
 	[pickerStyleSegmentedControl removeFromSuperview];

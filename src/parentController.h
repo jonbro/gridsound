@@ -18,10 +18,13 @@
 	int currentGrid;
 	float y_offset, x_offset, scale, target_y, target_x, target_scale; // lol, should move this shit into vectors
 	float endTime;
+	NSMutableArray *instrumentGroup;
 	NSMutableString *currentState;
 	NSMutableArray	*children;
+	NSMutableArray	*filtering;
 }
 
+@property (nonatomic, retain) NSMutableArray *instrumentGroup;
 @property (assign) NSMutableArray* children;
 
 -(void)render;
@@ -30,6 +33,6 @@
 -(float)tweenCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime:(float)d;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
--(void)touchUp:(float)x y:(float)y touchId:(int)touchId;
+-(void)touchUpX:(float)x y:(float)y touchId:(int)touchId;
 
 @end

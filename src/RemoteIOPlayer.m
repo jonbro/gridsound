@@ -124,10 +124,10 @@ static OSStatus playbackCallback(void *inRefCon,
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
 					}		
-					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
-						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
-						[samplePlayer setRes:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
-					}
+//					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
+//						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
+//						[samplePlayer setRes:[[samplePlayer.controllers objectForKey:@"fcut"] volumeLevel]];
+//					}
 					
 					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
 					[samplePlayer reset];					
@@ -137,8 +137,8 @@ static OSStatus playbackCallback(void *inRefCon,
 			for(int k=0;k<groupCount;k++) {
 				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				[samplePlayer getNextPacket:nextPacket];
-				rightChannel += (SInt16)(*nextPacket&0xFFFF)/groupCount;
-				leftChannel += (SInt16)(*nextPacket>>16)/groupCount;
+				rightChannel += (SInt16)(*nextPacket&0xFFFF);
+				leftChannel += (SInt16)(*nextPacket>>16);
 			}
 			*nextPacket = (UInt32)(rightChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
 		}

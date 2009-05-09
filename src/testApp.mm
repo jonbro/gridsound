@@ -79,6 +79,8 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
+	ofxAccelerometer.getForce().x;
+	ofxAccelerometer.getForce().y;
 }
 
 //--------------------------------------------------------------

@@ -43,6 +43,8 @@
 -(void)reset;
 -(void)fixDelta;
 -(void)setCutoff:(int)_cutoff;
+-(void)setCutoffDirect:(float)_cutoff;
+-(void)setRes:(int)_res;
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage;
 
 //gets the current index (where we are up to in the buffer)

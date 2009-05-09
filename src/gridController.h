@@ -28,13 +28,14 @@
 
 -(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples;
 -(void)showModePicker;
--(void) hideModePicker;
+-(void)hideModePicker;
 -(void)toggleMode:(id)sender;
 -(void)setModePickerPosition:(int)x y:(int)_y;
 -(void)render;
 -(int)getSample;
 -(void)update;
 -(int)getStep:(int)_step;
+-(void)setAll:(int)stepValue;
 -(int)volumeLevel;
 -(void)drawBottomBar;
 -(void)drawVolumeBar;

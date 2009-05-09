@@ -8,10 +8,12 @@
 
 #import "parentController.h"
 #include "ofMain.h"
+#include "ofxAccelerometer.h"
 
 @implementation parentController
 
 @synthesize children;
+@synthesize instrumentGroup;
 
 -(id) init;
 {
@@ -19,6 +21,7 @@
 	renderSmall = false;
 	currentGrid = 0;
 	children = [[NSMutableArray alloc]initWithCapacity:1];
+	filtering = [[NSMutableArray alloc] initWithObjects:[[NSMutableString alloc] initWithString:@"false"], [[NSMutableString alloc] initWithString:@"false"], [[NSMutableString alloc] initWithString:@"false"], nil];
 	currentState = [[NSMutableString alloc] initWithString:@"small"];
 	y_offset = 0;
 	x_offset = 0;
@@ -49,7 +52,7 @@
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"]){
 		if(ofGetElapsedTimeMillis() < endTime){
 			scale = [self tweenCurrentTime:(float)ofGetElapsedTimeMillis() startValue:-1.0f valueChange:2.0f endTime:endTime];
-			NSLog(@"startTime = %f\n", endTime);
+//			NSLog(@"startTime = %f\n", endTime);
 		}else{
 			scale = 1;
 			if([currentState isEqual:@"to_small"]){
@@ -61,14 +64,21 @@
 	}else if([currentState isEqual:@"large"]){
 		[[children objectAtIndex:currentGrid] update];
 	}
+	for(int i=0;i<3;i++){
+		if([[filtering objectAtIndex:i] isEqual:@"true"]){
+			[[instrumentGroup objectAtIndex:i] setCutoffDirect:fminf(fabsf(ofxAccelerometer.getForce().x)/2.0, 1.0)];
+		}else{
+			[[instrumentGroup objectAtIndex:i] setCutoffDirect:1.0];
+		}
+	}
 }
 
 // quadratic tween
 -(float)tweenCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime:(float)d
 {
-	t /= d/2;
-	if (t < 1) return c/2*t*t + b;
-	return -c/2 * ((--t)*(t-2) - 1) + b;
+	t /= d/2.0;
+	if (t < 1) return c/2.0*t*t + b;
+	return -c/2.0 * ((--t)*(t-2.0) - 1.0) + b;
 }
 
 
@@ -78,6 +88,7 @@
 	[_child release];
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
+//	NSLog(@"touchID: %i", touchId);
 	if([currentState isEqual:@"large"]){
 		if(x>275 && y>435){
 			[currentState setString:@"to_small"];
@@ -98,12 +109,16 @@
 				   (int)y<(j+1)*111 &&
 				   (int)y>j*111
 				   ){
-					[currentState setString:@"to_large"];
-					//set target scale and offset
-					target_y = -j*111;
-					target_x = -i*111;
-					target_scale = 2;
-					currentGrid = j*3+i;
+					if(j<2){
+						[currentState setString:@"to_large"];
+						//set target scale and offset
+						target_y = -j*111;
+						target_x = -i*111;
+						target_scale = 2;
+						currentGrid = j*3+i;
+					}else{
+						[[filtering objectAtIndex:i] setString:@"true"];
+					}
 				}
 			}
 		}
@@ -112,9 +127,12 @@
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	if(!renderSmall){
 		[[children objectAtIndex:currentGrid] touchDownX:x y:y touchId:touchId];
-	}	
+	}
 }
--(void)touchUp:(float)x y:(float)y touchId:(int)touchId{
+-(void)touchUpX:(float)x y:(float)y touchId:(int)touchId{
+	for(int i=0;i<3;i++){
+		[[filtering objectAtIndex:i] setString:@"false"];
+	}
 }
 
 @end

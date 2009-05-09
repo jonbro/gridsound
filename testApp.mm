@@ -15,6 +15,9 @@ void testApp::setup(){
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
 
+	ofxAccelerometer.setup();
+
+	
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
 	//initialise the audio player
@@ -31,7 +34,6 @@ void testApp::setup(){
 	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
 	
 	[player setInstrumentGroup: instrumentGroup];
-	[instrumentGroup release];
 	
 	for(int i=0;i<[sampleArray count];i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
@@ -47,7 +49,9 @@ void testApp::setup(){
 	}
 	
 	mainController = [[parentController alloc] init];
-	
+	[mainController setInstrumentGroup:instrumentGroup];
+	[instrumentGroup release];
+
 	for(int i=0;i<9;i++){
 		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain]];
 		[mainController addChild:_gControl];
@@ -60,6 +64,9 @@ void testApp::setup(){
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"fcut"];
+		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
+		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
+
 		sampleInstrument.volume = 80;
 		sampleInstrument.currentSample = i;
 		
@@ -129,6 +136,7 @@ void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData 
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	[mainController touchUpX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){

@@ -26,6 +26,8 @@ float sampleIndex = 0;
 	rightFilter = [[MoogFilter2 alloc]init];
 	[self setNote:0];
 	controllers = [[NSMutableDictionary alloc] initWithCapacity:1];
+	[self setRes:255];
+	[self setCutoff:7];
 	possibleNotes[0] = -3;
 	possibleNotes[1] = 0;
 	possibleNotes[2] = 2;
@@ -63,24 +65,23 @@ float sampleIndex = 0;
 	rightChannel = &leftChannel[1];
 	fl_leftChan = (Float32)(*leftChannel);
 	fl_rightChan = (Float32)(*rightChannel);
-	
-	fl_leftChan = fl_leftChan/32767.0;
-	fl_rightChan = fl_rightChan/32767.0;
+	fl_leftChan = fl_leftChan/65535.0;
+	fl_rightChan = fl_rightChan/65535.0;
 
 	// do all my shit in fp
 //	f_leftChan = i2fp((*leftChannel));
 //	f_rightChan = i2fp((*rightChannel));
 //	
-	fl_leftChan = volMultiplier*fl_leftChan;
-	fl_rightChan = volMultiplier*fl_rightChan;
-
 	if(filtering){
 		[leftFilter processSample:&fl_leftChan];
 		[rightFilter processSample:&fl_rightChan];
 	}
-	
-	*leftChannel = (SInt16)(fl_leftChan*32767.0);
-	*rightChannel = (SInt16)(fl_rightChan*32767.0);
+
+	fl_leftChan = volMultiplier*fl_leftChan;
+	fl_rightChan = volMultiplier*fl_rightChan;
+
+	*leftChannel = (SInt16)(fl_leftChan*65535.0);
+	*rightChannel = (SInt16)(fl_rightChan*65535.0);
 	
 }
 -(void)setNote:(int)_note
@@ -94,10 +95,20 @@ float sampleIndex = 0;
 		filtering = false;
 	}else{
 		filtering = true;
-//		_cutoff = ((float)(_cutoff+1))/8.0;
 		[rightFilter setCutoff:((float)(_cutoff+1))/8.0];
 		[leftFilter setCutoff:((float)(_cutoff+1))/8.0];
 	}
+}
+-(void)setCutoffDirect:(float)_cutoff
+{
+	if(_cutoff >= 1){
+		filtering = false;
+	}else{
+		filtering = true;
+		[rightFilter setCutoff:_cutoff];
+		[leftFilter setCutoff:_cutoff];
+	}
+	
 }
 -(void)setRes:(int)_res
 {
