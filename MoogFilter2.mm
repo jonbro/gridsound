@@ -10,7 +10,14 @@
 
 
 @implementation MoogFilter2
+-(id)init
+{
+	[super init];
+	b0 = b1 = b2 = b3 = b4 = 0.0;  //filter buffers (beware denormals!)
+	t1 = t2 = 0.0;              //temporary buffers
 
+	return self;
+}	
 -(void) setRes:(Float32)_res
 {
 	resonance = _res;
@@ -23,10 +30,10 @@
 }
 -(void) calc
 {
-	q = fp_sub(fl2fp(1.0f),cutoff);
-	p = fp_add(cutoff, fp_mul(fp_mul(fl2fp(0.8f), cutoff), q));
-	f = fp_sub(fp_add(p, p), FP_ONE);
-	q = fp_mul(resonance, fp_mul(fp_mul(fp_add(FP_ONE, fl2fp(0.5f)), q), fp_mul(fp_mul(fp_add(fp_sub(FP_ONE, q), fl2fp(5.6f)), q), q)));
+	q = 1.0f - cutoff;
+	p = cutoff + 0.8f * cutoff * q;
+	f = p + p - 1.0f;
+	q = resonance * (1.0f + 0.5f * q * (1.0f - q + 5.6f * q * q));
 }
 
 -(void)processSample:(Float32 *)inputSample

@@ -39,6 +39,8 @@ float sampleIndex = 0;
 	packetIndex = 0;
 	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
 	rightChannel = (SInt16 *)malloc(sizeof(SInt16));
+//	fl_leftChan = (Float32 *)malloc(sizeof(Float32));
+//	fl_rightChan = (Float32 *)malloc(sizeof(Float32));
 	return self;
 }
 
@@ -59,20 +61,26 @@ float sampleIndex = 0;
 	
 	leftChannel = (SInt16 *)returnValue;
 	rightChannel = &leftChannel[1];
-	// do all my shit in fp
-	f_leftChan = i2fp((*leftChannel));
-	f_rightChan = i2fp((*rightChannel));
+	fl_leftChan = (Float32)(*leftChannel);
+	fl_rightChan = (Float32)(*rightChannel);
 	
-	f_leftChan = fp_mul(volMultiplier, f_leftChan);
-	f_rightChan = fp_mul(volMultiplier, f_rightChan);
+	fl_leftChan = fl_leftChan/32767.0;
+	fl_rightChan = fl_rightChan/32767.0;
+
+	// do all my shit in fp
+//	f_leftChan = i2fp((*leftChannel));
+//	f_rightChan = i2fp((*rightChannel));
+//	
+	fl_leftChan = volMultiplier*fl_leftChan;
+	fl_rightChan = volMultiplier*fl_rightChan;
 
 	if(filtering){
-		[leftFilter processSample:&f_leftChan];
-		[rightFilter processSample:&f_rightChan];
+		[leftFilter processSample:&fl_leftChan];
+		[rightFilter processSample:&fl_rightChan];
 	}
 	
-	*leftChannel = (SInt16)fp2i(f_leftChan);
-	*rightChannel = (SInt16)fp2i(f_leftChan);
+	*leftChannel = (SInt16)(fl_leftChan*32767.0);
+	*rightChannel = (SInt16)(fl_rightChan*32767.0);
 	
 }
 -(void)setNote:(int)_note
@@ -99,7 +107,7 @@ float sampleIndex = 0;
 -(void)setVolume:(int)_volume
 {
 	volume = _volume;
-	volMultiplier = fl2fp((float)volume/255.0);
+	volMultiplier = (float)volume/255.0;
 }
 -(void)setCurrentSample:(int)_currentSample
 {

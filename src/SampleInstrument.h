@@ -12,7 +12,7 @@
 #include "fixed.h"
 
 @interface SampleInstrument : NSObject {
-	Newfixed	fpDelta, fpPos, volMultiplier;
+	Newfixed	fpDelta, fpPos;
 	int		sampleIndex, loopStart, loopEnd;
 	int		note;
 	int		volume;
@@ -28,6 +28,7 @@
 	MoogFilter2 *leftFilter;
 	MoogFilter2 *rightFilter;
 	SInt16 *leftChannel, *rightChannel;
+	Float32 fl_leftChan, fl_rightChan, volMultiplier;
 	Newfixed f_leftChan, f_rightChan;
 }
 

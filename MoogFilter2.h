@@ -17,6 +17,6 @@
 -(void)setCutoff:(float)_cutoff;
 -(void)setRes:(float)_res;
 -(void)calc;
--(void)processSample:(Newfixed *)inputSample;
+-(void)processSample:(Float32 *)inputSample;
 
 @end
