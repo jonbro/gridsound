@@ -20,9 +20,13 @@ void testApp::setup(){
 	//initialise the audio player
 	[player intialiseAudio];
 	
-	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Glock4", @"OldBeat", nil];
+//	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Glock4", @"OldBeat", nil];
+//	NSArray *noteSampleArray = [[NSArray alloc] initWithObjects:@"blg", @"bng", @"chm", @"cht", @"crh", @"plk", @"tnk", @"wmm", nil];
+
+	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"hr_bass1", @"hr_bass2", @"hr_bass3", @"hr_bass4", @"hr_bass5", @"hr_bass6", @"hr_drums1", @"hr_drums2", @"hr_drums3", @"hr_drums4", @"hr_drums5", @"hr_drums6", @"hr_vox1", @"hr_vox2", @"hr_vox3", @"hr_vox4", @"hr_vox5", nil];
 	NSArray *noteSampleArray = [[NSArray alloc] initWithObjects:@"blg", @"bng", @"chm", @"cht", @"crh", @"plk", @"tnk", @"wmm", nil];
 
+	
 	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
 	

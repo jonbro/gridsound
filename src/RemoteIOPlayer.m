@@ -81,7 +81,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	int currentTick = 0;
 	int remainder = 0;
 	int groupCount = [[remoteIOplayer instrumentGroup] count];
-	float beatLength = 22050.0*60/107;
+	float beatLength = 22050.0*60/140;
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
 		//get the buffer to be filled
 		
