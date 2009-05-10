@@ -85,8 +85,8 @@
 -(void) render
 {
 	ofSetColor(0xEB008B);
-	for(int i = 0; i < 8; i++){
-		for(int j = 0; j < 8; j++){
+	for(int j = 0; j < 8; j++){
+		for(int i = 0; i < 8; i++){
 			ofSetColor(0xEB008B);
 			if(steps[j] == i){
 				ofFill();
@@ -96,7 +96,7 @@
 				}
 				ofNoFill();
 			}
-			ofRect(i*40+2, j*40+2+y_offset, 35, 35);    
+			ofRect(j*40+2, i*40+2+y_offset, 35, 35);    
 		}
 	}
 	[self drawBottomBar];
@@ -170,10 +170,10 @@
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([currentState isEqual:@"display_grid"]){
-		int touchedStep = (int)(y/320.0*8.0);
-		if(touchedStep<8){
-			steps[touchedStep] = (int)(x/320.0*8.0);
-		}else if(touchedStep==8){
+		int touchedPos = (int)(y/320.0*8.0);
+		if(touchedPos<8){
+			steps[(int)(x/320.0*8.0)] = touchedPos;
+		}else if(touchedPos==8){
 			volumeLevel = (int)(x/320.0*255.0);
 		}
 	}
@@ -189,7 +189,7 @@
 			
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
-	steps[(int)(y/320.0*8.0)] = (int)(x/320.0*8.0);
+	steps[(int)(x/320.0*8.0)] = (int)(y/320.0*8.0);
 }
 -(void)touchUp:(float)x y:(float)y touchId:(int)touchId{
 }
