@@ -70,6 +70,8 @@ void testApp::setup(){
 		sampleInstrument.volume = 80;
 		sampleInstrument.currentSample = i;
 		
+		[[mainController.children objectAtIndex:i] setSample:i*6];
+		
 		//set the players inMemoryAudioFile
 		[[player instrumentGroup] addObject:sampleInstrument];
 		

@@ -33,6 +33,7 @@
 -(void)setModePickerPosition:(int)x y:(int)_y;
 -(void)render;
 -(int)getSample;
+-(void)setSample:(int)_sample;
 -(void)update;
 -(int)getStep:(int)_step;
 -(void)setAll:(int)stepValue;

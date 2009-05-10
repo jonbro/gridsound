@@ -38,7 +38,6 @@
 											  40);
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
-	currentSample = 0;
 	volumeLevel = 80;
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
@@ -159,6 +158,10 @@
 	}else{
 		ofTriangle(10, 470+y_offset, 35, 470+y_offset, 22.5, 450+y_offset);
 	}
+}
+-(void)setSample:(int)_sample
+{
+	currentSample = _sample;
 }
 -(int)getSample
 {

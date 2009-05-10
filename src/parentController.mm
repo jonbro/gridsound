@@ -27,7 +27,7 @@
 	x_offset = 0;
 	target_y = 0;
 	target_x = 0;
-	scale = 2;
+	scale = 1;
 	target_scale = 1;
 	return self;
 }
