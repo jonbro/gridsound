@@ -17,7 +17,7 @@
 	int currentGrid;
 	float y_offset, x_offset, scale, target_y, target_x, target_scale; // lol, should move this shit into vectors
 	float endTime;
-	float currentCutoff;
+	float currentCutoff, currentOffset;
 	ballController *b_control;
 	NSMutableArray *instrumentGroup;
 	NSMutableString *currentState;

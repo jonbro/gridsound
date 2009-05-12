@@ -20,4 +20,5 @@
 -(void)render;
 -(void)reset;
 -(float)getX;
+-(float)getY;
 @end

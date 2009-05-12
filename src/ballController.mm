@@ -59,4 +59,8 @@
 {
 	return ballPos.x/(float)width;
 }
+-(float)getY
+{
+	return ballPos.y/(float)height-0.5;
+}
 @end

@@ -14,9 +14,8 @@
 @interface SampleInstrument : NSObject {
 	Newfixed	fpDelta, fpPos;
 	int		sampleIndex, loopStart, loopEnd;
-	int		note;
-	int		volume;
-	int		cutoff;
+	int		note, volume, cutoff;
+	float	noteOffset;
 	bool	filtering;
 	int		packetIndex;
 	int		packetCount;
@@ -34,6 +33,7 @@
 
 @property int	note;
 @property int	volume;
+@property float	noteOffset;
 @property int	currentSample;
 @property (assign) NSMutableArray* samplePool;
 @property (retain) NSMutableDictionary* controllers;

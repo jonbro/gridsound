@@ -72,12 +72,15 @@
 	if(filter_on){
 		[b_control update];
 		currentCutoff = [b_control getX];
+		currentOffset = [b_control getY];
 	}
 	for(int i=0;i<3;i++){
 		if([[filtering objectAtIndex:i] isEqual:@"true"]){
 			[[instrumentGroup objectAtIndex:i] setCutoffDirect:currentCutoff];
+			[[instrumentGroup objectAtIndex:i] setNoteOffset:currentOffset*4];
 		}else{
 			[[instrumentGroup objectAtIndex:i] setCutoffDirect:0.5];
+			[[instrumentGroup objectAtIndex:i] setNoteOffset:0];
 		}
 	}
 }

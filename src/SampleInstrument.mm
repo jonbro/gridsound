@@ -11,6 +11,7 @@
 @implementation SampleInstrument
 
 @synthesize note;
+@synthesize noteOffset;
 @synthesize volume;
 @synthesize controllers;
 @synthesize currentSample;
@@ -36,6 +37,7 @@ float sampleIndex = 0;
 	possibleNotes[5] = 9;
 	possibleNotes[6] = 11;
 	possibleNotes[7] = 12;
+	noteOffset = 0;
 	fpPos = i2fp(0);
 	filtering = false;
 	packetIndex = 0;
@@ -85,6 +87,11 @@ float sampleIndex = 0;
 	note = possibleNotes[_note];
 	[self fixDelta];
 }
+-(void)setNoteOffset:(float)_noteOffset
+{
+	noteOffset = _noteOffset;
+	[self fixDelta];
+}
 -(void)setCutoff:(int)_cutoff
 {
 	if(_cutoff >= 7){
@@ -129,7 +136,7 @@ float sampleIndex = 0;
 }
 -(void)fixDelta
 {
-	fpDelta = fl2fp(pow(2, (float)(note+12)/12.0f));
+	fpDelta = fl2fp(pow(2, (float)(((float)note)+12.0+noteOffset)/12.0f));
 }
 -(void)reset
 {
