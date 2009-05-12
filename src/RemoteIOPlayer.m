@@ -137,10 +137,10 @@ static OSStatus playbackCallback(void *inRefCon,
 			for(int k=0;k<groupCount;k++) {
 				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				[samplePlayer getNextPacket:nextPacket];
-				rightChannel += (SInt16)(*nextPacket&0xFFFF);
+//				rightChannel += (SInt16)(*nextPacket&0xFFFF);
 				leftChannel += (SInt16)(*nextPacket>>16);
 			}
-			*nextPacket = (UInt32)(rightChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
+			*nextPacket = (UInt32)(leftChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
 		}
 		[pool release];
 	}

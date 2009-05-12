@@ -90,7 +90,7 @@
 			if(steps[j] == i){
 				ofFill();
 			}else{
-				if(fmod(player.tick, 8)!=j){
+				if(fmod((double)player.tick, (double)8)!=j){
 					ofSetColor(0, 0, 0);
 				}
 				ofNoFill();

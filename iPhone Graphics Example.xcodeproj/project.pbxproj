@@ -35,6 +35,8 @@
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E93914F0FA50D4800180323 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E93914E0FA50D4800180323 /* fixed.cpp */; };
 		5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */; };
+		5EA56B310FB8EBBA00DBC38A /* ballController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EA56B300FB8EBBA00DBC38A /* ballController.mm */; };
+		5EA56B3B0FB8EBF900DBC38A /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EA56B390FB8EBF900DBC38A /* vmath.cpp */; };
 		5EB5B6B40FAAAD1500C8C9F9 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5B6B30FAAAD1500C8C9F9 /* gridController.mm */; };
 		5ECAABC60F8C25CE00F80933 /* MoogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAABC50F8C25CE00F80933 /* MoogFilter.m */; };
 		5ECAACC60F8C3AF500F80933 /* TunableFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAACC50F8C3AF500F80933 /* TunableFilter.mm */; };
@@ -139,6 +141,10 @@
 		5E93914D0FA50D4800180323 /* fixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fixed.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/fixed.h"; sourceTree = DEVELOPER_DIR; };
 		5E93914E0FA50D4800180323 /* fixed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fixed.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/fixed.cpp"; sourceTree = DEVELOPER_DIR; };
 		5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "MS20-VCO1-Tri-C1.wav"; sourceTree = "<group>"; };
+		5EA56B2F0FB8EBBA00DBC38A /* ballController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ballController.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/ballController.h"; sourceTree = DEVELOPER_DIR; };
+		5EA56B300FB8EBBA00DBC38A /* ballController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ballController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/ballController.mm"; sourceTree = DEVELOPER_DIR; };
+		5EA56B390FB8EBF900DBC38A /* vmath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vmath.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/vmath.cpp"; sourceTree = DEVELOPER_DIR; };
+		5EA56B3A0FB8EBF900DBC38A /* vmath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vmath.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/vmath.h"; sourceTree = DEVELOPER_DIR; };
 		5EB5B6B20FAAAD1500C8C9F9 /* gridController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridController.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridController.h"; sourceTree = DEVELOPER_DIR; };
 		5EB5B6B30FAAAD1500C8C9F9 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridController.mm"; sourceTree = DEVELOPER_DIR; };
 		5ECAABC40F8C25CE00F80933 /* MoogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/MoogFilter.h"; sourceTree = DEVELOPER_DIR; };
@@ -473,6 +479,8 @@
 		5E93914C0FA50D3600180323 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5EA56B390FB8EBF900DBC38A /* vmath.cpp */,
+				5EA56B3A0FB8EBF900DBC38A /* vmath.h */,
 				5EF1ABBA0FA6B0EE00BF814F /* common_macros.h */,
 				5E93914D0FA50D4800180323 /* fixed.h */,
 				5E93914E0FA50D4800180323 /* fixed.cpp */,
@@ -505,6 +513,8 @@
 				5EE873E60F901593005E3C3C /* phraseController.mm */,
 				5EE74F200F9404450075C0CF /* parentController.h */,
 				5EE873E90F9015BE005E3C3C /* parentController.mm */,
+				5EA56B2F0FB8EBBA00DBC38A /* ballController.h */,
+				5EA56B300FB8EBBA00DBC38A /* ballController.mm */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -1136,6 +1146,8 @@
 				5EFC910A0FA9394C00E4C94A /* ofxiPhonePickerView.mm in Sources */,
 				5EB5B6B40FAAAD1500C8C9F9 /* gridController.mm in Sources */,
 				5E5DB2000FB529AE006D05D1 /* MoogFilter2.mm in Sources */,
+				5EA56B310FB8EBBA00DBC38A /* ballController.mm in Sources */,
+				5EA56B3B0FB8EBF900DBC38A /* vmath.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,7 +1237,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = rastaman;
+				PRODUCT_NAME = gridSound;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "208837C2-68AC-4577-9DD2-B9092642DE87";
 			};
 			name = Distribution;

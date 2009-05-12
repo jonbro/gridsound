@@ -26,7 +26,9 @@
 	y_offset = 0;
 	x_offset = 0;
 	target_y = 0;
+	b_control = [[ballController alloc] init];
 	target_x = 0;
+	filter_on = false;
 	scale = 1;
 	target_scale = 1;
 	return self;
@@ -40,6 +42,9 @@
 				ofFill();
 				ofRect((111*i+x_offset)*scale, (111*j+y_offset)*scale, 98.0*scale, 98*scale);
 			}
+		}
+		if(filter_on){
+			[b_control render];
 		}
 	}else{
 		[[children objectAtIndex:currentGrid] render];
@@ -64,11 +69,15 @@
 	}else if([currentState isEqual:@"large"]){
 		[[children objectAtIndex:currentGrid] update];
 	}
+	if(filter_on){
+		[b_control update];
+		currentCutoff = [b_control getX];
+	}
 	for(int i=0;i<3;i++){
 		if([[filtering objectAtIndex:i] isEqual:@"true"]){
-			[[instrumentGroup objectAtIndex:i] setCutoffDirect:fminf(fabsf(ofxAccelerometer.getForce().x)/2.0, 1.0)];
+			[[instrumentGroup objectAtIndex:i] setCutoffDirect:currentCutoff];
 		}else{
-			[[instrumentGroup objectAtIndex:i] setCutoffDirect:1.0];
+			[[instrumentGroup objectAtIndex:i] setCutoffDirect:0.5];
 		}
 	}
 }
@@ -123,6 +132,7 @@
 						target_scale = 2;
 						currentGrid = j*3+i;
 					}else{
+						filter_on = true;
 						[[filtering objectAtIndex:i] setString:@"true"];
 					}
 				}
@@ -138,6 +148,8 @@
 -(void)touchUpX:(float)x y:(float)y touchId:(int)touchId{
 	for(int i=0;i<3;i++){
 		[[filtering objectAtIndex:i] setString:@"false"];
+		filter_on = false;
+		[b_control reset];
 	}
 }
 

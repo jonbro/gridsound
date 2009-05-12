@@ -12,6 +12,7 @@
 	Float32 f, p, q, cutoff, resonance;             //filter coefficients
 	Float32 b0, b1, b2, b3, b4;  //filter buffers (beware denormals!)
 	Float32 t1, t2;              //temporary buffers
+	bool lowPass;
 }
 
 -(void)setCutoff:(float)_cutoff;

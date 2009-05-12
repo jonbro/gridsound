@@ -10,14 +10,15 @@
 #import "gridController.h"
 #include "ofMain.h"
 #include "ofxiPhoneKeyboard.h"
-
-//#import "phraseController.h"
+#import "ballController.h"
 
 @interface parentController : NSObject {
-	bool renderSmall;
+	bool renderSmall, filter_on;
 	int currentGrid;
 	float y_offset, x_offset, scale, target_y, target_x, target_scale; // lol, should move this shit into vectors
 	float endTime;
+	float currentCutoff;
+	ballController *b_control;
 	NSMutableArray *instrumentGroup;
 	NSMutableString *currentState;
 	NSMutableArray	*children;

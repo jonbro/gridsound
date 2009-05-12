@@ -15,7 +15,7 @@
 	[super init];
 	b0 = b1 = b2 = b3 = b4 = 0.0;  //filter buffers (beware denormals!)
 	t1 = t2 = 0.0;              //temporary buffers
-
+	lowPass = true;
 	return self;
 }	
 -(void) setRes:(Float32)_res
@@ -25,7 +25,15 @@
 }
 -(void) setCutoff:(Float32)_cutoff
 {
-	cutoff = _cutoff;
+	_cutoff *= 2.0;
+	if(_cutoff<1.0){
+		cutoff = _cutoff;
+		lowPass = true;
+	}else{
+		cutoff = _cutoff-1.0;
+		lowPass = false;
+	}
+	cutoff = fmin(fmax(cutoff, 0.0), 1.0);
 	[self calc];
 }
 -(void) calc
@@ -45,11 +53,11 @@
 	b4 = (b3 + t1) * p - b4 * f;
 	b4 = b4 - b4 * b4 * b4 * 0.166667f;    //clipping
 	b0 = *inputSample;
-	
-	*inputSample = b4;
-	// Lowpass  output:  b4
-	// Highpass output:  in - b4;
-	// Bandpass output:  3.0f * (b3 - b4);
+	if(lowPass){
+		*inputSample = b4;
+	}else{
+		*inputSample = *inputSample-b4;
+	}
 }
 
 @end

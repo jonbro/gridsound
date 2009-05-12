@@ -64,22 +64,18 @@ float sampleIndex = 0;
 	leftChannel = (SInt16 *)returnValue;
 	rightChannel = &leftChannel[1];
 	fl_leftChan = (Float32)(*leftChannel);
-	fl_rightChan = (Float32)(*rightChannel);
+//	fl_rightChan = (Float32)(*rightChannel);
 	fl_leftChan = fl_leftChan/65535.0;
-	fl_rightChan = fl_rightChan/65535.0;
+//	fl_rightChan = fl_rightChan/65535.0;
 
-	// do all my shit in fp
-//	f_leftChan = i2fp((*leftChannel));
-//	f_rightChan = i2fp((*rightChannel));
-//	
 	if(filtering){
 		[leftFilter processSample:&fl_leftChan];
-		[rightFilter processSample:&fl_rightChan];
+		//[rightFilter processSample:&fl_rightChan];
 	}
 
 	fl_leftChan = volMultiplier*fl_leftChan;
-	fl_rightChan = volMultiplier*fl_rightChan;
-
+//	fl_rightChan = volMultiplier*fl_rightChan;
+	fl_rightChan = fl_leftChan;
 	*leftChannel = (SInt16)(fl_leftChan*65535.0);
 	*rightChannel = (SInt16)(fl_rightChan*65535.0);
 	
@@ -101,7 +97,7 @@ float sampleIndex = 0;
 }
 -(void)setCutoffDirect:(float)_cutoff
 {
-	if(_cutoff >= 1){
+	if(_cutoff == 0.5){
 		filtering = false;
 	}else{
 		filtering = true;
