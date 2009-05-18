@@ -42,6 +42,13 @@
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
+	
+	buttonsOff.loadImage("allBtnsOffW.png");
+	buttonsOffTex = buttonsOff.getTextureReference();
+
+	buttonsOn.loadImage("allBtnsOnW.png");
+	buttonsOffTex = buttonsOn.getTextureReference();
+	
 	return self;
 }
 -(void)showModePicker

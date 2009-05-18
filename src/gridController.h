@@ -11,6 +11,7 @@
 #import "RemoteIOPlayer.h"
 #import "parentController.h"
 #include "ofxiPhonePickerView.h"
+#import "ofxMSAShape3D.h"
 
 @interface gridController : NSObject {
 	int steps[8];
@@ -20,6 +21,9 @@
 	NSArray *noteSamples, *loopSamples;
 	NSMutableString *currentState;
 	UISegmentedControl	*pickerStyleSegmentedControl;
+	ofImage buttonsOn, buttonsOff;
+	ofxMSAShape3D myShape;
+	ofTexture buttonsOnTex, buttonsOffTex;
 	ofxiPhonePickerView *picker;
 	RemoteIOPlayer *player;
 }
