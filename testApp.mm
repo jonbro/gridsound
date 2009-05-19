@@ -12,6 +12,8 @@ void testApp::setup(){
 	ofBackground(235, 254, 241);
 	ofSetBackgroundAuto(true);
 	
+	ofEnableAlphaBlending();
+	
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
 

@@ -10,8 +10,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		5E39BBCC0FC22C3700122C40 /* allBtnsOffW.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BBCA0FC22C3700122C40 /* allBtnsOffW.png */; };
-		5E39BBCD0FC22C3700122C40 /* allBtnsOnW.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BBCB0FC22C3700122C40 /* allBtnsOnW.png */; };
+		5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */; };
+		5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */; };
 		5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8D0F8451E000F5E00E /* amen_174.wav */; };
 		5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8F0F8451EF00F5E00E /* reggae_174.wav */; };
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
@@ -113,8 +113,8 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
-		5E39BBCA0FC22C3700122C40 /* allBtnsOffW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = allBtnsOffW.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOffW.png"; sourceTree = DEVELOPER_DIR; };
-		5E39BBCB0FC22C3700122C40 /* allBtnsOnW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = allBtnsOnW.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOnW.png"; sourceTree = DEVELOPER_DIR; };
+		5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOffW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOffW.apng"; sourceTree = DEVELOPER_DIR; };
+		5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOnW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOnW.apng"; sourceTree = DEVELOPER_DIR; };
 		5E410C8D0F8451E000F5E00E /* amen_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = amen_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/amen_174.wav"; sourceTree = DEVELOPER_DIR; };
 		5E410C8F0F8451EF00F5E00E /* reggae_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = reggae_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/reggae_174.wav"; sourceTree = DEVELOPER_DIR; };
 		5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InMemoryAudioFile.h; path = src/InMemoryAudioFile.h; sourceTree = "<group>"; };
@@ -801,6 +801,8 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */,
+				5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */,
 				5E5DB1B70FB51794006D05D1 /* hirankin */,
 				5ED5EFED0FAA9E50005AA5D4 /* noteSamples */,
 				5EFC90870FA92DB500E4C94A /* glock_107_wav */,
@@ -814,8 +816,6 @@
 				5E410C8F0F8451EF00F5E00E /* reggae_174.wav */,
 				5E410C8D0F8451E000F5E00E /* amen_174.wav */,
 				5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */,
-				5E39BBCA0FC22C3700122C40 /* allBtnsOffW.png */,
-				5E39BBCB0FC22C3700122C40 /* allBtnsOnW.png */,
 				BB3F148C0F4C6DAB00A33527 /* images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				BBD1C2770F39143F007FCFB3 /* Icon.png */,
@@ -1111,8 +1111,8 @@
 				5E5DB1D70FB51794006D05D1 /* hr_vox3.wav in Resources */,
 				5E5DB1D80FB51794006D05D1 /* hr_vox4.wav in Resources */,
 				5E5DB1D90FB51794006D05D1 /* hr_vox5.wav in Resources */,
-				5E39BBCC0FC22C3700122C40 /* allBtnsOffW.png in Resources */,
-				5E39BBCD0FC22C3700122C40 /* allBtnsOnW.png in Resources */,
+				5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */,
+				5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1169,6 +1169,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jonathan Brodsky";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1194,6 +1195,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jonathan Brodsky";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
@@ -1236,6 +1238,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jonathan Brodsky";
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;

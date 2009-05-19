@@ -11,11 +11,13 @@
 #import "iPhoneGlobals.h"
 
 gridControllerHelper::gridControllerHelper()
-{
-	buttonsOff.loadImage("allBtnsOffW.png");
+{	
+	buttonsOff.loadImage("allBtnsOffW.apng");
+	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOffTex = buttonsOff.getTextureReference();
 	
-	buttonsOn.loadImage("allBtnsOnW.png");
+	buttonsOn.loadImage("allBtnsOnW.apng");
+	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOnTex = buttonsOn.getTextureReference();
 }
 
@@ -24,7 +26,7 @@ gridControllerHelper::~gridControllerHelper()
 {
 	
 }
-void gridControllerHelper::drawButton(int buttonCounter, float x, float y)
+void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY)
 {
 	if(buttonCounter == 0){
 		curTex = buttonsOffTex;
@@ -32,26 +34,29 @@ void gridControllerHelper::drawButton(int buttonCounter, float x, float y)
 		curTex = buttonsOnTex;
 	}
 	glPushMatrix();
-	glTranslatef(x,y,0.0f);			
-	float tex_t = curTex.texData.tex_t/8.0*x;
-	float tex_u = curTex.texData.tex_u/8.0*y;
+	glTranslatef(x,y,0.0f);
+	float tex_t = curTex.texData.tex_t*textureOffsetX;
+	float tex_u = curTex.texData.tex_u*textureOffsetY;
+	float tex_offset = curTex.texData.tex_u/8.0;
+	curTex.bind();
 	myShape.begin(GL_TRIANGLE_STRIP);
-	myShape.setTexCoord(0, 0);
+	myShape.setTexCoord(tex_t, tex_u);
 	myShape.addVertex(0, 0);
 	
-	myShape.setTexCoord(tex_t, 0);
+	myShape.setTexCoord(tex_t+tex_offset, tex_u);
 	myShape.addVertex(320/8, 0);
 	
-	myShape.setTexCoord(0, tex_u);
+	myShape.setTexCoord(tex_t, tex_u+tex_offset);
 	myShape.addVertex(0, 320/8);
 	
-	myShape.setTexCoord(tex_t, tex_u);
+	myShape.setTexCoord(tex_t+tex_offset, tex_u+tex_offset);
 	myShape.addVertex(320/8, 320/8);
 	
 	myShape.enableColor(false);
 	myShape.enableNormal(false);
 	myShape.enableTexCoord(true);
-	myShape.end();	
+	myShape.end();
+	curTex.unbind();
 	glPopMatrix();
 }
 
@@ -132,11 +137,10 @@ void gridControllerHelper::drawButton(int buttonCounter, float x, float y)
 	ofSetColor(0xEB008B);
 	for(int j = 0; j < 8; j++){
 		for(int i = 0; i < 8; i++){
-			ofSetColor(0xEB008B);
 			if(steps[j] == i){
-				gcHelper->drawButton(0, j*40+2, i*40+2+y_offset);
+				gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
 			}else{
-				gcHelper->drawButton(1, j*40+2, i*40+2+y_offset);
+				gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
 			}
 		}
 	}
