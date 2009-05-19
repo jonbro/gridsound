@@ -10,6 +10,51 @@
 #import "gridController.h"
 #import "iPhoneGlobals.h"
 
+gridControllerHelper::gridControllerHelper()
+{
+	buttonsOff.loadImage("allBtnsOffW.png");
+	buttonsOffTex = buttonsOff.getTextureReference();
+	
+	buttonsOn.loadImage("allBtnsOnW.png");
+	buttonsOnTex = buttonsOn.getTextureReference();
+}
+
+//--------------------------------------------------------------
+gridControllerHelper::~gridControllerHelper()
+{
+	
+}
+void gridControllerHelper::drawButton(int buttonCounter, float x, float y)
+{
+	if(buttonCounter == 0){
+		curTex = buttonsOffTex;
+	}else{
+		curTex = buttonsOnTex;
+	}
+	glPushMatrix();
+	glTranslatef(x,y,0.0f);			
+	float tex_t = curTex.texData.tex_t/8.0*x;
+	float tex_u = curTex.texData.tex_u/8.0*y;
+	myShape.begin(GL_TRIANGLE_STRIP);
+	myShape.setTexCoord(0, 0);
+	myShape.addVertex(0, 0);
+	
+	myShape.setTexCoord(tex_t, 0);
+	myShape.addVertex(320/8, 0);
+	
+	myShape.setTexCoord(0, tex_u);
+	myShape.addVertex(0, 320/8);
+	
+	myShape.setTexCoord(tex_t, tex_u);
+	myShape.addVertex(320/8, 320/8);
+	
+	myShape.enableColor(false);
+	myShape.enableNormal(false);
+	myShape.enableTexCoord(true);
+	myShape.end();	
+	glPopMatrix();
+}
+
 @implementation gridController
 
 @synthesize playbackMode;
@@ -42,13 +87,7 @@
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
-	
-	buttonsOff.loadImage("allBtnsOffW.png");
-	buttonsOffTex = buttonsOff.getTextureReference();
-
-	buttonsOn.loadImage("allBtnsOnW.png");
-	buttonsOffTex = buttonsOn.getTextureReference();
-	
+	gcHelper = new gridControllerHelper();
 	return self;
 }
 -(void)showModePicker
@@ -95,14 +134,10 @@
 		for(int i = 0; i < 8; i++){
 			ofSetColor(0xEB008B);
 			if(steps[j] == i){
-				ofFill();
+				gcHelper->drawButton(0, j*40+2, i*40+2+y_offset);
 			}else{
-				if(fmod((double)player.tick, (double)8)!=j){
-					ofSetColor(0, 0, 0);
-				}
-				ofNoFill();
+				gcHelper->drawButton(1, j*40+2, i*40+2+y_offset);
 			}
-			ofRect(j*40+2, i*40+2+y_offset, 35, 35);    
 		}
 	}
 	[self drawBottomBar];

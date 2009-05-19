@@ -13,6 +13,18 @@
 #include "ofxiPhonePickerView.h"
 #import "ofxMSAShape3D.h"
 
+class gridControllerHelper 
+	{		
+	public:
+		gridControllerHelper();
+		~gridControllerHelper();
+		void drawButton(int buttonCounter, float x, float y);
+	protected:		
+		ofImage buttonsOn, buttonsOff;
+		ofxMSAShape3D myShape;
+		ofTexture buttonsOnTex, buttonsOffTex, curTex;
+	};
+
 @interface gridController : NSObject {
 	int steps[8];
 	int currentSample, numLoops, playbackMode;
@@ -21,9 +33,7 @@
 	NSArray *noteSamples, *loopSamples;
 	NSMutableString *currentState;
 	UISegmentedControl	*pickerStyleSegmentedControl;
-	ofImage buttonsOn, buttonsOff;
-	ofxMSAShape3D myShape;
-	ofTexture buttonsOnTex, buttonsOffTex;
+	gridControllerHelper *gcHelper;
 	ofxiPhonePickerView *picker;
 	RemoteIOPlayer *player;
 }
