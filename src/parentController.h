@@ -12,6 +12,17 @@
 #include "ofxiPhoneKeyboard.h"
 #import "ballController.h"
 
+class parentControllerHelper 
+	{		
+	public:
+		parentControllerHelper();
+		~parentControllerHelper();
+		void drawBackground();
+	protected:		
+		ofImage mainBackground;
+	};
+
+
 @interface parentController : NSObject {
 	bool renderSmall, filter_on;
 	int currentGrid;
@@ -19,6 +30,7 @@
 	float endTime;
 	float currentCutoff, currentOffset;
 	ballController *b_control;
+	parentControllerHelper *pcHelper;
 	NSMutableArray *instrumentGroup;
 	NSMutableString *currentState;
 	NSMutableArray	*children;

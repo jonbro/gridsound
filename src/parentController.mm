@@ -10,6 +10,22 @@
 #include "ofMain.h"
 #include "ofxAccelerometer.h"
 
+
+parentControllerHelper::parentControllerHelper()
+{		
+	mainBackground.loadImage("bookbig2.jpg");
+}
+
+//--------------------------------------------------------------
+parentControllerHelper::~parentControllerHelper()
+{
+	
+}
+void parentControllerHelper::drawBackground()
+{
+	mainBackground.getTextureReference().draw(0, 0);
+}
+
 @implementation parentController
 
 @synthesize children;
@@ -30,19 +46,14 @@
 	target_x = 0;
 	filter_on = false;
 	scale = 1;
+	pcHelper = new parentControllerHelper();
 	target_scale = 1;
 	return self;
 }
 -(void)render
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"] || [currentState isEqual:@"small"]){
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++){
-				ofSetColor(0xEB008B);
-				ofFill();
-				ofRect((111*i+x_offset)*scale, (111*j+y_offset)*scale, 98.0*scale, 98*scale);
-			}
-		}
+		pcHelper->drawBackground();
 		if(filter_on){
 			[b_control render];
 		}

@@ -12,6 +12,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */; };
 		5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */; };
+		5E39BD280FC389C600122C40 /* bookbig2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BD270FC389C600122C40 /* bookbig2.jpg */; };
 		5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8D0F8451E000F5E00E /* amen_174.wav */; };
 		5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8F0F8451EF00F5E00E /* reggae_174.wav */; };
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
@@ -115,6 +116,7 @@
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOffW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOffW.apng"; sourceTree = DEVELOPER_DIR; };
 		5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOnW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOnW.apng"; sourceTree = DEVELOPER_DIR; };
+		5E39BD270FC389C600122C40 /* bookbig2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bookbig2.jpg; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/bookbig2.jpg"; sourceTree = DEVELOPER_DIR; };
 		5E410C8D0F8451E000F5E00E /* amen_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = amen_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/amen_174.wav"; sourceTree = DEVELOPER_DIR; };
 		5E410C8F0F8451EF00F5E00E /* reggae_174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = reggae_174.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/reggae_174.wav"; sourceTree = DEVELOPER_DIR; };
 		5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InMemoryAudioFile.h; path = src/InMemoryAudioFile.h; sourceTree = "<group>"; };
@@ -425,6 +427,31 @@
 				BB16EBD10F2B2A9500518274 /* OpenGLES.framework */,
 			);
 			name = "core frameworks";
+			sourceTree = "<group>";
+		};
+		5E39BD290FC389CF00122C40 /* book_design_images */ = {
+			isa = PBXGroup;
+			children = (
+				5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */,
+				5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */,
+				5E39BD270FC389C600122C40 /* bookbig2.jpg */,
+			);
+			name = book_design_images;
+			sourceTree = "<group>";
+		};
+		5E39BD2A0FC389DE00122C40 /* old_samples */ = {
+			isa = PBXGroup;
+			children = (
+				5EEEB9020FA3B16500D766A5 /* note.wav */,
+				5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */,
+				5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */,
+				5EEEB6790FA35EF200D766A5 /* drum_stem.wav */,
+				5EFB016A0F8D923200E1FD8E /* square.wav */,
+				5E410C8F0F8451EF00F5E00E /* reggae_174.wav */,
+				5E410C8D0F8451E000F5E00E /* amen_174.wav */,
+				5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */,
+			);
+			name = old_samples;
 			sourceTree = "<group>";
 		};
 		5E4FEB160F805A6A003018CA /* audio_src */ = {
@@ -801,21 +828,13 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */,
-				5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */,
+				5E39BD2A0FC389DE00122C40 /* old_samples */,
+				5E39BD290FC389CF00122C40 /* book_design_images */,
 				5E5DB1B70FB51794006D05D1 /* hirankin */,
 				5ED5EFED0FAA9E50005AA5D4 /* noteSamples */,
 				5EFC90870FA92DB500E4C94A /* glock_107_wav */,
-				5EEEB9020FA3B16500D766A5 /* note.wav */,
-				5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */,
-				5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */,
-				5EEEB6790FA35EF200D766A5 /* drum_stem.wav */,
 				5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */,
 				5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */,
-				5EFB016A0F8D923200E1FD8E /* square.wav */,
-				5E410C8F0F8451EF00F5E00E /* reggae_174.wav */,
-				5E410C8D0F8451E000F5E00E /* amen_174.wav */,
-				5E9B3E790F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav */,
 				BB3F148C0F4C6DAB00A33527 /* images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				BBD1C2770F39143F007FCFB3 /* Icon.png */,
@@ -1113,6 +1132,7 @@
 				5E5DB1D90FB51794006D05D1 /* hr_vox5.wav in Resources */,
 				5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */,
 				5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */,
+				5E39BD280FC389C600122C40 /* bookbig2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
