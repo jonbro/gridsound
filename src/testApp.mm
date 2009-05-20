@@ -14,7 +14,7 @@ void testApp::setup(){
 	
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
-
+	
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
 	//initialise the audio player
@@ -24,6 +24,7 @@ void testApp::setup(){
 	for(int i=0;i<6;i++){
 		[mainController addChild:[[gridController alloc]init:player]];
 	}
+	
 	
 	
 	//initialise the inMemoryAudiofile (holds a wav file in memory)

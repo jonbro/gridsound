@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxAccelerometer.h"
 #include "ofxMultiTouch.h"
-
+#include "gridControllerHelper.h"
 #import "RemoteIOPlayer.h"
 #import "Phrase.h"
 #import "parentController.h"
@@ -37,7 +37,8 @@ public:
 	
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
-	
+	gridControllerHelper *gcHelper;
+
 	bool			accellOn;
 	ofPoint			initialPos;
 	

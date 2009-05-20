@@ -11,19 +11,7 @@
 #import "RemoteIOPlayer.h"
 #import "parentController.h"
 #include "ofxiPhonePickerView.h"
-#import "ofxMSAShape3D.h"
-
-class gridControllerHelper 
-	{		
-	public:
-		gridControllerHelper();
-		~gridControllerHelper();
-		void drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY);
-	protected:		
-		ofImage buttonsOn, buttonsOff;
-		ofxMSAShape3D myShape;
-		ofTexture buttonsOnTex, buttonsOffTex, curTex;
-	};
+#import "gridControllerHelper.h"
 
 @interface gridController : NSObject {
 	int steps[8];
@@ -40,7 +28,7 @@ class gridControllerHelper
 
 @property (assign) int playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper;
 -(void)showModePicker;
 -(void)hideModePicker;
 -(void)toggleMode:(id)sender;

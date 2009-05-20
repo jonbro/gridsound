@@ -10,63 +10,14 @@
 #import "gridController.h"
 #import "iPhoneGlobals.h"
 
-gridControllerHelper::gridControllerHelper()
-{	
-	buttonsOff.loadImage("allBtnsOffW.apng");
-	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
-	buttonsOffTex = buttonsOff.getTextureReference();
-	
-	buttonsOn.loadImage("allBtnsOnW.apng");
-	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
-	buttonsOnTex = buttonsOn.getTextureReference();
-}
-
-//--------------------------------------------------------------
-gridControllerHelper::~gridControllerHelper()
-{
-	
-}
-void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY)
-{
-	if(buttonCounter == 0){
-		curTex = buttonsOffTex;
-	}else{
-		curTex = buttonsOnTex;
-	}
-	glPushMatrix();
-	glTranslatef(x,y,0.0f);
-	float tex_t = curTex.texData.tex_t*textureOffsetX;
-	float tex_u = curTex.texData.tex_u*textureOffsetY;
-	float tex_offset = curTex.texData.tex_u/8.0;
-	curTex.bind();
-	myShape.begin(GL_TRIANGLE_STRIP);
-	myShape.setTexCoord(tex_t, tex_u);
-	myShape.addVertex(0, 0);
-	
-	myShape.setTexCoord(tex_t+tex_offset, tex_u);
-	myShape.addVertex(320/8, 0);
-	
-	myShape.setTexCoord(tex_t, tex_u+tex_offset);
-	myShape.addVertex(0, 320/8);
-	
-	myShape.setTexCoord(tex_t+tex_offset, tex_u+tex_offset);
-	myShape.addVertex(320/8, 320/8);
-	
-	myShape.enableColor(false);
-	myShape.enableNormal(false);
-	myShape.enableTexCoord(true);
-	myShape.end();
-	curTex.unbind();
-	glPopMatrix();
-}
-
 @implementation gridController
 
 @synthesize playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper
 {
 	self = [super init];
+	gcHelper = _gcHelper;
 	for(int i=0;i<8;i++){
 		steps[i] = i;
 	}
@@ -92,7 +43,6 @@ void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
-	gcHelper = new gridControllerHelper();
 	return self;
 }
 -(void)showModePicker

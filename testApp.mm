@@ -50,9 +50,11 @@ void testApp::setup(){
 	mainController = [[parentController alloc] init];
 	[mainController setInstrumentGroup:instrumentGroup];
 	[instrumentGroup release];
-
+	
+	gcHelper = new gridControllerHelper();
+	
 	for(int i=0;i<9;i++){
-		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain]];
+		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper];
 		[mainController addChild:_gControl];
 	}
 	
