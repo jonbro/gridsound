@@ -23,6 +23,7 @@ parentControllerHelper::~parentControllerHelper()
 }
 void parentControllerHelper::drawBackground()
 {
+	ofSetColor(255, 255, 255);
 	mainBackground.getTextureReference().draw(0, 0);
 }
 
