@@ -53,6 +53,20 @@
 		5ED5EFFD0FAA9E50005AA5D4 /* wmm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFF50FAA9E50005AA5D4 /* wmm.wav */; };
 		5EE024300F892E2A00B050C3 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE0242F0F892E2A00B050C3 /* dist.plist */; };
 		5EE500860FC3995C00047CDA /* gridControllerHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EE500850FC3995C00047CDA /* gridControllerHelper.cpp */; };
+		5EE501370FC4F56000047CDA /* 0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501290FC4F56000047CDA /* 0006.png */; };
+		5EE501380FC4F56000047CDA /* 0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012A0FC4F56000047CDA /* 0007.png */; };
+		5EE501390FC4F56000047CDA /* 0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012B0FC4F56000047CDA /* 0008.png */; };
+		5EE5013A0FC4F56000047CDA /* 0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012C0FC4F56000047CDA /* 0009.png */; };
+		5EE5013B0FC4F56000047CDA /* 0010.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012D0FC4F56000047CDA /* 0010.png */; };
+		5EE5013C0FC4F56000047CDA /* 0011.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012E0FC4F56000047CDA /* 0011.png */; };
+		5EE5013D0FC4F56000047CDA /* 0012.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012F0FC4F56000047CDA /* 0012.png */; };
+		5EE5013E0FC4F56000047CDA /* 0013.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501300FC4F56000047CDA /* 0013.png */; };
+		5EE5013F0FC4F56000047CDA /* 0014.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501310FC4F56000047CDA /* 0014.png */; };
+		5EE501400FC4F56000047CDA /* 0015.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501320FC4F56000047CDA /* 0015.png */; };
+		5EE501410FC4F56000047CDA /* 0016.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501330FC4F56000047CDA /* 0016.png */; };
+		5EE501420FC4F56000047CDA /* 0017.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501340FC4F56000047CDA /* 0017.png */; };
+		5EE501430FC4F56000047CDA /* 0018.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501350FC4F56000047CDA /* 0018.png */; };
+		5EE501440FC4F56000047CDA /* 0019.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501360FC4F56000047CDA /* 0019.png */; };
 		5EE873B10F8EE2F8005E3C3C /* 04B_11__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */; };
 		5EE873D50F8EE7B8005E3C3C /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */; };
 		5EE873E70F901593005E3C3C /* phraseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE873E60F901593005E3C3C /* phraseController.mm */; };
@@ -84,7 +98,6 @@
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB16EDCB0F2B368400518274 /* ofGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9A90F2B1E6900518274 /* ofGraphics.cpp */; };
 		BB16F3AD0F2B73B000518274 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16F3A80F2B73B000518274 /* main.cpp */; };
-		BB3F14940F4C6DAB00A33527 /* images in Resources */ = {isa = PBXBuildFile; fileRef = BB3F148C0F4C6DAB00A33527 /* images */; };
 		BB4B3E4D0F7AFE100030C0C6 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E1A0F7AFE100030C0C6 /* EAGLView.mm */; };
 		BB4B3E4E0F7AFE100030C0C6 /* iPhoneAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E1C0F7AFE100030C0C6 /* iPhoneAppDelegate.mm */; };
 		BB4B3E4F0F7AFE100030C0C6 /* iPhoneGlobals.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E1E0F7AFE100030C0C6 /* iPhoneGlobals.mm */; };
@@ -170,6 +183,20 @@
 		5EE0242F0F892E2A00B050C3 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/dist.plist"; sourceTree = DEVELOPER_DIR; };
 		5EE500840FC3995C00047CDA /* gridControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridControllerHelper.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridControllerHelper.h"; sourceTree = DEVELOPER_DIR; };
 		5EE500850FC3995C00047CDA /* gridControllerHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gridControllerHelper.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridControllerHelper.cpp"; sourceTree = DEVELOPER_DIR; };
+		5EE501290FC4F56000047CDA /* 0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0006.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0006.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012A0FC4F56000047CDA /* 0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0007.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0007.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012B0FC4F56000047CDA /* 0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0008.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0008.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012C0FC4F56000047CDA /* 0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0009.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0009.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012D0FC4F56000047CDA /* 0010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0010.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0010.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012E0FC4F56000047CDA /* 0011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0011.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0011.png"; sourceTree = DEVELOPER_DIR; };
+		5EE5012F0FC4F56000047CDA /* 0012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0012.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0012.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501300FC4F56000047CDA /* 0013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0013.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0013.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501310FC4F56000047CDA /* 0014.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0014.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0014.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501320FC4F56000047CDA /* 0015.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0015.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0015.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501330FC4F56000047CDA /* 0016.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0016.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0016.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501340FC4F56000047CDA /* 0017.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0017.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0017.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501350FC4F56000047CDA /* 0018.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0018.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0018.png"; sourceTree = DEVELOPER_DIR; };
+		5EE501360FC4F56000047CDA /* 0019.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0019.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0019.png"; sourceTree = DEVELOPER_DIR; };
 		5EE74F200F9404450075C0CF /* parentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parentController.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentController.h"; sourceTree = DEVELOPER_DIR; };
 		5EE74F240F94048B0075C0CF /* phraseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phraseController.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/phraseController.h"; sourceTree = DEVELOPER_DIR; };
 		5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_11__.TTF; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/04B_11__.TTF"; sourceTree = DEVELOPER_DIR; };
@@ -178,7 +205,7 @@
 		5EE873E90F9015BE005E3C3C /* parentController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = parentController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentController.mm"; sourceTree = DEVELOPER_DIR; };
 		5EEEB6790FA35EF200D766A5 /* drum_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drum_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/drum_stem.wav"; sourceTree = DEVELOPER_DIR; };
 		5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bass_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/bass_stem.wav"; sourceTree = DEVELOPER_DIR; };
-		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/testApp.mm"; sourceTree = DEVELOPER_DIR; };
+		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/testApp.mm"; sourceTree = DEVELOPER_DIR; };
 		5EEEB8220FA3A1A700D766A5 /* flat_bottom_right_chan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flat_bottom_right_chan.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/flat_bottom_right_chan.wav"; sourceTree = DEVELOPER_DIR; };
 		5EEEB9020FA3B16500D766A5 /* note.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = note.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/note.wav"; sourceTree = DEVELOPER_DIR; };
 		5EF1ABBA0FA6B0EE00BF814F /* common_macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common_macros.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/common_macros.h"; sourceTree = DEVELOPER_DIR; };
@@ -248,7 +275,6 @@
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB16F3A80F2B73B000518274 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.cpp; path = main.mm; sourceTree = "<group>"; };
 		BB16F3AA0F2B73B000518274 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
-		BB3F148C0F4C6DAB00A33527 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		BB4B3DE40F7AFE100030C0C6 /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
 		BB4B3E160F7AFE100030C0C6 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		BB4B3E170F7AFE100030C0C6 /* ofxiPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiPhone.h; sourceTree = "<group>"; };
@@ -537,6 +563,28 @@
 			);
 			name = noteSamples;
 			path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/noteSamples";
+			sourceTree = DEVELOPER_DIR;
+		};
+		5EE501280FC4F56000047CDA /* flyout */ = {
+			isa = PBXGroup;
+			children = (
+				5EE501290FC4F56000047CDA /* 0006.png */,
+				5EE5012A0FC4F56000047CDA /* 0007.png */,
+				5EE5012B0FC4F56000047CDA /* 0008.png */,
+				5EE5012C0FC4F56000047CDA /* 0009.png */,
+				5EE5012D0FC4F56000047CDA /* 0010.png */,
+				5EE5012E0FC4F56000047CDA /* 0011.png */,
+				5EE5012F0FC4F56000047CDA /* 0012.png */,
+				5EE501300FC4F56000047CDA /* 0013.png */,
+				5EE501310FC4F56000047CDA /* 0014.png */,
+				5EE501320FC4F56000047CDA /* 0015.png */,
+				5EE501330FC4F56000047CDA /* 0016.png */,
+				5EE501340FC4F56000047CDA /* 0017.png */,
+				5EE501350FC4F56000047CDA /* 0018.png */,
+				5EE501360FC4F56000047CDA /* 0019.png */,
+			);
+			name = flyout;
+			path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout";
 			sourceTree = DEVELOPER_DIR;
 		};
 		5EE873E40F90155D005E3C3C /* controllers */ = {
@@ -833,6 +881,7 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EE501280FC4F56000047CDA /* flyout */,
 				5E39BD2A0FC389DE00122C40 /* old_samples */,
 				5E39BD290FC389CF00122C40 /* book_design_images */,
 				5E5DB1B70FB51794006D05D1 /* hirankin */,
@@ -840,7 +889,6 @@
 				5EFC90870FA92DB500E4C94A /* glock_107_wav */,
 				5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */,
 				5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */,
-				BB3F148C0F4C6DAB00A33527 /* images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				BBD1C2770F39143F007FCFB3 /* Icon.png */,
 				BBD1C2760F39143F007FCFB3 /* Default.png */,
@@ -1087,7 +1135,6 @@
 			files = (
 				BBD1C2780F39143F007FCFB3 /* Default.png in Resources */,
 				BBD1C2790F39143F007FCFB3 /* Icon.png in Resources */,
-				BB3F14940F4C6DAB00A33527 /* images in Resources */,
 				5E9B3E7A0F82F4550099BD56 /* MS20-VCO1-Tri-C1.wav in Resources */,
 				5E410C8E0F8451E000F5E00E /* amen_174.wav in Resources */,
 				5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */,
@@ -1138,6 +1185,20 @@
 				5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */,
 				5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */,
 				5E39BD280FC389C600122C40 /* bookbig2.jpg in Resources */,
+				5EE501370FC4F56000047CDA /* 0006.png in Resources */,
+				5EE501380FC4F56000047CDA /* 0007.png in Resources */,
+				5EE501390FC4F56000047CDA /* 0008.png in Resources */,
+				5EE5013A0FC4F56000047CDA /* 0009.png in Resources */,
+				5EE5013B0FC4F56000047CDA /* 0010.png in Resources */,
+				5EE5013C0FC4F56000047CDA /* 0011.png in Resources */,
+				5EE5013D0FC4F56000047CDA /* 0012.png in Resources */,
+				5EE5013E0FC4F56000047CDA /* 0013.png in Resources */,
+				5EE5013F0FC4F56000047CDA /* 0014.png in Resources */,
+				5EE501400FC4F56000047CDA /* 0015.png in Resources */,
+				5EE501410FC4F56000047CDA /* 0016.png in Resources */,
+				5EE501420FC4F56000047CDA /* 0017.png in Resources */,
+				5EE501430FC4F56000047CDA /* 0018.png in Resources */,
+				5EE501440FC4F56000047CDA /* 0019.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

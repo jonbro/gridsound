@@ -12,83 +12,99 @@ void testApp::setup(){
 	ofBackground(235, 254, 241);
 	ofSetBackgroundAuto(true);
 	
+	ofEnableAlphaBlending();
+	
 	// touch events will be sent to myTouchListener
 	ofxMultiTouch.addListener(this);
+
+	ofxAccelerometer.setup();
+	
+	belt.loadImage("0006.png");
 	
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
 	//initialise the audio player
 	[player intialiseAudio];
+	NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Glock4", @"OldBeat", nil];
+	NSArray *noteSampleArray = [[NSArray alloc] initWithObjects:@"blg", @"bng", @"chm", @"cht", @"crh", @"plk", @"tnk", @"wmm", nil];
 	
-	mainController = [[parentController alloc] init];
-	for(int i=0;i<6;i++){
-		[mainController addChild:[[gridController alloc]init:player]];
-	}
+	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
+	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
 	
-	
-	
-	//initialise the inMemoryAudiofile (holds a wav file in memory)
-	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:2];
 	[player setInstrumentGroup: instrumentGroup];
 	
-	SampleInstrument *inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"bass_stem" ofType:@"wav"]];
-	//set the controllers on the first instrument
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:0] forKey:@"lpof"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:3] forKey:@"fcut"];
+	for(int i=0;i<[sampleArray count];i++){
+		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
+		//open the a wav file from the application resources
+		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav"]];
+		[samplePool addObject:[inMemoryAudioFile retain]];
+	}
+	for(int i=0;i<[noteSampleArray count];i++){
+		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
+		//open the a wav file from the application resources
+		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[noteSampleArray objectAtIndex:i] ofType:@"wav"]];
+		[samplePool addObject:[inMemoryAudioFile retain]];
+	}
+	
+	mainController = [[parentController alloc] init];
+	[mainController setInstrumentGroup:instrumentGroup];
+	[instrumentGroup release];
+	
+	gcHelper = new gridControllerHelper();
+	
+	for(int i=0;i<9;i++){
+		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper];
+		[mainController addChild:_gControl];
+	}
+	
+	imageCount = false;
+	for(int i=0;i<3;i++){
+		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
+		sampleInstrument.samplePool = samplePool;
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
+		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"fcut"];
+		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
+		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
 
-	//set the players inMemoryAudioFile
-	[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-
-	
-	// audio file 2
-	inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"drum_stem" ofType:@"wav"]];
-
-	//set the controllers on the first instrument
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:1] forKey:@"lpof"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:4] forKey:@"fcut"];
-	
-	//set the players inMemoryAudioFile
-	[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-	
-	
-	// audio file 3
-	inMemoryAudioFile = [[SampleInstrument alloc]init];
-	//open the a wav file from the application resources
-	[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:@"square" ofType:@"wav"]];
-	
-	//set the controllers on the first instrument
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:2] forKey:@"note"];
-	[inMemoryAudioFile.controllers setObject:[mainController.children objectAtIndex:5] forKey:@"fcut"];
-	
-	//set the players inMemoryAudioFile
-	//[[player instrumentGroup] addObject:inMemoryAudioFile];
-	[inMemoryAudioFile reset];
-	
-	
-	currentGrid = 0;
-	
+		sampleInstrument.volume = 80;
+		sampleInstrument.currentSample = i;
+		
+		[[mainController.children objectAtIndex:i] setSample:i*6];
+		
+		//set the players inMemoryAudioFile
+		[[player instrumentGroup] addObject:sampleInstrument];
+		
+		[sampleInstrument reset];
+		[sampleInstrument release];
+	}
+		
+	currentGrid = 0;	
 	[player start];
-//	[player setMuteChannel:1];
 }
 
 
 //--------------------------------------------------------------
 void testApp::update(){
-	ofxAccelerometer.getForce().x;
-	ofxAccelerometer.getForce().y;
+	[mainController update];
+	if(imageCount){
+//		belt.loadImage("0006.png");
+		imageCount = false;
+	}else{
+//		belt.loadImage("0007.png");
+		imageCount = true;
+	}
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 	[mainController render];
+	ofSetColor(255, 255, 255);
+	belt.getTextureReference().draw(0, 0);
 }
 void testApp::exit() {
+	// need to dealloc all my shit.
+	[player stop];
 	printf("exit()\n");
 }
 
@@ -113,7 +129,7 @@ void testApp::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(){
-	printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
+	//printf("frameRate: %.3f, frameNum: %i\n", ofGetFrameRate(), ofGetFrameNum());
 }
 
 //--------------------------------------------------------------
@@ -131,10 +147,11 @@ void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData 
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	[mainController touchUpX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	printf("touch %i double tap at (%i,%i)\n", touchId, x,y);
+	//printf("touch %i double tap at (%i,%i)\n", touchId, x,y);
 }
 
 

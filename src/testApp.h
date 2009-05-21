@@ -38,7 +38,8 @@ public:
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
-
+	ofImage belt;
+	bool			imageCount;
 	bool			accellOn;
 	ofPoint			initialPos;
 	
