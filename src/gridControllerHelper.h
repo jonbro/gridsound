@@ -15,8 +15,10 @@ class gridControllerHelper
 		gridControllerHelper();
 		~gridControllerHelper();
 		void drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY);
-	protected:		
-		ofImage buttonsOn, buttonsOff;
+		void drawBackground();
+
+	protected:
+		ofImage buttonsOn, buttonsOff, background;
 		ofxMSAShape3D *myShape;
 		ofTexture buttonsOnTex, buttonsOffTex, curTex;
 	};

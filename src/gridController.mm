@@ -28,6 +28,10 @@
 	pickerStyleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Cutter", @"Note", nil]];
 	[pickerStyleSegmentedControl addTarget:self action:@selector(toggleMode:) forControlEvents:UIControlEventValueChanged];
 	pickerStyleSegmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+	ripples = [[NSMutableArray alloc]initWithCapacity:8];
+	for(int i=0;i<8;i++){
+		[ripples addObject:[[ripple alloc]init]];
+	}
 	pickerStyleSegmentedControl.tintColor = [UIColor darkGrayColor];
     pickerStyleSegmentedControl.backgroundColor = [UIColor clearColor];
 	[pickerStyleSegmentedControl sizeToFit];
@@ -40,6 +44,7 @@
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
 	volumeLevel = 80;
+	currentStep = 0;
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
@@ -84,6 +89,8 @@
 }
 -(void) render
 {
+	ofSetColor(0xFFFFFF);
+	gcHelper->drawBackground();
 	ofSetColor(0xEB008B);
 	for(int j = 0; j < 8; j++){
 		for(int i = 0; i < 8; i++){
@@ -93,6 +100,9 @@
 				gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
 			}
 		}
+	}
+	for(int j = 0; j < 8; j++){
+		[[ripples objectAtIndex:j] renderX:j*40+20 Y:steps[j]*40+y_offset+20];
 	}
 	[self drawBottomBar];
 	[self drawVolumeBar];
@@ -117,6 +127,13 @@
 	}else if([currentState isEqual:@"at_settings"]){
 		currentSample = picker->getRow();
 	}
+	for(int i=0;i<8;i++){
+		[[ripples objectAtIndex:i] update];
+	}
+	if(fmod((double)player.tick, (double)8)!=currentStep){
+		currentStep = fmod((double)player.tick, (double)8);
+		[[ripples objectAtIndex:currentStep] startPulse];
+	}	
 	picker->setPosition(0, 520+y_offset);	
 	[self setModePickerPosition:0 y:480+y_offset];
 }

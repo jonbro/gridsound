@@ -101,8 +101,6 @@ void parentControllerHelper::drawBackground()
 {
 	return c*t/d + b;
 }
-
-
 // quadratic tween
 -(float)tweenQuadraticCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d
 {
@@ -110,8 +108,6 @@ void parentControllerHelper::drawBackground()
 	if (t < 1) return c/2.0*t*t + b;
 	return -c/2.0 * ((--t)*(t-2.0) - 1.0) + b;
 }
-
-
 -(void)addChild:(NSObject *)_child
 {
 	[children addObject:_child];

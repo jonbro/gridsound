@@ -14,7 +14,7 @@ gridControllerHelper::gridControllerHelper()
 	buttonsOff.loadImage("allBtnsOffW.apng");
 	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOffTex = buttonsOff.getTextureReference();
-	
+	background.loadImage("base.png");
 	buttonsOn.loadImage("allBtnsOnW.apng");
 	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOnTex = buttonsOn.getTextureReference();
@@ -58,4 +58,29 @@ void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float
 	myShape->end();
 	curTex.unbind();
 	glPopMatrix();
+}
+void gridControllerHelper::drawBackground()
+{
+	glPushMatrix();
+	glTranslatef(0,0,0.0f);
+	background.getTextureReference().bind();
+	myShape->begin(GL_TRIANGLE_STRIP);
+	myShape->setTexCoord(0, 0);
+	myShape->addVertex(0, 0);
+	
+	myShape->setTexCoord(1, 0);
+	myShape->addVertex(320, 0);
+	
+	myShape->setTexCoord(0, 1);
+	myShape->addVertex(0, 480);
+	
+	myShape->setTexCoord(1, 1);
+	myShape->addVertex(320, 480);
+	
+	myShape->enableColor(false);
+	myShape->enableNormal(false);
+	myShape->enableTexCoord(true);
+	myShape->end();
+	background.getTextureReference().unbind();
+	glPopMatrix();	
 }

@@ -7,6 +7,7 @@
  *
  */
 #include "ofMain.h"
+#import "ripple.h"
 #import <Foundation/Foundation.h>
 #import "RemoteIOPlayer.h"
 #import "parentController.h"
@@ -15,10 +16,11 @@
 
 @interface gridController : NSObject {
 	int steps[8];
-	int currentSample, numLoops, playbackMode;
+	int currentSample, numLoops, playbackMode, currentStep;
 	float y_offset;
 	int volumeLevel;
 	NSArray *noteSamples, *loopSamples;
+	NSMutableArray *ripples;
 	NSMutableString *currentState;
 	UISegmentedControl	*pickerStyleSegmentedControl;
 	gridControllerHelper *gcHelper;

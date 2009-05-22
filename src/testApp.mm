@@ -100,7 +100,7 @@ void testApp::update(){
 void testApp::draw(){
 	[mainController render];
 	ofSetColor(255, 255, 255);
-	belt.getTextureReference().draw(0, 0);
+	//belt.getTextureReference().draw(0, 0);
 }
 void testApp::exit() {
 	// need to dealloc all my shit.
