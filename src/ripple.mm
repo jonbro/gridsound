@@ -26,20 +26,20 @@
 {
 	[currentState setString:@"pulse1"];
 	startTime = ofGetElapsedTimeMillis();
-	endTime = ofGetElapsedTimeMillis()+400.0;
+	endTime = ofGetElapsedTimeMillis()+100.0;
 }
 -(void)update
 {
 	if([currentState isEqual:@"pulse1"]){
-		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:0 valueChange:2 endTime_:400];
+		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:0 valueChange:2 endTime_:100];
 		if(ofGetElapsedTimeMillis()>endTime){
 			[currentState setString:@"pulse2"];
 			startTime = ofGetElapsedTimeMillis();
-			endTime = ofGetElapsedTimeMillis()+400.0;
+			endTime = ofGetElapsedTimeMillis()+200.0;
 		}
 	}
 	if([currentState isEqual:@"pulse2"]){
-		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:2 valueChange:-1.7 endTime_:400];
+		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:2 valueChange:-1.7 endTime_:200];
 		if(ofGetElapsedTimeMillis()>endTime){
 			[currentState setString:@"static"];
 		}
@@ -48,7 +48,6 @@
 -(void)renderX:(float)_x Y:(float)_y
 {
 	ofEnableAlphaBlending();
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 	if(![currentState isEqual:@"static"]){
 		ofSetColor(255, 0, 0, 80);
 		ofCircle(_x, _y, self.scale*20);
