@@ -24,7 +24,8 @@ public:
 	void mousePressed(int x, int y, int button);
 	void mouseReleased();
 	void mouseReleased(int x, int y, int button );
-	
+	void saveDefaults();
+	void loadDefaults();
 	void touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
 	void touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data = NULL);
@@ -38,6 +39,7 @@ public:
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
+	NSMutableArray *instrumentGroup;
 	ofImage belt;
 	bool			imageCount;
 	bool			accellOn;
@@ -54,7 +56,6 @@ public:
 	
 	parentController *mainController;
 	
-
 	string noteArray[12];
 	
 };

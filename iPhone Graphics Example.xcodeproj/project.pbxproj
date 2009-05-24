@@ -17,6 +17,8 @@
 		5E410C900F8451EF00F5E00E /* reggae_174.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E410C8F0F8451EF00F5E00E /* reggae_174.wav */; };
 		5E4B7DD40FC6294B00CA2D37 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B7DD30FC6294B00CA2D37 /* base.png */; };
 		5E4B7DDC0FC62C7500CA2D37 /* ripple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B7DDB0FC62C7500CA2D37 /* ripple.mm */; };
+		5E4B807F0FC9D8AF00CA2D37 /* parentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B807E0FC9D8AF00CA2D37 /* parentModel.m */; };
+		5E4B80830FC9D8C400CA2D37 /* gridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B80820FC9D8C400CA2D37 /* gridModel.m */; };
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
 		5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */; };
 		5E5DB1C90FB51794006D05D1 /* hr_bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1B80FB51794006D05D1 /* hr_bass1.wav */; };
@@ -138,6 +140,10 @@
 		5E4B7DD30FC6294B00CA2D37 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = base.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/base.png"; sourceTree = DEVELOPER_DIR; };
 		5E4B7DDA0FC62C7500CA2D37 /* ripple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ripple.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/ripple.h"; sourceTree = DEVELOPER_DIR; };
 		5E4B7DDB0FC62C7500CA2D37 /* ripple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ripple.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/ripple.mm"; sourceTree = DEVELOPER_DIR; };
+		5E4B807D0FC9D8AF00CA2D37 /* parentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parentModel.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentModel.h"; sourceTree = DEVELOPER_DIR; };
+		5E4B807E0FC9D8AF00CA2D37 /* parentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = parentModel.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/parentModel.m"; sourceTree = DEVELOPER_DIR; };
+		5E4B80810FC9D8C400CA2D37 /* gridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridModel.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridModel.h"; sourceTree = DEVELOPER_DIR; };
+		5E4B80820FC9D8C400CA2D37 /* gridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = gridModel.m; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridModel.m"; sourceTree = DEVELOPER_DIR; };
 		5E4FEB0D0F805A64003018CA /* InMemoryAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InMemoryAudioFile.h; path = src/InMemoryAudioFile.h; sourceTree = "<group>"; };
 		5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InMemoryAudioFile.m; path = src/InMemoryAudioFile.m; sourceTree = "<group>"; };
 		5E4FEB0F0F805A64003018CA /* RemoteIOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteIOPlayer.h; path = src/RemoteIOPlayer.h; sourceTree = "<group>"; };
@@ -548,6 +554,10 @@
 			children = (
 				5E7C468A0F830F6600538ECA /* Phrase.h */,
 				5E7C468B0F830F6600538ECA /* Phrase.m */,
+				5E4B807D0FC9D8AF00CA2D37 /* parentModel.h */,
+				5E4B807E0FC9D8AF00CA2D37 /* parentModel.m */,
+				5E4B80810FC9D8C400CA2D37 /* gridModel.h */,
+				5E4B80820FC9D8C400CA2D37 /* gridModel.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -1263,6 +1273,8 @@
 				5EA56B3B0FB8EBF900DBC38A /* vmath.cpp in Sources */,
 				5EE500860FC3995C00047CDA /* gridControllerHelper.cpp in Sources */,
 				5E4B7DDC0FC62C7500CA2D37 /* ripple.mm in Sources */,
+				5E4B807F0FC9D8AF00CA2D37 /* parentModel.m in Sources */,
+				5E4B80830FC9D8C400CA2D37 /* gridModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

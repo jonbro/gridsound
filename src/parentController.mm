@@ -51,6 +51,27 @@ void parentControllerHelper::drawBackground()
 	target_scale = 1;
 	return self;
 }
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:children forKey:@"children"];
+	[coder encodeObject:currentState forKey:@"currentState"];
+	[coder encodeObject:[[NSNumber alloc]initWithInt:currentGrid] forKey:@"currentGrid"];
+}
+- (id)initWithCoder:(NSCoder *)coder
+{
+    if (self != nil)
+    {
+		children = [coder decodeObjectForKey:@"children"];
+		NSLog(@"children: %@", children);
+		currentState = [coder decodeObjectForKey:@"currentState"];
+		currentGrid = (int)[coder decodeObjectForKey:@"currentGrid"];
+    }
+    return self;
+}
+-(void)setPlayer:(RemoteIOPlayer *)_player
+{
+	player = _player;
+}
 -(void)render
 {
 	if([currentState isEqual:@"to_small"] || [currentState isEqual:@"to_large"] || [currentState isEqual:@"small"]){

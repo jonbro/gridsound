@@ -30,7 +30,7 @@ void testApp::setup(){
 
 	NSArray *noteSampleArray = [[NSArray alloc] initWithObjects:@"blg", @"bng", @"chm", @"cht", @"crh", @"plk", @"tnk", @"wmm", nil];
 	
-	NSMutableArray *instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
+	instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
 	
 	[player setInstrumentGroup: instrumentGroup];
@@ -79,8 +79,9 @@ void testApp::setup(){
 		
 		[sampleInstrument reset];
 		[sampleInstrument release];
+
 	}
-		
+	
 	currentGrid = 0;	
 	[player start];
 }
@@ -104,10 +105,31 @@ void testApp::draw(){
 	ofSetColor(255, 255, 255);
 	//belt.getTextureReference().draw(0, 0);
 }
+void testApp::saveDefaults(){
+	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:mainController] forKey:@"savedArray"];
+}
+void testApp::loadDefaults(){
+	NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+	NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
+	if (dataRepresentingSavedArray != nil)
+	{
+		NSLog(@"dearchiving");
+		mainController = [NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray];
+
+		// reload all the missing shit.
+		[mainController setInstrumentGroup:instrumentGroup];
+		// also the grid controllers need access to the player, loop samples, note samples, and the helper
+		[mainController setPlayer:player];
+			
+	}	
+}
+
 void testApp::exit() {
+	// here we GOOOOOOO!
+	// time to archive this thinguuu
 	// need to dealloc all my shit.
 	[player stop];
-	printf("exit()\n");
+	NSLog(@"exiting");
 }
 
 void testApp::setOffset(float x, float y){
@@ -140,8 +162,16 @@ void testApp::mouseReleased(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){	
-	[mainController touchDownX:x y:y touchId:touchId];
+void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	if(y>360 && y<444){
+		if(x>20 && x<148){
+			this->saveDefaults();
+		}else if(x>169 && x<297){
+			this->loadDefaults();			
+		}
+	}else{
+		[mainController touchDownX:x y:y touchId:touchId];
+	}
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){

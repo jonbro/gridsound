@@ -27,8 +27,8 @@
 -(OSStatus)open:(NSString *)filePath{
 	
 	//print out the file path
-	NSLog(@"FilePath: ");
-	NSLog(filePath);
+//	NSLog(@"FilePath: ");
+//	NSLog(filePath);
 	
 	//get a ref to the audio file, need one to open it
 	CFURLRef audioFileURL = CFURLCreateFromFileSystemRepresentation (NULL, (const UInt8 *)[filePath cStringUsingEncoding:[NSString defaultCStringEncoding]] , strlen([filePath cStringUsingEncoding:[NSString defaultCStringEncoding]]), false);
@@ -37,7 +37,7 @@
 	OSStatus result = AudioFileOpenURL (audioFileURL, 0x01, 0, &mAudioFile);
 	//were there any errors reading? if so deal with them first
 	if (result != noErr) {
-		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
+//		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
 		packetCount = -1;
 	}
 	//otherwise
@@ -45,7 +45,7 @@
 		//get the file info
 		[self getFileInfo];
 		//how many packets read? (packets are the number of stereo samples in this case)
-		NSLog([NSString stringWithFormat:@"File Opened, packet Count: %d", packetCount]);
+//		NSLog([NSString stringWithFormat:@"File Opened, packet Count: %d", packetCount]);
 		
 		UInt32 packetsRead = packetCount;
 		OSStatus result = -1;
@@ -66,12 +66,12 @@
 		}
 		if (result==noErr){
 			//print out general info about  the file
-			NSLog([NSString stringWithFormat:@"Packets read from file: %d\n", packetsRead]);
-			NSLog([NSString stringWithFormat:@"Bytes read from file: %d\n", numBytesRead]);
-			//for a stereo 32 bit per sample file this is ok
-			NSLog([NSString stringWithFormat:@"Sample count: %d\n", numBytesRead / 2]);
-			//for a 32bit per stereo sample at 44100khz this is correct
-			NSLog([NSString stringWithFormat:@"Time in Seconds: %f.4\n", ((float)numBytesRead / 4.0) / 44100.0]);
+//			NSLog([NSString stringWithFormat:@"Packets read from file: %d\n", packetsRead]);
+//			NSLog([NSString stringWithFormat:@"Bytes read from file: %d\n", numBytesRead]);
+//			//for a stereo 32 bit per sample file this is ok
+//			NSLog([NSString stringWithFormat:@"Sample count: %d\n", numBytesRead / 2]);
+//			//for a 32bit per stereo sample at 44100khz this is correct
+//			NSLog([NSString stringWithFormat:@"Time in Seconds: %f.4\n", ((float)numBytesRead / 4.0) / 44100.0]);
 		}
 	}
 	
