@@ -12,6 +12,7 @@
 #import "RemoteIOPlayer.h"
 #include "ofxiPhoneKeyboard.h"
 #import "ballController.h"
+#import "parentModel.h"
 
 class parentControllerHelper 
 	{		
@@ -33,6 +34,7 @@ class parentControllerHelper
 	ballController *b_control;
 	parentControllerHelper *pcHelper;
 	NSMutableArray *instrumentGroup;
+	parentModel *model;
 	RemoteIOPlayer	*player;
 	NSMutableString *currentState;
 	NSMutableArray	*children;
@@ -43,9 +45,8 @@ class parentControllerHelper
 @property (assign) NSMutableArray* children;
 
 -(void)render;
--(void)encodeWithCoder:(NSCoder *)coder;
--(id)initWithCoder:(NSCoder *)coder;
 -(void)setPlayer:(RemoteIOPlayer *)_player;
+-(void)setModel:(parentModel *)_model;
 -(void)update;
 -(void)addChild:(NSObject *)_child;
 -(float)tweenQuadraticCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;

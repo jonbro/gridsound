@@ -11,4 +11,41 @@
 
 @implementation parentModel
 
+@synthesize gridModels, currentState, currentGrid;
+
+-(id)init
+{
+	self = [super init];
+	currentState = [[[NSMutableString alloc] initWithString:@"small"] retain];
+	gridModels = [[NSMutableArray alloc]initWithCapacity:1];
+	for(int i=0;i<6;i++){
+		[gridModels addObject:[[gridModel alloc]init]];
+	}
+	currentGrid = [[NSNumber alloc] initWithInt:0];
+	NSLog(@"current Grid: %@", currentGrid);
+	return self;
+}
+- (void)setCurrentState:(NSString*)aValue
+{
+	[currentState autorelease];
+	currentState = [aValue copy];
+}
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+	[coder encodeObject:currentState forKey:@"currentState"];
+	[coder encodeObject:currentGrid forKey:@"currentGrid"];
+}
+-(NSNumber*)currentGrid
+{
+	NSLog(@"current Grid: %i", currentGrid);
+	return currentGrid;
+}
+- (id)initWithCoder:(NSCoder *)coder
+{
+	self = [self init];
+	self.currentState = [[coder decodeObjectForKey:@"currentState"] copy];	
+	self.currentGrid = [[coder decodeObjectForKey:@"currentGrid"] retain];
+    return self;
+}
+
 @end

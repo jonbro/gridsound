@@ -50,31 +50,6 @@
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
 	return self;
 }
--(void)encodeWithCoder:(NSCoder *)coder{
-	[coder encodeObject:[[NSNumber alloc]initWithInt:currentSample] forKey:@"currentSample"];
-	// should convert into NSArray
-	[coder encodeObject:[[NSArray alloc]initWithObjects:[[NSNumber alloc]initWithInt:steps[0]],
-		[[NSNumber alloc]initWithInt:steps[1]],
-		[[NSNumber alloc]initWithInt:steps[2]],
-		[[NSNumber alloc]initWithInt:steps[3]],
-		[[NSNumber alloc]initWithInt:steps[4]],
-		[[NSNumber alloc]initWithInt:steps[5]],
-		[[NSNumber alloc]initWithInt:steps[6]],
-		[[NSNumber alloc]initWithInt:steps[7]],
-		nil] forKey:@"steps"];
-}
-- (id)initWithCoder:(NSCoder *)coder;
-{
-    if (self != nil)
-    {
-		currentSample = (int)[coder decodeObjectForKey:@"currentSample"];
-		NSArray* stepArray = [coder decodeObjectForKey:@"steps"];
-		for(int i=0;i<8;i++){
-			steps[i] = (int)[stepArray objectAtIndex:i];
-		}
-    }
-    return self;
-}
 -(void)showModePicker
 {
 	[iPhoneGlobals.window addSubview:pickerStyleSegmentedControl];

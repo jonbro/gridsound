@@ -39,6 +39,7 @@ public:
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
+	parentModel *pModel;
 	NSMutableArray *instrumentGroup;
 	ofImage belt;
 	bool			imageCount;

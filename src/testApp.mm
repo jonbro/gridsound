@@ -49,6 +49,8 @@ void testApp::setup(){
 	}
 	
 	mainController = [[parentController alloc] init];
+	pModel = [[parentModel alloc]init];
+	[mainController setModel:[pModel retain]];
 	[mainController setInstrumentGroup:instrumentGroup];
 	[instrumentGroup release];
 	
@@ -106,7 +108,7 @@ void testApp::draw(){
 	//belt.getTextureReference().draw(0, 0);
 }
 void testApp::saveDefaults(){
-	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:mainController] forKey:@"savedArray"];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:pModel] forKey:@"savedArray"];
 }
 void testApp::loadDefaults(){
 	NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
@@ -114,14 +116,9 @@ void testApp::loadDefaults(){
 	if (dataRepresentingSavedArray != nil)
 	{
 		NSLog(@"dearchiving");
-		mainController = [NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray];
-
-		// reload all the missing shit.
-		[mainController setInstrumentGroup:instrumentGroup];
-		// also the grid controllers need access to the player, loop samples, note samples, and the helper
-		[mainController setPlayer:player];
-			
-	}	
+		pModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
+		[mainController setModel:pModel];
+	}
 }
 
 void testApp::exit() {

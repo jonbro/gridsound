@@ -6,16 +6,20 @@
 //  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import "gridModel.h"
 
-
-@interface parentModel : NSObject {
+@interface parentModel : NSObject <NSCoding> {
 	NSMutableArray* gridModels;
-	NSMutableString* currentState;
+	NSString* currentState;
 	NSNumber* currentGrid;	
 }
-@property NSMutableArray *gridModels;
-@property NSMutableString* currentState;
-@property NSNumber *currentGrid;
+@property (retain) NSMutableArray *gridModels;
+@property (copy) NSString* currentState;
+@property (retain) NSNumber* currentGrid;
+
+-(void)encodeWithCoder:(NSCoder *)coder;
+-(id)initWithCoder:(NSCoder *)coder;
+- (void)setCurrentState:(NSString*)aValue;
 
 @end

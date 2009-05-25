@@ -6,7 +6,7 @@
 //  Copyright 2009 Heavy Ephemera Industries. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 
 @interface gridModel : NSObject {
@@ -14,7 +14,10 @@
 	NSNumber* currentSample;
 }
 
-@property NSMutableArray *steps;
-@property NSNumber *currentSample;
+@property (retain) NSMutableArray *steps;
+@property (retain) NSNumber *currentSample;
+
+-(void)encodeWithCoder:(NSCoder *)coder;
+-(id)initWithCoder:(NSCoder *)coder;
 
 @end
