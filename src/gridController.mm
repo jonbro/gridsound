@@ -95,7 +95,9 @@
 	ofSetColor(0xEB008B);
 	for(int j = 0; j < 8; j++){
 		for(int i = 0; i < 8; i++){
-			if([[model.steps objectAtIndex:j]intValue] == i){
+			if([[model.mutes objectAtIndex:j]boolValue]){
+				gcHelper->drawButton(2, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
+			}else if([[model.steps objectAtIndex:j]intValue] == i){
 				gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
 			}else{
 				gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
@@ -133,7 +135,9 @@
 	}
 	if(fmod((double)player.tick, (double)8)!=currentStep){
 		currentStep = fmod((double)player.tick, (double)8);
-		[[ripples objectAtIndex:currentStep] startPulse];
+		if(![[model.mutes objectAtIndex:currentStep]boolValue]){
+			[[ripples objectAtIndex:currentStep] startPulse];
+		}
 	}	
 	picker->setPosition(0, 520+y_offset);	
 	[self setModePickerPosition:0 y:480+y_offset];
@@ -144,7 +148,11 @@
 }
 -(int)volumeLevel
 {
-	return volumeLevel;
+	if([[model.mutes objectAtIndex:currentStep]boolValue]){
+		return 0;
+	}else{
+		return volumeLevel;
+	}
 }
 -(void)setModel:(gridModel *)_model
 {
@@ -214,6 +222,18 @@
 		}
 	}
 			
+}
+-(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
+{
+	// set mute state here.
+	int clickedStep = (int)(x/320.0*8.0);
+	int lastMuteState = [[model.mutes objectAtIndex:clickedStep]intValue];	
+	if(lastMuteState == 1){
+		lastMuteState = 0;
+	}else{
+		lastMuteState = 1;
+	}
+	[model.mutes replaceObjectAtIndex:clickedStep withObject:[NSNumber numberWithInt:lastMuteState]];
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];

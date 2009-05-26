@@ -18,8 +18,8 @@ class gridControllerHelper
 		void drawBackground();
 
 	protected:
-		ofImage buttonsOn, buttonsOff, background;
+		ofImage buttonsOn, buttonsOff, buttonsMute, background;
 		ofxMSAShape3D *myShape;
-		ofTexture buttonsOnTex, buttonsOffTex, curTex;
+		ofTexture buttonsOnTex, buttonsOffTex, buttonsMuteTex, curTex;
 	};
 

@@ -75,6 +75,7 @@
 		5EE873B10F8EE2F8005E3C3C /* 04B_11__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */; };
 		5EE873D50F8EE7B8005E3C3C /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */; };
 		5EE873E70F901593005E3C3C /* phraseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE873E60F901593005E3C3C /* phraseController.mm */; };
+		5EEA91A30FCB877C00F31704 /* allBtnsMute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EEA91A20FCB877C00F31704 /* allBtnsMute.png */; };
 		5EEEB67A0FA35EF200D766A5 /* drum_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB6790FA35EF200D766A5 /* drum_stem.wav */; };
 		5EEEB67C0FA35F1300D766A5 /* bass_stem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */; };
 		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
@@ -214,6 +215,7 @@
 		5EE873B00F8EE2F8005E3C3C /* 04B_11__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_11__.TTF; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/04B_11__.TTF"; sourceTree = DEVELOPER_DIR; };
 		5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/FreeSans.ttf"; sourceTree = DEVELOPER_DIR; };
 		5EE873E60F901593005E3C3C /* phraseController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = phraseController.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/phraseController.mm"; sourceTree = DEVELOPER_DIR; };
+		5EEA91A20FCB877C00F31704 /* allBtnsMute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = allBtnsMute.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsMute.png"; sourceTree = DEVELOPER_DIR; };
 		5EEEB6790FA35EF200D766A5 /* drum_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drum_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/drum_stem.wav"; sourceTree = DEVELOPER_DIR; };
 		5EEEB67B0FA35F1300D766A5 /* bass_stem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bass_stem.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/bass_stem.wav"; sourceTree = DEVELOPER_DIR; };
 		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/testApp.mm"; sourceTree = DEVELOPER_DIR; };
@@ -472,6 +474,7 @@
 		5E39BD290FC389CF00122C40 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5EEA91A20FCB877C00F31704 /* allBtnsMute.png */,
 				5E4B7DD30FC6294B00CA2D37 /* base.png */,
 				5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */,
 				5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */,
@@ -1226,6 +1229,7 @@
 				5EE501430FC4F56000047CDA /* 0018.png in Resources */,
 				5EE501440FC4F56000047CDA /* 0019.png in Resources */,
 				5E4B7DD40FC6294B00CA2D37 /* base.png in Resources */,
+				5EEA91A30FCB877C00F31704 /* allBtnsMute.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

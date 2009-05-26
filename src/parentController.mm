@@ -162,6 +162,12 @@ void parentControllerHelper::drawBackground()
 		}
 	}
 }
+-(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
+{
+	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
+		[[children objectAtIndex:[model.currentGrid intValue]] doubleTapX:x y:y touchId:touchId];
+	}
+}
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	if(!renderSmall){
 		[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];

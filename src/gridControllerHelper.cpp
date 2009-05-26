@@ -14,6 +14,9 @@ gridControllerHelper::gridControllerHelper()
 	buttonsOff.loadImage("allBtnsOffW.apng");
 	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOffTex = buttonsOff.getTextureReference();
+	buttonsMute.loadImage("allBtnsMute.png");
+	buttonsMute.setImageType(OF_IMAGE_COLOR_ALPHA);
+	buttonsMuteTex = buttonsMute.getTextureReference();
 	background.loadImage("base.png");
 	buttonsOn.loadImage("allBtnsOnW.apng");
 	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
@@ -30,8 +33,10 @@ void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float
 {
 	if(buttonCounter == 0){
 		curTex = buttonsOffTex;
-	}else{
+	}else if(buttonCounter == 1){
 		curTex = buttonsOnTex;
+	}else{
+		curTex = buttonsMuteTex;
 	}
 	glPushMatrix();
 	glTranslatef(x,y,0.0f);

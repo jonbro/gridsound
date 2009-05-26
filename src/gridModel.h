@@ -11,10 +11,12 @@
 
 @interface gridModel : NSObject <NSCoding> {
 	NSMutableArray* steps;
+	NSMutableArray* mutes;
 	NSNumber* currentSample;
 }
 
 @property (retain) NSMutableArray *steps;
+@property (retain) NSMutableArray *mutes;
 @property (retain) NSNumber *currentSample;
 
 -(void)encodeWithCoder:(NSCoder *)coder;

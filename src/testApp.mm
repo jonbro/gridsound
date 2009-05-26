@@ -169,6 +169,7 @@ void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *da
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	[mainController doubleTapX:x y:y touchId:touchId];
 	//printf("touch %i double tap at (%i,%i)\n", touchId, x,y);
 }
 
