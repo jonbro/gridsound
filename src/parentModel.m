@@ -21,8 +21,7 @@
 	for(int i=0;i<6;i++){
 		[gridModels addObject:[[gridModel alloc]init]];
 	}
-	currentGrid = [[NSNumber alloc] initWithInt:0];
-	NSLog(@"current Grid: %@", currentGrid);
+	currentGrid = [NSNumber numberWithInt:0];
 	return self;
 }
 - (void)setCurrentState:(NSString*)aValue
@@ -34,10 +33,10 @@
 {
 	[coder encodeObject:currentState forKey:@"currentState"];
 	[coder encodeObject:currentGrid forKey:@"currentGrid"];
+	[coder encodeObject:gridModels forKey:@"gridModels"];
 }
 -(NSNumber*)currentGrid
 {
-	NSLog(@"current Grid: %i", currentGrid);
 	return currentGrid;
 }
 - (id)initWithCoder:(NSCoder *)coder
@@ -45,6 +44,7 @@
 	self = [self init];
 	self.currentState = [[coder decodeObjectForKey:@"currentState"] copy];	
 	self.currentGrid = [[coder decodeObjectForKey:@"currentGrid"] retain];
+	self.gridModels = [[coder decodeObjectForKey:@"gridModels"] retain];
     return self;
 }
 

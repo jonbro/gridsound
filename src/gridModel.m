@@ -20,20 +20,22 @@
 		NSNumber *step = [NSNumber numberWithInt:i];
 		[steps addObject:step];
 	}
-	currentSample = [[NSNumber alloc]initWithInt:0];
+	currentSample = [NSNumber numberWithInt:0];
 	return self;
 }
 -(void)encodeWithCoder:(NSCoder *)coder{
 	[coder encodeObject:currentSample forKey:@"currentSample"];
-	[coder encodeObject:[[NSArray alloc]initWithArray:steps] forKey:@"steps"];
+	[coder encodeObject:[NSArray arrayWithArray:steps] forKey:@"steps"];
 }
 - (id)initWithCoder:(NSCoder *)coder;
 {
 	self = [[gridModel alloc] init];
     if (self != nil)
     {
-		currentSample = [coder decodeObjectForKey:@"currentSample"];
-		steps = [[coder decodeObjectForKey:@"steps"] mutableCopy];
+		[currentSample release];
+		currentSample = [[coder decodeObjectForKey:@"currentSample"] retain];
+		[steps release];
+		steps = [[[coder decodeObjectForKey:@"steps"] mutableCopy] retain];
     }
     return self;
 }

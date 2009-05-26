@@ -94,7 +94,7 @@
 	ofSetColor(0xEB008B);
 	for(int j = 0; j < 8; j++){
 		for(int i = 0; i < 8; i++){
-			if(steps[j] == i){
+			if([[model.steps objectAtIndex:j]intValue] == i){
 				gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
 			}else{
 				gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
@@ -102,7 +102,7 @@
 		}
 	}
 	for(int j = 0; j < 8; j++){
-		[[ripples objectAtIndex:j] renderX:j*40+20 Y:steps[j]*40+y_offset+20];
+		[[ripples objectAtIndex:j] renderX:j*40+20 Y:[[model.steps objectAtIndex:j]intValue]*40+y_offset+20];
 	}
 	[self drawBottomBar];
 	[self drawVolumeBar];
@@ -139,11 +139,16 @@
 }
 -(int)getStep:(int)_step
 {
-	return steps[_step];
+	return [[model.steps objectAtIndex:_step]intValue];
 }
 -(int)volumeLevel
 {
 	return volumeLevel;
+}
+-(void)setModel:(gridModel *)_model
+{
+	[model release];
+	model = [_model retain];
 }
 -(void)drawVolumeBar
 {
@@ -188,7 +193,7 @@
 	if([currentState isEqual:@"display_grid"]){
 		int touchedPos = (int)(y/320.0*8.0);
 		if(touchedPos<8){
-			steps[(int)(x/320.0*8.0)] = touchedPos;
+			[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:touchedPos]];
 		}else if(touchedPos==8){
 			volumeLevel = (int)(x/320.0*255.0);
 		}
@@ -205,7 +210,7 @@
 			
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
-	steps[(int)(x/320.0*8.0)] = (int)(y/320.0*8.0);
+	[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
 }
 -(void)touchUp:(float)x y:(float)y touchId:(int)touchId{
 }

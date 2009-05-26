@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface gridModel : NSObject {
+@interface gridModel : NSObject <NSCoding> {
 	NSMutableArray* steps;
 	NSNumber* currentSample;
 }

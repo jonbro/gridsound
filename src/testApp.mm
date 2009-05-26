@@ -49,8 +49,6 @@ void testApp::setup(){
 	}
 	
 	mainController = [[parentController alloc] init];
-	pModel = [[parentModel alloc]init];
-	[mainController setModel:[pModel retain]];
 	[mainController setInstrumentGroup:instrumentGroup];
 	[instrumentGroup release];
 	
@@ -60,6 +58,8 @@ void testApp::setup(){
 		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper];
 		[mainController addChild:_gControl];
 	}
+	
+	this->loadDefaults();
 	
 	imageCount = false;
 	for(int i=0;i<3;i++){
@@ -83,7 +83,7 @@ void testApp::setup(){
 		[sampleInstrument release];
 
 	}
-	
+
 	currentGrid = 0;	
 	[player start];
 }
@@ -115,16 +115,16 @@ void testApp::loadDefaults(){
 	NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
 	if (dataRepresentingSavedArray != nil)
 	{
-		NSLog(@"dearchiving");
 		pModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
 		[mainController setModel:pModel];
-	}
+	}else{
+		pModel = [[parentModel alloc]init];
+		[mainController setModel:[pModel retain]];
+	}	
 }
 
 void testApp::exit() {
-	// here we GOOOOOOO!
-	// time to archive this thinguuu
-	// need to dealloc all my shit.
+	this->saveDefaults();
 	[player stop];
 	NSLog(@"exiting");
 }
@@ -160,15 +160,7 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	if(y>360 && y<444){
-		if(x>20 && x<148){
-			this->saveDefaults();
-		}else if(x>169 && x<297){
-			this->loadDefaults();			
-		}
-	}else{
-		[mainController touchDownX:x y:y touchId:touchId];
-	}
+	[mainController touchDownX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){

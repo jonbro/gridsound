@@ -120,6 +120,9 @@ void parentControllerHelper::drawBackground()
 {
 	[model release];
 	model = [_model retain];
+	for(int i=0;i<[model.gridModels count];i++){
+		[[children objectAtIndex:i] setModel:[model.gridModels objectAtIndex:i]];
+	}
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 //	NSLog(@"touchID: %i", touchId);
