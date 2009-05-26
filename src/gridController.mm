@@ -76,8 +76,8 @@
 -(void)setAll:(int)stepValue
 {
 	for(int i=0;i<8;i++){
-		steps[i] = stepValue;
-	}	
+		[model.steps replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:stepValue]];
+	}
 }
 - (void) hideModePicker
 {
@@ -125,7 +125,7 @@
 			[currentState setString:@"display_grid"];
 		}
 	}else if([currentState isEqual:@"at_settings"]){
-		currentSample = picker->getRow();
+		model.currentSample = [NSNumber numberWithInt:picker->getRow()];
 	}
 	for(int i=0;i<8;i++){
 		[[ripples objectAtIndex:i] update];
@@ -179,14 +179,15 @@
 }
 -(void)setSample:(int)_sample
 {
-	currentSample = _sample;
+	[model setCurrentSample:[NSNumber numberWithInt:_sample]];
+	pickerStyleSegmentedControl.selectedSegmentIndex = _sample;
 }
 -(int)getSample
 {
 	if(pickerStyleSegmentedControl.selectedSegmentIndex == 1){
-		return currentSample+[loopSamples count];
+		return [model.currentSample intValue]+[loopSamples count];
 	}else{
-		return currentSample;
+		return [model.currentSample intValue];
 	}
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{

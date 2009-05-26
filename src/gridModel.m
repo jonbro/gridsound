@@ -10,8 +10,7 @@
 
 
 @implementation gridModel
-@synthesize steps;
-@synthesize currentSample;
+@synthesize steps, currentSample;
 -(id)init
 {
 	self = [super init];
@@ -29,14 +28,11 @@
 }
 - (id)initWithCoder:(NSCoder *)coder;
 {
-	self = [[gridModel alloc] init];
-    if (self != nil)
-    {
-		[currentSample release];
-		currentSample = [[coder decodeObjectForKey:@"currentSample"] retain];
-		[steps release];
-		steps = [[[coder decodeObjectForKey:@"steps"] mutableCopy] retain];
-    }
+	self = [super init];
+	[currentSample release];
+	currentSample = [[coder decodeObjectForKey:@"currentSample"] retain];
+	[steps release];
+	steps = [[[coder decodeObjectForKey:@"steps"] mutableCopy] retain];
     return self;
 }
 @end
