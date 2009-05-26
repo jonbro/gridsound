@@ -39,6 +39,7 @@
 -(void)setModel:(gridModel *)_model;
 -(void)setModePickerPosition:(int)x y:(int)_y;
 -(void)render;
+-(void)setupPickers;
 -(int)getSample;
 -(void)setSample:(int)_sample;
 -(void)update;

@@ -52,6 +52,7 @@
 }
 -(void)showModePicker
 {
+	[self setupPickers];
 	[iPhoneGlobals.window addSubview:pickerStyleSegmentedControl];
 }
 - (void)toggleMode:(id)sender
@@ -180,7 +181,11 @@
 -(void)setSample:(int)_sample
 {
 	[model setCurrentSample:[NSNumber numberWithInt:_sample]];
-	pickerStyleSegmentedControl.selectedSegmentIndex = _sample;
+	picker->setRow(_sample);
+}
+-(void)setupPickers
+{
+	picker->setRow([model.currentSample intValue]);
 }
 -(int)getSample
 {

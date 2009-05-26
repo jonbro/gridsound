@@ -19,6 +19,7 @@
 - (void) showPicker;
 - (void) hidePicker;
 - (int)getRow;
+- (void)setRow:(int)_row;
 - (void) setFrame: (CGRect) rect;
 - (void) setArray:(NSArray*)_newArray;
 
@@ -32,6 +33,7 @@ class ofxiPhonePickerView
 		void setNewArray(NSArray* _array);
 		void setVisible(bool visible);
 		int getRow();
+		void setRow(int _row);
 		void setPosition(int _x, int _y);
 	protected:		
 		ofxiPhonePickerViewDelegate *picker;

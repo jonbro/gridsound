@@ -70,7 +70,6 @@ void testApp::setup(){
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"fcut"];
 		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
 		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
-
 		sampleInstrument.volume = 80;
 		sampleInstrument.currentSample = i;
 		

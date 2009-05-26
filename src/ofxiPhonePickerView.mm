@@ -56,7 +56,10 @@ int ofxiPhonePickerView::getRow()
 {
 	return [picker getRow];
 }
-
+void ofxiPhonePickerView::setRow(int _row)
+{
+	[picker setRow:_row];
+}
 @implementation ofxiPhonePickerViewDelegate
 
 - (id) init:(int)x y:(int)y width:(int)w height:(int)h pickerArray:(NSArray*)_array
@@ -94,6 +97,11 @@ int ofxiPhonePickerView::getRow()
 - (int)getRow
 {
 	return [myPickerView selectedRowInComponent:0];
+}
+- (void)setRow:(int)_row
+{
+	NSLog(@"setting row: %i", _row);
+	[myPickerView selectRow:_row inComponent:0 animated:NO];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
