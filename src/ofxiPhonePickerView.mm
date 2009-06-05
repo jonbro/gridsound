@@ -84,7 +84,6 @@ void ofxiPhonePickerView::setRow(int _row)
 - (void) showPicker
 {
 	[iPhoneGlobals.window addSubview:myPickerView];
-
 }
 - (void) hidePicker
 {
