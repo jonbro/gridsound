@@ -70,16 +70,19 @@ void gridControllerHelper::drawBackground()
 	glTranslatef(0,0,0.0f);
 	background.getTextureReference().bind();
 	myShape->begin(GL_TRIANGLE_STRIP);
-	myShape->setTexCoord(0, 0);
-	myShape->addVertex(0, 0);
 	
-	myShape->setTexCoord(1, 0);
-	myShape->addVertex(320, 0);
+	// man seriously? http://www.gamedev.net/reference/articles/article947.asp
 	
 	myShape->setTexCoord(0, 1);
-	myShape->addVertex(0, 480);
+	myShape->addVertex(0, 0);
 	
 	myShape->setTexCoord(1, 1);
+	myShape->addVertex(320, 0);
+	
+	myShape->setTexCoord(0, 0);
+	myShape->addVertex(0, 480);
+	
+	myShape->setTexCoord(1, 0);
 	myShape->addVertex(320, 480);
 	
 	myShape->enableColor(false);

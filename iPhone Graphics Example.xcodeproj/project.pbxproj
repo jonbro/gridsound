@@ -10,6 +10,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		5E17020A0FDB270E00B2C6A9 /* wallFolderHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E1702080FDB270E00B2C6A9 /* wallFolderHelper.cpp */; };
+		5E17020C0FDB35E000B2C6A9 /* texture_atlas_books.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */; };
 		5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */; };
 		5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */; };
 		5E39BD280FC389C600122C40 /* bookbig2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E39BD270FC389C600122C40 /* bookbig2.jpg */; };
@@ -132,6 +134,9 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
+		5E1702080FDB270E00B2C6A9 /* wallFolderHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wallFolderHelper.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/wallFolderHelper.cpp"; sourceTree = DEVELOPER_DIR; };
+		5E1702090FDB270E00B2C6A9 /* wallFolderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wallFolderHelper.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/wallFolderHelper.h"; sourceTree = DEVELOPER_DIR; };
+		5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_books.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_books.png"; sourceTree = DEVELOPER_DIR; };
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOffW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOffW.apng"; sourceTree = DEVELOPER_DIR; };
 		5E39BC810FC2456E00122C40 /* allBtnsOnW.apng */ = {isa = PBXFileReference; lastKnownFileType = file; name = allBtnsOnW.apng; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/allBtnsOnW.apng"; sourceTree = DEVELOPER_DIR; };
@@ -474,6 +479,7 @@
 		5E39BD290FC389CF00122C40 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */,
 				5EEA91A20FCB877C00F31704 /* allBtnsMute.png */,
 				5E4B7DD30FC6294B00CA2D37 /* base.png */,
 				5E39BC800FC2456E00122C40 /* allBtnsOffW.apng */,
@@ -618,6 +624,8 @@
 		5EE873E40F90155D005E3C3C /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5E1702080FDB270E00B2C6A9 /* wallFolderHelper.cpp */,
+				5E1702090FDB270E00B2C6A9 /* wallFolderHelper.h */,
 				5EB5B6B20FAAAD1500C8C9F9 /* gridController.h */,
 				5EB5B6B30FAAAD1500C8C9F9 /* gridController.mm */,
 				5EE74F240F94048B0075C0CF /* phraseController.h */,
@@ -1230,6 +1238,7 @@
 				5EE501440FC4F56000047CDA /* 0019.png in Resources */,
 				5E4B7DD40FC6294B00CA2D37 /* base.png in Resources */,
 				5EEA91A30FCB877C00F31704 /* allBtnsMute.png in Resources */,
+				5E17020C0FDB35E000B2C6A9 /* texture_atlas_books.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1279,6 +1288,7 @@
 				5E4B807F0FC9D8AF00CA2D37 /* parentModel.m in Sources */,
 				5E4B80830FC9D8C400CA2D37 /* gridModel.m in Sources */,
 				5E4B80860FC9DFF500CA2D37 /* parentController.mm in Sources */,
+				5E17020A0FDB270E00B2C6A9 /* wallFolderHelper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
