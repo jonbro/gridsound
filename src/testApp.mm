@@ -53,7 +53,6 @@ void testApp::setup(){
 	[instrumentGroup release];
 	
 	gcHelper = new gridControllerHelper();
-	wallFolder = new wallFolderHelper();
 	
 	for(int i=0;i<9;i++){
 		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper];

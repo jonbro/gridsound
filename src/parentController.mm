@@ -46,7 +46,7 @@ void parentControllerHelper::drawBackground()
 	target_x = 0;
 	filter_on = false;
 	scale = 1;
-	pcHelper = new parentControllerHelper();
+	wallHelper = new wallFolderHelper();
 	target_scale = 1;
 	return self;
 }
@@ -57,7 +57,7 @@ void parentControllerHelper::drawBackground()
 -(void)render
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"to_small"] || [[model valueForKey:@"currentState"] isEqual:@"to_large"] || [[model valueForKey:@"currentState"] isEqual:@"small"]){
-		pcHelper->drawBackground();
+		wallHelper->drawWall();
 		if(filter_on){
 			[b_control render];
 		}

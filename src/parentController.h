@@ -13,6 +13,7 @@
 #include "ofxiPhoneKeyboard.h"
 #import "ballController.h"
 #import "parentModel.h"
+#import "wallFolderHelper.h"
 
 class parentControllerHelper 
 	{		
@@ -32,7 +33,9 @@ class parentControllerHelper
 	float endTime;
 	float currentCutoff, currentOffset;
 	ballController *b_control;
-	parentControllerHelper *pcHelper;
+	
+	wallFolderHelper *wallHelper;
+	
 	NSMutableArray *instrumentGroup;
 	parentModel *model;
 	RemoteIOPlayer	*player;

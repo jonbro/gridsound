@@ -15,9 +15,9 @@ class wallFolderHelper
 	public:
 		wallFolderHelper();
 		~wallFolderHelper();
-		drawWall();
-		openWall();
-		closeWall();
+		void drawWall();
+		void openWall();
+		void closeWall();
 	protected:
 		ofImage atlas;
 		ofxMSAShape3D *myShape;

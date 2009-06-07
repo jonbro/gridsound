@@ -8,7 +8,6 @@
 #import "Phrase.h"
 #import "parentController.h"
 #import "gridController.h"
-#import "wallFolderHelper.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -36,7 +35,6 @@ public:
 	void startAccell();	
 	void stopAccell();
 	void drawRastaCutter();
-	wallFolderHelper *wallFolder;
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
