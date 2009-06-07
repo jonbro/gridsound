@@ -21,4 +21,6 @@
 -(void)reset;
 -(float)getX;
 -(float)getY;
+-(float)getUnscaledX;
+-(float)getUnscaledY;
 @end

@@ -63,4 +63,12 @@
 {
 	return ballPos.y/(float)height-0.5;
 }
+-(float)getUnscaledX
+{
+	return ballPos.x;
+}
+-(float)getUnscaledY
+{
+	return ballPos.y;
+}
 @end

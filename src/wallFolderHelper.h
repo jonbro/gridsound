@@ -18,10 +18,13 @@ class wallFolderHelper
 		void drawWall();
 		void openWall();
 		void closeWall();
+		void setBalloon(float x, float y);
+
 	protected:
 		ofImage atlas;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex;
 		int currentFrame, direction, startMove, startFrame;
+		float balloonX, balloonY;
 	};
 

@@ -88,6 +88,7 @@ void parentControllerHelper::drawBackground()
 		[b_control update];
 		currentCutoff = [b_control getX];
 		currentOffset = [b_control getY];
+		wallHelper->setBalloon([b_control getUnscaledX], [b_control getUnscaledY]);
 	}
 	for(int i=0;i<3;i++){
 		if([[filtering objectAtIndex:i] isEqual:@"true"]){
@@ -136,6 +137,18 @@ void parentControllerHelper::drawBackground()
 		}else{
 			[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];
 		}
+	}else if(y>370 && y<460 && [[model valueForKey:@"currentState"] isEqual:@"small"]){
+		for(int i=0;i<3;i++){
+			if(
+				(int)x<(i+1)*107 &&
+				(int)x>i*107
+			){
+				wallHelper->openWall();
+				filter_on = true;
+				[[filtering objectAtIndex:i] setString:@"true"];				
+			}
+				
+		}
 	}else if([[model valueForKey:@"currentState"] isEqual:@"small"]){
 		endTime = ofGetElapsedTimeMillis();
 		for(int i=0;i<3;i++){
@@ -153,10 +166,6 @@ void parentControllerHelper::drawBackground()
 						target_x = -i*111;
 						target_scale = 2;
 						model.currentGrid = [NSNumber numberWithInt:j*3+i];
-					}else{
-						wallHelper->openWall();
-						filter_on = true;
-						[[filtering objectAtIndex:i] setString:@"true"];
 					}
 				}
 			}
