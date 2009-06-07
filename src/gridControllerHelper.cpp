@@ -11,14 +11,14 @@
 
 gridControllerHelper::gridControllerHelper()
 {	
-	buttonsOff.loadImage("allBtnsOffW.apng");
+//	buttonsOff.loadImage("allBtnsOffW.apng");
 	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOffTex = buttonsOff.getTextureReference();
 	buttonsMute.loadImage("allBtnsMute.png");
 	buttonsMute.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsMuteTex = buttonsMute.getTextureReference();
 	background.loadImage("base.png");
-	buttonsOn.loadImage("allBtnsOnW.apng");
+//	buttonsOn.loadImage("allBtnsOnW.apng");
 	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
 	buttonsOnTex = buttonsOn.getTextureReference();
 	myShape = new ofxMSAShape3D();

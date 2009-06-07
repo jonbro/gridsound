@@ -8,16 +8,20 @@
  */
 
 #import "ofxMSAShape3D.h"
+#import "ofMain.h"
 
 class wallFolderHelper
 {		
 	public:
 		wallFolderHelper();
 		~wallFolderHelper();
-	
+		drawWall();
+		openWall();
+		closeWall();
 	protected:
 		ofImage atlas;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex;
+		int currentFrame, direction, startMove;
 	};
 

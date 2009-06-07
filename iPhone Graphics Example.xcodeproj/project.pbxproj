@@ -1316,7 +1316,7 @@
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
 				PRODUCT_NAME = Muzhik;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 			};
 			name = Debug;
 		};
@@ -1398,7 +1398,7 @@
 				IPHONE_OPTIMIZE_OPTIONS = "-skip-PNGs";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Debug;

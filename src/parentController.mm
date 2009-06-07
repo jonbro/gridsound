@@ -13,7 +13,7 @@
 
 parentControllerHelper::parentControllerHelper()
 {		
-	mainBackground.loadImage("bookbig2.jpg");
+	//mainBackground.loadImage("bookbig2.jpg");
 }
 
 //--------------------------------------------------------------
