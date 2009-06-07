@@ -17,6 +17,8 @@ wallFolderHelper::wallFolderHelper()
 
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
+	startFrame = 0;
+	direction = 0;
 	startMove = ofGetElapsedTimeMillis();
 }
 
@@ -31,15 +33,67 @@ void wallFolderHelper::drawWall()
 	atlasTex.bind();
 	glPushMatrix();
 	float sze = 1024.0;
-	currentFrame = ((ofGetElapsedTimeMillis()-startMove)/100)%2;
+//	currentFrame = ((ofGetElapsedTimeMillis()-startMove)/100)%8;
+	if(direction ==0){
+		currentFrame -= ((ofGetElapsedTimeMillis()-startMove)/100);
+	}else{
+		currentFrame += ((ofGetElapsedTimeMillis()-startMove)/100);
+	}
+	currentFrame = min(8, max(0, currentFrame));
+	//draw the bottom layer
+	float topX = 0/sze;
+	float topY = 1024.0/sze;
+	float bottomX = 320.0/sze;
+	float bottomY = 544.0/sze;
+	
+	myShape->begin(GL_TRIANGLE_STRIP);
+	myShape->setTexCoord(topX, topY);
+	myShape->addVertex(0, 0);
+	
+	myShape->setTexCoord(bottomX, topY);
+	myShape->addVertex(320, 0);
+	
+	// going to move these up based on mutes eventually
+	myShape->setTexCoord(topX, bottomY);
+	myShape->addVertex(0, 480);
+	
+	myShape->setTexCoord(bottomX, bottomY);
+	myShape->addVertex(320, 480);
+	myShape->end();
+	
+	if(currentFrame > 1){
+		float topX = 640.0/sze;
+		float topY = 210.0/sze;
+		float bottomX = 958.0/sze;
+		float bottomY = 0.0/sze;
+		
+		myShape->begin(GL_TRIANGLE_STRIP);
+		myShape->setTexCoord(topX, topY);
+		myShape->addVertex(0, 0);
+		
+		myShape->setTexCoord(bottomX, topY);
+		myShape->addVertex(320, 0);
+		
+		// going to move these up based on mutes eventually
+		myShape->setTexCoord(topX, bottomY);
+		myShape->addVertex(0, 315);
+		
+		myShape->setTexCoord(bottomX, bottomY);
+		myShape->addVertex(320, 315);
+		myShape->end();		
+	}	
 	switch (currentFrame) {
 		case 1 : 
 			{
-				float topX = 0/sze;
-				float topY = 1024.0/sze;
-				float bottomX = 320.0/sze;
-				float bottomY = 544.0/sze;
-
+			}
+			break;
+		case 2 :
+			{
+				topX = 0/sze;
+				topY = 544.0/sze;
+				bottomX = 320.0/sze;
+				bottomY = 163.0/sze;
+				
 				myShape->begin(GL_TRIANGLE_STRIP);
 				myShape->setTexCoord(topX, topY);
 				myShape->addVertex(0, 0);
@@ -49,19 +103,162 @@ void wallFolderHelper::drawWall()
 				
 				// going to move these up based on mutes eventually
 				myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 480);
+				myShape->addVertex(0, 382);
 				
 				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 480);
-				myShape->end();
+				myShape->addVertex(320, 382);
+				myShape->end();				
 			}
+			break;
+		case 3 :
+			{
+				topX = 320.0/sze;
+				topY = 1024.0/sze;
+				bottomX = 640.0/sze;
+				bottomY = 643.0/sze;
+				
+				myShape->begin(GL_TRIANGLE_STRIP);
+				myShape->setTexCoord(topX, topY);
+				myShape->addVertex(0, 0);
+				
+				myShape->setTexCoord(bottomX, topY);
+				myShape->addVertex(320, 0);
+				
+				// going to move these up based on mutes eventually
+				myShape->setTexCoord(topX, bottomY);
+				myShape->addVertex(0, 382);
+				
+				myShape->setTexCoord(bottomX, bottomY);
+				myShape->addVertex(320, 382);
+				myShape->end();				
+			}
+			break;
+		case 4 :
+			{
+				// 340
+				topX = 320.0/sze;
+				topY = 643.0/sze;
+				bottomX = 640.0/sze;
+				bottomY = 303.0/sze;
+				
+				myShape->begin(GL_TRIANGLE_STRIP);
+				myShape->setTexCoord(topX, topY);
+				myShape->addVertex(0, 41);
+				
+				myShape->setTexCoord(bottomX, topY);
+				myShape->addVertex(320, 41);
+				
+				// going to move these up based on mutes eventually
+				myShape->setTexCoord(topX, bottomY);
+				myShape->addVertex(0, 382);
+				
+				myShape->setTexCoord(bottomX, bottomY);
+				myShape->addVertex(320, 382);
+				myShape->end();				
+			}
+			break;
+		case 5 :
+		{
+			// 257
+			topX = 320.0/sze;
+			topY = 303.0/sze;
+			bottomX = 640.0/sze;
+			bottomY = 48.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 83);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 83);
+			
+			// going to move these up based on mutes eventually
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
+			break;
+		case 6 :
+		{
+			// 176
+			topX = 640.0/sze;
+			topY = 1024.0/sze;
+			bottomX = 960.0/sze;
+			bottomY = 848.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 206);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 206);
+			
+			// going to move these up based on mutes eventually
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
+			break;
+		case 7 :
+		{
+			// 115
+			topX = 640.0/sze;
+			topY = 849.0/sze;
+			bottomX = 960.0/sze;
+			bottomY = 734.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 267);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 267);
+			
+			// going to move these up based on mutes eventually
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
+			break;
+		case 8 :
+		{
+			// 82
+			topX = 640.0/sze;
+			topY = 731.0/sze;
+			bottomX = 959.0/sze;
+			bottomY = 652.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 300);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 300);
+			
+			// going to move these up based on mutes eventually
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
 			break;
 		default : 
 			{
-				float topX = 639.0/sze;
-				float topY = 649.0/sze;
-				float bottomX = 958.0/sze;
-				float bottomY = 213.0/sze;
+				topX = 639.0/sze;
+				topY = 649.0/sze;
+				bottomX = 958.0/sze;
+				bottomY = 213.0/sze;
 				myShape->begin(GL_TRIANGLE_STRIP);
 				myShape->setTexCoord(topX, topY);
 				myShape->addVertex(0, 0);
@@ -75,37 +272,22 @@ void wallFolderHelper::drawWall()
 				
 				myShape->setTexCoord(bottomX, bottomY);
 				myShape->addVertex(320, 437);
-				myShape->end();
-				topX = 0/sze;
-				topY = 585.0/sze;
-				bottomX = 320.0/sze;
-				bottomY = 545.0/sze;
-				myShape->begin(GL_TRIANGLE_STRIP);
-				myShape->setTexCoord(topX, topY);
-				myShape->addVertex(0, 437);
-				
-				myShape->setTexCoord(bottomX, topY);
-				myShape->addVertex(320, 437);
-				
-				myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 480);
-				
-				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 480);
-				
 				myShape->end();
 				
 				//
 			}
 	}
+	
 	atlasTex.unbind();
 	glPopMatrix();				
 }
 void wallFolderHelper::openWall()
 {
-	
+	direction = 1;
+	startMove = ofGetElapsedTimeMillis();
 }
 void wallFolderHelper::closeWall()
 {
-	
+	direction = 0;
+	startMove = ofGetElapsedTimeMillis();	
 }

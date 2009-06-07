@@ -22,6 +22,6 @@ class wallFolderHelper
 		ofImage atlas;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex;
-		int currentFrame, direction, startMove;
+		int currentFrame, direction, startMove, startFrame;
 	};
 

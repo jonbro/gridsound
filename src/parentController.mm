@@ -154,6 +154,7 @@ void parentControllerHelper::drawBackground()
 						target_scale = 2;
 						model.currentGrid = [NSNumber numberWithInt:j*3+i];
 					}else{
+						wallHelper->openWall();
 						filter_on = true;
 						[[filtering objectAtIndex:i] setString:@"true"];
 					}
@@ -176,6 +177,7 @@ void parentControllerHelper::drawBackground()
 -(void)touchUpX:(float)x y:(float)y touchId:(int)touchId{
 	for(int i=0;i<3;i++){
 		[[filtering objectAtIndex:i] setString:@"false"];
+		wallHelper->closeWall();
 		filter_on = false;
 		[b_control reset];
 	}

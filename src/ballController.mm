@@ -50,10 +50,10 @@
 }
 -(void)render
 {
-	ofSetColor(50, 50, 50);
-	ofRect(0, 0, width, height);
-	ofSetColor(255, 255, 255);
-	ofCircle(ballPos.x,ballPos.y, 10);
+//	ofSetColor(50, 50, 50);
+//	ofRect(0, 0, width, height);
+//	ofSetColor(255, 255, 255);
+//	ofCircle(ballPos.x,ballPos.y, 10);
 }
 -(float)getX
 {
