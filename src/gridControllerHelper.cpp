@@ -39,7 +39,10 @@ void gridControllerHelper::drawVolume(float volLevel)
 {
 	this->drawRect((int)(volLevel*80), 369, 89, 44, 51, 647);
 }
-
+void gridControllerHelper::drawButton(int x, int y)
+{
+	this->drawRect(x*40, y*40, 40, 40, 0, 691);
+}
 void gridControllerHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y){
 
 	int atlasWidth = 512;

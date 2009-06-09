@@ -110,8 +110,11 @@
 //	}
 //	[self drawBottomBar];
 //	[self drawVolumeBar];
-
-//	int volumeWidth = 320*((float)volumeLevel/255.0);
+	for(int i = 0; i < 8; i++){
+		if(![[model.mutes objectAtIndex:i]boolValue]){
+			gcHelper->drawButton(i, [[model.steps objectAtIndex:i]intValue]);
+		}
+	}
 	gcHelper->drawVolume((float)volumeLevel/255.0);
 	gcHelper->drawForeground();
 
