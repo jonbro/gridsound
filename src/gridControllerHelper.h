@@ -14,12 +14,14 @@ class gridControllerHelper
 	public:
 		gridControllerHelper();
 		~gridControllerHelper();
-		void drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY);
 		void drawBackground();
+		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y);
+		void drawForeground();
+		void drawVolume(float volLevel);
 
 	protected:
-		ofImage buttonsOn, buttonsOff, buttonsMute, background;
+		ofImage atlas;
 		ofxMSAShape3D *myShape;
-		ofTexture buttonsOnTex, buttonsOffTex, buttonsMuteTex, curTex;
+		ofTexture atlasTex;
 	};
 

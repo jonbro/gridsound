@@ -44,6 +44,7 @@
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
 	volumeLevel = 80;
+	touchingVolume = false;
 	currentStep = 0;
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
@@ -90,25 +91,30 @@
 }
 -(void) render
 {
-	ofSetColor(0xFFFFFF);
 	gcHelper->drawBackground();
-	ofSetColor(0xEB008B);
-	for(int j = 0; j < 8; j++){
-		for(int i = 0; i < 8; i++){
-			if([[model.mutes objectAtIndex:j]boolValue]){
-				gcHelper->drawButton(2, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-			}else if([[model.steps objectAtIndex:j]intValue] == i){
-				gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-			}else{
-				gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-			}
-		}
-	}
-	for(int j = 0; j < 8; j++){
-		[[ripples objectAtIndex:j] renderX:j*40+20 Y:[[model.steps objectAtIndex:j]intValue]*40+y_offset+20];
-	}
-	[self drawBottomBar];
-	[self drawVolumeBar];
+
+//	for(int j = 0; j < 8; j++){
+//		for(int i = 0; i < 8; i++){
+//			if([[model.mutes objectAtIndex:j]boolValue]){
+//				//gcHelper->drawButton(2, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
+//			}else if([[model.steps objectAtIndex:j]intValue] == i){
+//				//gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
+//			}else{
+//				//gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
+//			}
+//		}
+//	}
+
+//	for(int j = 0; j < 8; j++){
+//		[[ripples objectAtIndex:j] renderX:j*40+20 Y:[[model.steps objectAtIndex:j]intValue]*40+y_offset+20];
+//	}
+//	[self drawBottomBar];
+//	[self drawVolumeBar];
+
+//	int volumeWidth = 320*((float)volumeLevel/255.0);
+	gcHelper->drawVolume((float)volumeLevel/255.0);
+	gcHelper->drawForeground();
+
 }
 -(void)update
 {
@@ -205,11 +211,11 @@
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([currentState isEqual:@"display_grid"]){
-		int touchedPos = (int)(y/320.0*8.0);
-		if(touchedPos<8){
-			[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:touchedPos]];
-		}else if(touchedPos==8){
-			volumeLevel = (int)(x/320.0*255.0);
+		int sliderLeft = ((float)volumeLevel/255.0)*80;
+		if(y>369&&y<410&&x>sliderLeft&&x<sliderLeft+89){
+			volumeStart = x;
+			touchingVolume = true;
+			volumeFinger = touchId;
 		}
 	}
 	if(x<45 && y > 435+y_offset){
@@ -236,9 +242,18 @@
 	[model.mutes replaceObjectAtIndex:clickedStep withObject:[NSNumber numberWithInt:lastMuteState]];
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
-	[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
+	if(touchingVolume && touchId == volumeFinger){
+		volumeLevel += ((x-volumeStart)/89.0)*255.0;
+		volumeStart = x;
+		volumeLevel = min(255, max(0, volumeLevel));
+	}else{
+		[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
+	}
 }
 -(void)touchUp:(float)x y:(float)y touchId:(int)touchId{
+	if(touchingVolume && touchId == volumeFinger){
+		touchingVolume = false;
+	}
 }
 
 @end

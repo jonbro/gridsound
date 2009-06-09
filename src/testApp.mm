@@ -161,7 +161,7 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[mainController touchDownX:x y:y touchId:touchId];
+	[mainController touchMoved:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){

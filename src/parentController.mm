@@ -179,16 +179,20 @@ void parentControllerHelper::drawBackground()
 	}
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
-	if(!renderSmall){
-		[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];
+	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
+		[[children objectAtIndex:[model.currentGrid intValue]] touchMoved:x y:y touchId:touchId];
 	}
 }
 -(void)touchUpX:(float)x y:(float)y touchId:(int)touchId{
-	for(int i=0;i<3;i++){
-		[[filtering objectAtIndex:i] setString:@"false"];
-		wallHelper->closeWall();
-		filter_on = false;
-		[b_control reset];
+	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
+		[[children objectAtIndex:[model.currentGrid intValue]] touchUp:x y:y touchId:touchId];
+	}else{
+		for(int i=0;i<3;i++){
+			[[filtering objectAtIndex:i] setString:@"false"];
+			wallHelper->closeWall();
+			filter_on = false;
+			[b_control reset];
+		}
 	}
 }
 

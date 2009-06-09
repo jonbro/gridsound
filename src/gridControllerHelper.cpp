@@ -11,16 +11,10 @@
 
 gridControllerHelper::gridControllerHelper()
 {	
-//	buttonsOff.loadImage("allBtnsOffW.apng");
-	buttonsOff.setImageType(OF_IMAGE_COLOR_ALPHA);
-	buttonsOffTex = buttonsOff.getTextureReference();
-	buttonsMute.loadImage("allBtnsMute.png");
-	buttonsMute.setImageType(OF_IMAGE_COLOR_ALPHA);
-	buttonsMuteTex = buttonsMute.getTextureReference();
-	background.loadImage("base.png");
-//	buttonsOn.loadImage("allBtnsOnW.apng");
-	buttonsOn.setImageType(OF_IMAGE_COLOR_ALPHA);
-	buttonsOnTex = buttonsOn.getTextureReference();
+	atlas.loadImage("texture_atlas_interior.png");
+	atlas.setImageType(OF_IMAGE_COLOR_ALPHA);
+	atlasTex = atlas.getTextureReference();
+	
 	myShape = new ofxMSAShape3D();
 }
 
@@ -29,66 +23,52 @@ gridControllerHelper::~gridControllerHelper()
 {
 	
 }
-void gridControllerHelper::drawButton(int buttonCounter, float x, float y, float textureOffsetX, float textureOffsetY)
-{
-	if(buttonCounter == 0){
-		curTex = buttonsOffTex;
-	}else if(buttonCounter == 1){
-		curTex = buttonsOnTex;
-	}else{
-		curTex = buttonsMuteTex;
-	}
-	glPushMatrix();
-	glTranslatef(x,y,0.0f);
-	float tex_t = curTex.texData.tex_t*textureOffsetX;
-	float tex_u = curTex.texData.tex_u*textureOffsetY;
-	float tex_offset = curTex.texData.tex_u/8.0;
-	curTex.bind();
-	myShape->begin(GL_TRIANGLE_STRIP);
-	myShape->setTexCoord(tex_t, tex_u);
-	myShape->addVertex(0, 0);
-	
-	myShape->setTexCoord(tex_t+tex_offset, tex_u);
-	myShape->addVertex(320/8, 0);
-	
-	myShape->setTexCoord(tex_t, tex_u+tex_offset);
-	myShape->addVertex(0, 320/8);
-	
-	myShape->setTexCoord(tex_t+tex_offset, tex_u+tex_offset);
-	myShape->addVertex(320/8, 320/8);
-	
-	myShape->enableColor(false);
-	myShape->enableNormal(false);
-	myShape->enableTexCoord(true);
-	myShape->end();
-	curTex.unbind();
-	glPopMatrix();
-}
+
 void gridControllerHelper::drawBackground()
 {
+	this->drawRect(0, 0, 320, 480, 0, 0);
+	// draw control backgrounds
+	this->drawRect(0, 312, 320, 168, 0, 480);
+	
+}
+void gridControllerHelper::drawForeground()
+{
+	this->drawRect(0, 312, 320, 168, 0, 480);	
+}
+void gridControllerHelper::drawVolume(float volLevel)
+{
+	this->drawRect((int)(volLevel*80), 369, 89, 44, 51, 647);
+}
+
+void gridControllerHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y){
+
+	int atlasWidth = 512;
+	int atlasHeight = 1024;
+	
+	float t_1 = (float)offset_x/(float)atlasWidth;
+	float t_2 = (float)(offset_x+width)/(float)atlasWidth;
+
+	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
+	float u_2 = (float)(atlasHeight-(offset_y+height))/(float)atlasHeight;
+
+	atlasTex.bind();
 	glPushMatrix();
-	glTranslatef(0,0,0.0f);
-	background.getTextureReference().bind();
 	myShape->begin(GL_TRIANGLE_STRIP);
+	myShape->setTexCoord(t_1, u_1);
+	myShape->addVertex(x, y);
 	
-	// man seriously? http://www.gamedev.net/reference/articles/article947.asp
+	myShape->setTexCoord(t_2, u_1);
+	myShape->addVertex(x+width, y);
 	
-	myShape->setTexCoord(0, 1);
-	myShape->addVertex(0, 0);
+	// going to move these up based on mutes eventually
+	myShape->setTexCoord(t_1, u_2);
+	myShape->addVertex(x, y+height);
 	
-	myShape->setTexCoord(1, 1);
-	myShape->addVertex(320, 0);
+	myShape->setTexCoord(t_2, u_2);
+	myShape->addVertex(x+width, y+height);
 	
-	myShape->setTexCoord(0, 0);
-	myShape->addVertex(0, 480);
-	
-	myShape->setTexCoord(1, 0);
-	myShape->addVertex(320, 480);
-	
-	myShape->enableColor(false);
-	myShape->enableNormal(false);
-	myShape->enableTexCoord(true);
 	myShape->end();
-	background.getTextureReference().unbind();
-	glPopMatrix();	
+	glPopMatrix();
+	atlasTex.unbind();
+	
 }

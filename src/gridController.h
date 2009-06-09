@@ -20,6 +20,8 @@
 	int currentSample, numLoops, playbackMode, currentStep;
 	float y_offset;
 	int volumeLevel;
+	bool touchingVolume;
+	int volumeStart, volumeFinger;
 	NSArray *noteSamples, *loopSamples;
 	NSMutableArray *ripples;
 	gridModel *model;
