@@ -31,15 +31,15 @@
 -(void)update
 {
 	if([currentState isEqual:@"pulse1"]){
-		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:0 valueChange:2 endTime_:100];
+		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:0 valueChange:1 endTime_:150];
 		if(ofGetElapsedTimeMillis()>endTime){
 			[currentState setString:@"pulse2"];
 			startTime = ofGetElapsedTimeMillis();
-			endTime = ofGetElapsedTimeMillis()+200.0;
+			endTime = ofGetElapsedTimeMillis()+300.0;
 		}
 	}
 	if([currentState isEqual:@"pulse2"]){
-		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:2 valueChange:-1.7 endTime_:200];
+		scale = [self tweenLinearCurrentTime:ofGetElapsedTimeMillis()-startTime startValue:1 valueChange:-1 endTime_:300];
 		if(ofGetElapsedTimeMillis()>endTime){
 			[currentState setString:@"static"];
 		}
@@ -53,6 +53,14 @@
 		ofCircle(_x, _y, self.scale*20);
 	}
 	ofSetColor(255, 255, 255, 255);
+}
+-(float)getScale
+{
+	if(![currentState isEqual:@"static"]){
+		return scale;
+	}else{
+		return 0;
+	}
 }
 -(float)tweenLinearCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d
 {

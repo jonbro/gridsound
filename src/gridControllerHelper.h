@@ -18,7 +18,7 @@ class gridControllerHelper
 		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y);
 		void drawForeground();
 		void drawVolume(float volLevel);
-		void drawButton(int x, int y);
+		void drawButton(int x, int y, int frame);
 	
 	protected:
 		ofImage atlas;

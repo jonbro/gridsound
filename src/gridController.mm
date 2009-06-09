@@ -94,25 +94,11 @@
 	gcHelper->drawBackground();
 
 //	for(int j = 0; j < 8; j++){
-//		for(int i = 0; i < 8; i++){
-//			if([[model.mutes objectAtIndex:j]boolValue]){
-//				//gcHelper->drawButton(2, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-//			}else if([[model.steps objectAtIndex:j]intValue] == i){
-//				//gcHelper->drawButton(1, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-//			}else{
-//				//gcHelper->drawButton(0, j*40, i*40+y_offset, (float)j/8.0, (float)i/8.0);
-//			}
-//		}
-//	}
-
-//	for(int j = 0; j < 8; j++){
 //		[[ripples objectAtIndex:j] renderX:j*40+20 Y:[[model.steps objectAtIndex:j]intValue]*40+y_offset+20];
 //	}
-//	[self drawBottomBar];
-//	[self drawVolumeBar];
 	for(int i = 0; i < 8; i++){
 		if(![[model.mutes objectAtIndex:i]boolValue]){
-			gcHelper->drawButton(i, [[model.steps objectAtIndex:i]intValue]);
+			gcHelper->drawButton(i, [[model.steps objectAtIndex:i]intValue], max(0, min(7, (int)([[ripples objectAtIndex:i]getScale]*7.0))));
 		}
 	}
 	gcHelper->drawVolume((float)volumeLevel/255.0);

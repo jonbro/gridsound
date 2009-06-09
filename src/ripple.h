@@ -21,5 +21,6 @@
 -(void)renderX:(float)_x Y:(float)_y;
 -(void)update;
 -(void)startPulse;
+-(float)getScale;
 -(float)tweenLinearCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;
 @end
