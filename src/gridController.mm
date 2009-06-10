@@ -45,6 +45,7 @@
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
 	volumeLevel = 80;
 	touchingVolume = false;
+	showSamplePicker = false;
 	currentStep = 0;
 	self.playbackMode = 0;
 	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
@@ -205,6 +206,15 @@
 			volumeStart = x;
 			touchingVolume = true;
 			volumeFinger = touchId;
+		}
+	}
+	if(x>235&&y>315&&y<380){
+		if(showSamplePicker){
+			gcHelper->rollInBelt();			
+			showSamplePicker = false;
+		}else{
+			gcHelper->rollOutBelt();
+			showSamplePicker = true;
 		}
 	}
 	if(x<45 && y > 435+y_offset){

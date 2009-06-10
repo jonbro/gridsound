@@ -16,13 +16,20 @@ class gridControllerHelper
 		~gridControllerHelper();
 		void drawBackground();
 		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y);
+		void drawRectTexture(int x, int y, int width, int height, int offset_x, int offset_y, int texture);
 		void drawForeground();
 		void drawVolume(float volLevel);
 		void drawButton(int x, int y, int frame);
-	
+		void showBelt();
+		void setCurrentFrame(int frame);
+		float tweenLinearCurrentTime(float t, float b, float c, float d);
+		void rollOutBelt();
+		void rollInBelt();
 	protected:
-		ofImage atlas;
+		ofImage atlas, beltAtlas;
+		int currentFrame, startMove;
+		int direction;
 		ofxMSAShape3D *myShape;
-		ofTexture atlasTex;
+		ofTexture atlasTex, beltAtlasTex;
 	};
 

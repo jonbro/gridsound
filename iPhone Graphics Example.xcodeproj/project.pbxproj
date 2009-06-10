@@ -86,6 +86,7 @@
 		5EF1ABE80FA6B35200BF814F /* SampleInstrument.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1ABE70FA6B35200BF814F /* SampleInstrument.mm */; };
 		5EFB016B0F8D923200E1FD8E /* square.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB016A0F8D923200E1FD8E /* square.wav */; };
 		5EFBB5310FDDF6D90037C3E0 /* texture_atlas_interior.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */; };
+		5EFBB6220FDF50D30037C3E0 /* texture_atlas_belt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */; };
 		5EFC90930FA92DB500E4C94A /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC90880FA92DB500E4C94A /* Bass1.wav */; };
 		5EFC90940FA92DB500E4C94A /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC90890FA92DB500E4C94A /* Bass2.wav */; };
 		5EFC90950FA92DB500E4C94A /* Drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC908A0FA92DB500E4C94A /* Drums1.wav */; };
@@ -231,6 +232,7 @@
 		5EF1ABE70FA6B35200BF814F /* SampleInstrument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SampleInstrument.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/SampleInstrument.mm"; sourceTree = DEVELOPER_DIR; };
 		5EFB016A0F8D923200E1FD8E /* square.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = square.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/square.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_interior.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_interior.png"; sourceTree = DEVELOPER_DIR; };
+		5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_belt.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_belt.png"; sourceTree = DEVELOPER_DIR; };
 		5EFC90880FA92DB500E4C94A /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Bass1.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFC90890FA92DB500E4C94A /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Bass2.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFC908A0FA92DB500E4C94A /* Drums1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Drums1.wav"; sourceTree = DEVELOPER_DIR; };
@@ -481,6 +483,7 @@
 		5E39BD290FC389CF00122C40 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */,
 				5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */,
 				5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */,
 				5EEA91A20FCB877C00F31704 /* allBtnsMute.png */,
@@ -1243,6 +1246,7 @@
 				5EEA91A30FCB877C00F31704 /* allBtnsMute.png in Resources */,
 				5E17020C0FDB35E000B2C6A9 /* texture_atlas_books.png in Resources */,
 				5EFBB5310FDDF6D90037C3E0 /* texture_atlas_interior.png in Resources */,
+				5EFBB6220FDF50D30037C3E0 /* texture_atlas_belt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
