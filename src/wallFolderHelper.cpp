@@ -25,6 +25,8 @@ wallFolderHelper::wallFolderHelper()
 	direction = 0;
 	startMove = ofGetElapsedTimeMillis();
 	balloonX = balloonY = 160;
+	zooming = false;
+	zoomSpeed = 500;
 }
 
 //--------------------------------------------------------------
@@ -301,8 +303,12 @@ void wallFolderHelper::drawWall()
 	}
 	atlasTex.unbind();
 	glPopMatrix();
-	this->drawScalerWall(0, 0, 1);
-
+	if(zooming){
+		this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_x_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_y_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 2.13333333, scaleTarget, zoomSpeed));
+		if(ofGetElapsedTimeMillis()-startZoom>zoomSpeed){
+			zooming = false;
+		}
+	}
 }
 void wallFolderHelper::openWall()
 {
@@ -314,23 +320,77 @@ void wallFolderHelper::closeWall()
 	direction = 0;
 	startMove = ofGetElapsedTimeMillis();	
 }
+void wallFolderHelper::zoomToBook(int book){
+	zoomDirection = 0;
+	zooming = true;
+	startZoom = ofGetElapsedTimeMillis();
+	scaleTarget = -1.868;
+	switch (book) {
+		case 0:
+			offset_x_target = 86; 
+			offset_y_target = 216;			
+			break;
+		case 1:
+			offset_x_target = 291; 
+			offset_y_target = 216;			
+			break;
+		case 2:
+			offset_x_target = 506; 
+			offset_y_target = 216;			
+			break;
+		case 3:
+			offset_x_target = 117; 
+			offset_y_target = 480;			
+			break;
+		case 4:
+			offset_x_target = 299; 
+			offset_y_target = 480;			
+			break;
+		case 5:
+			offset_x_target = 479; 
+			offset_y_target = 480;			
+			break;
+		default:
+			break;
+	}
+}
+float wallFolderHelper::tweenLinearCurrentTime(float t, float b, float c, float d)
+{
+	return c*t/d + b;
+}
+
+float wallFolderHelper::tweenQuadraticCurrentTime(float t, float b, float c, float d)
+{
+	t /= d/2.0;
+	if (t < 1) return c/2.0*t*t + b;
+	return -c/2.0 * ((--t)*(t-2.0) - 1.0) + b;
+}
+
 void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
 	// texture calculaaation!
 
+	int atlasWidth = 1024;
+	int atlasHeight = 1024;
+	
+	float t_1 = (float)offset_x/(float)atlasWidth;
+	float t_2 = (float)(offset_x+320*scale)/(float)atlasWidth;
+	
+	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
+	float u_2 = (float)(atlasHeight-(offset_y+480*scale))/(float)atlasHeight;	
 	
 	
 	zoomerAtlasTex.bind();
 	myShape->begin(GL_TRIANGLE_STRIP);
-	myShape->setTexCoord(0, 1);
+	myShape->setTexCoord(t_1, u_1);
 	myShape->addVertex(0, 0);
 	
-	myShape->setTexCoord(1, 1);
+	myShape->setTexCoord(t_2, u_1);
 	myShape->addVertex(320, 0);
 	
-	myShape->setTexCoord(0, 0);
+	myShape->setTexCoord(t_1, u_2);
 	myShape->addVertex(0, 480);
 	
-	myShape->setTexCoord(1, 0);
+	myShape->setTexCoord(t_2, u_2);
 	myShape->addVertex(320, 480);
 	myShape->end();				
 	zoomerAtlasTex.unbind();

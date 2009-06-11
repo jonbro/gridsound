@@ -20,12 +20,15 @@ class wallFolderHelper
 		void closeWall();
 		void setBalloon(float x, float y);
 		void drawScalerWall(int offset_x, int offset_y, float scale);
-	
+		float tweenLinearCurrentTime(float t, float b, float c, float d);
+		float tweenQuadraticCurrentTime(float t, float b, float c, float d);
+		void zoomToBook(int book);
+		bool zooming;
 	protected:
 		ofImage atlas, zoomerAtlas;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex, zoomerAtlasTex;
-		int currentFrame, direction, startMove, startFrame;
-		float balloonX, balloonY;
+		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target, zoomSpeed;
+		float balloonX, balloonY, scaleTarget;
 	};
 

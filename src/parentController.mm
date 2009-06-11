@@ -69,12 +69,7 @@ void parentControllerHelper::drawBackground()
 -(void)update
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"to_small"] || [[model valueForKey:@"currentState"] isEqual:@"to_large"]){
-		if(ofGetElapsedTimeMillis() < endTime+500){
-			scale = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:1.0 valueChange:2.0 endTime_:500];
-			x_offset = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:0 valueChange:target_x endTime_:500];
-			y_offset = [self tweenQuadraticCurrentTime:ofGetElapsedTimeMillis()-endTime startValue:0 valueChange:target_y endTime_:500];
-		}else{
-			scale = 1;
+		if(!wallHelper->zooming){
 			if([[model valueForKey:@"currentState"] isEqual:@"to_small"]){
 				model.currentState = @"small";
 			}else{
@@ -166,6 +161,7 @@ void parentControllerHelper::drawBackground()
 						target_x = -i*111;
 						target_scale = 2;
 						model.currentGrid = [NSNumber numberWithInt:j*3+i];
+						wallHelper->zoomToBook([model.currentGrid intValue]);
 					}
 				}
 			}
