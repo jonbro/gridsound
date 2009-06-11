@@ -245,7 +245,7 @@
 		volumeLevel += ((x-volumeStart)/89.0)*255.0;
 		volumeStart = x;
 		volumeLevel = min(255, max(0, volumeLevel));
-	}else{
+	}else if(y<320){
 		[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
 	}
 }
