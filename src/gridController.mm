@@ -103,11 +103,11 @@
 		}
 	}
 	gcHelper->drawVolume((float)volumeLevel/255.0);
-	gcHelper->drawForeground();
-
+	gcHelper->drawForeground(loopSamples);
 }
 -(void)update
 {
+	gcHelper->setCurrentLoop([model.currentSample intValue]);
 	if([currentState isEqual:@"to_settings"]){
 		if(y_offset>-260){
 			y_offset = (y_offset-260)/2;
@@ -208,11 +208,17 @@
 			volumeFinger = touchId;
 		}
 	}
-	if(x>235&&y>315&&y<380){
-		if(showSamplePicker){
-			gcHelper->rollInBelt();			
-			showSamplePicker = false;
+	if(showSamplePicker){
+		if(x>46 && x<138){
+			if((y)/40<[loopSamples count]){
+				model.currentSample = [NSNumber numberWithInt:(int)(y)/40];
+			}
 		}else{
+			gcHelper->rollInBelt();
+			showSamplePicker = false;
+		}
+	}else if(x>235&&y>315&&y<380){
+		if(!showSamplePicker){
 			gcHelper->rollOutBelt();
 			showSamplePicker = true;
 		}

@@ -18,7 +18,7 @@ gridControllerHelper::gridControllerHelper()
 	beltAtlas.loadImage("texture_atlas_belt.png");
 	beltAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	beltAtlasTex = beltAtlas.getTextureReference();
-	
+	sampleFont.loadFont("DejaVuSerifCondensed-Bold.ttf", 11);
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
 	direction = 0;
@@ -33,8 +33,7 @@ void gridControllerHelper::setCurrentFrame(int frame)
 {
 	currentFrame = frame;
 }
-
-void gridControllerHelper::showBelt(){
+void gridControllerHelper::showBelt(NSArray* samples){
 	if(direction == 0){
 		currentFrame -= ((ofGetElapsedTimeMillis()-startMove)/200);
 	}else{
@@ -87,6 +86,29 @@ void gridControllerHelper::showBelt(){
 		default :
 			break;
 	}
+	if(currentFrame >= 11){
+		int lineHeight = 20;
+		int offset;
+		for(int i=0;i<[samples count];i++){
+			offset = (86 - sampleFont.stringWidth([[samples objectAtIndex:i] UTF8String]))/2;
+			if(i==currentLoop){
+				ofSetColor(0xc69c6d);
+			}else{
+				ofSetColor(0xffffff);				
+			}
+			sampleFont.drawString([[samples objectAtIndex:i] UTF8String], 48+offset, lineHeight);
+
+			//draw seperator
+			ofSetColor(0xffffff);
+			this->drawRectTexture(53, lineHeight+12, 81, 14, 418, 478, 1);
+
+			lineHeight += 40;
+		}
+	}
+}
+void gridControllerHelper::setCurrentLoop(int loop)
+{
+	currentLoop = loop;
 }
 float gridControllerHelper::tweenLinearCurrentTime(float t, float b, float c, float d)
 {
@@ -109,12 +131,12 @@ void gridControllerHelper::drawBackground()
 	// draw control backgrounds
 	this->drawRect(0, 312, 320, 168, 0, 480);
 }
-void gridControllerHelper::drawForeground()
+void gridControllerHelper::drawForeground(NSArray* samples)
 {
 	this->drawRect(0, 312, 320, 168, 0, 480);	
 	//draw belt
 	if(currentFrame>-1){
-		this->showBelt();
+		this->showBelt(samples);
 	}
 }
 void gridControllerHelper::drawVolume(float volLevel)

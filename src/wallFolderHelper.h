@@ -19,11 +19,12 @@ class wallFolderHelper
 		void openWall();
 		void closeWall();
 		void setBalloon(float x, float y);
-
+		void drawScalerWall(int offset_x, int offset_y, float scale);
+	
 	protected:
-		ofImage atlas;
+		ofImage atlas, zoomerAtlas;
 		ofxMSAShape3D *myShape;
-		ofTexture atlasTex;
+		ofTexture atlasTex, zoomerAtlasTex;
 		int currentFrame, direction, startMove, startFrame;
 		float balloonX, balloonY;
 	};

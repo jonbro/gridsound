@@ -8,6 +8,7 @@
  */
 
 #import "ofxMSAShape3D.h"
+#import "ofTrueTypeFont.h"
 
 class gridControllerHelper
 {		
@@ -17,17 +18,19 @@ class gridControllerHelper
 		void drawBackground();
 		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y);
 		void drawRectTexture(int x, int y, int width, int height, int offset_x, int offset_y, int texture);
-		void drawForeground();
+		void drawForeground(NSArray* samples);
 		void drawVolume(float volLevel);
 		void drawButton(int x, int y, int frame);
-		void showBelt();
+		void showBelt(NSArray* samples);
 		void setCurrentFrame(int frame);
 		float tweenLinearCurrentTime(float t, float b, float c, float d);
 		void rollOutBelt();
 		void rollInBelt();
+		void setCurrentLoop(int loop);
 	protected:
 		ofImage atlas, beltAtlas;
-		int currentFrame, startMove;
+		ofTrueTypeFont sampleFont;
+		int currentFrame, startMove, currentLoop;
 		int direction;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex, beltAtlasTex;

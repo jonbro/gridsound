@@ -14,6 +14,10 @@ wallFolderHelper::wallFolderHelper()
 	atlas.loadImage("texture_atlas_books.png");
 	atlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	atlasTex = atlas.getTextureReference();
+	
+	zoomerAtlas.loadImage("zoomer_atlas.png");
+	zoomerAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
+	zoomerAtlasTex = zoomerAtlas.getTextureReference();
 
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
@@ -295,9 +299,10 @@ void wallFolderHelper::drawWall()
 				//
 			}
 	}
-	
 	atlasTex.unbind();
-	glPopMatrix();				
+	glPopMatrix();
+	this->drawScalerWall(0, 0, 1);
+
 }
 void wallFolderHelper::openWall()
 {
@@ -308,4 +313,25 @@ void wallFolderHelper::closeWall()
 {
 	direction = 0;
 	startMove = ofGetElapsedTimeMillis();	
+}
+void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
+	// texture calculaaation!
+
+	
+	
+	zoomerAtlasTex.bind();
+	myShape->begin(GL_TRIANGLE_STRIP);
+	myShape->setTexCoord(0, 1);
+	myShape->addVertex(0, 0);
+	
+	myShape->setTexCoord(1, 1);
+	myShape->addVertex(320, 0);
+	
+	myShape->setTexCoord(0, 0);
+	myShape->addVertex(0, 480);
+	
+	myShape->setTexCoord(1, 0);
+	myShape->addVertex(320, 480);
+	myShape->end();				
+	zoomerAtlasTex.unbind();
 }

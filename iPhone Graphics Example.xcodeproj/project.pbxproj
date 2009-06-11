@@ -59,7 +59,7 @@
 		5ED5EFFC0FAA9E50005AA5D4 /* tnk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFF40FAA9E50005AA5D4 /* tnk.wav */; };
 		5ED5EFFD0FAA9E50005AA5D4 /* wmm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ED5EFF50FAA9E50005AA5D4 /* wmm.wav */; };
 		5EE024300F892E2A00B050C3 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EE0242F0F892E2A00B050C3 /* dist.plist */; };
-		5EE500860FC3995C00047CDA /* gridControllerHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EE500850FC3995C00047CDA /* gridControllerHelper.cpp */; };
+		5EE500860FC3995C00047CDA /* gridControllerHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EE500850FC3995C00047CDA /* gridControllerHelper.mm */; };
 		5EE501370FC4F56000047CDA /* 0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE501290FC4F56000047CDA /* 0006.png */; };
 		5EE501380FC4F56000047CDA /* 0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012A0FC4F56000047CDA /* 0007.png */; };
 		5EE501390FC4F56000047CDA /* 0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5012B0FC4F56000047CDA /* 0008.png */; };
@@ -87,6 +87,9 @@
 		5EFB016B0F8D923200E1FD8E /* square.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB016A0F8D923200E1FD8E /* square.wav */; };
 		5EFBB5310FDDF6D90037C3E0 /* texture_atlas_interior.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */; };
 		5EFBB6220FDF50D30037C3E0 /* texture_atlas_belt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */; };
+		5EFBB7180FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB7170FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf */; };
+		5EFBB7930FE0A3850037C3E0 /* zoomer_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFBB7920FE0A3850037C3E0 /* zoomer_atlas.png */; };
+		5EFBB79F0FE0A43A0037C3E0 /* drawingHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBB79E0FE0A43A0037C3E0 /* drawingHelper.mm */; };
 		5EFC90930FA92DB500E4C94A /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC90880FA92DB500E4C94A /* Bass1.wav */; };
 		5EFC90940FA92DB500E4C94A /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC90890FA92DB500E4C94A /* Bass2.wav */; };
 		5EFC90950FA92DB500E4C94A /* Drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EFC908A0FA92DB500E4C94A /* Drums1.wav */; };
@@ -202,7 +205,7 @@
 		5ED5EFF50FAA9E50005AA5D4 /* wmm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = wmm.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/noteSamples/wmm.wav"; sourceTree = DEVELOPER_DIR; };
 		5EE0242F0F892E2A00B050C3 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/dist.plist"; sourceTree = DEVELOPER_DIR; };
 		5EE500840FC3995C00047CDA /* gridControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridControllerHelper.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridControllerHelper.h"; sourceTree = DEVELOPER_DIR; };
-		5EE500850FC3995C00047CDA /* gridControllerHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gridControllerHelper.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridControllerHelper.cpp"; sourceTree = DEVELOPER_DIR; };
+		5EE500850FC3995C00047CDA /* gridControllerHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridControllerHelper.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/gridControllerHelper.mm"; sourceTree = DEVELOPER_DIR; };
 		5EE501290FC4F56000047CDA /* 0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0006.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0006.png"; sourceTree = DEVELOPER_DIR; };
 		5EE5012A0FC4F56000047CDA /* 0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0007.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0007.png"; sourceTree = DEVELOPER_DIR; };
 		5EE5012B0FC4F56000047CDA /* 0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0008.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/reapp/layers/flyout/0008.png"; sourceTree = DEVELOPER_DIR; };
@@ -233,6 +236,10 @@
 		5EFB016A0F8D923200E1FD8E /* square.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = square.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/square.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_interior.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_interior.png"; sourceTree = DEVELOPER_DIR; };
 		5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_belt.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_belt.png"; sourceTree = DEVELOPER_DIR; };
+		5EFBB7170FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DejaVuSerifCondensed-Bold.ttf"; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/DejaVuSerifCondensed-Bold.ttf"; sourceTree = DEVELOPER_DIR; };
+		5EFBB7920FE0A3850037C3E0 /* zoomer_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zoomer_atlas.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/zoomer_atlas.png"; sourceTree = DEVELOPER_DIR; };
+		5EFBB79D0FE0A43A0037C3E0 /* drawingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = drawingHelper.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/drawingHelper.h"; sourceTree = DEVELOPER_DIR; };
+		5EFBB79E0FE0A43A0037C3E0 /* drawingHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = drawingHelper.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/drawingHelper.mm"; sourceTree = DEVELOPER_DIR; };
 		5EFC90880FA92DB500E4C94A /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Bass1.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFC90890FA92DB500E4C94A /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Bass2.wav"; sourceTree = DEVELOPER_DIR; };
 		5EFC908A0FA92DB500E4C94A /* Drums1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/glock_107_wav/Drums1.wav"; sourceTree = DEVELOPER_DIR; };
@@ -483,6 +490,7 @@
 		5E39BD290FC389CF00122C40 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5EFBB7920FE0A3850037C3E0 /* zoomer_atlas.png */,
 				5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */,
 				5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */,
 				5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */,
@@ -585,6 +593,8 @@
 				5EF1ABBA0FA6B0EE00BF814F /* common_macros.h */,
 				5E93914D0FA50D4800180323 /* fixed.h */,
 				5E93914E0FA50D4800180323 /* fixed.cpp */,
+				5EFBB79D0FE0A43A0037C3E0 /* drawingHelper.h */,
+				5EFBB79E0FE0A43A0037C3E0 /* drawingHelper.mm */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -641,7 +651,7 @@
 				5EA56B2F0FB8EBBA00DBC38A /* ballController.h */,
 				5EA56B300FB8EBBA00DBC38A /* ballController.mm */,
 				5EE500840FC3995C00047CDA /* gridControllerHelper.h */,
-				5EE500850FC3995C00047CDA /* gridControllerHelper.cpp */,
+				5EE500850FC3995C00047CDA /* gridControllerHelper.mm */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -924,6 +934,7 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5EFBB7170FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf */,
 				5EE501280FC4F56000047CDA /* flyout */,
 				5E39BD2A0FC389DE00122C40 /* old_samples */,
 				5E39BD290FC389CF00122C40 /* book_design_images */,
@@ -1247,6 +1258,8 @@
 				5E17020C0FDB35E000B2C6A9 /* texture_atlas_books.png in Resources */,
 				5EFBB5310FDDF6D90037C3E0 /* texture_atlas_interior.png in Resources */,
 				5EFBB6220FDF50D30037C3E0 /* texture_atlas_belt.png in Resources */,
+				5EFBB7180FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf in Resources */,
+				5EFBB7930FE0A3850037C3E0 /* zoomer_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,12 +1304,13 @@
 				5E5DB2000FB529AE006D05D1 /* MoogFilter2.mm in Sources */,
 				5EA56B310FB8EBBA00DBC38A /* ballController.mm in Sources */,
 				5EA56B3B0FB8EBF900DBC38A /* vmath.cpp in Sources */,
-				5EE500860FC3995C00047CDA /* gridControllerHelper.cpp in Sources */,
+				5EE500860FC3995C00047CDA /* gridControllerHelper.mm in Sources */,
 				5E4B7DDC0FC62C7500CA2D37 /* ripple.mm in Sources */,
 				5E4B807F0FC9D8AF00CA2D37 /* parentModel.m in Sources */,
 				5E4B80830FC9D8C400CA2D37 /* gridModel.m in Sources */,
 				5E4B80860FC9DFF500CA2D37 /* parentController.mm in Sources */,
 				5E17020A0FDB270E00B2C6A9 /* wallFolderHelper.cpp in Sources */,
+				5EFBB79F0FE0A43A0037C3E0 /* drawingHelper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
