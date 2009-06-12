@@ -27,8 +27,6 @@ wallFolderHelper::wallFolderHelper()
 	balloonX = balloonY = 160;
 	zooming = false;
 	zoomingSecondary = false;
-	zoomSpeedSecondary = 500;
-	zoomSpeed = 500;
 }
 
 //--------------------------------------------------------------
@@ -312,7 +310,19 @@ void wallFolderHelper::drawWall()
 		this->drawNonZoom();
 	}
 	if(zooming){
-		this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_x_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_y_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 2.13333333, scaleTarget, zoomSpeed));
+		if(zoomDirection == 0){
+			this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_x_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_y_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 2.13333333, scaleTarget, zoomSpeed));
+		}else{
+			glEnable(GL_DEPTH_TEST);
+			glPushMatrix();
+			glRotatef(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, -99, 99, zoomSpeed), 0, 1, 0);
+			this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
+			glTranslatef(320, 0, 0);
+			glRotatef(90, 0, 1, 0);
+			this->drawScalerWall(686, 0, 1);
+			glPopMatrix();
+			glDisable(GL_DEPTH_TEST);			
+		}
 		if(ofGetElapsedTimeMillis()-startZoom>zoomSpeed){
 			zooming = false;
 			zoomingSecondary = true;
@@ -320,6 +330,7 @@ void wallFolderHelper::drawWall()
 		}
 	}
 	if(zoomingSecondary){
+		if(zoomDirection == 0){
 		glEnable(GL_DEPTH_TEST);
 		glPushMatrix();
 		glRotatef(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, -99, zoomSpeedSecondary), 0, 1, 0);
@@ -327,11 +338,14 @@ void wallFolderHelper::drawWall()
 		glTranslatef(320, 0, 0);
 		glRotatef(90, 0, 1, 0);
 		this->drawScalerWall(686, 0, 1);
+		glPopMatrix();
+		glDisable(GL_DEPTH_TEST);
+		}else{
+			this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, offset_x_target, -offset_x_target, zoomSpeedSecondary), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, offset_y_target, -offset_y_target, zoomSpeedSecondary), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, .265333333333333, -scaleTarget, zoomSpeedSecondary));
+		}
 		if(ofGetElapsedTimeMillis()-startZoom>zoomSpeedSecondary){
 			zoomingSecondary = false;
 		}
-		glPopMatrix();
-		glDisable(GL_DEPTH_TEST);
 	}	
 }
 void wallFolderHelper::openWall()
@@ -349,6 +363,8 @@ void wallFolderHelper::zoomToBook(int book){
 	zooming = true;
 	startZoom = ofGetElapsedTimeMillis();
 	scaleTarget = -1.868;
+	zoomSpeedSecondary = 500;
+	zoomSpeed = 500;
 	switch (book) {
 		case 0:
 			offset_x_target = 86; 
@@ -377,6 +393,14 @@ void wallFolderHelper::zoomToBook(int book){
 		default:
 			break;
 	}
+}
+void wallFolderHelper::zoomFromBook()
+{
+	zoomDirection = 1;
+	zooming = true;
+	zoomSpeedSecondary = 500;
+	zoomSpeed = 500;
+	startZoom = ofGetElapsedTimeMillis();
 }
 float wallFolderHelper::tweenLinearCurrentTime(float t, float b, float c, float d)
 {

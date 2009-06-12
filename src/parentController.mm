@@ -57,7 +57,7 @@ void parentControllerHelper::drawBackground()
 -(void)render
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"to_small"] || [[model valueForKey:@"currentState"] isEqual:@"to_large"] || [[model valueForKey:@"currentState"] isEqual:@"small"]){
-		if(wallHelper->zoomingSecondary){
+		if(wallHelper->zoomingSecondary || wallHelper->zooming){
 			[[children objectAtIndex:[model.currentGrid intValue]] render];
 		}
 		wallHelper->drawWall();
@@ -124,14 +124,11 @@ void parentControllerHelper::drawBackground()
 	}
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
-//	NSLog(@"touchID: %i", touchId);
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
+		// clicking on the exit button
 		if(x>275 && y>435){
 			model.currentState = @"to_small";
-			//set initial scale and offset
-			x_offset = 0;
-			y_offset = 0;
-			scale = 1;
+			wallHelper->zoomFromBook();
 		}else{
 			[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];
 		}
