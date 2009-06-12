@@ -57,6 +57,9 @@ void parentControllerHelper::drawBackground()
 -(void)render
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"to_small"] || [[model valueForKey:@"currentState"] isEqual:@"to_large"] || [[model valueForKey:@"currentState"] isEqual:@"small"]){
+		if(wallHelper->zoomingSecondary){
+			[[children objectAtIndex:[model.currentGrid intValue]] render];
+		}
 		wallHelper->drawWall();
 		if(filter_on){
 			[b_control render];
@@ -69,14 +72,14 @@ void parentControllerHelper::drawBackground()
 -(void)update
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"to_small"] || [[model valueForKey:@"currentState"] isEqual:@"to_large"]){
-		if(!wallHelper->zooming){
+		if(!wallHelper->zooming && !wallHelper->zoomingSecondary){
 			if([[model valueForKey:@"currentState"] isEqual:@"to_small"]){
 				model.currentState = @"small";
 			}else{
 				model.currentState = @"large";
 			}
 		}
-	}else if([[model valueForKey:@"currentState"] isEqual:@"large"]){
+	}else if([[model valueForKey:@"currentState"] isEqual:@"large"] || wallHelper->zoomingSecondary){
 		[[children objectAtIndex:[model.currentGrid intValue]] update];
 	}
 	if(filter_on){

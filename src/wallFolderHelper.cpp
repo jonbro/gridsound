@@ -26,6 +26,8 @@ wallFolderHelper::wallFolderHelper()
 	startMove = ofGetElapsedTimeMillis();
 	balloonX = balloonY = 160;
 	zooming = false;
+	zoomingSecondary = false;
+	zoomSpeedSecondary = 500;
 	zoomSpeed = 500;
 }
 
@@ -38,7 +40,7 @@ void wallFolderHelper::setBalloon(float x, float y){
 	balloonX = (int)x;
 	balloonY = (int)y;
 }
-void wallFolderHelper::drawWall()
+void wallFolderHelper::drawNonZoom()
 {
 	atlasTex.bind();
 	glPushMatrix();
@@ -113,78 +115,78 @@ void wallFolderHelper::drawWall()
 		myShape->end();
 		
 		
-	}	
+	}
 	switch (currentFrame) {
 		case 1 : 
-			{
-			}
+		{
+		}
 			break;
 		case 2 :
-			{
-				topX = 0/sze;
-				topY = 544.0/sze;
-				bottomX = 320.0/sze;
-				bottomY = 163.0/sze;
-				
-				myShape->begin(GL_TRIANGLE_STRIP);
-				myShape->setTexCoord(topX, topY);
-				myShape->addVertex(0, 0);
-				
-				myShape->setTexCoord(bottomX, topY);
-				myShape->addVertex(320, 0);
-				
-						myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 382);
-				
-				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 382);
-				myShape->end();				
-			}
+		{
+			topX = 0/sze;
+			topY = 544.0/sze;
+			bottomX = 320.0/sze;
+			bottomY = 163.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 0);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 0);
+			
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
 			break;
 		case 3 :
-			{
-				topX = 320.0/sze;
-				topY = 1024.0/sze;
-				bottomX = 640.0/sze;
-				bottomY = 643.0/sze;
-				
-				myShape->begin(GL_TRIANGLE_STRIP);
-				myShape->setTexCoord(topX, topY);
-				myShape->addVertex(0, 0);
-				
-				myShape->setTexCoord(bottomX, topY);
-				myShape->addVertex(320, 0);
-				
-						myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 382);
-				
-				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 382);
-				myShape->end();				
-			}
+		{
+			topX = 320.0/sze;
+			topY = 1024.0/sze;
+			bottomX = 640.0/sze;
+			bottomY = 643.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 0);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 0);
+			
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
 			break;
 		case 4 :
-			{
-				// 340
-				topX = 320.0/sze;
-				topY = 643.0/sze;
-				bottomX = 640.0/sze;
-				bottomY = 303.0/sze;
-				
-				myShape->begin(GL_TRIANGLE_STRIP);
-				myShape->setTexCoord(topX, topY);
-				myShape->addVertex(0, 41);
-				
-				myShape->setTexCoord(bottomX, topY);
-				myShape->addVertex(320, 41);
-				
-						myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 382);
-				
-				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 382);
-				myShape->end();				
-			}
+		{
+			// 340
+			topX = 320.0/sze;
+			topY = 643.0/sze;
+			bottomX = 640.0/sze;
+			bottomY = 303.0/sze;
+			
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 41);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 41);
+			
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 382);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 382);
+			myShape->end();				
+		}
 			break;
 		case 5 :
 		{
@@ -201,7 +203,7 @@ void wallFolderHelper::drawWall()
 			myShape->setTexCoord(bottomX, topY);
 			myShape->addVertex(320, 83);
 			
-				myShape->setTexCoord(topX, bottomY);
+			myShape->setTexCoord(topX, bottomY);
 			myShape->addVertex(0, 382);
 			
 			myShape->setTexCoord(bottomX, bottomY);
@@ -224,7 +226,7 @@ void wallFolderHelper::drawWall()
 			myShape->setTexCoord(bottomX, topY);
 			myShape->addVertex(320, 206);
 			
-				myShape->setTexCoord(topX, bottomY);
+			myShape->setTexCoord(topX, bottomY);
 			myShape->addVertex(0, 382);
 			
 			myShape->setTexCoord(bottomX, bottomY);
@@ -247,7 +249,7 @@ void wallFolderHelper::drawWall()
 			myShape->setTexCoord(bottomX, topY);
 			myShape->addVertex(320, 267);
 			
-				myShape->setTexCoord(topX, bottomY);
+			myShape->setTexCoord(topX, bottomY);
 			myShape->addVertex(0, 382);
 			
 			myShape->setTexCoord(bottomX, bottomY);
@@ -270,7 +272,7 @@ void wallFolderHelper::drawWall()
 			myShape->setTexCoord(bottomX, topY);
 			myShape->addVertex(320, 300);
 			
-				myShape->setTexCoord(topX, bottomY);
+			myShape->setTexCoord(topX, bottomY);
 			myShape->addVertex(0, 382);
 			
 			myShape->setTexCoord(bottomX, bottomY);
@@ -279,36 +281,58 @@ void wallFolderHelper::drawWall()
 		}
 			break;
 		default : 
-			{
-				topX = 639.0/sze;
-				topY = 649.0/sze;
-				bottomX = 958.0/sze;
-				bottomY = 213.0/sze;
-				myShape->begin(GL_TRIANGLE_STRIP);
-				myShape->setTexCoord(topX, topY);
-				myShape->addVertex(0, 0);
-				
-				myShape->setTexCoord(bottomX, topY);
-				myShape->addVertex(320, 0);
-				
-						myShape->setTexCoord(topX, bottomY);
-				myShape->addVertex(0, 437);
-				
-				myShape->setTexCoord(bottomX, bottomY);
-				myShape->addVertex(320, 437);
-				myShape->end();
-				
-				//
-			}
+		{
+			topX = 639.0/sze;
+			topY = 649.0/sze;
+			bottomX = 958.0/sze;
+			bottomY = 213.0/sze;
+			myShape->begin(GL_TRIANGLE_STRIP);
+			myShape->setTexCoord(topX, topY);
+			myShape->addVertex(0, 0);
+			
+			myShape->setTexCoord(bottomX, topY);
+			myShape->addVertex(320, 0);
+			
+			myShape->setTexCoord(topX, bottomY);
+			myShape->addVertex(0, 437);
+			
+			myShape->setTexCoord(bottomX, bottomY);
+			myShape->addVertex(320, 437);
+			myShape->end();
+			
+			//
+		}
 	}
 	atlasTex.unbind();
-	glPopMatrix();
+	glPopMatrix();	
+}
+void wallFolderHelper::drawWall()
+{
+	if(!zooming && !zoomingSecondary){
+		this->drawNonZoom();
+	}
 	if(zooming){
 		this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_x_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, offset_y_target, zoomSpeed), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 2.13333333, scaleTarget, zoomSpeed));
 		if(ofGetElapsedTimeMillis()-startZoom>zoomSpeed){
 			zooming = false;
+			zoomingSecondary = true;
+			startZoom = ofGetElapsedTimeMillis();
 		}
 	}
+	if(zoomingSecondary){
+		glEnable(GL_DEPTH_TEST);
+		glPushMatrix();
+		glRotatef(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, -99, zoomSpeedSecondary), 0, 1, 0);
+		this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
+		glTranslatef(320, 0, 0);
+		glRotatef(90, 0, 1, 0);
+		this->drawScalerWall(686, 0, 1);
+		if(ofGetElapsedTimeMillis()-startZoom>zoomSpeedSecondary){
+			zoomingSecondary = false;
+		}
+		glPopMatrix();
+		glDisable(GL_DEPTH_TEST);
+	}	
 }
 void wallFolderHelper::openWall()
 {

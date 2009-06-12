@@ -24,23 +24,6 @@
 		5E4B80860FC9DFF500CA2D37 /* parentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B80850FC9DFF500CA2D37 /* parentController.mm */; };
 		5E4FEB130F805A64003018CA /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB0E0F805A64003018CA /* InMemoryAudioFile.m */; };
 		5E4FEB140F805A64003018CA /* RemoteIOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */; };
-		5E5DB1C90FB51794006D05D1 /* hr_bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1B80FB51794006D05D1 /* hr_bass1.wav */; };
-		5E5DB1CA0FB51794006D05D1 /* hr_bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1B90FB51794006D05D1 /* hr_bass2.wav */; };
-		5E5DB1CB0FB51794006D05D1 /* hr_bass3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BA0FB51794006D05D1 /* hr_bass3.wav */; };
-		5E5DB1CC0FB51794006D05D1 /* hr_bass4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BB0FB51794006D05D1 /* hr_bass4.wav */; };
-		5E5DB1CD0FB51794006D05D1 /* hr_bass5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BC0FB51794006D05D1 /* hr_bass5.wav */; };
-		5E5DB1CE0FB51794006D05D1 /* hr_bass6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BD0FB51794006D05D1 /* hr_bass6.wav */; };
-		5E5DB1CF0FB51794006D05D1 /* hr_drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BE0FB51794006D05D1 /* hr_drums1.wav */; };
-		5E5DB1D00FB51794006D05D1 /* hr_drums2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1BF0FB51794006D05D1 /* hr_drums2.wav */; };
-		5E5DB1D10FB51794006D05D1 /* hr_drums3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C00FB51794006D05D1 /* hr_drums3.wav */; };
-		5E5DB1D20FB51794006D05D1 /* hr_drums4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C10FB51794006D05D1 /* hr_drums4.wav */; };
-		5E5DB1D30FB51794006D05D1 /* hr_drums5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C20FB51794006D05D1 /* hr_drums5.wav */; };
-		5E5DB1D40FB51794006D05D1 /* hr_drums6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C30FB51794006D05D1 /* hr_drums6.wav */; };
-		5E5DB1D50FB51794006D05D1 /* hr_vox1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C40FB51794006D05D1 /* hr_vox1.wav */; };
-		5E5DB1D60FB51794006D05D1 /* hr_vox2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C50FB51794006D05D1 /* hr_vox2.wav */; };
-		5E5DB1D70FB51794006D05D1 /* hr_vox3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C60FB51794006D05D1 /* hr_vox3.wav */; };
-		5E5DB1D80FB51794006D05D1 /* hr_vox4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C70FB51794006D05D1 /* hr_vox4.wav */; };
-		5E5DB1D90FB51794006D05D1 /* hr_vox5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DB1C80FB51794006D05D1 /* hr_vox5.wav */; };
 		5E5DB2000FB529AE006D05D1 /* MoogFilter2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E5DB1FF0FB529AE006D05D1 /* MoogFilter2.mm */; };
 		5E7C468C0F830F6600538ECA /* Phrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C468B0F830F6600538ECA /* Phrase.m */; };
 		5E93914F0FA50D4800180323 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E93914E0FA50D4800180323 /* fixed.cpp */; };
@@ -161,23 +144,6 @@
 		5E4FEB0F0F805A64003018CA /* RemoteIOPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteIOPlayer.h; path = src/RemoteIOPlayer.h; sourceTree = "<group>"; };
 		5E4FEB100F805A64003018CA /* RemoteIOPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteIOPlayer.m; path = src/RemoteIOPlayer.m; sourceTree = "<group>"; };
 		5E4FEB110F805A64003018CA /* SampleInstrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleInstrument.h; path = src/SampleInstrument.h; sourceTree = "<group>"; };
-		5E5DB1B80FB51794006D05D1 /* hr_bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass1.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1B90FB51794006D05D1 /* hr_bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass2.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BA0FB51794006D05D1 /* hr_bass3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass3.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass3.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BB0FB51794006D05D1 /* hr_bass4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass4.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass4.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BC0FB51794006D05D1 /* hr_bass5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass5.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass5.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BD0FB51794006D05D1 /* hr_bass6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_bass6.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_bass6.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BE0FB51794006D05D1 /* hr_drums1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums1.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1BF0FB51794006D05D1 /* hr_drums2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums2.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C00FB51794006D05D1 /* hr_drums3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums3.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums3.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C10FB51794006D05D1 /* hr_drums4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums4.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums4.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C20FB51794006D05D1 /* hr_drums5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums5.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums5.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C30FB51794006D05D1 /* hr_drums6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_drums6.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_drums6.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C40FB51794006D05D1 /* hr_vox1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox1.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C50FB51794006D05D1 /* hr_vox2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox2.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C60FB51794006D05D1 /* hr_vox3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox3.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox3.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C70FB51794006D05D1 /* hr_vox4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox4.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox4.wav"; sourceTree = DEVELOPER_DIR; };
-		5E5DB1C80FB51794006D05D1 /* hr_vox5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hr_vox5.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin/hr_vox5.wav"; sourceTree = DEVELOPER_DIR; };
 		5E5DB1FE0FB529AE006D05D1 /* MoogFilter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoogFilter2.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter2.h"; sourceTree = DEVELOPER_DIR; };
 		5E5DB1FF0FB529AE006D05D1 /* MoogFilter2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MoogFilter2.mm; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/MoogFilter2.mm"; sourceTree = DEVELOPER_DIR; };
 		5E7C468A0F830F6600538ECA /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/Phrase.h"; sourceTree = DEVELOPER_DIR; };
@@ -547,31 +513,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		5E5DB1B70FB51794006D05D1 /* hirankin */ = {
-			isa = PBXGroup;
-			children = (
-				5E5DB1B80FB51794006D05D1 /* hr_bass1.wav */,
-				5E5DB1B90FB51794006D05D1 /* hr_bass2.wav */,
-				5E5DB1BA0FB51794006D05D1 /* hr_bass3.wav */,
-				5E5DB1BB0FB51794006D05D1 /* hr_bass4.wav */,
-				5E5DB1BC0FB51794006D05D1 /* hr_bass5.wav */,
-				5E5DB1BD0FB51794006D05D1 /* hr_bass6.wav */,
-				5E5DB1BE0FB51794006D05D1 /* hr_drums1.wav */,
-				5E5DB1BF0FB51794006D05D1 /* hr_drums2.wav */,
-				5E5DB1C00FB51794006D05D1 /* hr_drums3.wav */,
-				5E5DB1C10FB51794006D05D1 /* hr_drums4.wav */,
-				5E5DB1C20FB51794006D05D1 /* hr_drums5.wav */,
-				5E5DB1C30FB51794006D05D1 /* hr_drums6.wav */,
-				5E5DB1C40FB51794006D05D1 /* hr_vox1.wav */,
-				5E5DB1C50FB51794006D05D1 /* hr_vox2.wav */,
-				5E5DB1C60FB51794006D05D1 /* hr_vox3.wav */,
-				5E5DB1C70FB51794006D05D1 /* hr_vox4.wav */,
-				5E5DB1C80FB51794006D05D1 /* hr_vox5.wav */,
-			);
-			name = hirankin;
-			path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/hirankin";
-			sourceTree = DEVELOPER_DIR;
-		};
 		5E7C46890F830F5300538ECA /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,7 +879,6 @@
 				5EE501280FC4F56000047CDA /* flyout */,
 				5E39BD2A0FC389DE00122C40 /* old_samples */,
 				5E39BD290FC389CF00122C40 /* book_design_images */,
-				5E5DB1B70FB51794006D05D1 /* hirankin */,
 				5ED5EFED0FAA9E50005AA5D4 /* noteSamples */,
 				5EFC90870FA92DB500E4C94A /* glock_107_wav */,
 				5EE873D40F8EE7B8005E3C3C /* FreeSans.ttf */,
@@ -1219,23 +1159,6 @@
 				5ED5EFFB0FAA9E50005AA5D4 /* plk.wav in Resources */,
 				5ED5EFFC0FAA9E50005AA5D4 /* tnk.wav in Resources */,
 				5ED5EFFD0FAA9E50005AA5D4 /* wmm.wav in Resources */,
-				5E5DB1C90FB51794006D05D1 /* hr_bass1.wav in Resources */,
-				5E5DB1CA0FB51794006D05D1 /* hr_bass2.wav in Resources */,
-				5E5DB1CB0FB51794006D05D1 /* hr_bass3.wav in Resources */,
-				5E5DB1CC0FB51794006D05D1 /* hr_bass4.wav in Resources */,
-				5E5DB1CD0FB51794006D05D1 /* hr_bass5.wav in Resources */,
-				5E5DB1CE0FB51794006D05D1 /* hr_bass6.wav in Resources */,
-				5E5DB1CF0FB51794006D05D1 /* hr_drums1.wav in Resources */,
-				5E5DB1D00FB51794006D05D1 /* hr_drums2.wav in Resources */,
-				5E5DB1D10FB51794006D05D1 /* hr_drums3.wav in Resources */,
-				5E5DB1D20FB51794006D05D1 /* hr_drums4.wav in Resources */,
-				5E5DB1D30FB51794006D05D1 /* hr_drums5.wav in Resources */,
-				5E5DB1D40FB51794006D05D1 /* hr_drums6.wav in Resources */,
-				5E5DB1D50FB51794006D05D1 /* hr_vox1.wav in Resources */,
-				5E5DB1D60FB51794006D05D1 /* hr_vox2.wav in Resources */,
-				5E5DB1D70FB51794006D05D1 /* hr_vox3.wav in Resources */,
-				5E5DB1D80FB51794006D05D1 /* hr_vox4.wav in Resources */,
-				5E5DB1D90FB51794006D05D1 /* hr_vox5.wav in Resources */,
 				5E39BC820FC2456E00122C40 /* allBtnsOffW.apng in Resources */,
 				5E39BC830FC2456E00122C40 /* allBtnsOnW.apng in Resources */,
 				5E39BD280FC389C600122C40 /* bookbig2.jpg in Resources */,

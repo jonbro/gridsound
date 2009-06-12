@@ -23,12 +23,13 @@ class wallFolderHelper
 		float tweenLinearCurrentTime(float t, float b, float c, float d);
 		float tweenQuadraticCurrentTime(float t, float b, float c, float d);
 		void zoomToBook(int book);
-		bool zooming;
+		void drawNonZoom();
+		bool zooming, zoomingSecondary;
 	protected:
 		ofImage atlas, zoomerAtlas;
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex, zoomerAtlasTex;
-		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target, zoomSpeed;
+		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target, zoomSpeed, zoomSpeedSecondary;
 		float balloonX, balloonY, scaleTarget;
 	};
 
