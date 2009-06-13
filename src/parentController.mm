@@ -61,9 +61,11 @@ void parentControllerHelper::drawBackground()
 			[[children objectAtIndex:[model.currentGrid intValue]] render];
 		}
 		wallHelper->drawWall();
-		wallHelper->drawMute(0);
-		wallHelper->drawMute(1);
-		wallHelper->drawMute(2);
+		for(int i=0;i<3;i++){
+			if([[model.mutes objectAtIndex:i]boolValue]){
+				wallHelper->drawMute(i);
+			}
+		}
 	}else{
 		[[children objectAtIndex:[model.currentGrid intValue]] render];
 	}
@@ -146,7 +148,19 @@ void parentControllerHelper::drawBackground()
 				
 		}
 	}else if([[model valueForKey:@"currentState"] isEqual:@"small"]){
-		endTime = ofGetElapsedTimeMillis();
+		// TEST FOR MUTES.
+		if(y>12&&y<84){
+			if(x>27&&x<101){
+				[model.mutes replaceObjectAtIndex:0 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:0]boolValue]]];
+			}
+			if(x>127&&x<200){
+				[model.mutes replaceObjectAtIndex:1 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:1]boolValue]]];
+			}
+			if(x>226&&x<300){
+				[model.mutes replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:2]boolValue]]];
+			}			
+		}
+		// TEST FOR BOOKS.
 		if(x>42&&x<99&&y>103&&y<190){
 			model.currentGrid = [NSNumber numberWithInt:0];
 			[self bookSelected];

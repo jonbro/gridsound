@@ -141,7 +141,7 @@
 }
 -(int)volumeLevel
 {
-	if([[model.mutes objectAtIndex:currentStep]boolValue]){
+	if([[model.mutes objectAtIndex:currentStep]boolValue] || [[pModel.mutes objectAtIndex:channel]boolValue]){
 		return 0;
 	}else{
 		return [[pModel.volumes objectAtIndex:channel] intValue];
