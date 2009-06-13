@@ -23,6 +23,8 @@ class wallFolderHelper
 		float tweenLinearCurrentTime(float t, float b, float c, float d);
 		float tweenQuadraticCurrentTime(float t, float b, float c, float d);
 		void zoomToBook(int book);
+		void drawMute(int mute);
+		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y);
 		void zoomFromBook();
 		void drawNonZoom();
 		bool zooming, zoomingSecondary;

@@ -11,10 +11,14 @@
 
 @interface parentModel : NSObject <NSCoding> {
 	NSMutableArray* gridModels;
+	NSMutableArray* mutes;
+	NSMutableArray* volumes;
 	NSString* currentState;
 	NSNumber* currentGrid;	
 }
 @property (retain) NSMutableArray *gridModels;
+@property (retain) NSMutableArray *mutes;
+@property (retain) NSMutableArray *volumes;
 @property (copy) NSString* currentState;
 @property (retain) NSNumber* currentGrid;
 

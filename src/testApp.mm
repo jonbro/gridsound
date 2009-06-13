@@ -54,8 +54,8 @@ void testApp::setup(){
 	
 	gcHelper = new gridControllerHelper();
 	
-	for(int i=0;i<9;i++){
-		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper];
+	for(int i=0;i<6;i++){
+		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] noteSamples:[noteSampleArray retain] gcHelper:gcHelper channelNumber:i%3];
 		[mainController addChild:_gControl];
 	}
 	
@@ -67,7 +67,6 @@ void testApp::setup(){
 		sampleInstrument.samplePool = samplePool;
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
 		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
-		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+6]retain] forKey:@"fcut"];
 		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
 		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
 		sampleInstrument.volume = 80;

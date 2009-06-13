@@ -38,6 +38,18 @@ void wallFolderHelper::setBalloon(float x, float y){
 	balloonX = (int)x;
 	balloonY = (int)y;
 }
+void wallFolderHelper::drawMute(int mute)
+{
+	if(currentFrame ==0){
+		if(mute ==0){
+			this->drawRect(-1, 16, 114, 57, 0, 934);
+		}else if(mute==1){
+			this->drawRect(112, 16, 100, 57, 113, 934);
+		}else if(mute == 2){
+			this->drawRect(211, 16, 100, 57, 211, 934);		
+		}
+	}
+}
 void wallFolderHelper::drawNonZoom()
 {
 	atlasTex.bind();
@@ -308,6 +320,8 @@ void wallFolderHelper::drawWall()
 {
 	if(!zooming && !zoomingSecondary){
 		this->drawNonZoom();
+	}else if(currentFrame == 0){
+		this->drawScalerWall(0, 0, 2.13333);
 	}
 	if(zooming){
 		if(zoomDirection == 0){
@@ -442,4 +456,35 @@ void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
 	myShape->addVertex(320, 480);
 	myShape->end();				
 	zoomerAtlasTex.unbind();
+}
+void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y){
+	
+	int atlasWidth = 1024;
+	int atlasHeight = 1024;
+	
+	float t_1 = (float)offset_x/(float)atlasWidth;
+	float t_2 = (float)(offset_x+width)/(float)atlasWidth;
+	
+	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
+	float u_2 = (float)(atlasHeight-(offset_y+height))/(float)atlasHeight;
+	
+	atlasTex.bind();
+	glPushMatrix();
+	myShape->begin(GL_TRIANGLE_STRIP);
+	myShape->setTexCoord(t_1, u_1);
+	myShape->addVertex(x, y);
+	
+	myShape->setTexCoord(t_2, u_1);
+	myShape->addVertex(x+width, y);
+	
+	// going to move these up based on mutes eventually
+	myShape->setTexCoord(t_1, u_2);
+	myShape->addVertex(x, y+height);
+	
+	myShape->setTexCoord(t_2, u_2);
+	myShape->addVertex(x+width, y+height);
+	
+	myShape->end();
+	glPopMatrix();
+	atlasTex.unbind();
 }

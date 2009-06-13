@@ -61,9 +61,9 @@ void parentControllerHelper::drawBackground()
 			[[children objectAtIndex:[model.currentGrid intValue]] render];
 		}
 		wallHelper->drawWall();
-		if(filter_on){
-			[b_control render];
-		}
+		wallHelper->drawMute(0);
+		wallHelper->drawMute(1);
+		wallHelper->drawMute(2);
 	}else{
 		[[children objectAtIndex:[model.currentGrid intValue]] render];
 	}
@@ -121,12 +121,13 @@ void parentControllerHelper::drawBackground()
 	model = [_model retain];
 	for(int i=0;i<[model.gridModels count];i++){
 		[[children objectAtIndex:i] setModel:[model.gridModels objectAtIndex:i]];
+		[[children objectAtIndex:i] setParentModel:model];
 	}
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
 		// clicking on the exit button
-		if(x>275 && y>435){
+		if(x>236 && y>386){
 			model.currentState = @"to_small";
 			wallHelper->zoomFromBook();
 		}else{
@@ -146,27 +147,36 @@ void parentControllerHelper::drawBackground()
 		}
 	}else if([[model valueForKey:@"currentState"] isEqual:@"small"]){
 		endTime = ofGetElapsedTimeMillis();
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++){
-				if(
-				   (int)x<(i+1)*111 &&
-				   (int)x>i*111 &&
-				   (int)y<(j+1)*111 &&
-				   (int)y>j*111
-				   ){
-					if(j<2){
-						model.currentState = @"to_large";
-						//set target scale and offset
-						target_y = -j*111;
-						target_x = -i*111;
-						target_scale = 2;
-						model.currentGrid = [NSNumber numberWithInt:j*3+i];
-						wallHelper->zoomToBook([model.currentGrid intValue]);
-					}
-				}
-			}
+		if(x>42&&x<99&&y>103&&y<190){
+			model.currentGrid = [NSNumber numberWithInt:0];
+			[self bookSelected];
+		}
+		if(x>137&&x<196&&y>103&&y<190){
+			model.currentGrid = [NSNumber numberWithInt:1];
+			[self bookSelected];
+		}
+		if(x>238&&x<296&&y>103&&y<190){
+			model.currentGrid = [NSNumber numberWithInt:2];
+			[self bookSelected];
+		}
+		if(x>55&&x<110&&y>227&&y<314){
+			model.currentGrid = [NSNumber numberWithInt:3];
+			[self bookSelected];
+		}
+		if(x>140&&x<194&&y>227&&y<314){
+			model.currentGrid = [NSNumber numberWithInt:4];
+			[self bookSelected];
+		}
+		if(x>226&&x<284&&y>227&&y<314){
+			model.currentGrid = [NSNumber numberWithInt:5];
+			[self bookSelected];
 		}
 	}
+}
+-(void)bookSelected
+{
+	model.currentState = @"to_large";
+	wallHelper->zoomToBook([model.currentGrid intValue]);
 }
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
 {

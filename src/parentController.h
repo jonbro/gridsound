@@ -52,6 +52,7 @@ class parentControllerHelper
 -(void)setModel:(parentModel *)_model;
 -(void)update;
 -(void)addChild:(NSObject *)_child;
+-(void)bookSelected;
 -(float)tweenQuadraticCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;
 -(float)tweenLinearCurrentTime:(float)t startValue:(float)b valueChange:(float)c endTime_:(float)d;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;

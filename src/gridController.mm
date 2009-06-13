@@ -14,13 +14,14 @@
 
 @synthesize playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel
 {
 	self = [super init];
 	gcHelper = _gcHelper;
 	for(int i=0;i<8;i++){
 		steps[i] = i;
 	}
+	channel = _channel;
 	y_offset = 0;
 	player = _player;
 	loopSamples = [_loopSamples retain];
@@ -43,7 +44,6 @@
 											  40);
     pickerStyleSegmentedControl.frame = segmentedControlFrame;
 	currentState = [[NSMutableString alloc] initWithString:@"display_grid"];
-	volumeLevel = 80;
 	touchingVolume = false;
 	showSamplePicker = false;
 	currentStep = 0;
@@ -93,15 +93,12 @@
 -(void) render
 {
 	gcHelper->drawBackground();
-
-//	for(int j = 0; j < 8; j++){
-//		[[ripples objectAtIndex:j] renderX:j*40+20 Y:[[model.steps objectAtIndex:j]intValue]*40+y_offset+20];
-//	}
 	for(int i = 0; i < 8; i++){
 		if(![[model.mutes objectAtIndex:i]boolValue]){
 			gcHelper->drawButton(i, [[model.steps objectAtIndex:i]intValue], max(0, min(7, (int)([[ripples objectAtIndex:i]getScale]*7.0))));
 		}
 	}
+	volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];
 	gcHelper->drawVolume((float)volumeLevel/255.0);
 	gcHelper->drawForeground(loopSamples);
 }
@@ -147,13 +144,18 @@
 	if([[model.mutes objectAtIndex:currentStep]boolValue]){
 		return 0;
 	}else{
-		return volumeLevel;
+		return [[pModel.volumes objectAtIndex:channel] intValue];
 	}
 }
 -(void)setModel:(gridModel *)_model
 {
 	[model release];
 	model = [_model retain];
+}
+-(void)setParentModel:(parentModel *)_parentModel
+{
+	[pModel release];
+	pModel = [_parentModel retain];
 }
 -(void)drawVolumeBar
 {
@@ -201,6 +203,7 @@
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([currentState isEqual:@"display_grid"]){
+		volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];
 		int sliderLeft = ((float)volumeLevel/255.0)*80;
 		if(y>369&&y<410&&x>sliderLeft&&x<sliderLeft+89){
 			volumeStart = x;
@@ -232,7 +235,6 @@
 			[currentState setString:@"from_settings"];
 		}
 	}
-			
 }
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
 {
@@ -248,9 +250,11 @@
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	if(touchingVolume && touchId == volumeFinger){
+		volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];
 		volumeLevel += ((x-volumeStart)/89.0)*255.0;
 		volumeStart = x;
 		volumeLevel = min(255, max(0, volumeLevel));
+		[pModel.volumes replaceObjectAtIndex:channel withObject:[NSNumber numberWithInt:volumeLevel]];
 	}else if(y<320){
 		[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
 	}

@@ -13,11 +13,13 @@
 #import "parentController.h"
 #include "ofxiPhonePickerView.h"
 #import "gridControllerHelper.h"
-#import "gridModel.h";
+#import "gridModel.h"
+#import "parentModel.h"
 
 @interface gridController : NSObject {
 	int steps[8];
 	int currentSample, numLoops, playbackMode, currentStep;
+	int channel;
 	float y_offset;
 	int volumeLevel;
 	bool touchingVolume, showSamplePicker;
@@ -25,6 +27,7 @@
 	NSArray *noteSamples, *loopSamples;
 	NSMutableArray *ripples;
 	gridModel *model;
+	parentModel *pModel;
 	NSMutableString *currentState;
 	UISegmentedControl	*pickerStyleSegmentedControl;
 	gridControllerHelper *gcHelper;
@@ -34,11 +37,12 @@
 
 @property (assign) int playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel;
 -(void)showModePicker;
 -(void)hideModePicker;
 -(void)toggleMode:(id)sender;
 -(void)setModel:(gridModel *)_model;
+-(void)setParentModel:(parentModel *)_parentModel;
 -(void)setModePickerPosition:(int)x y:(int)_y;
 -(void)render;
 -(void)setupPickers;
