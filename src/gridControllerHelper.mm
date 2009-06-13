@@ -34,6 +34,7 @@ void gridControllerHelper::setCurrentFrame(int frame)
 	currentFrame = frame;
 }
 void gridControllerHelper::showBelt(NSArray* samples){
+	if(currentFrame>-1){
 	if(direction == 0){
 		currentFrame -= ((ofGetElapsedTimeMillis()-startMove)/200);
 	}else{
@@ -105,6 +106,7 @@ void gridControllerHelper::showBelt(NSArray* samples){
 			lineHeight += 40;
 		}
 	}
+	}
 }
 void gridControllerHelper::setCurrentLoop(int loop)
 {
@@ -135,9 +137,7 @@ void gridControllerHelper::drawForeground(NSArray* samples)
 {
 	this->drawRect(0, 312, 320, 168, 0, 480);	
 	//draw belt
-	if(currentFrame>-1){
-		this->showBelt(samples);
-	}
+	
 }
 void gridControllerHelper::drawVolume(float volLevel)
 {
@@ -149,6 +149,21 @@ void gridControllerHelper::drawButton(int x, int y, int frame)
 }
 void gridControllerHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y){
 	this->drawRectTexture(x, y, width, height, offset_x, offset_y, 0);
+}
+void gridControllerHelper::drawMute(int mute)
+{
+	int top = 418+7;
+	int offsetTop = 731+7;
+	int _height = 44;
+	if(mute==0){
+		this->drawRectTexture(25, top, _height, _height, 25, offsetTop, 0);
+	}
+	if(mute==1){
+		this->drawRectTexture(91, top, _height, _height, 91, offsetTop, 0);
+	}
+	if(mute==2){
+		this->drawRectTexture(157, top, _height, _height, 157, offsetTop, 0);
+	}
 }
 void gridControllerHelper::drawRectTexture(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
 

@@ -101,6 +101,12 @@
 	volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];
 	gcHelper->drawVolume((float)volumeLevel/255.0);
 	gcHelper->drawForeground(loopSamples);
+	for(int i=0;i<3;i++){
+		if([[pModel.mutes objectAtIndex:i]boolValue]){
+			gcHelper->drawMute(i);
+		}
+	}
+	gcHelper->showBelt(loopSamples);
 }
 -(void)update
 {
@@ -225,6 +231,16 @@
 			gcHelper->rollOutBelt();
 			showSamplePicker = true;
 		}
+	}else if(y>418){
+		if(x>16&&x<70){
+			[pModel.mutes replaceObjectAtIndex:0 withObject:[NSNumber numberWithBool:![[pModel.mutes objectAtIndex:0]boolValue]]];
+		}
+		if(x>86&&x<139){
+			[pModel.mutes replaceObjectAtIndex:1 withObject:[NSNumber numberWithBool:![[pModel.mutes objectAtIndex:1]boolValue]]];
+		}
+		if(x>152&&x<206){
+			[pModel.mutes replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:![[pModel.mutes objectAtIndex:2]boolValue]]];
+		}		
 	}
 	if(x<45 && y > 435+y_offset){
 		if([currentState isEqual:@"display_grid"]){

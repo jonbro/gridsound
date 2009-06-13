@@ -40,7 +40,7 @@ void wallFolderHelper::setBalloon(float x, float y){
 }
 void wallFolderHelper::drawMute(int mute)
 {
-	if(currentFrame ==0){
+	if(currentFrame==0 && !zooming && !zoomingSecondary){
 		if(mute ==0){
 			this->drawRect(-1, 16, 114, 57, 0, 934);
 		}else if(mute==1){
@@ -320,8 +320,9 @@ void wallFolderHelper::drawWall()
 {
 	if(!zooming && !zoomingSecondary){
 		this->drawNonZoom();
-	}else if(currentFrame == 0){
-		this->drawScalerWall(0, 0, 2.13333);
+		if(currentFrame == 0){
+			this->drawScalerWall(0, 0, 2.13333);
+		}
 	}
 	if(zooming){
 		if(zoomDirection == 0){
