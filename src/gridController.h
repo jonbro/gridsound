@@ -24,7 +24,7 @@
 	int volumeLevel;
 	bool touchingVolume, showSamplePicker;
 	int volumeStart, volumeFinger;
-	NSArray *noteSamples, *loopSamples;
+	NSArray *loopSamples;
 	NSMutableArray *ripples;
 	gridModel *model;
 	parentModel *pModel;
@@ -37,7 +37,7 @@
 
 @property (assign) int playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber;
 -(void)showModePicker;
 -(void)hideModePicker;
 -(void)toggleMode:(id)sender;

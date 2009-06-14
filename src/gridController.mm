@@ -14,7 +14,7 @@
 
 @synthesize playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber
 {
 	self = [super init];
 	gcHelper = _gcHelper;
@@ -26,7 +26,6 @@
 	y_offset = 0;
 	player = _player;
 	loopSamples = [_loopSamples retain];
-	noteSamples = [_noteSamples retain];
 	pickerStyleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Cutter", @"Note", nil]];
 	[pickerStyleSegmentedControl addTarget:self action:@selector(toggleMode:) forControlEvents:UIControlEventValueChanged];
 	pickerStyleSegmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -67,7 +66,7 @@
 		case 1: // UIDatePicker
 		{	
 			self.playbackMode = 1;
-			picker->setNewArray([noteSamples retain]);
+//			picker->setNewArray([noteSamples retain]);
 			break;
 		}			
 	}
