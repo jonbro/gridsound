@@ -29,6 +29,7 @@ class gridControllerHelper
 		void setCurrentLoop(int loop);
 		void drawMute(int mute);
 		void drawDirection(bool playBackDirection);
+		void drawLocation(int location);
 	
 	protected:
 		ofImage atlas, beltAtlas;

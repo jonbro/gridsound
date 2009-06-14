@@ -19,7 +19,7 @@
 @interface gridController : NSObject {
 	int steps[8];
 	int currentSample, numLoops, playbackMode, currentStep;
-	int channel;
+	int channel, gridNumber;
 	float y_offset;
 	int volumeLevel;
 	bool touchingVolume, showSamplePicker;
@@ -37,7 +37,7 @@
 
 @property (assign) int playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel;
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber;
 -(void)showModePicker;
 -(void)hideModePicker;
 -(void)toggleMode:(id)sender;

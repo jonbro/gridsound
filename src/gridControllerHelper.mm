@@ -175,6 +175,16 @@ void gridControllerHelper::drawDirection(bool playBackDirection){
 	this->drawRectTexture(0, 0, 64, 47, 137, 805, 0);
 	glPopMatrix();
 }
+void gridControllerHelper::drawLocation(int location)
+{
+	for(int i=0;i<6;i++){
+		if(i==location){
+			this->drawRectTexture(245+(i%3)*25, 401+(i/3)*38, 23, 35, 25, 647, 0);
+		}else{
+			this->drawRectTexture(245+(i%3)*25, 401+(i/3)*38, 23, 35, 0, 647, 0);
+		}
+	}
+}
 void gridControllerHelper::drawRectTexture(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
 
 	int atlasWidth = 512;

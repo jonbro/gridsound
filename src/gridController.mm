@@ -14,13 +14,14 @@
 
 @synthesize playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel
+-(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples noteSamples:(NSArray *)_noteSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber
 {
 	self = [super init];
 	gcHelper = _gcHelper;
 	for(int i=0;i<8;i++){
 		steps[i] = i;
 	}
+	gridNumber = _gridNumber;
 	channel = _channel;
 	y_offset = 0;
 	player = _player;
@@ -107,6 +108,7 @@
 		}
 	}
 	gcHelper->drawDirection([[pModel.directions objectAtIndex:channel] boolValue]);
+	gcHelper->drawLocation(gridNumber);
 	gcHelper->showBelt(loopSamples);
 }
 -(void)update
