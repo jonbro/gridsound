@@ -14,6 +14,7 @@
 	NSMutableArray* mutes;
 	NSMutableArray* volumes;
 	NSMutableArray* directions;
+	NSMutableArray* currentSamples;
 	NSString* currentState;
 	NSNumber* currentGrid;	
 }
@@ -21,6 +22,7 @@
 @property (retain) NSMutableArray *mutes;
 @property (retain) NSMutableArray *volumes;
 @property (retain) NSMutableArray *directions;
+@property (retain) NSMutableArray *currentSamples;
 @property (copy) NSString* currentState;
 @property (retain) NSNumber* currentGrid;
 

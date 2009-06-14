@@ -53,11 +53,6 @@
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
 	return self;
 }
--(void)showModePicker
-{
-	[self setupPickers];
-	[iPhoneGlobals.window addSubview:pickerStyleSegmentedControl];
-}
 - (void)toggleMode:(id)sender
 {
 	UISegmentedControl *segControl = sender;
@@ -116,27 +111,7 @@
 }
 -(void)update
 {
-	gcHelper->setCurrentLoop([model.currentSample intValue]);
-	if([currentState isEqual:@"to_settings"]){
-		if(y_offset>-260){
-			y_offset = (y_offset-260)/2;
-		}else{
-			[currentState setString:@"at_settings"];
-		}
-	}else if([currentState isEqual:@"from_settings"]){
-		if(y_offset<-1){
-			y_offset = (y_offset-0)/2;
-		}else{
-			y_offset = 0;
-			picker->setVisible(false);
-			[self hideModePicker];
-			[currentState setString:@"display_grid"];
-		}
-	}else if([currentState isEqual:@"at_settings"]){
-		model.currentSample = [NSNumber numberWithInt:picker->getRow()];
-	}
-	picker->setPosition(0, 520+y_offset);	
-	[self setModePickerPosition:0 y:480+y_offset];
+	gcHelper->setCurrentLoop([[pModel.currentSamples objectAtIndex:channel] intValue]);
 }
 -(int)getStep:(int)_step
 {
@@ -193,23 +168,19 @@
 }
 -(void)setSample:(int)_sample
 {
-	[model setCurrentSample:[NSNumber numberWithInt:_sample]];
+	[pModel.currentSamples replaceObjectAtIndex:channel withObject:[NSNumber numberWithInt:_sample]];
 	picker->setRow(_sample);
 }
 -(bool)getDirection
 {
 	return [[pModel.directions objectAtIndex:channel]boolValue];
 }
--(void)setupPickers
-{
-	picker->setRow([model.currentSample intValue]);
-}
 -(int)getSample
 {
 	if(pickerStyleSegmentedControl.selectedSegmentIndex == 1){
-		return [model.currentSample intValue]+[loopSamples count];
+		return [[pModel.currentSamples objectAtIndex:channel] intValue]+[loopSamples count];
 	}else{
-		return [model.currentSample intValue];
+		return [[pModel.currentSamples objectAtIndex:channel] intValue];
 	}
 }
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
@@ -225,7 +196,7 @@
 	if(showSamplePicker){
 		if(x>46 && x<138){
 			if((y)/40<[loopSamples count]){
-				model.currentSample = [NSNumber numberWithInt:(int)(y)/40];
+				[pModel.currentSamples replaceObjectAtIndex:channel withObject:[NSNumber numberWithInt:(int)(y)/40]];
 			}
 		}else{
 			gcHelper->rollInBelt();
