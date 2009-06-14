@@ -84,6 +84,12 @@ void testApp::setup(){
 	[player start];
 }
 
+void testApp::lostFocus(){
+	[player stop];
+}
+void testApp::gotFocus(){
+	[player start];
+}
 
 //--------------------------------------------------------------
 void testApp::update(){
