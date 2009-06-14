@@ -52,8 +52,6 @@
 -(int)getStep:(int)_step;
 -(void)setAll:(int)stepValue;
 -(int)volumeLevel;
--(void)drawBottomBar;
--(void)drawVolumeBar;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;

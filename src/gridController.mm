@@ -139,33 +139,6 @@
 	[pModel release];
 	pModel = [_parentModel retain];
 }
--(void)drawVolumeBar
-{
-	int volumeWidth = 320*((float)volumeLevel/255.0);
-	ofFill();
-	ofSetColor(0xCCCCCC);
-	ofRect(0, 322+y_offset, 320, 40); 
-	ofSetColor(0xEB008B);
-	ofRect(0, 322+y_offset, volumeWidth, 40);	
-}
--(void)drawBottomBar
-{
-	//draw minus button
-	ofFill();
-	ofSetColor(0xCCCCCC);
-	ofRect(275, 435+y_offset, 45, 45); 
-	ofSetColor(0xFFFFFF);
-	ofRect(285, 453+y_offset, 25, 9);
-	// draw settings helper down.
-	ofSetColor(0xCCCCCC);
-	ofRect(0, 435+y_offset, 45, 45); 
-	ofSetColor(0xFFFFFF);
-	if([currentState isEqual:@"display_grid"]){
-		ofTriangle(10, 450+y_offset, 35, 450+y_offset, 22.5, 470+y_offset);
-	}else{
-		ofTriangle(10, 470+y_offset, 35, 470+y_offset, 22.5, 450+y_offset);
-	}
-}
 -(void)setSample:(int)_sample
 {
 	[pModel.currentSamples replaceObjectAtIndex:channel withObject:[NSNumber numberWithInt:_sample]];

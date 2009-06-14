@@ -31,6 +31,9 @@ wallFolderHelper::wallFolderHelper()
 	cloud1XPosition = fmod((float)random(),320.0);
 	cloud2XPosition = fmod((float)random(),320.0);
 	cloud3XPosition = fmod((float)random(),320.0);
+	infoTransition = false;
+	infoPosition = 0;
+	info = false;
 }
 
 //--------------------------------------------------------------
@@ -46,11 +49,11 @@ void wallFolderHelper::drawMute(int mute)
 {
 	if(currentFrame==0 && !zooming && !zoomingSecondary){
 		if(mute ==0){
-			this->drawRect(-1, 16, 114, 57, 0, 934);
+			this->drawRect(-1, 16, 114, 57, 0, 934, 0);
 		}else if(mute==1){
-			this->drawRect(112, 16, 100, 57, 113, 934);
+			this->drawRect(112, 16, 100, 57, 113, 934, 0);
 		}else if(mute == 2){
-			this->drawRect(211, 16, 100, 57, 211, 934);		
+			this->drawRect(211, 16, 100, 57, 211, 934, 0);		
 		}
 	}
 }
@@ -117,7 +120,7 @@ void wallFolderHelper::drawNonZoom()
 		glTranslatef(cloud2XPosition, 100, 0);
 		// rotate 90
 		glRotatef(90, 0, 0, 1);
-		drawRect(0, 0, 65, 114, 960, 232);
+		drawRect(0, 0, 65, 114, 960, 232, 0);
 		glPopMatrix();
 		
 		atlasTex.bind();
@@ -154,7 +157,7 @@ void wallFolderHelper::drawNonZoom()
 		glTranslatef(cloud1XPosition, 160, 0);
 		// rotate 90
 		glRotatef(90, 0, 0, 1);
-		drawRect(0, 0, 65, 131, 960, 103);
+		drawRect(0, 0, 65, 131, 960, 103, 0);
 		glPopMatrix();
 
 		glPushMatrix();
@@ -163,7 +166,7 @@ void wallFolderHelper::drawNonZoom()
 		glTranslatef(cloud3XPosition, 180, 0);
 		// rotate 90
 		glRotatef(90, 0, 0, 1);
-		drawRect(0, 0, 65, 136, 960, 347);
+		drawRect(0, 0, 65, 136, 960, 347, 0);
 		glPopMatrix();
 		
 		
@@ -363,10 +366,31 @@ void wallFolderHelper::drawNonZoom()
 void wallFolderHelper::drawWall()
 {
 	if(!zooming && !zoomingSecondary){
+		glPushMatrix();
+		if(info || infoTransition){
+			if(infoDirection ==0){
+				infoPosition += ((ofGetElapsedTimeMillis()-infoStart)/30);
+				if(infoPosition>=320){
+					infoPosition = 320;
+					info = true;
+					infoTransition = false;
+				}
+			}else{
+				infoPosition -= ((ofGetElapsedTimeMillis()-infoStart)/30);
+				if(infoPosition<=0){
+					infoPosition = 0;
+					infoTransition = false;
+				}
+			}
+			glTranslatef(-infoPosition, 0, 0);
+			this->drawRect(320, 0, 320, 480, 683, 480, 1);
+		}
 		this->drawNonZoom();
 		if(currentFrame == 0){
 			this->drawScalerWall(0, 0, 2.13333);
 		}
+		this->drawRect(0-currentFrame*5, 216, 53, 84, 713, 393, 1);
+		glPopMatrix();
 	}
 	if(zooming){
 		if(zoomDirection == 0){
@@ -453,6 +477,19 @@ void wallFolderHelper::zoomToBook(int book){
 			break;
 	}
 }
+void wallFolderHelper::toInfo()
+{
+	infoTransition = true;
+	infoDirection = 0;
+	infoStart = ofGetElapsedTimeMillis();
+}
+void wallFolderHelper::fromInfo()
+{
+	infoTransition = true;
+	info = false;
+	infoDirection = 1;
+	infoStart = ofGetElapsedTimeMillis();
+}
 void wallFolderHelper::zoomFromBook()
 {
 	zoomDirection = 1;
@@ -502,7 +539,8 @@ void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
 	myShape->end();				
 	zoomerAtlasTex.unbind();
 }
-void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y){
+
+void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
 	
 	int atlasWidth = 1024;
 	int atlasHeight = 1024;
@@ -512,8 +550,11 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_
 	
 	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
 	float u_2 = (float)(atlasHeight-(offset_y+height))/(float)atlasHeight;
-	
-	atlasTex.bind();
+	if(texture ==0){
+		atlasTex.bind();
+	}else{
+		zoomerAtlasTex.bind();
+	}
 	glPushMatrix();
 	myShape->begin(GL_TRIANGLE_STRIP);
 	myShape->setTexCoord(t_1, u_1);
@@ -531,5 +572,9 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_
 	
 	myShape->end();
 	glPopMatrix();
-	atlasTex.unbind();
+	if(texture == 0){
+		atlasTex.unbind();
+	}else{
+		zoomerAtlasTex.unbind();
+	}
 }

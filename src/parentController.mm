@@ -148,42 +148,59 @@ void parentControllerHelper::drawBackground()
 				
 		}
 	}else if([[model valueForKey:@"currentState"] isEqual:@"small"]){
-		// TEST FOR MUTES.
-		if(y>12&&y<84){
-			if(x>27&&x<101){
-				[model.mutes replaceObjectAtIndex:0 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:0]boolValue]]];
+		if(wallHelper->infoTransition){
+			//do nothing!!!
+		}else if(wallHelper->info){
+			// back button
+			if(x>37&&y>62&&x<119&&y<96){
+				wallHelper->fromInfo();
 			}
-			if(x>127&&x<200){
-				[model.mutes replaceObjectAtIndex:1 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:1]boolValue]]];
+			// lucky frame link
+			if(x<67&&y<319&&y>247){
+				[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
 			}
-			if(x>226&&x<300){
-				[model.mutes replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:2]boolValue]]];
-			}			
-		}
-		// TEST FOR BOOKS.
-		if(x>42&&x<99&&y>103&&y<190){
-			model.currentGrid = [NSNumber numberWithInt:0];
-			[self bookSelected];
-		}
-		if(x>137&&x<196&&y>103&&y<190){
-			model.currentGrid = [NSNumber numberWithInt:1];
-			[self bookSelected];
-		}
-		if(x>238&&x<296&&y>103&&y<190){
-			model.currentGrid = [NSNumber numberWithInt:2];
-			[self bookSelected];
-		}
-		if(x>55&&x<110&&y>227&&y<314){
-			model.currentGrid = [NSNumber numberWithInt:3];
-			[self bookSelected];
-		}
-		if(x>140&&x<194&&y>227&&y<314){
-			model.currentGrid = [NSNumber numberWithInt:4];
-			[self bookSelected];
-		}
-		if(x>226&&x<284&&y>227&&y<314){
-			model.currentGrid = [NSNumber numberWithInt:5];
-			[self bookSelected];
+		}else{
+			// TEST FOR MUTES.
+			if(y>12&&y<84){
+				if(x>27&&x<101){
+					[model.mutes replaceObjectAtIndex:0 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:0]boolValue]]];
+				}
+				if(x>127&&x<200){
+					[model.mutes replaceObjectAtIndex:1 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:1]boolValue]]];
+				}
+				if(x>226&&x<300){
+					[model.mutes replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:![[model.mutes objectAtIndex:2]boolValue]]];
+				}			
+			}
+			// TEST FOR INFO
+			if(x<32&&y>217&&y<296){
+				wallHelper->toInfo();
+			}
+			// TEST FOR BOOKS.
+			if(x>42&&x<99&&y>103&&y<190){
+				model.currentGrid = [NSNumber numberWithInt:0];
+				[self bookSelected];
+			}
+			if(x>137&&x<196&&y>103&&y<190){
+				model.currentGrid = [NSNumber numberWithInt:1];
+				[self bookSelected];
+			}
+			if(x>238&&x<296&&y>103&&y<190){
+				model.currentGrid = [NSNumber numberWithInt:2];
+				[self bookSelected];
+			}
+			if(x>55&&x<110&&y>227&&y<314){
+				model.currentGrid = [NSNumber numberWithInt:3];
+				[self bookSelected];
+			}
+			if(x>140&&x<194&&y>227&&y<314){
+				model.currentGrid = [NSNumber numberWithInt:4];
+				[self bookSelected];
+			}
+			if(x>226&&x<284&&y>227&&y<314){
+				model.currentGrid = [NSNumber numberWithInt:5];
+				[self bookSelected];
+			}
 		}
 	}
 }
