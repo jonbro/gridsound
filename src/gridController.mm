@@ -140,14 +140,14 @@
 }
 -(int)getStep:(int)_step
 {
+	currentStep = fmod((double)player.tick, (double)8);
+	if(![[model.mutes objectAtIndex:currentStep]boolValue]){
+		[[ripples objectAtIndex:currentStep] startPulse];
+	}	
 	return [[model.steps objectAtIndex:_step]intValue];
 }
 -(int)volumeLevel
 {
-	currentStep = fmod((double)player.tick, (double)8);
-	if(![[model.mutes objectAtIndex:currentStep]boolValue]){
-		[[ripples objectAtIndex:currentStep] startPulse];
-	}
 	if([[model.mutes objectAtIndex:currentStep]boolValue] || [[pModel.mutes objectAtIndex:channel]boolValue]){
 		return 0;
 	}else{

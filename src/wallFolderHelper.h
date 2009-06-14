@@ -33,6 +33,7 @@ class wallFolderHelper
 		ofxMSAShape3D *myShape;
 		ofTexture atlasTex, zoomerAtlasTex;
 		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target, zoomSpeed, zoomSpeedSecondary;
+		float cloud1XPosition, cloud2XPosition, cloud3XPosition;
 		float balloonX, balloonY, scaleTarget;
 	};
 

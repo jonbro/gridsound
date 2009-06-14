@@ -118,7 +118,7 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* Muzhik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muzhik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Mujik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mujik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
@@ -414,7 +414,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Muzhik.app */,
+				1D6058910D05DD3D006BFB54 /* Mujik.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1102,7 +1102,7 @@
 			);
 			name = gandsound;
 			productName = iPhone;
-			productReference = 1D6058910D05DD3D006BFB54 /* Muzhik.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Mujik.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1260,7 +1260,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = Muzhik;
+				PRODUCT_NAME = Mujik;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "54356E00-4D4E-467F-825D-CA0AD9142DEF";
 			};
 			name = Debug;
@@ -1284,7 +1284,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = rastaman;
+				PRODUCT_NAME = Mujik;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
 			};
 			name = Release;
@@ -1327,7 +1327,7 @@
 					"\"$(SRCROOT)/../../../libs/freeimage/lib\"",
 					"\"$(SRCROOT)/../../../libs/gluIphone\"",
 				);
-				PRODUCT_NAME = Muzhik;
+				PRODUCT_NAME = Mujik;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "208837C2-68AC-4577-9DD2-B9092642DE87";
 			};
 			name = Distribution;

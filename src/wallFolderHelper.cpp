@@ -27,6 +27,10 @@ wallFolderHelper::wallFolderHelper()
 	balloonX = balloonY = 160;
 	zooming = false;
 	zoomingSecondary = false;
+	srandom(ofGetSystemTime());
+	cloud1XPosition = fmod((float)random(),320.0);
+	cloud2XPosition = fmod((float)random(),320.0);
+	cloud3XPosition = fmod((float)random(),320.0);
 }
 
 //--------------------------------------------------------------
@@ -83,6 +87,7 @@ void wallFolderHelper::drawNonZoom()
 	myShape->end();
 	
 	if(currentFrame > 1){
+		
 		// draw wall
 		float topX = 640.0/sze;
 		float topY = 210.0/sze;
@@ -102,6 +107,23 @@ void wallFolderHelper::drawNonZoom()
 		myShape->setTexCoord(bottomX, bottomY);
 		myShape->addVertex(320, 315);
 		myShape->end();
+
+		// draw back clouds.
+
+		
+		glPushMatrix();
+		//go to center
+		cloud2XPosition = fmod(cloud2XPosition+0.5, 320+131);
+		glTranslatef(cloud2XPosition, 100, 0);
+		// rotate 90
+		glRotatef(90, 0, 0, 1);
+		drawRect(0, 0, 65, 114, 960, 232);
+		glPopMatrix();
+		
+		atlasTex.bind();
+		
+		
+		
 		// draw balloon
 		// x = 64 y = 106
 		
@@ -124,8 +146,30 @@ void wallFolderHelper::drawNonZoom()
 		myShape->addVertex(balloonX+32, balloonY+54);
 		myShape->end();
 		
+		// draw front clouds.
 		
+		glPushMatrix();
+		//go to center
+		cloud1XPosition = fmod(cloud1XPosition+.9, 320+180);
+		glTranslatef(cloud1XPosition, 160, 0);
+		// rotate 90
+		glRotatef(90, 0, 0, 1);
+		drawRect(0, 0, 65, 131, 960, 103);
+		glPopMatrix();
+
+		glPushMatrix();
+		//go to center
+		cloud3XPosition = fmod(cloud3XPosition+1.3, 320+190);
+		glTranslatef(cloud3XPosition, 180, 0);
+		// rotate 90
+		glRotatef(90, 0, 0, 1);
+		drawRect(0, 0, 65, 136, 960, 347);
+		glPopMatrix();
+		
+		
+		atlasTex.bind();
 	}
+	
 	switch (currentFrame) {
 		case 1 : 
 		{
