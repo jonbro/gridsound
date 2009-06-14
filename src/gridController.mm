@@ -155,6 +155,13 @@
 		return [[pModel.currentSamples objectAtIndex:channel] intValue];
 	}
 }
+-(void)hideBelt
+{
+	if(showSamplePicker){
+		gcHelper->rollInBelt();
+		showSamplePicker = false;		
+	}
+}
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([currentState isEqual:@"display_grid"]){
 		volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];

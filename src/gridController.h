@@ -52,6 +52,7 @@
 -(int)getStep:(int)_step;
 -(void)setAll:(int)stepValue;
 -(int)volumeLevel;
+-(void)hideBelt;
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId;
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId;
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId;
