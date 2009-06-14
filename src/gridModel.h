@@ -18,7 +18,6 @@
 @property (retain) NSMutableArray *steps;
 @property (retain) NSMutableArray *mutes;
 @property (retain) NSNumber *currentSample;
-
 -(void)encodeWithCoder:(NSCoder *)coder;
 -(id)initWithCoder:(NSCoder *)coder;
 

@@ -16,7 +16,7 @@
 	int		sampleIndex, loopStart, loopEnd;
 	int		note, volume, cutoff;
 	float	noteOffset;
-	bool	filtering;
+	bool	filtering, direction;
 	int		packetIndex;
 	int		packetCount;
 	NSMutableArray *samplePool;
@@ -43,6 +43,7 @@
 -(void)reset;
 -(void)fixDelta;
 -(void)setCutoff:(int)_cutoff;
+-(void)setDirection:(bool)_direction;
 -(void)setCutoffDirect:(float)_cutoff;
 -(void)setRes:(int)_res;
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage;

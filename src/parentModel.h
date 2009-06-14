@@ -13,12 +13,14 @@
 	NSMutableArray* gridModels;
 	NSMutableArray* mutes;
 	NSMutableArray* volumes;
+	NSMutableArray* directions;
 	NSString* currentState;
 	NSNumber* currentGrid;	
 }
 @property (retain) NSMutableArray *gridModels;
 @property (retain) NSMutableArray *mutes;
 @property (retain) NSMutableArray *volumes;
+@property (retain) NSMutableArray *directions;
 @property (copy) NSString* currentState;
 @property (retain) NSNumber* currentGrid;
 

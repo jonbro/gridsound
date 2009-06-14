@@ -28,7 +28,8 @@ class gridControllerHelper
 		void rollInBelt();
 		void setCurrentLoop(int loop);
 		void drawMute(int mute);
-
+		void drawDirection(bool playBackDirection);
+	
 	protected:
 		ofImage atlas, beltAtlas;
 		ofTrueTypeFont sampleFont;

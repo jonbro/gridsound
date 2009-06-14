@@ -41,6 +41,7 @@ float sampleIndex = 0;
 	fpPos = i2fp(0);
 	filtering = false;
 	packetIndex = 0;
+	direction = true;
 	leftChannel = (SInt16 *)malloc(sizeof(SInt16));
 	rightChannel = (SInt16 *)malloc(sizeof(SInt16));
 //	fl_leftChan = (Float32 *)malloc(sizeof(Float32));
@@ -51,15 +52,25 @@ float sampleIndex = 0;
 //gets the next packet from the buffer, if we have reached the end of the buffer return 0
 -(void)getNextPacket:(UInt32 *)returnValue{
 	// update samples position
-	fpPos = fp_add(fpDelta, fpPos);
-	packetIndex = packetIndex + fp2i(fpPos);
-	fpPos &= FP_FRACMASK;
-	
-	//check to make sure we are within range
-	if(packetIndex > loopEnd){
-		packetIndex = loopStart;
+	if(direction){ // going forward
+		fpPos = fp_add(fpDelta, fpPos);
+		packetIndex = packetIndex + fp2i(fpPos);
+		fpPos &= FP_FRACMASK;
+		
+		//check to make sure we are within range
+		if(packetIndex > loopEnd){
+			packetIndex = loopStart;
+		}
+	}else{
+		fpPos = fp_sub(fpDelta, fpPos);
+		packetIndex = packetIndex - fp2i(fpPos);
+		fpPos &= FP_FRACMASK;
+		
+		//check to make sure we are within range
+		if(packetIndex < 0){
+			packetIndex = loopEnd;
+		}
 	}
-
 	//get the return value
 	*returnValue = [currentSampleObject getPacket:packetIndex];
 	
@@ -123,6 +134,10 @@ float sampleIndex = 0;
 {
 	volume = _volume;
 	volMultiplier = (float)volume/255.0;
+}
+-(void)setDirection:(bool)_direction
+{
+	direction = _direction;
 }
 -(void)setCurrentSample:(int)_currentSample
 {

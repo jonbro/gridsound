@@ -106,6 +106,7 @@
 			gcHelper->drawMute(i);
 		}
 	}
+	gcHelper->drawDirection([[pModel.directions objectAtIndex:channel] boolValue]);
 	gcHelper->showBelt(loopSamples);
 }
 -(void)update
@@ -195,6 +196,10 @@
 	[model setCurrentSample:[NSNumber numberWithInt:_sample]];
 	picker->setRow(_sample);
 }
+-(bool)getDirection
+{
+	return [[pModel.directions objectAtIndex:channel]boolValue];
+}
 -(void)setupPickers
 {
 	picker->setRow([model.currentSample intValue]);
@@ -241,15 +246,10 @@
 		if(x>152&&x<206){
 			[pModel.mutes replaceObjectAtIndex:2 withObject:[NSNumber numberWithBool:![[pModel.mutes objectAtIndex:2]boolValue]]];
 		}		
-	}
-	if(x<45 && y > 435+y_offset){
-		if([currentState isEqual:@"display_grid"]){
-			[currentState setString:@"to_settings"];
-			picker->setVisible(true);
-			[self showModePicker];
-		}else if([currentState isEqual:@"at_settings"]){
-			[currentState setString:@"from_settings"];
-		}
+	}else if(y<320){
+		[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
+	}else if(x>135&&y>318&&x<203&&y<365){
+		[pModel.directions replaceObjectAtIndex:channel withObject:[NSNumber numberWithBool:![[pModel.directions objectAtIndex:channel]boolValue]]];
 	}
 }
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId

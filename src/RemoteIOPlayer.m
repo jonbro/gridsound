@@ -114,6 +114,7 @@ static OSStatus playbackCallback(void *inRefCon,
 							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
 						}
 						[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
+						[samplePlayer setDirection:[[samplePlayer.controllers objectForKey:@"lpof"] getDirection]];
 					}
 					
 					if([samplePlayer.controllers objectForKey:@"rtgr"] != nil && [[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick] > 0){

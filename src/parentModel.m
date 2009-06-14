@@ -11,7 +11,7 @@
 
 @implementation parentModel
 
-@synthesize gridModels, currentState, currentGrid, volumes, mutes;
+@synthesize gridModels, currentState, currentGrid, volumes, mutes, directions;
 
 -(id)init
 {
@@ -20,12 +20,15 @@
 	gridModels = [[NSMutableArray alloc]initWithCapacity:1];
 	volumes = [[NSMutableArray alloc]initWithCapacity:1];
 	mutes = [[NSMutableArray alloc]initWithCapacity:1];
+	directions = [[NSMutableArray alloc]initWithCapacity:1];
+	
 	for(int i=0;i<6;i++){
 		[gridModels addObject:[[gridModel alloc]init]];
 	}
 	for(int i=0;i<3;i++){
 		[volumes addObject:[NSNumber numberWithInt:10]];
 		[mutes addObject:[NSNumber numberWithBool:NO]];
+		[directions addObject:[NSNumber numberWithBool:NO]];
 	}
 	currentGrid = [NSNumber numberWithInt:0];
 	return self;
@@ -41,6 +44,7 @@
 	[coder encodeObject:currentGrid forKey:@"currentGrid"];
 	[coder encodeObject:gridModels forKey:@"gridModels"];
 	[coder encodeObject:volumes forKey:@"volumes"];
+	[coder encodeObject:directions forKey:@"directions"];
 	[coder encodeObject:mutes forKey:@"mutes"];
 }
 -(NSNumber*)currentGrid
@@ -54,6 +58,7 @@
 	self.currentGrid = [[coder decodeObjectForKey:@"currentGrid"] retain];
 	self.gridModels = [[coder decodeObjectForKey:@"gridModels"] retain];
 	self.volumes = [[coder decodeObjectForKey:@"volumes"] retain];
+	self.directions = [[coder decodeObjectForKey:@"directions"] retain];
 	self.mutes = [[coder decodeObjectForKey:@"mutes"] retain];
     return self;
 }
