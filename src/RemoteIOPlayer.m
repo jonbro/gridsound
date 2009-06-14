@@ -87,6 +87,12 @@ static OSStatus playbackCallback(void *inRefCon,
 	#ifdef HRVERSION
 		float beatLength = 22050.0*60/140;
 	#endif
+	#ifdef GSVERSION
+		float beatLength = 22050.0*60/123.71;
+	#endif
+	#ifdef SWVERSION
+		float beatLength = 22050.0*60/135;
+	#endif
 	
 	
 	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
