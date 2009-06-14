@@ -94,6 +94,9 @@
 -(void) render
 {
 	gcHelper->drawBackground();
+	for(int i=0;i<8;i++){
+		[[ripples objectAtIndex:i] update];
+	}	
 	for(int i = 0; i < 8; i++){
 		if(![[model.mutes objectAtIndex:i]boolValue]){
 			gcHelper->drawButton(i, [[model.steps objectAtIndex:i]intValue], max(0, min(7, (int)([[ripples objectAtIndex:i]getScale]*7.0))));
@@ -132,15 +135,6 @@
 	}else if([currentState isEqual:@"at_settings"]){
 		model.currentSample = [NSNumber numberWithInt:picker->getRow()];
 	}
-	for(int i=0;i<8;i++){
-		[[ripples objectAtIndex:i] update];
-	}
-	if(fmod((double)player.tick, (double)8)!=currentStep){
-		currentStep = fmod((double)player.tick, (double)8);
-		if(![[model.mutes objectAtIndex:currentStep]boolValue]){
-			[[ripples objectAtIndex:currentStep] startPulse];
-		}
-	}	
 	picker->setPosition(0, 520+y_offset);	
 	[self setModePickerPosition:0 y:480+y_offset];
 }
@@ -150,6 +144,10 @@
 }
 -(int)volumeLevel
 {
+	currentStep = fmod((double)player.tick, (double)8);
+	if(![[model.mutes objectAtIndex:currentStep]boolValue]){
+		[[ripples objectAtIndex:currentStep] startPulse];
+	}
 	if([[model.mutes objectAtIndex:currentStep]boolValue] || [[pModel.mutes objectAtIndex:channel]boolValue]){
 		return 0;
 	}else{
