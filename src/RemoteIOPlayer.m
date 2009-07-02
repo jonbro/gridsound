@@ -151,7 +151,6 @@ static OSStatus playbackCallback(void *inRefCon,
 			for(int k=0;k<groupCount;k++) {
 				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 				[samplePlayer getNextPacket:nextPacket];
-//				rightChannel += (SInt16)(*nextPacket&0xFFFF);
 				leftChannel += (SInt16)(*nextPacket>>16);
 			}
 			*nextPacket = (UInt32)(leftChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
@@ -214,6 +213,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	audioFormat.mSampleRate			= 22050.0;
 	audioFormat.mFormatID			= kAudioFormatLinearPCM;
 	audioFormat.mFormatFlags		= kAudioFormatFlagIsSignedInteger | kAudioFormatFlagIsPacked;
+// the original
 	audioFormat.mFramesPerPacket	= 1;
 	audioFormat.mChannelsPerFrame	= 2;
 	audioFormat.mBitsPerChannel		= 16;

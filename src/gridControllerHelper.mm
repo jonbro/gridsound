@@ -98,7 +98,6 @@ void gridControllerHelper::showBelt(NSArray* samples){
 				ofSetColor(0xffffff);				
 			}
 			sampleFont.drawString([[samples objectAtIndex:i] UTF8String], 48+offset, lineHeight);
-
 			//draw seperator
 			ofSetColor(0xffffff);
 			this->drawRectTexture(53, lineHeight+12, 81, 14, 418, 478, 1);

@@ -25,7 +25,15 @@
 	channel = _channel;
 	y_offset = 0;
 	player = _player;
+	loopSamples = [[NSMutableArray alloc]initWithCapacity:1];
+#ifdef HRVERSION
+	for(int i=channel*6;i<min((int)[_loopSamples count], (channel+1)*6);i++){
+		[loopSamples addObject:[_loopSamples objectAtIndex:i]];
+	}
+#endif
+#ifndef HRVERSION
 	loopSamples = [_loopSamples retain];
+#endif
 	pickerStyleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Cutter", @"Note", nil]];
 	[pickerStyleSegmentedControl addTarget:self action:@selector(toggleMode:) forControlEvents:UIControlEventValueChanged];
 	pickerStyleSegmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -149,11 +157,12 @@
 }
 -(int)getSample
 {
-	if(pickerStyleSegmentedControl.selectedSegmentIndex == 1){
-		return [[pModel.currentSamples objectAtIndex:channel] intValue]+[loopSamples count];
-	}else{
-		return [[pModel.currentSamples objectAtIndex:channel] intValue];
-	}
+#ifdef HRVERSION
+	return [[pModel.currentSamples objectAtIndex:channel] intValue]+channel*6;
+#endif
+#ifndef HRVERSION
+	return [[pModel.currentSamples objectAtIndex:channel] intValue];
+#endif
 }
 -(void)hideBelt
 {

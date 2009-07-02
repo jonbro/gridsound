@@ -73,7 +73,6 @@ float sampleIndex = 0;
 	}
 	//get the return value
 	*returnValue = [currentSampleObject getPacket:packetIndex];
-	
 	leftChannel = (SInt16 *)returnValue;
 	rightChannel = &leftChannel[1];
 	fl_leftChan = (Float32)(*leftChannel);
@@ -146,12 +145,15 @@ float sampleIndex = 0;
 }
 -(void)setLoopOffsetStartPercentage:(float)startPercentage endPercentage:(float)endPercentage
 {
-	loopStart = [currentSampleObject getPacketCount]*startPercentage;
-	loopEnd = [currentSampleObject getPacketCount]*endPercentage;
+	loopStart = [currentSampleObject getPacketCount]*startPercentage/2;
+	loopEnd = [currentSampleObject getPacketCount]*endPercentage/2;
+	if(loopStart>loopEnd){
+		NSLog(@"overloop");
+	}
 }
 -(void)fixDelta
 {
-	fpDelta = fl2fp(pow(2, (float)(((float)note)+12.0+noteOffset)/12.0f));
+	fpDelta = fl2fp(pow(2, (float)(((float)note)+noteOffset)/12.0f));
 }
 -(void)reset
 {

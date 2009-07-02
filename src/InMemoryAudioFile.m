@@ -34,7 +34,7 @@
 	CFURLRef audioFileURL = CFURLCreateFromFileSystemRepresentation (NULL, (const UInt8 *)[filePath cStringUsingEncoding:[NSString defaultCStringEncoding]] , strlen([filePath cStringUsingEncoding:[NSString defaultCStringEncoding]]), false);
 	
 	//open the audio file
-	OSStatus result = AudioFileOpenURL (audioFileURL, 0x01, 0, &mAudioFile);
+	OSStatus result = AudioFileOpenURL (audioFileURL, kAudioFileWAVEType, 0, &mAudioFile);
 	//were there any errors reading? if so deal with them first
 	if (result != noErr) {
 //		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
@@ -60,7 +60,7 @@
 			//allocate the buffer
 			audioData = (UInt32 *)malloc(sizeof(UInt32) * packetCount);
 			//read the packets
-			result = AudioFileReadPackets (mAudioFile, false, &numBytesRead, NULL, 0, &packetsRead,  audioData);
+			result = AudioFileReadPackets(mAudioFile, false, &numBytesRead, NULL, 0, &packetsRead,  audioData);
 			// jam our audio data into a float thingu... this is probably a BAAAADDD IDEA!
 			// for now we assume stereo samples, there is probably a way to determine this....
 		}
@@ -88,7 +88,7 @@
 	
 	if (mAudioFile == nil){}
 	else{
-		UInt32 dataSize = sizeof packetCount;
+		UInt32 dataSize = sizeof(packetCount);
 		result = AudioFileGetProperty(mAudioFile, kAudioFilePropertyAudioDataPacketCount, &dataSize, &packetCount);
 		if (result==noErr) {
 			duration = ((double)packetCount * 2) / 44100;

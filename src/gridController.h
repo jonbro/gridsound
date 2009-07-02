@@ -24,7 +24,7 @@
 	int volumeLevel;
 	bool touchingVolume, showSamplePicker;
 	int volumeStart, volumeFinger;
-	NSArray *loopSamples;
+	NSMutableArray *loopSamples;
 	NSMutableArray *ripples;
 	gridModel *model;
 	parentModel *pModel;
