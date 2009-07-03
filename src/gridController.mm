@@ -213,15 +213,17 @@
 }
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
 {
-	// set mute state here.
-	int clickedStep = (int)(x/320.0*8.0);
-	int lastMuteState = [[model.mutes objectAtIndex:clickedStep]intValue];	
-	if(lastMuteState == 1){
-		lastMuteState = 0;
-	}else{
-		lastMuteState = 1;
+	if(gridNumber<3){
+		// set mute state here.
+		int clickedStep = (int)(x/320.0*8.0);
+		int lastMuteState = [[model.mutes objectAtIndex:clickedStep]intValue];	
+		if(lastMuteState == 1){
+			lastMuteState = 0;
+		}else{
+			lastMuteState = 1;
+		}
+		[model.mutes replaceObjectAtIndex:clickedStep withObject:[NSNumber numberWithInt:lastMuteState]];
 	}
-	[model.mutes replaceObjectAtIndex:clickedStep withObject:[NSNumber numberWithInt:lastMuteState]];
 }
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	if(touchingVolume && touchId == volumeFinger){

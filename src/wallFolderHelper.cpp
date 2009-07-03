@@ -47,6 +47,8 @@ void wallFolderHelper::setBalloon(float x, float y){
 }
 void wallFolderHelper::drawMute(int mute)
 {
+	glPushMatrix();
+	glTranslatef(-infoPosition, 0, 0);
 	if(currentFrame==0 && !zooming && !zoomingSecondary){
 		if(mute ==0){
 			this->drawRect(-1, 16, 114, 57, 0, 934, 0);
@@ -56,6 +58,7 @@ void wallFolderHelper::drawMute(int mute)
 			this->drawRect(211, 16, 100, 57, 211, 934, 0);		
 		}
 	}
+	glPopMatrix();
 }
 void wallFolderHelper::drawNonZoom()
 {
