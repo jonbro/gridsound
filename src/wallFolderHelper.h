@@ -25,11 +25,12 @@ class wallFolderHelper
 		void zoomToBook(int book);
 		void drawMute(int mute);
 		void drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture);
-		void zoomFromBook();
+		void zoomFromBook(int startBook);
+		void setBookOffsets(int book);
 		void drawNonZoom();
 		void toInfo();
 		void fromInfo();
-		bool zooming, zoomingSecondary, infoTransition, info;
+		bool zooming, zoomingSecondary, infoTransition, info, firstZoom;
 	protected:
 		ofImage atlas, zoomerAtlas;
 		ofxMSAShape3D *myShape;

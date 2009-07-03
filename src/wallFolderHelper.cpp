@@ -17,8 +17,7 @@ wallFolderHelper::wallFolderHelper()
 	
 	zoomerAtlas.loadImage("zoomer_atlas.png");
 	zoomerAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
-	zoomerAtlasTex = zoomerAtlas.getTextureReference();
-
+	zoomerAtlasTex = zoomerAtlas.getTextureReference();	
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
 	startFrame = 0;
@@ -32,8 +31,12 @@ wallFolderHelper::wallFolderHelper()
 	cloud2XPosition = fmod((float)random(),320.0);
 	cloud3XPosition = fmod((float)random(),320.0);
 	infoTransition = false;
+	scaleTarget = -1.868;
 	infoPosition = 0;
 	info = false;
+	firstZoom = true;
+	zoomerAtlasTex.bind();
+	zoomerAtlasTex.unbind();
 }
 
 //--------------------------------------------------------------
@@ -417,15 +420,15 @@ void wallFolderHelper::drawWall()
 	}
 	if(zoomingSecondary){
 		if(zoomDirection == 0){
-		glEnable(GL_DEPTH_TEST);
-		glPushMatrix();
-		glRotatef(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, -99, zoomSpeedSecondary), 0, 1, 0);
-		this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
-		glTranslatef(320, 0, 0);
-		glRotatef(90, 0, 1, 0);
-		this->drawScalerWall(686, 0, 1);
-		glPopMatrix();
-		glDisable(GL_DEPTH_TEST);
+			glEnable(GL_DEPTH_TEST);
+			glPushMatrix();
+			glRotatef(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, 0, -99, zoomSpeedSecondary), 0, 1, 0);
+			this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
+			glTranslatef(320, 0, 0);
+			glRotatef(90, 0, 1, 0);
+			this->drawScalerWall(686, 0, 1);
+			glPopMatrix();
+			glDisable(GL_DEPTH_TEST);
 		}else{
 			this->drawScalerWall(this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, offset_x_target, -offset_x_target, zoomSpeedSecondary), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, offset_y_target, -offset_y_target, zoomSpeedSecondary), this->tweenLinearCurrentTime(ofGetElapsedTimeMillis()-startZoom, .265333333333333, -scaleTarget, zoomSpeedSecondary));
 		}
@@ -448,9 +451,26 @@ void wallFolderHelper::zoomToBook(int book){
 	zoomDirection = 0;
 	zooming = true;
 	startZoom = ofGetElapsedTimeMillis();
-	scaleTarget = -1.868;
 	zoomSpeedSecondary = 500;
 	zoomSpeed = 500;
+	this->setBookOffsets(book);
+}
+void wallFolderHelper::zoomFromBook(int startBook)
+{
+	zoomDirection = 1;
+	zooming = true;
+	startZoom = ofGetElapsedTimeMillis();
+	zoomSpeedSecondary = 500;
+	if(firstZoom){
+		zoomSpeed = 1000;
+		firstZoom = false;
+ 	}else{
+		zoomSpeed = 500;
+	}
+	this->setBookOffsets(startBook);
+}
+void wallFolderHelper::setBookOffsets(int book)
+{
 	switch (book) {
 		case 0:
 			offset_x_target = 86; 
@@ -478,7 +498,7 @@ void wallFolderHelper::zoomToBook(int book){
 			break;
 		default:
 			break;
-	}
+	}	
 }
 void wallFolderHelper::toInfo()
 {
@@ -492,14 +512,6 @@ void wallFolderHelper::fromInfo()
 	info = false;
 	infoDirection = 1;
 	infoStart = ofGetElapsedTimeMillis();
-}
-void wallFolderHelper::zoomFromBook()
-{
-	zoomDirection = 1;
-	zooming = true;
-	zoomSpeedSecondary = 500;
-	zoomSpeed = 500;
-	startZoom = ofGetElapsedTimeMillis();
 }
 float wallFolderHelper::tweenLinearCurrentTime(float t, float b, float c, float d)
 {

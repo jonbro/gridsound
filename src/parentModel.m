@@ -29,7 +29,7 @@
 	for(int i=0;i<3;i++){
 		[volumes addObject:[NSNumber numberWithInt:10]];
 		[mutes addObject:[NSNumber numberWithBool:NO]];
-		[directions addObject:[NSNumber numberWithBool:NO]];
+		[directions addObject:[NSNumber numberWithBool:YES]];
 		[currentSamples addObject:[NSNumber numberWithInt:i]];
 	}
 	currentGrid = [NSNumber numberWithInt:0];

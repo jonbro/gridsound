@@ -131,7 +131,7 @@ void parentControllerHelper::drawBackground()
 		// clicking on the exit button
 		if(x>236 && y>386){
 			model.currentState = @"to_small";
-			wallHelper->zoomFromBook();
+			wallHelper->zoomFromBook([model.currentGrid intValue]);
 			[[children objectAtIndex:[model.currentGrid intValue]] hideBelt];
 		}else{
 			[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];
