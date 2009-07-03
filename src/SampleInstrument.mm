@@ -62,8 +62,8 @@ float sampleIndex = 0;
 			packetIndex = loopStart;
 		}
 	}else{
-		fpPos = fp_sub(fpDelta, fpPos);
-		packetIndex = packetIndex - fp2i(fpPos);
+		fpPos = fp_add(-fpDelta, fpPos);
+		packetIndex = packetIndex + fp2i(fpPos);
 		fpPos &= FP_FRACMASK;
 		
 		//check to make sure we are within range
@@ -137,6 +137,7 @@ float sampleIndex = 0;
 -(void)setDirection:(bool)_direction
 {
 	direction = _direction;
+	[self fixDelta];
 }
 -(void)setCurrentSample:(int)_currentSample
 {

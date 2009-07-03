@@ -453,6 +453,7 @@ void wallFolderHelper::zoomToBook(int book){
 	startZoom = ofGetElapsedTimeMillis();
 	zoomSpeedSecondary = 500;
 	zoomSpeed = 500;
+	firstZoom = false;
 	this->setBookOffsets(book);
 }
 void wallFolderHelper::zoomFromBook(int startBook)
