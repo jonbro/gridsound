@@ -151,14 +151,25 @@ void parentControllerHelper::drawBackground()
 	}else if([[model valueForKey:@"currentState"] isEqual:@"small"]){
 		if(wallHelper->infoTransition){
 			//do nothing!!!
+		}else if(wallHelper->help){
+			wallHelper->fromHelp();
 		}else if(wallHelper->info){
 			// back button
 			if(x>37&&y>62&&x<119&&y<96){
 				wallHelper->fromInfo();
 			}
 			// lucky frame link
-			if(x<67&&y<319&&y>247){
-				[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.google.co.uk"]];
+			if(x>257&&y<319&&y>247){
+				[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.luckyframe.co.uk"]];
+			}
+			if(y>244&&y<315){
+				if(x>91&x<128){
+					// book help (1)
+					wallHelper->toHelp(1);
+				}else if(x>176&&x<231){
+					// bug help (0)
+					wallHelper->toHelp(0);
+				}
 			}
 		}else{
 			// TEST FOR MUTES.

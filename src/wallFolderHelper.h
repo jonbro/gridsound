@@ -30,12 +30,16 @@ class wallFolderHelper
 		void drawNonZoom();
 		void toInfo();
 		void fromInfo();
-		bool zooming, zoomingSecondary, infoTransition, info, firstZoom;
+		void toHelp(int help);
+		void fromHelp();
+		bool zooming, zoomingSecondary, infoTransition, info, firstZoom, help, helpTransition;
 	protected:
-		ofImage atlas, zoomerAtlas;
+		ofImage atlas, zoomerAtlas, helpAtlas;
 		ofxMSAShape3D *myShape;
-		ofTexture atlasTex, zoomerAtlasTex;
-		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target, zoomSpeed, zoomSpeedSecondary, infoDirection, infoPosition, infoStart;
+		ofTexture atlasTex, zoomerAtlasTex, helpAtlasTex;
+		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target;
+		int zoomSpeed, zoomSpeedSecondary, infoDirection, infoPosition, infoStart;
+		int helpDirection, helpPosition, helpStart, helpScreen;
 		float cloud1XPosition, cloud2XPosition, cloud3XPosition;
 		float balloonX, balloonY, scaleTarget;
 	};

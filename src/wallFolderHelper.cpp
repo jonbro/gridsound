@@ -18,6 +18,11 @@ wallFolderHelper::wallFolderHelper()
 	zoomerAtlas.loadImage("zoomer_atlas.png");
 	zoomerAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	zoomerAtlasTex = zoomerAtlas.getTextureReference();	
+	
+	helpAtlas.loadImage("help_atlas.png");
+	helpAtlas.setImageType(OF_IMAGE_COLOR);
+	helpAtlasTex = helpAtlas.getTextureReference();	
+	
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
 	startFrame = 0;
@@ -30,10 +35,16 @@ wallFolderHelper::wallFolderHelper()
 	cloud1XPosition = fmod((float)random(),320.0);
 	cloud2XPosition = fmod((float)random(),320.0);
 	cloud3XPosition = fmod((float)random(),320.0);
-	infoTransition = false;
 	scaleTarget = -1.868;
-	infoPosition = 0;
+	
 	info = false;
+	infoTransition = false;
+	infoPosition = 0;
+
+	help = false;
+	helpTransition = false;
+	helpPosition = 0;
+
 	firstZoom = true;
 	zoomerAtlasTex.bind();
 	zoomerAtlasTex.unbind();
@@ -391,6 +402,29 @@ void wallFolderHelper::drawWall()
 			glTranslatef(-infoPosition, 0, 0);
 			this->drawRect(320, 0, 320, 480, 683, 480, 1);
 		}
+		if(help || helpTransition){
+			if(helpDirection == 0){
+				helpPosition += ((ofGetElapsedTimeMillis()-helpStart)/30);
+				if(helpPosition>=480){
+					helpPosition = 480;
+					help = true;
+					helpTransition = false;
+				}
+			}else{
+				helpPosition -= ((ofGetElapsedTimeMillis()-helpStart)/30);
+				if(helpPosition<=0){
+					helpPosition = 0;
+					helpTransition = false;
+				}
+			}
+			glTranslatef(0, -helpPosition, 0);
+			if(helpScreen==0){
+				this->drawRect(320, 480, 320, 480, 0, 0, 2);
+			}else{
+				this->drawRect(320, 480, 320, 480, 256, 0, 2);
+			}
+//			this->drawRect(0, 480, 320, 480, 0, 0, 2);
+		}
 		this->drawNonZoom();
 		if(currentFrame == 0){
 			this->drawScalerWall(0, 0, 2.13333);
@@ -514,6 +548,22 @@ void wallFolderHelper::fromInfo()
 	infoDirection = 1;
 	infoStart = ofGetElapsedTimeMillis();
 }
+void wallFolderHelper::toHelp(int help)
+{
+	helpScreen = help;
+	helpTransition = true;
+	helpDirection = 0;
+	helpScreen = help;
+	helpStart = ofGetElapsedTimeMillis();
+}
+void wallFolderHelper::fromHelp()
+{
+	helpTransition = true;
+	help = false;
+	helpDirection = 1;
+	helpStart = ofGetElapsedTimeMillis();
+}
+
 float wallFolderHelper::tweenLinearCurrentTime(float t, float b, float c, float d)
 {
 	return c*t/d + b;
@@ -566,11 +616,24 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_
 	
 	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
 	float u_2 = (float)(atlasHeight-(offset_y+height))/(float)atlasHeight;
+
 	if(texture ==0){
 		atlasTex.bind();
-	}else{
+	}else if(texture == 1){
 		zoomerAtlasTex.bind();
+	}else if(texture == 2){
+		helpAtlasTex.bind();	
+		if(offset_x == 0){
+			t_1 = 0;
+			t_2 = 0.5;
+		}else{
+			t_1 = 0.5;
+			t_2 = 1;
+		}
+		u_1 = 1;
+		u_2 = (float)(512-384)/512;
 	}
+	
 	glPushMatrix();
 	myShape->begin(GL_TRIANGLE_STRIP);
 	myShape->setTexCoord(t_1, u_1);
@@ -590,7 +653,9 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_
 	glPopMatrix();
 	if(texture == 0){
 		atlasTex.unbind();
-	}else{
+	}else if(texture == 1){
 		zoomerAtlasTex.unbind();
+	}else if(texture == 2){
+		helpAtlasTex.unbind();
 	}
 }

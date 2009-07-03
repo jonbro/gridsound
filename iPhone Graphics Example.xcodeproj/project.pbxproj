@@ -12,6 +12,10 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5E17020A0FDB270E00B2C6A9 /* wallFolderHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E1702080FDB270E00B2C6A9 /* wallFolderHelper.cpp */; };
 		5E17020C0FDB35E000B2C6A9 /* texture_atlas_books.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */; };
+		5E30E0360FFE783F0002CEAC /* help_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E30E0350FFE783F0002CEAC /* help_atlas.png */; };
+		5E30E0370FFE783F0002CEAC /* help_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E30E0350FFE783F0002CEAC /* help_atlas.png */; };
+		5E30E0380FFE783F0002CEAC /* help_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E30E0350FFE783F0002CEAC /* help_atlas.png */; };
+		5E30E0390FFE783F0002CEAC /* help_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E30E0350FFE783F0002CEAC /* help_atlas.png */; };
 		5E477DE10FE5970B003EF4A7 /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E477DD90FE5970B003EF4A7 /* Bass1.wav */; };
 		5E477DE20FE5970B003EF4A7 /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E477DDA0FE5970B003EF4A7 /* Bass2.wav */; };
 		5E477DE30FE5970B003EF4A7 /* Drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E477DDB0FE5970B003EF4A7 /* Drums1.wav */; };
@@ -346,6 +350,7 @@
 		5E1702080FDB270E00B2C6A9 /* wallFolderHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wallFolderHelper.cpp; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/wallFolderHelper.cpp"; sourceTree = DEVELOPER_DIR; };
 		5E1702090FDB270E00B2C6A9 /* wallFolderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = wallFolderHelper.h; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/src/wallFolderHelper.h"; sourceTree = DEVELOPER_DIR; };
 		5E17020B0FDB35E000B2C6A9 /* texture_atlas_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_books.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/texture_atlas_books.png"; sourceTree = DEVELOPER_DIR; };
+		5E30E0350FFE783F0002CEAC /* help_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_atlas.png; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/book_design_images/help_atlas.png"; sourceTree = DEVELOPER_DIR; };
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E477DD90FE5970B003EF4A7 /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/GS_loops/Bass1.wav"; sourceTree = DEVELOPER_DIR; };
 		5E477DDA0FE5970B003EF4A7 /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = "of_preRelease_v0.06_iphone/apps/examples/iPhone Graphics_and_sound/data/GS_loops/Bass2.wav"; sourceTree = DEVELOPER_DIR; };
@@ -738,6 +743,7 @@
 		5E39BD290FC389CF00122C40 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5E30E0350FFE783F0002CEAC /* help_atlas.png */,
 				5EFBB7920FE0A3850037C3E0 /* zoomer_atlas.png */,
 				5EFBB6210FDF50D30037C3E0 /* texture_atlas_belt.png */,
 				5EFBB5300FDDF6D90037C3E0 /* texture_atlas_interior.png */,
@@ -1491,6 +1497,7 @@
 				5EFBB6220FDF50D30037C3E0 /* texture_atlas_belt.png in Resources */,
 				5EFBB7180FE093720037C3E0 /* DejaVuSerifCondensed-Bold.ttf in Resources */,
 				5EFBB7930FE0A3850037C3E0 /* zoomer_atlas.png in Resources */,
+				5E30E0360FFE783F0002CEAC /* help_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1526,7 @@
 				5E477E5F0FE59950003EF4A7 /* Verse1.wav in Resources */,
 				5E477E600FE59950003EF4A7 /* Verse2.wav in Resources */,
 				5E477E610FE59950003EF4A7 /* Verse3.wav in Resources */,
+				5E30E0390FFE783F0002CEAC /* help_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1553,6 +1561,7 @@
 				5EA1F6F10FE5891D005BA012 /* hr_vox3.wav in Resources */,
 				5EA1F6F20FE5891D005BA012 /* hr_vox4.wav in Resources */,
 				5EA1F6F30FE5891D005BA012 /* hr_vox5.wav in Resources */,
+				5E30E0370FFE783F0002CEAC /* help_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1578,6 +1587,7 @@
 				5E477DE60FE5970B003EF4A7 /* Keys1.wav in Resources */,
 				5E477DE70FE5970B003EF4A7 /* Keys2.wav in Resources */,
 				5E477DE80FE5970B003EF4A7 /* Vocals.wav in Resources */,
+				5E30E0380FFE783F0002CEAC /* help_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
