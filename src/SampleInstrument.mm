@@ -67,7 +67,7 @@ float sampleIndex = 0;
 		fpPos &= FP_FRACMASK;
 		
 		//check to make sure we are within range
-		if(packetIndex < 0){
+		if(packetIndex < loopStart){
 			packetIndex = loopEnd;
 		}
 	}
@@ -158,7 +158,11 @@ float sampleIndex = 0;
 }
 -(void)reset
 {
-	packetIndex = loopStart;
+	if(direction){
+		packetIndex = loopStart;
+	}else{
+		packetIndex = loopEnd;
+	}
 	packetCount = [currentSampleObject getPacketCount];
 	[self fixDelta];
 }

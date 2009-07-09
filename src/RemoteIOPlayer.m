@@ -119,30 +119,16 @@ static OSStatus playbackCallback(void *inRefCon,
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
 						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
-						if([[[samplePlayer controllers] objectForKey:@"lpof"] playbackMode]==0){
-							startPercentage = ((Float32)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
-							[samplePlayer setNote:1];
-						}else {
-							startPercentage = 0.0;
-							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick]];
-						}
+						startPercentage = ((Float32)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
+						[samplePlayer setNote:1];
 						[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
 						[samplePlayer setDirection:[[samplePlayer.controllers objectForKey:@"lpof"] getDirection]];
 					}
-					
-					if([samplePlayer.controllers objectForKey:@"rtgr"] != nil && [[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick] > 0){
-						endPercentage = startPercentage+1/(8.0*([[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick]+1));
-					}else{
-						endPercentage = 1.0;
-					}
+					endPercentage = startPercentage+1/(8.0*([[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick]+1));
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
-					}		
-//					if([samplePlayer.controllers objectForKey:@"fcut"] != nil){	
-//						[samplePlayer setCutoff:[[samplePlayer.controllers objectForKey:@"fcut"] getStep:currentTick]];
-//						[samplePlayer setRes:[[samplePlayer.controllers objectForKey:@"fcut"] volumeLevel]];
-//					}
-					
+					}
+					NSLog(@"Start Percent: %f End Percent: %f", startPercentage, endPercentage);
 					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
 					[samplePlayer reset];					
 				}
