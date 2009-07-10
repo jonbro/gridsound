@@ -27,10 +27,18 @@
 		[gridModels addObject:[[gridModel alloc]init]];
 	}
 	for(int i=0;i<3;i++){
-		[volumes addObject:[NSNumber numberWithInt:10]];
-		[mutes addObject:[NSNumber numberWithBool:NO]];
+		[volumes addObject:[NSNumber numberWithInt:128]];
+		[mutes addObject:[NSNumber numberWithBool:YES]];
 		[directions addObject:[NSNumber numberWithBool:YES]];
-		[currentSamples addObject:[NSNumber numberWithInt:i]];
+		if(i==0){
+			[currentSamples addObject:[NSNumber numberWithInt:4]];
+		}
+		if(i==1){
+			[currentSamples addObject:[NSNumber numberWithInt:0]];
+		}
+		if(i==2){
+			[currentSamples addObject:[NSNumber numberWithInt:6]];
+		}
 	}
 	currentGrid = [NSNumber numberWithInt:0];
 	return self;

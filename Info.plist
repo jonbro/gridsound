@@ -29,6 +29,6 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIInterfaceOrientation</key>
-	<string>UIInterfaceOrientationLandscapeRight</string>
+	<string>UIInterfaceOrientationPortrait</string>
 </dict>
 </plist>

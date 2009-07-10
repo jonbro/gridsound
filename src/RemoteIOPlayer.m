@@ -128,7 +128,6 @@ static OSStatus playbackCallback(void *inRefCon,
 					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
 						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
 					}
-					NSLog(@"Start Percent: %f End Percent: %f", startPercentage, endPercentage);
 					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
 					[samplePlayer reset];					
 				}
