@@ -136,7 +136,7 @@ void parentControllerHelper::drawBackground()
 		}else{
 			[[children objectAtIndex:[model.currentGrid intValue]] touchDownX:x y:y touchId:touchId];
 		}
-	}else if(y>370 && y<460 && [[model valueForKey:@"currentState"] isEqual:@"small"]){
+	}else if(y>370 && y<460 && [[model valueForKey:@"currentState"] isEqual:@"small"] && !wallHelper->info && !wallHelper->help){
 		for(int i=0;i<3;i++){
 			if(
 				(int)x<(i+1)*107 &&

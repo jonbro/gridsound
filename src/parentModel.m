@@ -31,13 +31,13 @@
 		[mutes addObject:[NSNumber numberWithBool:YES]];
 		[directions addObject:[NSNumber numberWithBool:YES]];
 		if(i==0){
-			[currentSamples addObject:[NSNumber numberWithInt:4]];
+			[currentSamples addObject:[NSNumber numberWithInt:5]];
 		}
 		if(i==1){
 			[currentSamples addObject:[NSNumber numberWithInt:0]];
 		}
 		if(i==2){
-			[currentSamples addObject:[NSNumber numberWithInt:6]];
+			[currentSamples addObject:[NSNumber numberWithInt:7]];
 		}
 	}
 	currentGrid = [NSNumber numberWithInt:0];
