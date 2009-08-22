@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bpm</key>
+	<integer>106</integer>
+	<key>samples</key>
+	<array>
+		<string>earth1</string>
+		<string>earth2</string>
+		<string>earth3</string>
+		<string>fire1</string>
+		<string>fire2</string>
+		<string>fire3</string>
+		<string>vapor1</string>
+		<string>vapor2</string>
+		<string>vapor3</string>
+	</array>
+</dict>
+</plist>

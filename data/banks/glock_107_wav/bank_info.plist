@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bpm</key>
+	<integer>107</integer>
+	<key>samples</key>
+	<array>
+		<string>Bass1</string>
+		<string>Bass2</string>
+		<string>Bass3</string>
+		<string>Drums1</string>
+		<string>Drums2</string>
+		<string>Drums3</string>
+		<string>Drums4</string>
+		<string>Glock1</string>
+		<string>Glock2</string>
+		<string>Glock3</string>
+		<string>Percussion</string>
+	</array>
+</dict>
+</plist>
