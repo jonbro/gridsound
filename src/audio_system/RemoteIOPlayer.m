@@ -14,7 +14,7 @@
 
 @implementation RemoteIOPlayer
 
-@synthesize instrumentGroup;
+@synthesize instrumentGroup, samplePool;
 @synthesize offsetArray;
 @synthesize tick;
 @synthesize frameCounter;
@@ -24,7 +24,12 @@ int tick = 0;
 
 AudioComponentInstance audioUnit;
 AudioStreamBasicDescription audioFormat;
-
+-(id)init
+{
+	self = [super init];
+	samplePool = [[NSMutableArray alloc]initWithCapacity:3];
+	return self;
+}
 -(OSStatus)start{
 	
 	OSStatus status = AudioOutputUnitStart(audioUnit);
@@ -228,6 +233,7 @@ static OSStatus playbackCallback(void *inRefCon,
 	
 	// Initialise
 	status = AudioUnitInitialize(audioUnit);
+	
 	
 	//notice i do nothing with status, i should error check.
 }

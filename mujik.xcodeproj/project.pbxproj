@@ -53,6 +53,9 @@
 		5E73A9F210363C6A0019086B /* ripple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9F110363C6A0019086B /* ripple.mm */; };
 		5E73A9F810363CAF0019086B /* ofxiPhoneKeyboard.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9F510363CAF0019086B /* ofxiPhoneKeyboard.mm */; };
 		5E73A9F910363CAF0019086B /* ofxiPhonePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9F710363CAF0019086B /* ofxiPhonePickerView.mm */; };
+		5E7B923C1040712000EEA5E8 /* bankController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B923B1040712000EEA5E8 /* bankController.mm */; };
+		5E7B92AF10407ECE00EEA5E8 /* ofxDirList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B92AD10407ECE00EEA5E8 /* ofxDirList.cpp */; };
+		5E7B9391104086F700EEA5E8 /* banks in Resources */ = {isa = PBXBuildFile; fileRef = 5E7B9368104086F700EEA5E8 /* banks */; };
 		5EA1F66E0FE58758005BA012 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		5EA1F66F0FE58758005BA012 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
 		5EA1F68A0FE58758005BA012 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -131,17 +134,6 @@
 		5ECCA38E10363F1C00A25328 /* texture_atlas_books.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA38910363F1C00A25328 /* texture_atlas_books.png */; };
 		5ECCA38F10363F1C00A25328 /* texture_atlas_interior.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA38A10363F1C00A25328 /* texture_atlas_interior.png */; };
 		5ECCA39010363F1C00A25328 /* zoomer_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA38B10363F1C00A25328 /* zoomer_atlas.png */; };
-		5ECCA39D1036400C00A25328 /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3921036400C00A25328 /* Bass1.wav */; };
-		5ECCA39E1036400C00A25328 /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3931036400C00A25328 /* Bass2.wav */; };
-		5ECCA39F1036400C00A25328 /* Bass3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3941036400C00A25328 /* Bass3.wav */; };
-		5ECCA3A01036400C00A25328 /* Drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3951036400C00A25328 /* Drums1.wav */; };
-		5ECCA3A11036400C00A25328 /* Drums2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3961036400C00A25328 /* Drums2.wav */; };
-		5ECCA3A21036400C00A25328 /* Drums3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3971036400C00A25328 /* Drums3.wav */; };
-		5ECCA3A31036400C00A25328 /* Drums4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3981036400C00A25328 /* Drums4.wav */; };
-		5ECCA3A41036400C00A25328 /* Glock1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3991036400C00A25328 /* Glock1.wav */; };
-		5ECCA3A51036400C00A25328 /* Glock2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA39A1036400C00A25328 /* Glock2.wav */; };
-		5ECCA3A61036400C00A25328 /* Glock3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA39B1036400C00A25328 /* Glock3.wav */; };
-		5ECCA3A71036400C00A25328 /* Percussion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA39C1036400C00A25328 /* Percussion.wav */; };
 		5ECCA3AC1036404100A25328 /* 04B_11__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3A91036404100A25328 /* 04B_11__.TTF */; };
 		5ECCA3AD1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AA1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf */; };
 		5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AB1036404100A25328 /* FreeSans.ttf */; };
@@ -247,6 +239,11 @@
 		5E73A9F510363CAF0019086B /* ofxiPhoneKeyboard.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxiPhoneKeyboard.mm; sourceTree = "<group>"; };
 		5E73A9F610363CAF0019086B /* ofxiPhonePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiPhonePickerView.h; sourceTree = "<group>"; };
 		5E73A9F710363CAF0019086B /* ofxiPhonePickerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ofxiPhonePickerView.mm; sourceTree = "<group>"; };
+		5E7B923A1040712000EEA5E8 /* bankController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/bankController.h; sourceTree = DEVELOPER_DIR; };
+		5E7B923B1040712000EEA5E8 /* bankController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bankController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/bankController.mm; sourceTree = DEVELOPER_DIR; };
+		5E7B92AD10407ECE00EEA5E8 /* ofxDirList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxDirList.cpp; path = of_preRelease_v0.06_xcode_FAT/addons/ofxDirList/src/ofxDirList.cpp; sourceTree = DEVELOPER_DIR; };
+		5E7B92AE10407ECE00EEA5E8 /* ofxDirList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxDirList.h; path = of_preRelease_v0.06_xcode_FAT/addons/ofxDirList/src/ofxDirList.h; sourceTree = DEVELOPER_DIR; };
+		5E7B9368104086F700EEA5E8 /* banks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = banks; path = data/banks; sourceTree = SOURCE_ROOT; };
 		5EA1F6C20FE58758005BA012 /* MujikHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA1F6C40FE58758005BA012 /* Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = SOURCE_ROOT; };
 		5EA1F7510FE58A0C005BA012 /* MujikGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,17 +272,6 @@
 		5ECCA38910363F1C00A25328 /* texture_atlas_books.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_books.png; path = data/book_design_images/texture_atlas_books.png; sourceTree = SOURCE_ROOT; };
 		5ECCA38A10363F1C00A25328 /* texture_atlas_interior.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = texture_atlas_interior.png; path = data/book_design_images/texture_atlas_interior.png; sourceTree = SOURCE_ROOT; };
 		5ECCA38B10363F1C00A25328 /* zoomer_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zoomer_atlas.png; path = data/book_design_images/zoomer_atlas.png; sourceTree = SOURCE_ROOT; };
-		5ECCA3921036400C00A25328 /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = data/glock_107_wav/Bass1.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3931036400C00A25328 /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = data/glock_107_wav/Bass2.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3941036400C00A25328 /* Bass3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass3.wav; path = data/glock_107_wav/Bass3.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3951036400C00A25328 /* Drums1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums1.wav; path = data/glock_107_wav/Drums1.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3961036400C00A25328 /* Drums2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums2.wav; path = data/glock_107_wav/Drums2.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3971036400C00A25328 /* Drums3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums3.wav; path = data/glock_107_wav/Drums3.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3981036400C00A25328 /* Drums4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums4.wav; path = data/glock_107_wav/Drums4.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA3991036400C00A25328 /* Glock1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock1.wav; path = data/glock_107_wav/Glock1.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA39A1036400C00A25328 /* Glock2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock2.wav; path = data/glock_107_wav/Glock2.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA39B1036400C00A25328 /* Glock3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock3.wav; path = data/glock_107_wav/Glock3.wav; sourceTree = SOURCE_ROOT; };
-		5ECCA39C1036400C00A25328 /* Percussion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Percussion.wav; path = data/glock_107_wav/Percussion.wav; sourceTree = SOURCE_ROOT; };
 		5ECCA3A91036404100A25328 /* 04B_11__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = 04B_11__.TTF; path = data/fonts/04B_11__.TTF; sourceTree = SOURCE_ROOT; };
 		5ECCA3AA1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DejaVuSerifCondensed-Bold.ttf"; path = "data/fonts/DejaVuSerifCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		5ECCA3AB1036404100A25328 /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = data/fonts/FreeSans.ttf; sourceTree = SOURCE_ROOT; };
@@ -631,6 +617,16 @@
 			path = src/UIKitWrappers;
 			sourceTree = SOURCE_ROOT;
 		};
+		5E7B92AC10407ECE00EEA5E8 /* ofxDirList */ = {
+			isa = PBXGroup;
+			children = (
+				5E7B92AD10407ECE00EEA5E8 /* ofxDirList.cpp */,
+				5E7B92AE10407ECE00EEA5E8 /* ofxDirList.h */,
+			);
+			name = ofxDirList;
+			path = of_preRelease_v0.06_xcode_FAT/addons/ofxDirList/src;
+			sourceTree = DEVELOPER_DIR;
+		};
 		5ECCA35810363D1100A25328 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +657,8 @@
 				5ECCA36D10363D8900A25328 /* phraseController.mm */,
 				5ECCA36E10363D8900A25328 /* wallFolderHelper.cpp */,
 				5ECCA36F10363D8900A25328 /* wallFolderHelper.h */,
+				5E7B923A1040712000EEA5E8 /* bankController.h */,
+				5E7B923B1040712000EEA5E8 /* bankController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -677,25 +675,6 @@
 			);
 			name = book_design_images;
 			path = data/book_design_images;
-			sourceTree = SOURCE_ROOT;
-		};
-		5ECCA3911036400C00A25328 /* glock_107_wav */ = {
-			isa = PBXGroup;
-			children = (
-				5ECCA3921036400C00A25328 /* Bass1.wav */,
-				5ECCA3931036400C00A25328 /* Bass2.wav */,
-				5ECCA3941036400C00A25328 /* Bass3.wav */,
-				5ECCA3951036400C00A25328 /* Drums1.wav */,
-				5ECCA3961036400C00A25328 /* Drums2.wav */,
-				5ECCA3971036400C00A25328 /* Drums3.wav */,
-				5ECCA3981036400C00A25328 /* Drums4.wav */,
-				5ECCA3991036400C00A25328 /* Glock1.wav */,
-				5ECCA39A1036400C00A25328 /* Glock2.wav */,
-				5ECCA39B1036400C00A25328 /* Glock3.wav */,
-				5ECCA39C1036400C00A25328 /* Percussion.wav */,
-			);
-			name = glock_107_wav;
-			path = data/glock_107_wav;
 			sourceTree = SOURCE_ROOT;
 		};
 		5ECCA3A81036404100A25328 /* fonts */ = {
@@ -828,6 +807,7 @@
 		BB16F26B0F2B646B00518274 /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				5E7B92AC10407ECE00EEA5E8 /* ofxDirList */,
 				5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */,
 				BB4B3DE30F7AFE100030C0C6 /* ofxiPhone */,
 				BB4B3E270F7AFE100030C0C6 /* ofxMultiTouch */,
@@ -940,9 +920,9 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5E7B9368104086F700EEA5E8 /* banks */,
 				5ECCA3AF1036406D00A25328 /* dist.plist */,
 				5ECCA3A81036404100A25328 /* fonts */,
-				5ECCA3911036400C00A25328 /* glock_107_wav */,
 				5ECCA38610363F1C00A25328 /* book_design_images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				BBD1C2770F39143F007FCFB3 /* Icon.png */,
@@ -1255,21 +1235,11 @@
 				5ECCA38E10363F1C00A25328 /* texture_atlas_books.png in Resources */,
 				5ECCA38F10363F1C00A25328 /* texture_atlas_interior.png in Resources */,
 				5ECCA39010363F1C00A25328 /* zoomer_atlas.png in Resources */,
-				5ECCA39D1036400C00A25328 /* Bass1.wav in Resources */,
-				5ECCA39E1036400C00A25328 /* Bass2.wav in Resources */,
-				5ECCA39F1036400C00A25328 /* Bass3.wav in Resources */,
-				5ECCA3A01036400C00A25328 /* Drums1.wav in Resources */,
-				5ECCA3A11036400C00A25328 /* Drums2.wav in Resources */,
-				5ECCA3A21036400C00A25328 /* Drums3.wav in Resources */,
-				5ECCA3A31036400C00A25328 /* Drums4.wav in Resources */,
-				5ECCA3A41036400C00A25328 /* Glock1.wav in Resources */,
-				5ECCA3A51036400C00A25328 /* Glock2.wav in Resources */,
-				5ECCA3A61036400C00A25328 /* Glock3.wav in Resources */,
-				5ECCA3A71036400C00A25328 /* Percussion.wav in Resources */,
 				5ECCA3AC1036404100A25328 /* 04B_11__.TTF in Resources */,
 				5ECCA3AD1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf in Resources */,
 				5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */,
 				5ECCA3B01036406D00A25328 /* dist.plist in Resources */,
+				5E7B9391104086F700EEA5E8 /* banks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1347,6 +1317,8 @@
 				5ECCA37310363D8900A25328 /* parentController.mm in Sources */,
 				5ECCA37410363D8900A25328 /* phraseController.mm in Sources */,
 				5ECCA37510363D8900A25328 /* wallFolderHelper.cpp in Sources */,
+				5E7B923C1040712000EEA5E8 /* bankController.mm in Sources */,
+				5E7B92AF10407ECE00EEA5E8 /* ofxDirList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

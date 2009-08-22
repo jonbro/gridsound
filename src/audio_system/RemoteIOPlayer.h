@@ -15,6 +15,7 @@
 	SampleInstrument *samplePlayer;
 	NSMutableArray *instrumentGroup;
 	NSMutableArray *offsetArray;
+	NSMutableArray *samplePool;
 	int tick;
 	bool toMute[2];
 	int frameCounter;
@@ -23,6 +24,7 @@
 
 //@property (nonatomic, retain) SampleInstrument *inMemoryAudioFile[];
 @property (nonatomic, retain) NSMutableArray *instrumentGroup;
+@property (nonatomic, retain) NSMutableArray *samplePool;
 @property (nonatomic, retain) NSMutableArray *offsetArray;
 @property int tick;
 @property int frameCounter;

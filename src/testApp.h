@@ -8,6 +8,7 @@
 #import "Phrase.h"
 #import "parentController.h"
 #import "gridController.h"
+#import "bankController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -57,7 +58,7 @@ public:
 	int yPos;
 	
 	parentController *mainController;
-	
+	bankController *bank;
 	string noteArray[12];
 	
 };

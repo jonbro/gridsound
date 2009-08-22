@@ -21,6 +21,8 @@ void testApp::setup(){
 		
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
+	bank = [[bankController alloc]init];
+	
 	//initialise the audio player
 	[player intialiseAudio];
 	#ifdef GLOCKVERSION
@@ -40,16 +42,13 @@ void testApp::setup(){
 
 	
 	instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
-	NSMutableArray *samplePool = [[NSMutableArray alloc]initWithCapacity:3];
+	
+	NSMutableArray *samplePool = player.samplePool;
 	
 	[player setInstrumentGroup: instrumentGroup];
 	
-	for(int i=0;i<[sampleArray count];i++){
-		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
-		//open the a wav file from the application resources
-		[inMemoryAudioFile open:[[NSBundle mainBundle] pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav"]];
-		[samplePool addObject:[inMemoryAudioFile retain]];
-	}
+	[bank setPlayer:player];
+	[bank loadBank:[NSNumber numberWithInt:0]];
 	
 	mainController = [[parentController alloc] init];
 	[mainController setInstrumentGroup:instrumentGroup];
@@ -73,18 +72,15 @@ void testApp::setup(){
 		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
 		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
 		sampleInstrument.volume = 80;
-		sampleInstrument.currentSample = i;
+		//sampleInstrument.currentSample = i;
 		
 		//set the players inMemoryAudioFile
 		[[player instrumentGroup] addObject:sampleInstrument];
 		
 		[sampleInstrument reset];
 		[sampleInstrument release];
-
 	}
-
-	currentGrid = 0;	
-	[player start];
+	currentGrid = 0;
 }
 
 void testApp::lostFocus(){
@@ -98,10 +94,8 @@ void testApp::gotFocus(){
 void testApp::update(){
 	[mainController update];
 	if(imageCount){
-//		belt.loadImage("0006.png");
 		imageCount = false;
 	}else{
-//		belt.loadImage("0007.png");
 		imageCount = true;
 	}
 }
@@ -110,7 +104,6 @@ void testApp::update(){
 void testApp::draw(){
 	[mainController render];
 	ofSetColor(255, 255, 255);
-	//belt.getTextureReference().draw(0, 0);
 }
 void testApp::saveDefaults(){
 	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:pModel] forKey:@"savedArray"];

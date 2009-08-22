@@ -80,7 +80,6 @@
 	return result;
 }
 
-
 - (OSStatus) getFileInfo {
 	
 	OSStatus	result = -1;
@@ -99,6 +98,4 @@
 	}
 	return result;
 }
-
-
 @end
