@@ -14,7 +14,7 @@
 
 @synthesize playbackMode;
 
--(id) init:(RemoteIOPlayer *)_player loopSamples:(NSArray *)_loopSamples gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber
+-(id) init:(RemoteIOPlayer *)_player gcHelper:(gridControllerHelper *)_gcHelper channelNumber:(int)_channel gridNumber:(int)_gridNumber
 {
 	self = [super init];
 	gcHelper = _gcHelper;
@@ -25,15 +25,6 @@
 	channel = _channel;
 	y_offset = 0;
 	player = _player;
-	loopSamples = [[NSMutableArray alloc]initWithCapacity:1];
-#ifdef HRVERSION
-	for(int i=channel*6;i<min((int)[_loopSamples count], (channel+1)*6);i++){
-		[loopSamples addObject:[_loopSamples objectAtIndex:i]];
-	}
-#endif
-#ifndef HRVERSION
-	loopSamples = [_loopSamples retain];
-#endif
 	pickerStyleSegmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Cutter", @"Note", nil]];
 	[pickerStyleSegmentedControl addTarget:self action:@selector(toggleMode:) forControlEvents:UIControlEventValueChanged];
 	pickerStyleSegmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
@@ -45,7 +36,7 @@
     pickerStyleSegmentedControl.backgroundColor = [UIColor clearColor];
 	[pickerStyleSegmentedControl sizeToFit];
 	pickerStyleSegmentedControl.hidden = NO;
-	numLoops = [loopSamples count];
+	numLoops = [[player.bankInfo objectForKey:@"samples"] count];
 	CGRect segmentedControlFrame = CGRectMake(480,
 											  20,
 											  320,
@@ -56,7 +47,6 @@
 	showSamplePicker = false;
 	currentStep = 0;
 	self.playbackMode = 0;
-	picker = new ofxiPhonePickerView(0, 520, 320, 240, [loopSamples retain]);
 	pickerStyleSegmentedControl.selectedSegmentIndex = 0;
 	return self;
 }
@@ -68,7 +58,6 @@
 		case 0:	// UIPickerView
 		{
 			self.playbackMode = 0;
-			picker->setNewArray([loopSamples retain]);
 			break;
 		}
 		case 1: // UIDatePicker
@@ -106,7 +95,7 @@
 	}
 	volumeLevel = [[pModel.volumes objectAtIndex:channel] intValue];
 	gcHelper->drawVolume((float)volumeLevel/255.0);
-	gcHelper->drawForeground(loopSamples);
+	gcHelper->drawForeground([player.bankInfo objectForKey:@"samples"]);
 	for(int i=0;i<3;i++){
 		if([[pModel.mutes objectAtIndex:i]boolValue]){
 			gcHelper->drawMute(i);
@@ -114,7 +103,7 @@
 	}
 	gcHelper->drawDirection([[pModel.directions objectAtIndex:channel] boolValue]);
 	gcHelper->drawLocation(gridNumber);
-	gcHelper->showBelt(loopSamples);
+	gcHelper->showBelt([player.bankInfo objectForKey:@"samples"]);
 }
 -(void)update
 {
@@ -183,7 +172,7 @@
 	}
 	if(showSamplePicker){
 		if(x>46 && x<138){
-			if((y)/40<[loopSamples count]){
+			if((y)/40<[[player.bankInfo objectForKey:@"samples"] count]){
 				[pModel.currentSamples replaceObjectAtIndex:channel withObject:[NSNumber numberWithInt:(int)(y)/40]];
 			}
 		}else{

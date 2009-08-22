@@ -15,6 +15,7 @@
 	NSMutableArray *instrumentGroup;
 	NSMutableArray *offsetArray;
 	NSMutableArray *samplePool;
+	NSDictionary *bankInfo;
 	float bpm;
 	int tick;
 	bool toMute[2];
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) NSMutableArray *instrumentGroup;
 @property (nonatomic, retain) NSMutableArray *samplePool;
 @property (nonatomic, retain) NSMutableArray *offsetArray;
+@property (nonatomic, retain) NSDictionary *bankInfo;
 @property int tick;
 @property float bpm;
 @property int frameCounter;

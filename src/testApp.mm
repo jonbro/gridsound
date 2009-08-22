@@ -57,7 +57,7 @@ void testApp::setup(){
 	gcHelper = new gridControllerHelper();
 	
 	for(int i=0;i<6;i++){
-		gridController *_gControl = [[gridController alloc]init:player loopSamples:[sampleArray retain] gcHelper:gcHelper channelNumber:i%3 gridNumber:i];
+		gridController *_gControl = [[gridController alloc]init:player gcHelper:gcHelper channelNumber:i%3 gridNumber:i];
 		[mainController addChild:_gControl];
 	}
 	

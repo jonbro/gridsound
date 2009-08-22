@@ -14,7 +14,7 @@
 
 @implementation RemoteIOPlayer
 
-@synthesize instrumentGroup, samplePool, bpm;
+@synthesize instrumentGroup, samplePool, bpm, bankInfo;
 @synthesize offsetArray;
 @synthesize tick;
 @synthesize frameCounter;

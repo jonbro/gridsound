@@ -124,7 +124,6 @@
 		5ECCA36110363D1200A25328 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA35C10363D1100A25328 /* fixed.cpp */; };
 		5ECCA36210363D1200A25328 /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA35E10363D1200A25328 /* vmath.cpp */; };
 		5ECCA37010363D8900A25328 /* ballController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA36510363D8900A25328 /* ballController.mm */; };
-		5ECCA37110363D8900A25328 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA36710363D8900A25328 /* gridController.mm */; };
 		5ECCA37210363D8900A25328 /* gridControllerHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA36910363D8900A25328 /* gridControllerHelper.mm */; };
 		5ECCA37310363D8900A25328 /* parentController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA36B10363D8900A25328 /* parentController.mm */; };
 		5ECCA37410363D8900A25328 /* phraseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA36D10363D8900A25328 /* phraseController.mm */; };
@@ -138,6 +137,7 @@
 		5ECCA3AD1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AA1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf */; };
 		5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AB1036404100A25328 /* FreeSans.ttf */; };
 		5ECCA3B01036406D00A25328 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AF1036406D00A25328 /* dist.plist */; };
+		5ED129D91040A5B300636A42 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED129D81040A5B300636A42 /* gridController.mm */; };
 		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
@@ -258,7 +258,6 @@
 		5ECCA36410363D8900A25328 /* ballController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ballController.h; path = src/controllers/ballController.h; sourceTree = SOURCE_ROOT; };
 		5ECCA36510363D8900A25328 /* ballController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ballController.mm; path = src/controllers/ballController.mm; sourceTree = SOURCE_ROOT; };
 		5ECCA36610363D8900A25328 /* gridController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridController.h; path = src/controllers/gridController.h; sourceTree = SOURCE_ROOT; };
-		5ECCA36710363D8900A25328 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridController.mm; path = src/controllers/gridController.mm; sourceTree = SOURCE_ROOT; };
 		5ECCA36810363D8900A25328 /* gridControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridControllerHelper.h; path = src/controllers/gridControllerHelper.h; sourceTree = SOURCE_ROOT; };
 		5ECCA36910363D8900A25328 /* gridControllerHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = gridControllerHelper.mm; path = src/controllers/gridControllerHelper.mm; sourceTree = SOURCE_ROOT; };
 		5ECCA36A10363D8900A25328 /* parentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parentController.h; path = src/controllers/parentController.h; sourceTree = SOURCE_ROOT; };
@@ -276,6 +275,7 @@
 		5ECCA3AA1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DejaVuSerifCondensed-Bold.ttf"; path = "data/fonts/DejaVuSerifCondensed-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		5ECCA3AB1036404100A25328 /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = data/fonts/FreeSans.ttf; sourceTree = SOURCE_ROOT; };
 		5ECCA3AF1036406D00A25328 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/dist.plist; sourceTree = DEVELOPER_DIR; };
+		5ED129D81040A5B300636A42 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gridController.mm; sourceTree = "<group>"; };
 		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
@@ -648,7 +648,7 @@
 				5ECCA36410363D8900A25328 /* ballController.h */,
 				5ECCA36510363D8900A25328 /* ballController.mm */,
 				5ECCA36610363D8900A25328 /* gridController.h */,
-				5ECCA36710363D8900A25328 /* gridController.mm */,
+				5ED129D81040A5B300636A42 /* gridController.mm */,
 				5ECCA36810363D8900A25328 /* gridControllerHelper.h */,
 				5ECCA36910363D8900A25328 /* gridControllerHelper.mm */,
 				5ECCA36A10363D8900A25328 /* parentController.h */,
@@ -1329,13 +1329,13 @@
 				5ECCA36110363D1200A25328 /* fixed.cpp in Sources */,
 				5ECCA36210363D1200A25328 /* vmath.cpp in Sources */,
 				5ECCA37010363D8900A25328 /* ballController.mm in Sources */,
-				5ECCA37110363D8900A25328 /* gridController.mm in Sources */,
 				5ECCA37210363D8900A25328 /* gridControllerHelper.mm in Sources */,
 				5ECCA37310363D8900A25328 /* parentController.mm in Sources */,
 				5ECCA37410363D8900A25328 /* phraseController.mm in Sources */,
 				5ECCA37510363D8900A25328 /* wallFolderHelper.cpp in Sources */,
 				5E7B923C1040712000EEA5E8 /* bankController.mm in Sources */,
 				5E7B92AF10407ECE00EEA5E8 /* ofxDirList.cpp in Sources */,
+				5ED129D91040A5B300636A42 /* gridController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

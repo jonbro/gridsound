@@ -16,7 +16,6 @@
 	bankData = [[NSMutableArray alloc]initWithCapacity:0];
 	NSBundle* myBundle = [NSBundle mainBundle];
 	int nBanks = DIR.listDir("banks");
-	NSLog(@"%d", nBanks);
 	for(int i = 0; i < nBanks; i++){
 		NSString *bank_path = [[NSString alloc] initWithCString:DIR.getPath(i).c_str()];
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
@@ -42,15 +41,14 @@
 	// load up the new bank
 	// load the plist from the selected bank
 	
-	NSArray *sampleArray = [[bankData objectAtIndex:bankNumber]objectForKey:@"samples"];
-	NSLog(@"%@", sampleArray);
-	NSLog([[bankData objectAtIndex:2]objectForKey:@"bank_path"]);
+	NSArray *sampleArray = [[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"samples"];
 	for(int i=0;i<[sampleArray count];i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
-		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:bankNumber]objectForKey:@"bank_path"]]];
+		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
 		[player.samplePool addObject:[inMemoryAudioFile retain]];
 	}
-	player.bpm = [[[bankData objectAtIndex:bankNumber] objectForKey:@"bpm"] floatValue];
+	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
+	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
 	[player start];
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
