@@ -11,11 +11,11 @@
 #import "SampleInstrument.h"
 
 @interface RemoteIOPlayer : NSObject {
-	//SampleInstrument *inMemoryAudioFile[];
 	SampleInstrument *samplePlayer;
 	NSMutableArray *instrumentGroup;
 	NSMutableArray *offsetArray;
 	NSMutableArray *samplePool;
+	float bpm;
 	int tick;
 	bool toMute[2];
 	int frameCounter;
@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSMutableArray *samplePool;
 @property (nonatomic, retain) NSMutableArray *offsetArray;
 @property int tick;
+@property float bpm;
 @property int frameCounter;
 
 -(OSStatus)start;

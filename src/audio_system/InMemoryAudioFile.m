@@ -27,8 +27,8 @@
 -(OSStatus)open:(NSString *)filePath{
 	
 	//print out the file path
-//	NSLog(@"FilePath: ");
-//	NSLog(filePath);
+	NSLog(@"FilePath: ");
+	NSLog(filePath);
 	
 	//get a ref to the audio file, need one to open it
 	CFURLRef audioFileURL = CFURLCreateFromFileSystemRepresentation (NULL, (const UInt8 *)[filePath cStringUsingEncoding:[NSString defaultCStringEncoding]] , strlen([filePath cStringUsingEncoding:[NSString defaultCStringEncoding]]), false);
