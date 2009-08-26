@@ -35,8 +35,8 @@ class wallFolderHelper
 		bool zooming, zoomingSecondary, infoTransition, info, firstZoom, help, helpTransition;
 	protected:
 		ofImage atlas, zoomerAtlas, helpAtlas;
-		ofxMSAShape3D *myShape;
 		ofTexture atlasTex, zoomerAtlasTex, helpAtlasTex;
+		ofxMSAShape3D *myShape;
 		int currentFrame, direction, startMove, startFrame, zoomDirection, startZoom, offset_x_target, offset_y_target;
 		int zoomSpeed, zoomSpeedSecondary, infoDirection, infoPosition, infoStart;
 		int helpDirection, helpPosition, helpStart, helpScreen;

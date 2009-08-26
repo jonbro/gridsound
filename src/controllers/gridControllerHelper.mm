@@ -8,6 +8,7 @@
  */
 
 #include "gridControllerHelper.h"
+#include "globals.h"
 
 gridControllerHelper::gridControllerHelper()
 {	
@@ -18,7 +19,6 @@ gridControllerHelper::gridControllerHelper()
 	beltAtlas.loadImage("texture_atlas_belt.png");
 	beltAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	beltAtlasTex = beltAtlas.getTextureReference();
-	sampleFont.loadFont("DejaVuSerifCondensed-Bold.ttf", 11);
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
 	direction = 0;

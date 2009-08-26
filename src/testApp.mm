@@ -5,6 +5,7 @@ const char *notes__[12] = {
 	"C ","C#","D ","D#","E ","F ","F#","G ","G#","A ","A#","B " 
 } ;
 
+ofTrueTypeFont sampleFont;
 
 //--------------------------------------------------------------
 void testApp::setup(){	
@@ -19,10 +20,14 @@ void testApp::setup(){
 
 	ofxAccelerometer.setup();
 		
+	sampleFont.loadFont("DejaVuSerifCondensed-Bold.ttf", 11);
+
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
-	bank = [[bankController alloc]init];
-	
+
+	bank = [[bankController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+	[Events setFirstResponder:bank];
+
 	//initialise the audio player
 	[player intialiseAudio];
 	#ifdef GLOCKVERSION
@@ -39,7 +44,6 @@ void testApp::setup(){
 	#endif
 	
 	
-
 	
 	instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	
@@ -72,7 +76,7 @@ void testApp::setup(){
 		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
 		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
 		sampleInstrument.volume = 80;
-		//sampleInstrument.currentSample = i;
+		sampleInstrument.currentSample = i;
 		
 		//set the players inMemoryAudioFile
 		[[player instrumentGroup] addObject:sampleInstrument];
@@ -81,6 +85,8 @@ void testApp::setup(){
 		[sampleInstrument release];
 	}
 	currentGrid = 0;
+	[player start];
+
 }
 
 void testApp::lostFocus(){
@@ -102,8 +108,9 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	[mainController render];
-	ofSetColor(255, 255, 255);
+	[bank render];
+	// [mainController render];
+	// ofSetColor(255, 255, 255);
 }
 void testApp::saveDefaults(){
 	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:pModel] forKey:@"savedArray"];
@@ -158,20 +165,21 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[mainController touchDownX:x y:y touchId:touchId];
+	TouchEvent* t_event = [[TouchEvent alloc]init];
+	t_event.x_pos = x;
+	t_event.y_pos = y;
+	t_event.pos = CGPointMake(x, y);
+	t_event.touchId = touchId;
+	[Events touchDown:t_event];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[mainController touchMoved:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[mainController touchUpX:x y:y touchId:touchId];
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){
-	[mainController doubleTapX:x y:y touchId:touchId];
-	//printf("touch %i double tap at (%i,%i)\n", touchId, x,y);
 }
 
 

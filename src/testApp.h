@@ -9,6 +9,7 @@
 #import "parentController.h"
 #import "gridController.h"
 #import "bankController.h"
+#import "Events.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	

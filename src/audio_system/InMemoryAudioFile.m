@@ -37,7 +37,7 @@
 	OSStatus result = AudioFileOpenURL (audioFileURL, kAudioFileWAVEType, 0, &mAudioFile);
 	//were there any errors reading? if so deal with them first
 	if (result != noErr) {
-//		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
+		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
 		packetCount = -1;
 	}
 	//otherwise
@@ -66,12 +66,12 @@
 		}
 		if (result==noErr){
 			//print out general info about  the file
-//			NSLog([NSString stringWithFormat:@"Packets read from file: %d\n", packetsRead]);
-//			NSLog([NSString stringWithFormat:@"Bytes read from file: %d\n", numBytesRead]);
+			NSLog([NSString stringWithFormat:@"Packets read from file: %d\n", packetsRead]);
+			NSLog([NSString stringWithFormat:@"Bytes read from file: %d\n", numBytesRead]);
 //			//for a stereo 32 bit per sample file this is ok
 //			NSLog([NSString stringWithFormat:@"Sample count: %d\n", numBytesRead / 2]);
 //			//for a 32bit per stereo sample at 44100khz this is correct
-//			NSLog([NSString stringWithFormat:@"Time in Seconds: %f.4\n", ((float)numBytesRead / 4.0) / 44100.0]);
+			NSLog([NSString stringWithFormat:@"Time in Seconds: %f.4\n", ((float)numBytesRead / 4.0) / 44100.0]);
 		}
 	}
 	

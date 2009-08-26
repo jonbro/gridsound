@@ -138,6 +138,13 @@
 		5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AB1036404100A25328 /* FreeSans.ttf */; };
 		5ECCA3B01036406D00A25328 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AF1036406D00A25328 /* dist.plist */; };
 		5ED129D91040A5B300636A42 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED129D81040A5B300636A42 /* gridController.mm */; };
+		5EEA1C511044CFC900131C5D /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C441044CFC900131C5D /* CGPointUtils.m */; };
+		5EEA1C521044CFC900131C5D /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C461044CFC900131C5D /* CustomEventResponder.mm */; };
+		5EEA1C531044CFC900131C5D /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C481044CFC900131C5D /* Events.mm */; };
+		5EEA1C541044CFC900131C5D /* TouchEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C4A1044CFC900131C5D /* TouchEvent.mm */; };
+		5EEA1C551044CFC900131C5D /* TransformUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C4C1044CFC900131C5D /* TransformUtils.mm */; };
+		5EEA1C561044CFC900131C5D /* Vector2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C4E1044CFC900131C5D /* Vector2d.m */; };
+		5EEA1CC71044D43000131C5D /* GLButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1CC61044D43000131C5D /* GLButton.mm */; };
 		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
@@ -276,6 +283,21 @@
 		5ECCA3AB1036404100A25328 /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = data/fonts/FreeSans.ttf; sourceTree = SOURCE_ROOT; };
 		5ECCA3AF1036406D00A25328 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/dist.plist; sourceTree = DEVELOPER_DIR; };
 		5ED129D81040A5B300636A42 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gridController.mm; sourceTree = "<group>"; };
+		5EEA1BC31044CAD500131C5D /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globals.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/globals.h; sourceTree = DEVELOPER_DIR; };
+		5EEA1C431044CFC900131C5D /* CGPointUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGPointUtils.h; path = ../events_raw/CGPointUtils.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C441044CFC900131C5D /* CGPointUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGPointUtils.m; path = ../events_raw/CGPointUtils.m; sourceTree = SOURCE_ROOT; };
+		5EEA1C451044CFC900131C5D /* CustomEventResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomEventResponder.h; path = ../events_raw/CustomEventResponder.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C461044CFC900131C5D /* CustomEventResponder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomEventResponder.mm; path = ../events_raw/CustomEventResponder.mm; sourceTree = SOURCE_ROOT; };
+		5EEA1C471044CFC900131C5D /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = ../events_raw/Events.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C481044CFC900131C5D /* Events.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Events.mm; path = ../events_raw/Events.mm; sourceTree = SOURCE_ROOT; };
+		5EEA1C491044CFC900131C5D /* TouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchEvent.h; path = ../events_raw/TouchEvent.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C4A1044CFC900131C5D /* TouchEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TouchEvent.mm; path = ../events_raw/TouchEvent.mm; sourceTree = SOURCE_ROOT; };
+		5EEA1C4B1044CFC900131C5D /* TransformUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransformUtils.h; path = ../events_raw/TransformUtils.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C4C1044CFC900131C5D /* TransformUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TransformUtils.mm; path = ../events_raw/TransformUtils.mm; sourceTree = SOURCE_ROOT; };
+		5EEA1C4D1044CFC900131C5D /* Vector2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2d.h; path = ../events_raw/Vector2d.h; sourceTree = SOURCE_ROOT; };
+		5EEA1C4E1044CFC900131C5D /* Vector2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Vector2d.m; path = ../events_raw/Vector2d.m; sourceTree = SOURCE_ROOT; };
+		5EEA1CC51044D43000131C5D /* GLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLButton.h; sourceTree = "<group>"; };
+		5EEA1CC61044D43000131C5D /* GLButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLButton.mm; sourceTree = "<group>"; };
 		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
@@ -630,6 +652,8 @@
 		5ECCA35810363D1100A25328 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				5EEA1CC31044D41A00131C5D /* gl_gui */,
+				5EEA1C421044CFC900131C5D /* events_raw */,
 				5ECCA35910363D1100A25328 /* common_macros.h */,
 				5ECCA35A10363D1100A25328 /* drawingHelper.h */,
 				5ECCA35B10363D1100A25328 /* drawingHelper.mm */,
@@ -687,6 +711,35 @@
 			name = fonts;
 			path = data/fonts;
 			sourceTree = SOURCE_ROOT;
+		};
+		5EEA1C421044CFC900131C5D /* events_raw */ = {
+			isa = PBXGroup;
+			children = (
+				5EEA1C431044CFC900131C5D /* CGPointUtils.h */,
+				5EEA1C441044CFC900131C5D /* CGPointUtils.m */,
+				5EEA1C451044CFC900131C5D /* CustomEventResponder.h */,
+				5EEA1C461044CFC900131C5D /* CustomEventResponder.mm */,
+				5EEA1C471044CFC900131C5D /* Events.h */,
+				5EEA1C481044CFC900131C5D /* Events.mm */,
+				5EEA1C491044CFC900131C5D /* TouchEvent.h */,
+				5EEA1C4A1044CFC900131C5D /* TouchEvent.mm */,
+				5EEA1C4B1044CFC900131C5D /* TransformUtils.h */,
+				5EEA1C4C1044CFC900131C5D /* TransformUtils.mm */,
+				5EEA1C4D1044CFC900131C5D /* Vector2d.h */,
+				5EEA1C4E1044CFC900131C5D /* Vector2d.m */,
+			);
+			name = events_raw;
+			path = ../events_raw;
+			sourceTree = SOURCE_ROOT;
+		};
+		5EEA1CC31044D41A00131C5D /* gl_gui */ = {
+			isa = PBXGroup;
+			children = (
+				5EEA1CC51044D43000131C5D /* GLButton.h */,
+				5EEA1CC61044D43000131C5D /* GLButton.mm */,
+			);
+			name = gl_gui;
+			sourceTree = "<group>";
 		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
 			isa = PBXGroup;
@@ -828,6 +881,7 @@
 				5EEEB79C0FA3947A00D766A5 /* testApp.mm */,
 				BB16F3AA0F2B73B000518274 /* testApp.h */,
 				BB16F3A80F2B73B000518274 /* main.cpp */,
+				5EEA1BC31044CAD500131C5D /* globals.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1336,6 +1390,13 @@
 				5E7B923C1040712000EEA5E8 /* bankController.mm in Sources */,
 				5E7B92AF10407ECE00EEA5E8 /* ofxDirList.cpp in Sources */,
 				5ED129D91040A5B300636A42 /* gridController.mm in Sources */,
+				5EEA1C511044CFC900131C5D /* CGPointUtils.m in Sources */,
+				5EEA1C521044CFC900131C5D /* CustomEventResponder.mm in Sources */,
+				5EEA1C531044CFC900131C5D /* Events.mm in Sources */,
+				5EEA1C541044CFC900131C5D /* TouchEvent.mm in Sources */,
+				5EEA1C551044CFC900131C5D /* TransformUtils.mm in Sources */,
+				5EEA1C561044CFC900131C5D /* Vector2d.m in Sources */,
+				5EEA1CC71044D43000131C5D /* GLButton.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

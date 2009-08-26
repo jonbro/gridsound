@@ -28,7 +28,7 @@
 	}
 	for(int i=0;i<3;i++){
 		[volumes addObject:[NSNumber numberWithInt:128]];
-		[mutes addObject:[NSNumber numberWithBool:YES]];
+		[mutes addObject:[NSNumber numberWithBool:NO]];
 		[directions addObject:[NSNumber numberWithBool:YES]];
 		if(i==0){
 			[currentSamples addObject:[NSNumber numberWithInt:5]];

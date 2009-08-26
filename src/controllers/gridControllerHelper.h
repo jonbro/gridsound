@@ -33,7 +33,7 @@ class gridControllerHelper
 	
 	protected:
 		ofImage atlas, beltAtlas;
-		ofTrueTypeFont sampleFont;
+		
 		int currentFrame, startMove, currentLoop;
 		int direction;
 		ofxMSAShape3D *myShape;

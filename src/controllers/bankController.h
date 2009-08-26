@@ -10,11 +10,17 @@
 #import "RemoteIOPlayer.h"
 #import "ofMain.h"
 #include "ofxDirList.h"
+#import "ofxMSAShape3D.h"
+#import "CustomEventResponder.h"
+#import "GLButton.h"
 
-@interface bankController : NSObject {
+@interface bankController : CustomEventResponder {
 	RemoteIOPlayer *player;
 	NSMutableArray *bankData;
 	ofxDirList DIR;
+	ofImage atlas;
+	ofTexture atlasTex;
+	ofxMSAShape3D *myShape;
 }
 -(void)render;
 -(void)loadBank:(NSNumber*)bankNumber;

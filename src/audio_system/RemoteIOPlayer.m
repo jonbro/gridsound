@@ -32,7 +32,12 @@ AudioStreamBasicDescription audioFormat;
 	return self;
 }
 -(OSStatus)start{
-	
+	for(int k=0;k<[[self instrumentGroup] count];k++) {
+		//should move this into the sample player to save on instantiation
+		[[[self instrumentGroup] objectAtIndex:k]setCurrentSample:k];
+		[[[self instrumentGroup] objectAtIndex:k]reset];
+		//[samplePlayer setCurrentSample:k];
+	}
 	OSStatus status = AudioOutputUnitStart(audioUnit);
 	return status;
 }

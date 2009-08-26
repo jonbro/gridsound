@@ -7,12 +7,13 @@
 //
 
 #import "bankController.h"
-
+#include "globals.h"
 
 @implementation bankController
 -(id)init
 {
 	self = [super init];
+	myShape = new ofxMSAShape3D();
 	bankData = [[NSMutableArray alloc]initWithCapacity:0];
 	NSBundle* myBundle = [NSBundle mainBundle];
 	int nBanks = DIR.listDir("banks");
@@ -21,13 +22,25 @@
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
 		NSMutableDictionary *bank_info = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 		[bank_info setObject:bank_path forKey:@"bank_path"];
+		GLButton *bankButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 6+48*i, 200, 45)]retain];
+		[bank_info setObject:bankButton forKey:@"bank_button"];
+		bankButton._delegate = self;
+		[bankButton setColor:0x000000];
+		[bankButton setFontColor:0xFFFFFF];
+		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
+		[self addSubview:bankButton];
 		[bankData addObject:bank_info];
-    }	
+    }
 	return self;
 }
--(void)render
+-(void)buttonDidPress:(GLButton *)_button
 {
-	
+	for(int i=0;i<[bankData count];i++){
+		if([[bankData objectAtIndex:i] objectForKey:@"bank_button"] == _button){
+			[self loadBank:[NSNumber numberWithInt:i]];
+			break;
+		}
+	}
 }
 -(void)loadBank:(NSNumber*)bankNumber
 {
@@ -36,7 +49,6 @@
 	// destroy whatever is in the bank
 	for(int i=0;i<[player.samplePool count];i++){
 		[[player.samplePool objectAtIndex:i]dealloc];
-		[player.samplePool removeObjectAtIndex:i];
 	}
 	// load up the new bank
 	// load the plist from the selected bank
@@ -54,5 +66,9 @@
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {
 	player = _player;
+}
+-(void)touchDown:(TouchEvent *)_tEvent
+{
+	NSLog(@"pressed");
 }
 @end

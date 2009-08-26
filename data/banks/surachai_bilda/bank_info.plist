@@ -4,6 +4,8 @@
 <dict>
 	<key>bpm</key>
 	<integer>106</integer>
+	<key>bank_name</key>
+	<string>bilda</string>
 	<key>samples</key>
 	<array>
 		<string>earth1</string>
