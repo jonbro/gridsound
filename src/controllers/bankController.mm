@@ -46,10 +46,9 @@
 {
 	// pause the player
 	[player stop];
+	NSLog(@"start load");
 	// destroy whatever is in the bank
-	for(int i=0;i<[player.samplePool count];i++){
-		[[player.samplePool objectAtIndex:i]dealloc];
-	}
+	[player.samplePool removeAllObjects];
 	// load up the new bank
 	// load the plist from the selected bank
 	
@@ -57,7 +56,10 @@
 	for(int i=0;i<[sampleArray count];i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
 		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
-		[player.samplePool addObject:[inMemoryAudioFile retain]];
+		[player.samplePool addObject:inMemoryAudioFile];
+	}
+	for(int i=0;i<[player.samplePool count];i++){
+		NSLog(@"sample in pool: %@", [[player.samplePool objectAtIndex:i] path]);
 	}
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];

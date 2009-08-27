@@ -19,6 +19,7 @@
 	float bpm;
 	int tick;
 	bool toMute[2];
+	bool playing;
 	int frameCounter;
 	int steps[8];
 }
@@ -30,6 +31,7 @@
 @property (nonatomic, retain) NSDictionary *bankInfo;
 @property int tick;
 @property float bpm;
+@property bool playing;
 @property int frameCounter;
 
 -(OSStatus)start;

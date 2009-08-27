@@ -10,6 +10,8 @@
 
 @implementation InMemoryAudioFile
 
+@synthesize path;
+
 - (void)dealloc {
 	//release the AudioBuffer
 	free(audioData);
@@ -29,7 +31,7 @@
 	//print out the file path
 	NSLog(@"FilePath: ");
 	NSLog(filePath);
-	
+	path = [NSString stringWithString:filePath];
 	//get a ref to the audio file, need one to open it
 	CFURLRef audioFileURL = CFURLCreateFromFileSystemRepresentation (NULL, (const UInt8 *)[filePath cStringUsingEncoding:[NSString defaultCStringEncoding]] , strlen([filePath cStringUsingEncoding:[NSString defaultCStringEncoding]]), false);
 	

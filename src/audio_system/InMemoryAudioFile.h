@@ -20,7 +20,10 @@
     AudioStreamPacketDescription	*mPacketDescs;                  
 	SInt64							packetCount;
 	UInt32							*audioData;	
+	NSString						*path;
 }
+@property (readonly) NSString *path;
+
 //opens a wav file
 -(OSStatus)open:(NSString *)filePath;
 -(UInt32)getPacket:(int)packetIndex;
