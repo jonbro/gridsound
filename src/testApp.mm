@@ -49,12 +49,18 @@ void testApp::setup(){
 	NSMutableArray *samplePool = player.samplePool;
 	
 	[player setInstrumentGroup:instrumentGroup];
+	mainC = [[mainController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
 	
 	[bank setPlayer:player];
 	[bank loadBank:[NSNumber numberWithInt:0]];
+	mainC.bankC = bank;
 
 	parentC = [[parentController alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	[parentC setInstrumentGroup:instrumentGroup];
+	mainC.parentC = parentC;
+
+	[mainC addSubview:parentC];
+	
 	[instrumentGroup release];
 	
 	gcHelper = new gridControllerHelper();
@@ -85,7 +91,8 @@ void testApp::setup(){
 	}
 	currentGrid = 0;
 	[player start];
-	[Events setFirstResponder:parentC];
+	[Events setFirstResponder:mainC];
+	
 }
 
 void testApp::lostFocus(){
@@ -97,7 +104,7 @@ void testApp::gotFocus(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-	[parentC update];
+	[mainC update];
 	if(imageCount){
 		imageCount = false;
 	}else{
@@ -108,7 +115,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	//[bank render];
-	[parentC render];
+	[mainC	render];
 	// ofSetColor(255, 255, 255);
 }
 void testApp::saveDefaults(){

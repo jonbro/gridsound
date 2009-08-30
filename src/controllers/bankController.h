@@ -17,6 +17,7 @@
 @interface bankController : CustomEventResponder {
 	RemoteIOPlayer *player;
 	NSMutableArray *bankData;
+	GLButton *exitButton;
 	ofxDirList DIR;
 	ofImage atlas;
 	ofTexture atlasTex;

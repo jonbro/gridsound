@@ -31,14 +31,27 @@
 		[self addSubview:bankButton];
 		[bankData addObject:bank_info];
     }
+	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 400, 200, 45)]retain];
+	exitButton._delegate = self;
+	[exitButton setColor:0x000000];
+	[exitButton setFontColor:0xFFFFFF];
+	[exitButton setTitle:[NSString stringWithString:@"Exit"]];
+	[self addSubview:exitButton];
+	
 	return self;
 }
 -(void)buttonDidPress:(GLButton *)_button
 {
-	for(int i=0;i<[bankData count];i++){
-		if([[bankData objectAtIndex:i] objectForKey:@"bank_button"] == _button){
-			[self loadBank:[NSNumber numberWithInt:i]];
-			break;
+	if(_button == exitButton){
+		[[NSNotificationCenter defaultCenter]
+		 postNotificationName:@"switchToMain" object:self];
+
+	}else{
+		for(int i=0;i<[bankData count];i++){
+			if([[bankData objectAtIndex:i] objectForKey:@"bank_button"] == _button){
+				[self loadBank:[NSNumber numberWithInt:i]];
+				break;
+			}
 		}
 	}
 }
