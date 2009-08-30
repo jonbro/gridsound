@@ -171,6 +171,7 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 	t_event.pos = CGPointMake(x, y);
 	t_event.touchId = touchId;
 	[Events touchDown:t_event];
+	[t_event release];
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){

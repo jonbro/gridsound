@@ -48,6 +48,9 @@
 	[player stop];
 	NSLog(@"start load");
 	// destroy whatever is in the bank
+	for (int i=0; i<[player.samplePool count]; i++) {
+		[[player.samplePool objectAtIndex:i]release];
+	}
 	[player.samplePool removeAllObjects];
 	// load up the new bank
 	// load the plist from the selected bank
