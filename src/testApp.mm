@@ -26,7 +26,6 @@ void testApp::setup(){
 	player = [[RemoteIOPlayer alloc]init];
 
 	bank = [[bankController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-	[Events setFirstResponder:bank];
 
 	//initialise the audio player
 	[player intialiseAudio];
@@ -49,20 +48,20 @@ void testApp::setup(){
 	
 	NSMutableArray *samplePool = player.samplePool;
 	
-	[player setInstrumentGroup: instrumentGroup];
+	[player setInstrumentGroup:instrumentGroup];
 	
 	[bank setPlayer:player];
 	[bank loadBank:[NSNumber numberWithInt:0]];
-	
-	mainController = [[parentController alloc] init];
-	[mainController setInstrumentGroup:instrumentGroup];
+
+	parentC = [[parentController alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	[parentC setInstrumentGroup:instrumentGroup];
 	[instrumentGroup release];
 	
 	gcHelper = new gridControllerHelper();
 	
 	for(int i=0;i<6;i++){
 		gridController *_gControl = [[gridController alloc]init:player gcHelper:gcHelper channelNumber:i%3 gridNumber:i];
-		[mainController addChild:_gControl];
+		[parentC addChild:_gControl];
 	}
 	
 	this->loadDefaults();
@@ -71,8 +70,8 @@ void testApp::setup(){
 	for(int i=0;i<3;i++){
 		SampleInstrument *sampleInstrument = [[SampleInstrument alloc]init];
 		sampleInstrument.samplePool = samplePool;
-		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i]retain] forKey:@"lpof"];
-		[sampleInstrument.controllers setObject:[[mainController.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
+		[sampleInstrument.controllers setObject:[[parentC.children objectAtIndex:i]retain] forKey:@"lpof"];
+		[sampleInstrument.controllers setObject:[[parentC.children objectAtIndex:i+3]retain] forKey:@"rtgr"];
 		[[sampleInstrument.controllers objectForKey:@"fcut"] setAll:7];
 		[[sampleInstrument.controllers objectForKey:@"rtgr"] setAll:0];
 		sampleInstrument.volume = 80;
@@ -86,7 +85,7 @@ void testApp::setup(){
 	}
 	currentGrid = 0;
 	[player start];
-
+	[Events setFirstResponder:parentC];
 }
 
 void testApp::lostFocus(){
@@ -98,7 +97,7 @@ void testApp::gotFocus(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-	[mainController update];
+	[parentC update];
 	if(imageCount){
 		imageCount = false;
 	}else{
@@ -108,8 +107,8 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	[bank render];
-	// [mainController render];
+	//[bank render];
+	[parentC render];
 	// ofSetColor(255, 255, 255);
 }
 void testApp::saveDefaults(){
@@ -121,10 +120,10 @@ void testApp::loadDefaults(){
 	if (dataRepresentingSavedArray != nil)
 	{
 		pModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
-		[mainController setModel:pModel];
+		[parentC setModel:pModel];
 	}else{
 		pModel = [[parentModel alloc]init];
-		[mainController setModel:[pModel retain]];
+		[parentC setModel:[pModel retain]];
 	}	
 }
 
@@ -175,12 +174,26 @@ void testApp::touchDown(float x, float y, int touchId, ofxMultiTouchCustomData *
 }
 //--------------------------------------------------------------
 void testApp::touchMoved(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	TouchEvent* t_event = [[TouchEvent alloc]init];
+	t_event.x_pos = x;
+	t_event.y_pos = y;
+	t_event.pos = CGPointMake(x, y);
+	t_event.touchId = touchId;
+	[Events touchMoved:t_event];
 }
 //--------------------------------------------------------------
 void testApp::touchUp(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	TouchEvent* t_event = [[TouchEvent alloc]init];
+	t_event.x_pos = x;
+	t_event.y_pos = y;
+	t_event.pos = CGPointMake(x, y);
+	t_event.touchId = touchId;
+	[Events touchUp:t_event];
 }
 //--------------------------------------------------------------
 void testApp::touchDoubleTap(float x, float y, int touchId, ofxMultiTouchCustomData *data){
+	TouchEvent* t_event = [[TouchEvent alloc]init];
+	t_event.pos = CGPointMake(x, y);
+	t_event.touchId = touchId;
+	[Events touchDoubleTap:t_event];
 }
-
-

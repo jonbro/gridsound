@@ -9,6 +9,7 @@
 #import "parentController.h"
 #import "gridController.h"
 #import "bankController.h"
+#import "mainController.h"
 #import "Events.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
@@ -43,6 +44,7 @@ public:
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
 	parentModel *pModel;
+	mainController *mainC;
 	NSMutableArray *instrumentGroup;
 	ofImage belt;
 	bool			imageCount;
@@ -58,7 +60,7 @@ public:
 	int half_yHeight;
 	int yPos;
 	
-	parentController *mainController;
+	parentController *parentC;
 	bankController *bank;
 	string noteArray[12];
 	

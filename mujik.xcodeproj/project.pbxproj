@@ -10,6 +10,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		5E033372104AEA4700AAD7F5 /* mainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E033371104AEA4700AAD7F5 /* mainController.mm */; };
 		5E477DF30FE598AB003EF4A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		5E477DF40FE598AB003EF4A7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
 		5E477E0C0FE598AB003EF4A7 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -221,6 +222,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
+		5E033370104AEA4700AAD7F5 /* mainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.h; sourceTree = DEVELOPER_DIR; };
+		5E033371104AEA4700AAD7F5 /* mainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mainController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.mm; sourceTree = DEVELOPER_DIR; };
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E477E440FE598AB003EF4A7 /* MujikSW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikSW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E477E460FE598AB003EF4A7 /* Info copy 3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy 3.plist"; sourceTree = SOURCE_ROOT; };
@@ -683,6 +686,8 @@
 				5ECCA36F10363D8900A25328 /* wallFolderHelper.h */,
 				5E7B923A1040712000EEA5E8 /* bankController.h */,
 				5E7B923B1040712000EEA5E8 /* bankController.mm */,
+				5E033370104AEA4700AAD7F5 /* mainController.h */,
+				5E033371104AEA4700AAD7F5 /* mainController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -1397,6 +1402,7 @@
 				5EEA1C551044CFC900131C5D /* TransformUtils.mm in Sources */,
 				5EEA1C561044CFC900131C5D /* Vector2d.m in Sources */,
 				5EEA1CC71044D43000131C5D /* GLButton.mm in Sources */,
+				5E033372104AEA4700AAD7F5 /* mainController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

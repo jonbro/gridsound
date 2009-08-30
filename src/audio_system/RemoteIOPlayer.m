@@ -44,7 +44,6 @@ AudioStreamBasicDescription audioFormat;
 
 -(OSStatus)stop{
 	OSStatus status = AudioOutputUnitStop(audioUnit);
-	//RemoteIOPlayer *remoteIOplayer = (RemoteIOPlayer *)inRefCon;
 	playing = false;
 	return status;
 }

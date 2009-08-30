@@ -126,6 +126,11 @@ void parentControllerHelper::drawBackground()
 		[[children objectAtIndex:i] setParentModel:model];
 	}
 }
+-(void)touchDown:(TouchEvent *)_tEvent
+{
+	NSLog(@"%@", _tEvent);
+	[self touchDownX:_tEvent.pos.x y:_tEvent.pos.y touchId:_tEvent.touchId];
+}
 -(void)touchDownX:(float)x y:(float)y touchId:(int)touchId{
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
 		// clicking on the exit button
@@ -221,16 +226,28 @@ void parentControllerHelper::drawBackground()
 	model.currentState = @"to_large";
 	wallHelper->zoomToBook([model.currentGrid intValue]);
 }
+-(void)touchDoubleTap:(TouchEvent*)_tEvent
+{
+	[self doubleTapX:_tEvent.pos.x y:_tEvent.pos.y touchId:_tEvent.touchId];
+}
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId
 {
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
 		[[children objectAtIndex:[model.currentGrid intValue]] doubleTapX:x y:y touchId:touchId];
 	}
 }
+-(void)touchMoved:(TouchEvent*)_tEvent
+{
+	[self touchMoved:_tEvent.pos.x y:_tEvent.pos.y touchId:_tEvent.touchId];
+}
 -(void)touchMoved:(float)x y:(float)y touchId:(int)touchId{
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){
 		[[children objectAtIndex:[model.currentGrid intValue]] touchMoved:x y:y touchId:touchId];
 	}
+}
+-(void)touchUp:(TouchEvent*)_tEvent
+{
+	[self touchUpX:_tEvent.pos.x y:_tEvent.pos.y touchId:_tEvent.touchId];
 }
 -(void)touchUpX:(float)x y:(float)y touchId:(int)touchId{
 	if([[model valueForKey:@"currentState"] isEqual:@"large"]){

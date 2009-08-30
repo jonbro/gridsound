@@ -67,6 +67,7 @@
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
 	[player start];
+	NSLog(@"bank number retain count: %i", [bankNumber retainCount]);
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {

@@ -14,6 +14,7 @@
 #import "ballController.h"
 #import "parentModel.h"
 #import "wallFolderHelper.h"
+#import "CustomEventResponder.h"
 
 class parentControllerHelper 
 	{		
@@ -26,7 +27,7 @@ class parentControllerHelper
 	};
 
 
-@interface parentController : NSObject {
+@interface parentController : CustomEventResponder {
 	bool renderSmall, filter_on;
 	int currentGrid;
 	float y_offset, x_offset, scale, target_y, target_x, target_scale; // lol, should move this shit into vectors
