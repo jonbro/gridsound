@@ -11,6 +11,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5E033372104AEA4700AAD7F5 /* mainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E033371104AEA4700AAD7F5 /* mainController.mm */; };
+		5E204899104DD3BA00049B39 /* menuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E204898104DD3BA00049B39 /* menuController.mm */; };
+		5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2048A3104DE3DF00049B39 /* main_menu.png */; };
 		5E477DF30FE598AB003EF4A7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		5E477DF40FE598AB003EF4A7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
 		5E477E0C0FE598AB003EF4A7 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -224,6 +226,9 @@
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5E033370104AEA4700AAD7F5 /* mainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.h; sourceTree = DEVELOPER_DIR; };
 		5E033371104AEA4700AAD7F5 /* mainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mainController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.mm; sourceTree = DEVELOPER_DIR; };
+		5E204897104DD3BA00049B39 /* menuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = menuController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/menuController.h; sourceTree = DEVELOPER_DIR; };
+		5E204898104DD3BA00049B39 /* menuController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = menuController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/menuController.mm; sourceTree = DEVELOPER_DIR; };
+		5E2048A3104DE3DF00049B39 /* main_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main_menu.png; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/data/book_design_images/main_menu.png; sourceTree = DEVELOPER_DIR; };
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E477E440FE598AB003EF4A7 /* MujikSW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikSW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E477E460FE598AB003EF4A7 /* Info copy 3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy 3.plist"; sourceTree = SOURCE_ROOT; };
@@ -688,6 +693,8 @@
 				5E7B923B1040712000EEA5E8 /* bankController.mm */,
 				5E033370104AEA4700AAD7F5 /* mainController.h */,
 				5E033371104AEA4700AAD7F5 /* mainController.mm */,
+				5E204897104DD3BA00049B39 /* menuController.h */,
+				5E204898104DD3BA00049B39 /* menuController.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -696,6 +703,7 @@
 		5ECCA38610363F1C00A25328 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5E2048A3104DE3DF00049B39 /* main_menu.png */,
 				5ECCA38710363F1C00A25328 /* help_atlas.png */,
 				5ECCA38810363F1C00A25328 /* texture_atlas_belt.png */,
 				5ECCA38910363F1C00A25328 /* texture_atlas_books.png */,
@@ -1300,6 +1308,7 @@
 				5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */,
 				5ECCA3B01036406D00A25328 /* dist.plist in Resources */,
 				5E7B9391104086F700EEA5E8 /* banks in Resources */,
+				5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1403,6 +1412,7 @@
 				5EEA1C561044CFC900131C5D /* Vector2d.m in Sources */,
 				5EEA1CC71044D43000131C5D /* GLButton.mm in Sources */,
 				5E033372104AEA4700AAD7F5 /* mainController.mm in Sources */,
+				5E204899104DD3BA00049B39 /* menuController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1836,7 +1846,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jonathan Brodsky";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
@@ -1845,7 +1855,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONE_OPTIMIZE_OPTIONS = "-skip-PNGs";
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6D3BFFFF-B936-422F-99B4-0093B3F636A2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos2.2;
 			};
 			name = Release;

@@ -59,7 +59,9 @@ void testApp::setup(){
 	[parentC setInstrumentGroup:instrumentGroup];
 	mainC.parentC = parentC;
 
-	[mainC addSubview:parentC];
+	menuC = [[menuController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+	[mainC addSubview:menuC];
+	mainC.menuC = menuC;
 	
 	[instrumentGroup release];
 	
@@ -91,6 +93,7 @@ void testApp::setup(){
 	}
 	currentGrid = 0;
 	[player start];
+	
 	[Events setFirstResponder:mainC];
 	
 }

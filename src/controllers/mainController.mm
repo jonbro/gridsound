@@ -10,7 +10,7 @@
 
 
 @implementation mainController
-@synthesize parentC, bankC;
+@synthesize parentC, bankC, menuC;
 
 -(id)init
 {
@@ -27,7 +27,7 @@
 }
 -(void)switchToBank:(NSNotification *)notification
 {
-	[self removeSubview:parentC];
+	[self removeSubview:menuC];
 	[self addSubview:bankC];
 }
 -(void)switchToMain:(NSNotification *)notification

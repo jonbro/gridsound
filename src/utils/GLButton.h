@@ -16,9 +16,12 @@
 	id<GLButtonDelegate>	_delegate;
 	NSString	*title;
 	int			color, fontColor;
+	bool		visible;
 	ofTrueTypeFont	font;
 }
+
 @property(nonatomic, assign) id<GLButtonDelegate> _delegate;
+@property bool visible;
 
 -(void)setTitle:(NSString *)_title;
 -(void)setFont:(ofTrueTypeFont)_font;

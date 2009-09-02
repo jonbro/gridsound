@@ -10,13 +10,14 @@
 #include "globals.h"
 @implementation GLButton
 
-@synthesize _delegate;
+@synthesize _delegate, visible;
 
 -(id)init
 {
 	self = [super init];
 	color = 0x000000;
 	fontColor = 0xFFFFFF;
+	visible = true;
 	return self;
 }
 -(void)setTitle:(NSString *)_title
@@ -41,13 +42,15 @@
 }
 -(void)render
 {
-	glPushMatrix();
-	ofSetColor(color);
-	glTranslatef(frame.origin.x, frame.origin.y, 0);
-	ofRect(0, 0, frame.size.width, frame.size.height);
-	ofSetColor(fontColor);
-	sampleFont.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
-	glPopMatrix();
+	if(visible){
+		glPushMatrix();
+		ofSetColor(color);
+		glTranslatef(frame.origin.x, frame.origin.y, 0);
+		ofRect(0, 0, frame.size.width, frame.size.height);
+		ofSetColor(fontColor);
+		sampleFont.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
+		glPopMatrix();
+	}
 }
 -(void)touchDown:(TouchEvent *)_tEvent
 {
