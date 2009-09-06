@@ -60,8 +60,10 @@ void testApp::setup(){
 	mainC.parentC = parentC;
 
 	menuC = [[menuController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
-	[mainC addSubview:menuC];
 	mainC.menuC = menuC;
+
+	helpC = [[helpController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+	mainC.helpC = helpC;
 	
 	[instrumentGroup release];
 	
@@ -94,8 +96,9 @@ void testApp::setup(){
 	currentGrid = 0;
 	[player start];
 	
+	[mainC initialStart];
 	[Events setFirstResponder:mainC];
-	
+
 }
 
 void testApp::lostFocus(){

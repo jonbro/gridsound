@@ -44,7 +44,7 @@
 {
 	if(_button == exitButton){
 		[[NSNotificationCenter defaultCenter]
-		 postNotificationName:@"switchToMain" object:self];
+		 postNotificationName:@"switchToMenu" object:self];
 
 	}else{
 		for(int i=0;i<[bankData count];i++){

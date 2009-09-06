@@ -192,7 +192,7 @@ void parentControllerHelper::drawBackground()
 			// TEST FOR INFO
 			if(x<32&&y>217&&y<296){
 				[[NSNotificationCenter defaultCenter]
-				 postNotificationName:@"switchToBank" object:self];
+				 postNotificationName:@"switchToMenu" object:self];
 
 				// to be replaced by a more standard switch
 				// wallHelper->toInfo();

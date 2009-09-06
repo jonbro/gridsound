@@ -12,6 +12,7 @@
 #import "mainController.h"
 #import "Events.h"
 #import "menuController.h"
+#import "helpController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -64,6 +65,7 @@ public:
 	parentController *parentC;
 	bankController *bank;
 	menuController *menuC;
+	helpController *helpC;
 	string noteArray[12];
 	
 };

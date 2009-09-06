@@ -15,7 +15,7 @@
 	// do I even need to maintain any kind of state here? I don't think so...
 	ofImage main_menu;
 	NSMutableDictionary *menuButtons;
-	GLButton *bankButton;
+	GLButton *bankButton, *helpButton, *backButton;
 }
 
 @end
