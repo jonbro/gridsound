@@ -8,7 +8,9 @@
 
 #import "helpController.h"
 
-
 @implementation helpController
-
+-(void)render
+{
+	wallHelper->drawRect(0, 0, 320, 480, 0, 0, 2);
+}
 @end

@@ -10,6 +10,8 @@
 #import "CustomEventResponder.h"
 #import "GLButton.h"
 #import "ofMain.h"
+#import "wallFolderHelper.h"
+#import "globals.h"
 
 @interface helpController : CustomEventResponder <GLButtonDelegate> {
 	GLButton *bookButton, *wallButton;

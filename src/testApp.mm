@@ -6,12 +6,15 @@ const char *notes__[12] = {
 } ;
 
 ofTrueTypeFont sampleFont;
+wallFolderHelper *wallHelper;
 
 //--------------------------------------------------------------
 void testApp::setup(){	
 	
 	ofBackground(235, 254, 241);
 	ofSetBackgroundAuto(true);
+	
+	wallHelper = new wallFolderHelper();
 	
 	ofEnableAlphaBlending();
 	

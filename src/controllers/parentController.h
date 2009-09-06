@@ -15,6 +15,7 @@
 #import "parentModel.h"
 #import "wallFolderHelper.h"
 #import "CustomEventResponder.h"
+#import "globals.h"
 
 class parentControllerHelper 
 	{		
@@ -34,8 +35,6 @@ class parentControllerHelper
 	float endTime;
 	float currentCutoff, currentOffset;
 	ballController *b_control;
-	
-	wallFolderHelper *wallHelper;
 	
 	NSMutableArray *instrumentGroup;
 	parentModel *model;

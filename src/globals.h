@@ -7,9 +7,12 @@
  *
  */
 
+#include "wallFolderHelper.h"
+
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
 extern ofTrueTypeFont sampleFont;
+extern wallFolderHelper *wallHelper;
 
 #endif

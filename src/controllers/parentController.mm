@@ -27,6 +27,7 @@ void parentControllerHelper::drawBackground()
 	mainBackground.getTextureReference().draw(0, 0);
 }
 
+
 @implementation parentController
 
 @synthesize children;
@@ -46,7 +47,6 @@ void parentControllerHelper::drawBackground()
 	target_x = 0;
 	filter_on = false;
 	scale = 1;
-	wallHelper = new wallFolderHelper();
 	target_scale = 1;
 	return self;
 }

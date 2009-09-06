@@ -52,7 +52,7 @@ public:
 	bool			imageCount;
 	bool			accellOn;
 	ofPoint			initialPos;
-	
+
 	// stuff for the phrase controller
 	int				currentGrid;
 	bool			editing;
