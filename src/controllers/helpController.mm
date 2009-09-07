@@ -68,14 +68,15 @@
 	}else{
 		wallHelper->drawRect(0, 0, 320, 480, 256, 384, 512, 0, 2);
 	}
+	[super render];
 }
-//-(void)touchDown:(TouchEvent *)_tEvent
-//{
-//	if(onWall||onBook){
-//		onWall == false;
-//		onBook == false;
-//		[self addButtons];
-//	}
-//}
+-(void)touchDown:(TouchEvent *)_tEvent
+{
+	if(onWall||onBook){
+		onWall = false;
+		onBook = false;
+		[self addButtons];
+	}
+}
 
 @end
