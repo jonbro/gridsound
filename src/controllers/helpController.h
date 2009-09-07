@@ -14,7 +14,11 @@
 #import "globals.h"
 
 @interface helpController : CustomEventResponder <GLButtonDelegate> {
-	GLButton *bookButton, *wallButton;
+	GLButton *bookButton, *wallButton, *backButton;
+	bool onWall, onBook;
 }
+
+-(void)addButtons;
+-(void)removeButtons;
 
 @end

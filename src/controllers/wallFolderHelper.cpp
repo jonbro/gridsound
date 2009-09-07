@@ -605,33 +605,25 @@ void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
 	myShape->end();				
 	zoomerAtlasTex.unbind();
 }
-
-void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
+void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWidth, int inputHeight, int offset_x, int offset_y, int texture){
 	
 	int atlasWidth = 1024;
 	int atlasHeight = 1024;
-	
+	if(texture == 2){
+		atlasHeight = 512;
+	}
 	float t_1 = (float)offset_x/(float)atlasWidth;
-	float t_2 = (float)(offset_x+width)/(float)atlasWidth;
+	float t_2 = (float)(offset_x+inputWidth)/(float)atlasWidth;
 	
 	float u_1 = (float)(atlasHeight-offset_y)/(float)atlasHeight;
-	float u_2 = (float)(atlasHeight-(offset_y+height))/(float)atlasHeight;
-
+	float u_2 = (float)(atlasHeight-(offset_y+inputHeight))/(float)atlasHeight;
+	
 	if(texture ==0){
 		atlasTex.bind();
 	}else if(texture == 1){
 		zoomerAtlasTex.bind();
 	}else if(texture == 2){
 		helpAtlasTex.bind();	
-		if(offset_x == 0){
-			t_1 = 0;
-			t_2 = 0.5;
-		}else{
-			t_1 = 0.5;
-			t_2 = 1;
-		}
-		u_1 = 1;
-		u_2 = (float)(512-384)/512;
 	}
 	
 	glPushMatrix();
@@ -657,5 +649,8 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_
 		zoomerAtlasTex.unbind();
 	}else if(texture == 2){
 		helpAtlasTex.unbind();
-	}
+	}	
+}
+void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
+	this->drawRect(x, y, width, height, width, height, offset_x, offset_y, texture);
 }

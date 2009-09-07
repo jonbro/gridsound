@@ -13,8 +13,6 @@
 -(id)init
 {
 	self = [super init];
-	main_menu.loadImage("main_menu.png");
-	menuButtons = [[NSMutableDictionary alloc] init];
 	
 	bankButton = [[GLButton alloc] initWithFrame:CGRectMake(101, 200, 209, 45)];
 	bankButton._delegate = self;
@@ -50,7 +48,7 @@
 }
 -(void)render
 {
-	main_menu.draw(0, 0, 320, 480);
+	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 768, 0, 2);
 	[super render];
 }
 @end
