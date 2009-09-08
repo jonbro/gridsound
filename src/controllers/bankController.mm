@@ -55,6 +55,11 @@
 		}
 	}
 }
+-(void)setModel:(bankModel*)_bModel
+{
+	bModel = [_bModel retain];
+	[self loadBankByName:bModel.bankName];
+}
 -(void)loadBankByName:(NSMutableString*)bankName
 {
 	NSLog(@"bank name: %@", bankName);
@@ -76,6 +81,8 @@
 	[player.samplePool removeAllObjects];
 	// load up the new bank
 	// load the plist from the selected bank
+	
+	bModel.bankName = [NSMutableString stringWithString:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_name"]];
 	
 	NSArray *sampleArray = [[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"samples"];
 	for(int i=0;i<[sampleArray count];i++){

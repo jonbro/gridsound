@@ -53,7 +53,7 @@
 	
 	aModel = _aModel;
 	// should roll this into a "setModel" reciever
-	[bankC loadBankByName:aModel.currentBank.bankName];
+	[bankC setModel:aModel.currentBank];
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:aModel.currentScreen object:self];
 	[parentC setModel:aModel.currentBank.currentParent];
