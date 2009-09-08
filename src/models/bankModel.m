@@ -18,8 +18,7 @@
 	self = [super init];
 
 	phraseSet = [[NSMutableArray alloc]initWithCapacity:0];
-	bankName = [NSMutableString stringWithString:@"Mujik"];
-	NSLog(bankName);
+	bankName = [[NSMutableString stringWithString:@"Mujik"]retain];
 	currentParent = [[parentModel alloc] init];
 	
 	return self;
@@ -27,18 +26,17 @@
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
-	[coder encodeObject:bankName forKey:@"bankName"];
+	[coder encodeObject:self.bankName forKey:@"bankName"];
 	[coder encodeObject:phraseSet forKey:@"phraseSet"];
 	[coder encodeObject:currentParent forKey:@"currentParent"];
 }
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [self init];
-	self.phraseSet = [[coder decodeObjectForKey:@"phraseSet"] copy];	
-	self.currentParent = [[coder decodeObjectForKey:@"currentParent"] copy];	
+	self.phraseSet = [[coder decodeObjectForKey:@"phraseSet"] retain];	
+	self.currentParent = [[coder decodeObjectForKey:@"currentParent"] retain];	
 	self.bankName = [[coder decodeObjectForKey:@"bankName"] copy];	
     return self;
 }
-
 
 @end

@@ -17,7 +17,7 @@
 	self = [super init];
 	
 	currentBank = [[bankModel alloc] init];
-	currentScreen = @"switchToMain";
+	currentScreen = [[NSMutableString stringWithString:@"switchToMain"]retain];
 	
 	return self;
 }
@@ -29,7 +29,7 @@
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [self init];
-	self.currentBank = [[coder decodeObjectForKey:@"currentBank"] copy];	
+	self.currentBank = [[coder decodeObjectForKey:@"currentBank"] retain];	
 	self.currentScreen = [[coder decodeObjectForKey:@"currentScreen"] copy];	
     return self;
 }

@@ -55,8 +55,9 @@
 		}
 	}
 }
--(void)loadBankByName:(NSString*)bankName
+-(void)loadBankByName:(NSMutableString*)bankName
 {
+	NSLog(@"bank name: %@", bankName);
 	for(int i=0;i<[bankData count];i++){
 		if([[[bankData objectAtIndex:i] objectForKey:@"bank_name"] isEqualToString:bankName]){
 			[self loadBank:[NSNumber numberWithInt:i]];

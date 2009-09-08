@@ -25,6 +25,6 @@
 }
 -(void)render;
 -(void)loadBank:(NSNumber*)bankNumber;
--(void)loadBankByName:(NSString*)bankName;
+-(void)loadBankByName:(NSMutableString*)bankName;
 -(void)setPlayer:(RemoteIOPlayer *)_player;
 @end
