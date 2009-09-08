@@ -63,42 +63,49 @@
 {
 	[self removeSubview:currentView];
 	currentView = bankC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToBank"];
 	[self addSubview:bankC];
 }
 -(void)switchToMain:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = parentC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToMain"];
 	[self addSubview:parentC];
 }
 -(void)switchToHelp:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = helpC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToHelp"];
 	[self addSubview:helpC];
 }
 -(void)switchToInfo:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = infoC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToInfo"];
 	[self addSubview:infoC];
 }
 -(void)switchToMenu:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = menuC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToMenu"];
 	[self addSubview:menuC];
 }
 -(void)switchToPhraseSave:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = phraseC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToPhraseSave"];
 	[self addSubview:phraseC];
 }
 -(void)switchToPhraseLoad:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
 	currentView = phraseC;
+	aModel.currentScreen = [NSMutableString stringWithString:@"switchToPhraseLoad"];
 	[self addSubview:phraseC];
 }
 
