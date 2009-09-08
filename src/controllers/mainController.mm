@@ -10,7 +10,7 @@
 
 
 @implementation mainController
-@synthesize parentC, bankC, menuC, helpC;
+@synthesize parentC, bankC, menuC, helpC, infoC;
 
 -(id)init
 {
@@ -27,6 +27,9 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(switchToHelp:)
 												 name:@"switchToHelp" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(switchToInfo:)
+												 name:@"switchToInfo" object:nil];
 	
 	return self;
 }
@@ -52,6 +55,12 @@
 	[self removeSubview:currentView];
 	currentView = helpC;
 	[self addSubview:helpC];
+}
+-(void)switchToInfo:(NSNotification *)notification
+{
+	[self removeSubview:currentView];
+	currentView = infoC;
+	[self addSubview:infoC];
 }
 -(void)switchToMenu:(NSNotification *)notification
 {

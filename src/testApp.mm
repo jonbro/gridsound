@@ -64,7 +64,8 @@ void testApp::setup(){
 
 	menuC = [[menuController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
 	mainC.menuC = menuC;
-
+	infoC = [[infoController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+	mainC.infoC = infoC;
 	helpC = [[helpController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
 	mainC.helpC = helpC;
 	

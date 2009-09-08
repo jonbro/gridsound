@@ -13,6 +13,7 @@
 #import "Events.h"
 #import "menuController.h"
 #import "helpController.h"
+#import "infoController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -47,6 +48,7 @@ public:
 	gridControllerHelper *gcHelper;
 	parentModel *pModel;
 	mainController *mainC;
+	infoController *infoC;
 	NSMutableArray *instrumentGroup;
 	ofImage belt;
 	bool			imageCount;

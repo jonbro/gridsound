@@ -29,6 +29,11 @@
 	backButton.visible = false;
 	[self addSubview:backButton];
 	
+	infoButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 316, 243, 68)];
+	infoButton._delegate = self;
+	infoButton.visible = false;
+	[self addSubview:infoButton];
+	
 	return self;
 }
 -(void)buttonDidPress:(GLButton *)_button
@@ -40,6 +45,10 @@
 	if(helpButton == _button){
 		[[NSNotificationCenter defaultCenter]
 		 postNotificationName:@"switchToHelp" object:self];		
+	}
+	if(infoButton == _button){
+		[[NSNotificationCenter defaultCenter]
+		 postNotificationName:@"switchToInfo" object:self];		
 	}
 	if(backButton == _button){
 		[[NSNotificationCenter defaultCenter]

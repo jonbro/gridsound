@@ -12,22 +12,26 @@
 #import "parentController.h"
 #import "menuController.h"
 #import "helpController.h"
+#import "infoController.h"
 
 @interface mainController : CustomEventResponder {
 	bankController *bankC;
 	parentController *parentC;
 	menuController *menuC;
 	helpController *helpC;
+	infoController *infoC;
 	CustomEventResponder *currentView;
 }
 @property (nonatomic, retain) bankController *bankC;
 @property (nonatomic, retain) parentController *parentC;
 @property (nonatomic, retain) menuController *menuC;
 @property (nonatomic, retain) helpController *helpC;
+@property (nonatomic, retain) infoController *infoC;
 
 -(void)switchToBank:(NSNotification *)notification;
 -(void)switchToMain:(NSNotification *)notification;
 -(void)switchToHelp:(NSNotification *)notification;
+-(void)switchToInfo:(NSNotification *)notification;
 -(void)initialStart;
 -(void)switchToMenu:(NSNotification *)notification;
 
