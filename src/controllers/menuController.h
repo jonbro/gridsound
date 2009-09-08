@@ -17,5 +17,4 @@
 	// do I even need to maintain any kind of state here? I don't think so...
 	GLButton *bankButton, *helpButton, *infoButton, *phraseLoadButton, *phraseSaveButton, *backButton;
 }
-
 @end

@@ -15,4 +15,8 @@
 	parentModel *currentParent;
 }
 
+@property (nonatomic, retain) NSMutableString *bankName;
+@property (nonatomic, retain) parentModel *currentParent;
+@property (nonatomic, retain) NSMutableArray *phraseSet;
+
 @end

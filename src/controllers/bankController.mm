@@ -55,11 +55,19 @@
 		}
 	}
 }
+-(void)loadBankByName:(NSString*)bankName
+{
+	for(int i=0;i<[bankData count];i++){
+		if([[[bankData objectAtIndex:i] objectForKey:@"bank_name"] isEqualToString:bankName]){
+			[self loadBank:[NSNumber numberWithInt:i]];
+			break;
+		}
+	}
+}
 -(void)loadBank:(NSNumber*)bankNumber
 {
 	// pause the player
 	[player stop];
-	NSLog(@"start load");
 	// destroy whatever is in the bank
 	for (int i=0; i<[player.samplePool count]; i++) {
 		[[player.samplePool objectAtIndex:i]release];
@@ -74,13 +82,9 @@
 		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
 		[player.samplePool addObject:inMemoryAudioFile];
 	}
-	for(int i=0;i<[player.samplePool count];i++){
-		NSLog(@"sample in pool: %@", [[player.samplePool objectAtIndex:i] path]);
-	}
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
 	[player start];
-	NSLog(@"bank number retain count: %i", [bankNumber retainCount]);
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {

@@ -14,6 +14,7 @@
 #import "helpController.h"
 #import "infoController.h"
 #import "phraseController.h"
+#import "appModel.h"
 
 @interface mainController : CustomEventResponder {
 	bankController *bankC;
@@ -22,6 +23,7 @@
 	helpController *helpC;
 	infoController *infoC;
 	phraseController *phraseC;
+	appModel *aModel;
 	CustomEventResponder *currentView;
 }
 
@@ -40,6 +42,7 @@
 -(void)switchToPhraseLoad:(NSNotification *)notification;
 
 -(void)initialStart;
+-(void)setApp:(appModel*)_aModel;
 -(void)switchToMenu:(NSNotification *)notification;
 
 @end

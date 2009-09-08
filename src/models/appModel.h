@@ -14,4 +14,7 @@
 	NSMutableString *currentScreen;
 }
 
+@property (nonatomic, retain) bankModel *currentBank;
+@property (nonatomic, retain) NSMutableString *currentScreen;
+
 @end

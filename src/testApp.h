@@ -15,6 +15,7 @@
 #import "helpController.h"
 #import "infoController.h"
 #import "phraseController.h"
+#import "appModel.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -43,11 +44,11 @@ public:
 	void setOffset(float x, float y);	
 	void startAccell();	
 	void stopAccell();
-	void drawRastaCutter();
+
 	ofTrueTypeFont	littlefont;
 	RemoteIOPlayer	*player;
 	gridControllerHelper *gcHelper;
-	parentModel *pModel;
+	appModel *aModel;
 	mainController *mainC;
 	infoController *infoC;
 	phraseController *phraseC;

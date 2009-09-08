@@ -32,20 +32,6 @@ void testApp::setup(){
 
 	//initialise the audio player
 	[player intialiseAudio];
-	#ifdef GLOCKVERSION
-		NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Bass3", @"Drums1", @"Drums2", @"Drums3", @"Drums4", @"Glock1", @"Glock2", @"Glock3", @"Percussion", nil];
-	#endif
-	#ifdef HRVERSION
-		NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"hr_bass1", @"hr_bass2", @"hr_bass3", @"hr_bass4", @"hr_bass5", @"hr_bass6", @"hr_drums1", @"hr_drums2", @"hr_drums3", @"hr_drums4", @"hr_drums5", @"hr_drums6", @"hr_vox1", @"hr_vox2", @"hr_vox3", @"hr_vox4", @"hr_vox5", nil];
-	#endif
-	#ifdef GSVERSION
-		NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Drums1", @"Drums2", @"Drums3", @"Keys1", @"Keys2", @"Vocals", nil];
-	#endif
-	#ifdef SWVERSION
-		NSArray *sampleArray = [[NSArray alloc] initWithObjects:@"Bass1", @"Bass2", @"Chorus", @"Drums1", @"Drums2", @"Synth1", @"Synth2", @"Synth3", @"Verse1", @"Verse2", @"Verse3", nil];
-	#endif
-	
-	
 	
 	instrumentGroup = [[NSMutableArray alloc]initWithCapacity:3];
 	
@@ -55,7 +41,6 @@ void testApp::setup(){
 	mainC = [[mainController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
 	
 	[bank setPlayer:player];
-	[bank loadBank:[NSNumber numberWithInt:0]];
 	mainC.bankC = bank;
 
 	parentC = [[parentController alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
@@ -103,7 +88,6 @@ void testApp::setup(){
 	currentGrid = 0;
 	[player start];
 	
-	[mainC initialStart];
 	[Events setFirstResponder:mainC];
 
 }
@@ -132,19 +116,19 @@ void testApp::draw(){
 	// ofSetColor(255, 255, 255);
 }
 void testApp::saveDefaults(){
-	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:pModel] forKey:@"savedArray"];
+	[[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:aModel] forKey:@"savedArray"];
 }
 void testApp::loadDefaults(){
 	NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
 	NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"savedArray"];
 	if (dataRepresentingSavedArray != nil)
 	{
-		pModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
-		[parentC setModel:pModel];
+		aModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
+		[mainC setApp:[aModel retain]];
 	}else{
-		pModel = [[parentModel alloc]init];
-		[parentC setModel:[pModel retain]];
-	}	
+		aModel = [[appModel alloc] init];
+		[mainC setApp:[aModel retain]];
+	}
 }
 
 void testApp::exit() {

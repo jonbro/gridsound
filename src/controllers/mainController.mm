@@ -44,6 +44,21 @@
 	currentView = menuC;
 	[self addSubview:menuC];
 }
+// loads the proper bank
+// passes off the information about the currently running phrase to the parent controller
+// then go to the proper screen
+
+-(void)setApp:(appModel*)_aModel
+{
+	
+	aModel = _aModel;
+	// should roll this into a "setModel" reciever
+	[bankC loadBankByName:aModel.currentBank.bankName];
+	[[NSNotificationCenter defaultCenter]
+	 postNotificationName:aModel.currentScreen object:self];
+	[parentC setModel:aModel.currentBank.currentParent];
+
+}
 -(void)switchToBank:(NSNotification *)notification
 {
 	[self removeSubview:currentView];
