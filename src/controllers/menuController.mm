@@ -23,6 +23,16 @@
 	helpButton._delegate = self;
 	helpButton.visible = false;
 	[self addSubview:helpButton];
+
+	phraseSaveButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 254, 243, 62)];
+	phraseSaveButton._delegate = self;
+	phraseSaveButton.visible = false;
+	[self addSubview:phraseSaveButton];
+	
+	phraseLoadButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 122, 243, 67)];
+	phraseLoadButton._delegate = self;
+	phraseLoadButton.visible = false;
+	[self addSubview:phraseLoadButton];
 	
 	backButton = [[GLButton alloc] initWithFrame:CGRectMake(103, 16, 204, 100)];
 	backButton._delegate = self;
@@ -53,6 +63,14 @@
 	if(backButton == _button){
 		[[NSNotificationCenter defaultCenter]
 		 postNotificationName:@"switchToMain" object:self];		
+	}
+	if(phraseSaveButton == _button){
+		[[NSNotificationCenter defaultCenter]
+		 postNotificationName:@"switchToPhraseSave" object:self];		
+	}
+	if(phraseLoadButton == _button){
+		[[NSNotificationCenter defaultCenter]
+		 postNotificationName:@"switchToPhraseLoad" object:self];		
 	}
 }
 -(void)render

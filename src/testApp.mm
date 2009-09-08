@@ -61,6 +61,9 @@ void testApp::setup(){
 	parentC = [[parentController alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	[parentC setInstrumentGroup:instrumentGroup];
 	mainC.parentC = parentC;
+	
+	phraseC = [[phraseController alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+	mainC.phraseC = phraseC;	
 
 	menuC = [[menuController alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
 	mainC.menuC = menuC;

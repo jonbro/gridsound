@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "parentController.h"
+#import "CustomEventResponder.h"
+#import "GLButton.h"
+#import "ofMain.h"
+#import "wallFolderHelper.h"
+#import "globals.h"
 
-@interface phraseController : parentController {
-
+@interface phraseController : CustomEventResponder <GLButtonDelegate> {
+	NSMutableArray *phraseSet;
+	GLButton *backButton;
+	bool loading;
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "menuController.h"
 #import "helpController.h"
 #import "infoController.h"
+#import "phraseController.h"
 
 class testApp : public ofSimpleApp, public ofxMultiTouchListener {
 	
@@ -49,6 +50,8 @@ public:
 	parentModel *pModel;
 	mainController *mainC;
 	infoController *infoC;
+	phraseController *phraseC;
+	
 	NSMutableArray *instrumentGroup;
 	ofImage belt;
 	bool			imageCount;

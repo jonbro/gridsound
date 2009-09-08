@@ -151,6 +151,8 @@
 		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
 		5EFF326F105317CC0090604B /* helpController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF326E105317CC0090604B /* helpController.mm */; };
 		5EFF34841055D9110090604B /* infoController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34831055D9110090604B /* infoController.mm */; };
+		5EFF34CB1055E0D00090604B /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34CA1055E0D00090604B /* appModel.m */; };
+		5EFF34CE1055E1BD0090604B /* bankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34CD1055E1BD0090604B /* bankModel.m */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
 		BB16E9D50F2B1E6900518274 /* ofUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9BC0F2B1E6900518274 /* ofUtils.cpp */; };
@@ -313,6 +315,10 @@
 		5EFF326E105317CC0090604B /* helpController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = helpController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/helpController.mm; sourceTree = DEVELOPER_DIR; };
 		5EFF34821055D9110090604B /* infoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = infoController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/infoController.h; sourceTree = DEVELOPER_DIR; };
 		5EFF34831055D9110090604B /* infoController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = infoController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/infoController.mm; sourceTree = DEVELOPER_DIR; };
+		5EFF34C91055E0D00090604B /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = appModel.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/appModel.h; sourceTree = DEVELOPER_DIR; };
+		5EFF34CA1055E0D00090604B /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = appModel.m; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/appModel.m; sourceTree = DEVELOPER_DIR; };
+		5EFF34CC1055E1BD0090604B /* bankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankModel.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/bankModel.h; sourceTree = DEVELOPER_DIR; };
+		5EFF34CD1055E1BD0090604B /* bankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bankModel.m; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/bankModel.m; sourceTree = DEVELOPER_DIR; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
 		BB16E9970F2B1E6900518274 /* ofAppGlutWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofAppGlutWindow.cpp; sourceTree = "<group>"; };
@@ -626,6 +632,10 @@
 				5E73A9E910363C4F0019086B /* parentModel.m */,
 				5E73A9EA10363C4F0019086B /* Phrase.h */,
 				5E73A9EB10363C4F0019086B /* Phrase.m */,
+				5EFF34C91055E0D00090604B /* appModel.h */,
+				5EFF34CA1055E0D00090604B /* appModel.m */,
+				5EFF34CC1055E1BD0090604B /* bankModel.h */,
+				5EFF34CD1055E1BD0090604B /* bankModel.m */,
 			);
 			name = models;
 			path = src/models;
@@ -1425,6 +1435,8 @@
 				5E204899104DD3BA00049B39 /* menuController.mm in Sources */,
 				5EFF326F105317CC0090604B /* helpController.mm in Sources */,
 				5EFF34841055D9110090604B /* infoController.mm in Sources */,
+				5EFF34CB1055E0D00090604B /* appModel.m in Sources */,
+				5EFF34CE1055E1BD0090604B /* bankModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

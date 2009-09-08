@@ -10,7 +10,7 @@
 
 
 @implementation mainController
-@synthesize parentC, bankC, menuC, helpC, infoC;
+@synthesize parentC, bankC, menuC, helpC, infoC, phraseC;
 
 -(id)init
 {
@@ -30,6 +30,12 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(switchToInfo:)
 												 name:@"switchToInfo" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(switchToPhraseLoad:)
+												 name:@"switchToPhraseLoad" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(switchToPhraseSave:)
+												 name:@"switchToPhraseSave" object:nil];
 	
 	return self;
 }
@@ -68,4 +74,17 @@
 	currentView = menuC;
 	[self addSubview:menuC];
 }
+-(void)switchToPhraseSave:(NSNotification *)notification
+{
+	[self removeSubview:currentView];
+	currentView = phraseC;
+	[self addSubview:phraseC];
+}
+-(void)switchToPhraseLoad:(NSNotification *)notification
+{
+	[self removeSubview:currentView];
+	currentView = phraseC;
+	[self addSubview:phraseC];
+}
+
 @end

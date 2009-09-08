@@ -13,6 +13,7 @@
 #import "menuController.h"
 #import "helpController.h"
 #import "infoController.h"
+#import "phraseController.h"
 
 @interface mainController : CustomEventResponder {
 	bankController *bankC;
@@ -20,18 +21,24 @@
 	menuController *menuC;
 	helpController *helpC;
 	infoController *infoC;
+	phraseController *phraseC;
 	CustomEventResponder *currentView;
 }
+
 @property (nonatomic, retain) bankController *bankC;
 @property (nonatomic, retain) parentController *parentC;
 @property (nonatomic, retain) menuController *menuC;
 @property (nonatomic, retain) helpController *helpC;
 @property (nonatomic, retain) infoController *infoC;
+@property (nonatomic, retain) phraseController *phraseC;
 
 -(void)switchToBank:(NSNotification *)notification;
 -(void)switchToMain:(NSNotification *)notification;
 -(void)switchToHelp:(NSNotification *)notification;
 -(void)switchToInfo:(NSNotification *)notification;
+-(void)switchToPhraseSave:(NSNotification *)notification;
+-(void)switchToPhraseLoad:(NSNotification *)notification;
+
 -(void)initialStart;
 -(void)switchToMenu:(NSNotification *)notification;
 
