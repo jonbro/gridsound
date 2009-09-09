@@ -14,6 +14,8 @@
 #import "CustomEventResponder.h"
 #import "GLButton.h"
 #import "bankModel.h"
+#import "appModel.h"
+#import "parentModel.h"
 
 @interface bankController : CustomEventResponder {
 	RemoteIOPlayer *player;
@@ -23,11 +25,15 @@
 	ofImage atlas;
 	ofTexture atlasTex;
 	bankModel *bModel;
+	appModel *aModel;
 	ofxMSAShape3D *myShape;
 }
 -(void)render;
 -(void)loadBank:(NSNumber*)bankNumber;
 -(void)setModel:(bankModel*)_bModel;
+-(void)setAppModel:(appModel*)_aModel;
+-(parentModel*)loadParent:(int)_parentNumber;
+-(void)saveParent:(parentModel*)_pModel atIndex:(int)_index;
 -(void)loadBankByName:(NSMutableString*)bankName;
 -(void)setPlayer:(RemoteIOPlayer *)_player;
 @end

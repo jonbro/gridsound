@@ -54,6 +54,12 @@
 	aModel = _aModel;
 	// should roll this into a "setModel" reciever
 	[bankC setModel:aModel.currentBank];
+	[bankC setAppModel:aModel];
+	[bankC loadBankByName:aModel.currentBank.bankName];
+	
+	[phraseC setBankController:bankC];
+	[phraseC setParentController:parentC];
+	
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:aModel.currentScreen object:self];
 	[parentC setModel:aModel.currentBank.currentParent];
@@ -98,6 +104,7 @@
 {
 	[self removeSubview:currentView];
 	currentView = phraseC;
+	phraseC.loading = false;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToPhraseSave"];
 	[self addSubview:phraseC];
 }
@@ -105,6 +112,7 @@
 {
 	[self removeSubview:currentView];
 	currentView = phraseC;
+	phraseC.loading = true;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToPhraseLoad"];
 	[self addSubview:phraseC];
 }

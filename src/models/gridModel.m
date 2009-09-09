@@ -33,6 +33,15 @@
 	[coder encodeObject:[NSArray arrayWithArray:steps] forKey:@"steps"];
 	[coder encodeObject:[NSArray arrayWithArray:mutes] forKey:@"mutes"];
 }
+- (id)copyWithZone:(NSZone *)zone
+{
+	gridModel *copy = [[[self class] allocWithZone: zone] init];
+	copy.currentSample = [self.currentSample copy];
+	copy.steps = [self.steps copy];
+	copy.mutes = [self.mutes copy];
+	return copy;
+}
+
 - (id)initWithCoder:(NSCoder *)coder;
 {
 	self = [self init];

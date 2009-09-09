@@ -10,6 +10,9 @@
 
 
 @implementation phraseController
+
+@synthesize loading;
+
 -(id)init
 {
 	self = [super init];
@@ -20,6 +23,14 @@
 	[self addSubview:backButton];
 
 	phraseSet = [[NSMutableArray alloc] initWithCapacity:0];
+	
+	clearPhrase = [[GLButton alloc] initWithFrame:CGRectMake(10, 50, 200, 40)];
+	clearPhrase._delegate = self;
+	[clearPhrase setTitle:@"CLEAR"];
+	[self addSubview:clearPhrase];
+	
+	loading = true;
+	
 //	for(int i=0; i<
 	return self;
 }
@@ -29,7 +40,28 @@
 		[[NSNotificationCenter defaultCenter]
 		 postNotificationName:@"switchToMenu" object:self];
 	}
-}	
+	if(loading){
+		if(_button == clearPhrase){
+			parentModel *pModel = [bankC loadParent:0];
+			if(pModel != nil){
+				[parentC setModel:pModel];
+			}
+		}
+	}else{
+		[bankC saveParent:parentC.model atIndex:0];
+	}
+}
+-(void)setBankController:(bankController*)_bankC
+{
+	[bankC release];
+	bankC = [_bankC retain];
+	
+}
+-(void)setParentController:(parentController*)_parentC
+{
+	[parentC release];
+	parentC = [_parentC retain];
+}
 -(void)render
 {
 	[super render];

@@ -12,9 +12,15 @@
 @interface appModel : NSObject <NSCoding> {
 	bankModel *currentBank;
 	NSMutableString *currentScreen;
+	NSMutableArray *bankSet;
+	NSNumber *version;
 }
+
+-(id)loadBank:(NSMutableString*)bankName;
 
 @property (nonatomic, retain) bankModel *currentBank;
 @property (nonatomic, retain) NSMutableString *currentScreen;
+@property (nonatomic, retain) NSNumber *version;
+@property (nonatomic, retain) NSMutableArray *bankSet;
 
 @end

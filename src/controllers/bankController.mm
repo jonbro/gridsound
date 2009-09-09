@@ -40,6 +40,15 @@
 	
 	return self;
 }
+// putting this here because I need to run it on the current bank object
+-(parentModel*)loadParent:(int)_parentNumber
+{
+	return [bModel.phraseSet objectAtIndex:_parentNumber];
+}
+-(void)saveParent:(parentModel*)_pModel atIndex:(int)_index
+{
+	[bModel.phraseSet insertObject:[_pModel copy] atIndex:_index];
+}
 -(void)buttonDidPress:(GLButton *)_button
 {
 	if(_button == exitButton){
@@ -50,6 +59,8 @@
 		for(int i=0;i<[bankData count];i++){
 			if([[bankData objectAtIndex:i] objectForKey:@"bank_button"] == _button){
 				[self loadBank:[NSNumber numberWithInt:i]];
+				[bModel release];
+				bModel = [[aModel loadBank:[[bankData objectAtIndex:i] objectForKey:@"bank_name"]]retain];
 				break;
 			}
 		}
@@ -57,12 +68,16 @@
 }
 -(void)setModel:(bankModel*)_bModel
 {
+	[bModel release];
 	bModel = [_bModel retain];
-	[self loadBankByName:bModel.bankName];
+}
+-(void)setAppModel:(appModel*)_aModel
+{
+	[aModel release];
+	aModel = [_aModel retain];
 }
 -(void)loadBankByName:(NSMutableString*)bankName
 {
-	NSLog(@"bank name: %@", bankName);
 	for(int i=0;i<[bankData count];i++){
 		if([[[bankData objectAtIndex:i] objectForKey:@"bank_name"] isEqualToString:bankName]){
 			[self loadBank:[NSNumber numberWithInt:i]];

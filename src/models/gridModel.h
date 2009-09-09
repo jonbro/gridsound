@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface gridModel : NSObject <NSCoding> {
+@interface gridModel : NSObject <NSCoding, NSCopying> {
 	NSMutableArray* steps;
 	NSMutableArray* mutes;
 	NSNumber* currentSample;
@@ -18,7 +18,5 @@
 @property (retain) NSMutableArray *steps;
 @property (retain) NSMutableArray *mutes;
 @property (retain) NSNumber *currentSample;
--(void)encodeWithCoder:(NSCoder *)coder;
--(id)initWithCoder:(NSCoder *)coder;
 
 @end

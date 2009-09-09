@@ -48,6 +48,17 @@
 	[currentState autorelease];
 	currentState = [aValue copy];
 }
+- (id)copyWithZone:(NSZone *)zone
+{
+	parentModel *copy = [[[self class] allocWithZone: zone] init];
+	copy.currentState = [self.currentState copy];
+	copy.gridModels = [self.gridModels copy];
+	copy.volumes = [self.volumes copy];
+	copy.mutes = [self.mutes copy];
+	copy.directions = [self.directions copy];
+	copy.currentSamples = [self.currentSamples copy];
+	return copy;
+}
 - (void)encodeWithCoder:(NSCoder *)coder
 {
 	[coder encodeObject:currentState forKey:@"currentState"];

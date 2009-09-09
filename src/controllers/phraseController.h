@@ -12,11 +12,20 @@
 #import "ofMain.h"
 #import "wallFolderHelper.h"
 #import "globals.h"
+#import "bankController.h"
+#import "parentController.h"
 
 @interface phraseController : CustomEventResponder <GLButtonDelegate> {
 	NSMutableArray *phraseSet;
-	GLButton *backButton;
+	GLButton *backButton, *clearPhrase;
+	bankController *bankC;
+	parentController *parentC;
 	bool loading;
 }
+
+@property (assign) bool loading;
+
+-(void)setBankController:(bankController*)_bankC;
+-(void)setParentController:(parentController*)_parentC;
 
 @end

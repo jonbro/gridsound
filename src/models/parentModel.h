@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "gridModel.h"
 
-@interface parentModel : NSObject <NSCoding> {
+@interface parentModel : NSObject <NSCoding, NSCopying> {
 	NSMutableArray* gridModels;
 	NSMutableArray* mutes;
 	NSMutableArray* volumes;
@@ -26,8 +26,6 @@
 @property (copy) NSString* currentState;
 @property (retain) NSNumber* currentGrid;
 
--(void)encodeWithCoder:(NSCoder *)coder;
--(id)initWithCoder:(NSCoder *)coder;
 - (void)setCurrentState:(NSString*)aValue;
 
 @end

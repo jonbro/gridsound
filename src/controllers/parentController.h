@@ -45,6 +45,7 @@ class parentControllerHelper
 }
 
 @property (nonatomic, retain) NSMutableArray *instrumentGroup;
+@property (retain) parentModel* model;
 @property (assign) NSMutableArray* children;
 
 -(void)render;

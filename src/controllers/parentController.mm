@@ -30,8 +30,7 @@ void parentControllerHelper::drawBackground()
 
 @implementation parentController
 
-@synthesize children;
-@synthesize instrumentGroup;
+@synthesize children, instrumentGroup, model;
 
 -(id) init;
 {
