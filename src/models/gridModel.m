@@ -36,9 +36,9 @@
 - (id)copyWithZone:(NSZone *)zone
 {
 	gridModel *copy = [[[self class] allocWithZone: zone] init];
-	copy.currentSample = [self.currentSample copy];
-	copy.steps = [self.steps copy];
-	copy.mutes = [self.mutes copy];
+	copy.currentSample = [self.currentSample mutableCopy];
+	copy.steps = [self.steps mutableCopy];
+	copy.mutes = [self.mutes mutableCopy];
 	return copy;
 }
 
