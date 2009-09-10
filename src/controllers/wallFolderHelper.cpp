@@ -609,9 +609,9 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWi
 	
 	int atlasWidth = 1024;
 	int atlasHeight = 1024;
-	if(texture == 2){
-		atlasHeight = 512;
-	}
+//	if(texture == 2){
+//		atlasHeight = 512;
+//	}
 	float t_1 = (float)offset_x/(float)atlasWidth;
 	float t_2 = (float)(offset_x+inputWidth)/(float)atlasWidth;
 	

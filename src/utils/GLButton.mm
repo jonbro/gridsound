@@ -48,7 +48,9 @@
 		glTranslatef(frame.origin.x, frame.origin.y, 0);
 		ofRect(0, 0, frame.size.width, frame.size.height);
 		ofSetColor(fontColor);
-		sampleFont.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
+		if(title != nil){
+			sampleFont.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
+		}
 		glPopMatrix();
 	}
 }

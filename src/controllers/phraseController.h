@@ -20,6 +20,7 @@
 	GLButton *backButton, *clearPhrase;
 	bankController *bankC;
 	parentController *parentC;
+	NSMutableArray *phraseButtons;
 	bool loading;
 }
 
