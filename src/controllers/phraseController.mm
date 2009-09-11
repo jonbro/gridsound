@@ -115,6 +115,11 @@
 			}
 		}
 	}
+	if(loading){
+		wallHelper->drawRect(6, 6, 145, 70, 512, 384, 2);
+	}else{
+		wallHelper->drawRect(6, 6, 145, 70, 512, 454, 2);
+	}
 	[super render];
 }
 
