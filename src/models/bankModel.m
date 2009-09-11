@@ -17,7 +17,7 @@
 {
 	self = [super init];
 
-	phraseSet = [[NSMutableArray alloc]initWithCapacity:0];
+	phraseSet = [[NSMutableDictionary alloc]initWithCapacity:0];
 	bankName = [[NSMutableString stringWithString:@"Mujik"]retain];
 	currentParent = [[parentModel alloc] init];
 	

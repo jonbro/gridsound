@@ -10,6 +10,7 @@
 #include "globals.h"
 
 @implementation bankController
+@synthesize bModel;
 -(id)init
 {
 	self = [super init];

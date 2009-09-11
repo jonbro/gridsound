@@ -28,6 +28,9 @@
 	appModel *aModel;
 	ofxMSAShape3D *myShape;
 }
+
+@property (retain) bankModel *bModel;
+
 -(void)render;
 -(void)loadBank:(NSNumber*)bankNumber;
 -(void)setModel:(bankModel*)_bModel;

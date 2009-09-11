@@ -20,7 +20,7 @@ wallFolderHelper::wallFolderHelper()
 	zoomerAtlasTex = zoomerAtlas.getTextureReference();	
 	
 	helpAtlas.loadImage("help_atlas.png");
-	helpAtlas.setImageType(OF_IMAGE_COLOR);
+	helpAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	helpAtlasTex = helpAtlas.getTextureReference();	
 	
 	myShape = new ofxMSAShape3D();

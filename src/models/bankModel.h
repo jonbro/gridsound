@@ -10,13 +10,13 @@
 #import "parentModel.h"
 
 @interface bankModel : NSObject <NSCoding> {
-	NSMutableArray *phraseSet;
+	NSMutableDictionary *phraseSet;
 	NSMutableString *bankName;
 	parentModel *currentParent;
 }
 
 @property (nonatomic, retain) NSMutableString *bankName;
 @property (nonatomic, retain) parentModel *currentParent;
-@property (nonatomic, retain) NSMutableArray *phraseSet;
+@property (nonatomic, retain) NSMutableDictionary *phraseSet;
 
 @end

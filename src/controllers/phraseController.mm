@@ -33,6 +33,8 @@
 		int button_width = 0;
 		GLButton *phrase_button = [[GLButton alloc] init];
 		phrase_button._delegate = self;
+		phrase_button.visible = false;
+
 		if(i<2){
 			x_offset = 150;
 			button_width = 61;
@@ -75,15 +77,17 @@
 		[[NSNotificationCenter defaultCenter]
 		 postNotificationName:@"switchToMenu" object:self];
 	}
-	if(loading){
-		if(_button == clearPhrase){
-			parentModel *pModel = [bankC loadParent:0];
-			if(pModel != nil){
-				[parentC setModel:pModel];
+	for(int i=0; i<[phraseButtons count];i++){
+		if(_button == [phraseButtons objectAtIndex:i]){
+			if(loading){
+				parentModel *pModel = [bankC.bModel.phraseSet objectForKey:[NSNumber numberWithInt:i]];
+				if(pModel != nil){
+					[parentC setModel:[pModel copy]];
+				}
+			}else{
+				[bankC.bModel.phraseSet setObject:[parentC.model copy] forKey:[NSNumber numberWithInt:i]];
 			}
 		}
-	}else{
-		[bankC saveParent:parentC.model atIndex:0];
 	}
 }
 -(void)setBankController:(bankController*)_bankC
@@ -99,7 +103,18 @@
 }
 -(void)render
 {
+	float sizeScale = 0.8;
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 384, 2);
+	if(bankC.bModel.phraseSet != nil){
+		for(int i=0; i<[phraseButtons count];i++){
+			if([bankC.bModel.phraseSet objectForKey:[NSNumber numberWithInt:i]] != nil){
+				GLButton *this_button = [phraseButtons objectAtIndex:i];
+				CGRect buttonFrame = this_button.frame;
+				wallHelper->drawRect(buttonFrame.origin.x, buttonFrame.origin.y, buttonFrame.size.width, buttonFrame.size.height, round(buttonFrame.size.width*sizeScale), round(buttonFrame.size.height*sizeScale), round(256+(buttonFrame.origin.x*sizeScale)), round(384+(buttonFrame.origin.y*sizeScale)), 2);
+//				[(GLButton*)[phraseButtons objectAtIndex:i] setColor:0x277fb1];
+			}
+		}
+	}
 	[super render];
 }
 
