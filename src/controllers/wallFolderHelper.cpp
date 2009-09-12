@@ -442,7 +442,8 @@ void wallFolderHelper::drawWall()
 			this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
 			glTranslatef(320, 0, 0);
 			glRotatef(90, 0, 1, 0);
-			this->drawScalerWall(686, 0, 1);
+			this->drawRect(0, 0, 27, 480, 686, 0, 1);
+			//this->drawScalerWall(686, 0, 1);
 			glPopMatrix();
 			glDisable(GL_DEPTH_TEST);			
 		}
@@ -460,7 +461,8 @@ void wallFolderHelper::drawWall()
 			this->drawScalerWall(offset_x_target, offset_y_target, 2.13333+scaleTarget);
 			glTranslatef(320, 0, 0);
 			glRotatef(90, 0, 1, 0);
-			this->drawScalerWall(686, 0, 1);
+			this->drawRect(0, 0, 27, 480, 686, 0, 1);
+			//this->drawScalerWall(686, 0, 1);
 			glPopMatrix();
 			glDisable(GL_DEPTH_TEST);
 		}else{
