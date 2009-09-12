@@ -10,7 +10,7 @@
 
 
 @implementation mainController
-@synthesize parentC, bankC, menuC, helpC, infoC, phraseC;
+@synthesize parentC, bankC, menuC, helpC, infoC, phraseC, skipTransition;
 
 -(id)init
 {
@@ -59,7 +59,7 @@
 	
 	[phraseC setBankController:bankC];
 	[phraseC setParentController:parentC];
-	
+	skipTransition = true;
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:aModel.currentScreen object:self];
 	[parentC setModel:aModel.currentBank.currentParent];
@@ -125,19 +125,29 @@
 }
 -(void)startTransition
 {
-	transitioning = true;
-	transitionDirection = false;
-	transition_pos = 0;
-	transitionStart = ofGetElapsedTimeMillis();
-	outgoingView = currentView;
+	if(skipTransition){
+		skipTransition = false;
+		transitioning = false;
+	}else{
+		transitioning = true;
+		transitionDirection = false;
+		transition_pos = 0;
+		transitionStart = ofGetElapsedTimeMillis();
+		outgoingView = currentView;
+	}
 }
 -(void)startTransitionBack
 {
-	transitioning = true;
-	transitionDirection = true;
-	transition_pos = 0;
-	transitionStart = ofGetElapsedTimeMillis();
-	outgoingView = currentView;	
+	if(skipTransition){
+		skipTransition = false;
+		transitioning = false;
+	}else{
+		transitioning = true;
+		transitionDirection = true;
+		transition_pos = 0;
+		transitionStart = ofGetElapsedTimeMillis();
+		outgoingView = currentView;	
+	}
 }
 -(void)render
 {

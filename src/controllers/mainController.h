@@ -24,7 +24,7 @@
 	infoController *infoC;
 	phraseController *phraseC;
 	appModel *aModel;
-	bool transitioning, transitionDirection;
+	bool transitioning, transitionDirection, skipTransition;
 	float transition_pos;
 	CustomEventResponder *currentView;
 	int transitionStart;
@@ -37,6 +37,7 @@
 @property (nonatomic, retain) helpController *helpC;
 @property (nonatomic, retain) infoController *infoC;
 @property (nonatomic, retain) phraseController *phraseC;
+@property bool skipTransition;
 
 -(void)switchToBank:(NSNotification *)notification;
 -(void)switchToMain:(NSNotification *)notification;
