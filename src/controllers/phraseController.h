@@ -17,11 +17,12 @@
 
 @interface phraseController : CustomEventResponder <GLButtonDelegate> {
 	NSMutableArray *phraseSet;
-	GLButton *backButton, *clearPhrase;
+	GLButton *backButton, *clearPhrase, *confirm, *cancel;
 	bankController *bankC;
 	parentController *parentC;
 	NSMutableArray *phraseButtons;
-	bool loading;
+	bool loading, toDialog, atDialog;
+	int dialogStart, direction, dialog_pos, jar_to_save;
 }
 
 @property (assign) bool loading;
