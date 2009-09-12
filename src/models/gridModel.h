@@ -13,10 +13,12 @@
 	NSMutableArray* steps;
 	NSMutableArray* mutes;
 	NSNumber* currentSample;
+	NSNumber* autoMujik;
 }
 
 @property (retain) NSMutableArray *steps;
 @property (retain) NSMutableArray *mutes;
 @property (retain) NSNumber *currentSample;
+@property (retain) NSNumber *autoMujik;
 
 @end

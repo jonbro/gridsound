@@ -10,7 +10,7 @@
 
 
 @implementation gridModel
-@synthesize steps, mutes, currentSample;
+@synthesize steps, mutes, currentSample, autoMujik;
 
 -(id)init
 {
@@ -26,17 +26,20 @@
 		[mutes addObject:mute];
 	}
 	currentSample = [NSNumber numberWithInt:0];
+	autoMujik = [NSNumber numberWithBool:NO];
 	return self;
 }
 -(void)encodeWithCoder:(NSCoder *)coder{
 	[coder encodeObject:currentSample forKey:@"currentSample"];
 	[coder encodeObject:[NSArray arrayWithArray:steps] forKey:@"steps"];
 	[coder encodeObject:[NSArray arrayWithArray:mutes] forKey:@"mutes"];
+	[coder encodeObject:autoMujik forKey:@"autoMujik"];
 }
 - (id)copyWithZone:(NSZone *)zone
 {
 	gridModel *copy = [[[self class] allocWithZone: zone] init];
 	copy.currentSample = [self.currentSample mutableCopy];
+	copy.autoMujik = [self.autoMujik mutableCopy];
 	copy.steps = [self.steps mutableCopy];
 	copy.mutes = [self.mutes mutableCopy];
 	return copy;
@@ -51,6 +54,8 @@
 	steps = [[[coder decodeObjectForKey:@"steps"] mutableCopy] retain];
 	[mutes release];
 	mutes = [[[coder decodeObjectForKey:@"mutes"] mutableCopy] retain];
+	[autoMujik release];
+	autoMujik = [[coder decodeObjectForKey:@"autoMujik"] retain];
     return self;
 }
 @end

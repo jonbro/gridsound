@@ -68,6 +68,12 @@
 		}			
 	}
 }
+-(void)setAllRandom
+{
+	for(int i=0;i<8;i++){
+		[model.steps replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:rand()%8]];
+	}
+}
 -(void)setAll:(int)stepValue
 {
 	for(int i=0;i<8;i++){
@@ -104,6 +110,12 @@
 	gcHelper->drawDirection([[pModel.directions objectAtIndex:channel] boolValue]);
 	gcHelper->drawLocation(gridNumber);
 	gcHelper->showBelt([player.bankInfo objectForKey:@"samples"]);
+	
+	if(![model.autoMujik boolValue]){
+		wallHelper->drawRect(14, 311, 109, 55, 657, 384, 2);
+	}else{
+		wallHelper->drawRect(14, 311, 109, 55, 657, 439, 2);
+	}
 }
 -(void)update
 {
@@ -115,6 +127,9 @@
 	if(![[model.mutes objectAtIndex:currentStep]boolValue]){
 		[[ripples objectAtIndex:currentStep] startPulse];
 	}	
+	if(currentStep == 0 && [model.autoMujik boolValue]){
+		[self setAllRandom];
+	}
 	return [[model.steps objectAtIndex:_step]intValue];
 }
 -(int)volumeLevel
@@ -146,12 +161,7 @@
 }
 -(int)getSample
 {
-#ifdef HRVERSION
-	return [[pModel.currentSamples objectAtIndex:channel] intValue]+channel*6;
-#endif
-#ifndef HRVERSION
 	return [[pModel.currentSamples objectAtIndex:channel] intValue];
-#endif
 }
 -(void)hideBelt
 {
@@ -198,6 +208,12 @@
 		[model.steps replaceObjectAtIndex:(int)(x/320.0*8.0) withObject:[NSNumber numberWithInt:(int)(y/320.0*8.0)]];
 	}else if(x>135&&y>318&&x<203&&y<365){
 		[pModel.directions replaceObjectAtIndex:channel withObject:[NSNumber numberWithBool:![[pModel.directions objectAtIndex:channel]boolValue]]];
+	}else if(x>14&&y>311&&x<120&&y<361){
+		if([model.autoMujik boolValue]){
+			model.autoMujik = [NSNumber numberWithBool:NO];
+		}else{
+			model.autoMujik = [NSNumber numberWithBool:YES];
+		}
 	}
 }
 -(void)doubleTapX:(float)x y:(float)y touchId:(int)touchId

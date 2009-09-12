@@ -15,6 +15,7 @@
 #import "gridControllerHelper.h"
 #import "gridModel.h"
 #import "parentModel.h"
+#import "globals.h"
 
 @interface gridController : NSObject {
 	int steps[8];
