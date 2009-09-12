@@ -179,8 +179,11 @@
 }
 -(void)renderDialogFrame:(int)frameNumber
 {
-	int offset_x = 20;
-	int offset_y = 80;
+	int offset_x = 30;
+	int offset_y = 100;
+	GLButton *currentButton = [phraseButtons objectAtIndex:jar_to_save];
+	offset_x = offset_x-(offset_x-currentButton.frame.origin.x)*((float)7-frameNumber)/7.0;
+	offset_y = offset_y-(offset_y-currentButton.frame.origin.y)*((float)7-frameNumber)/7.0;
 	switch(frameNumber)
 	{
 			// position, size, input size, offset, texture
