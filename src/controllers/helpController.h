@@ -16,6 +16,9 @@
 @interface helpController : CustomEventResponder <GLButtonDelegate> {
 	GLButton *bookButton, *wallButton, *backButton;
 	bool onWall, onBook;
+	bool transDirection, transitioning;
+	int transStart;
+	float transPos;
 }
 
 -(void)addButtons;

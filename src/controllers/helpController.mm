@@ -52,29 +52,68 @@
 	}
 	if(wallButton == _button){
 		onWall = true;
+		transitioning = true;
+		transDirection = true;
+		transStart = ofGetElapsedTimeMillis();
 		[self removeButtons];
 	}
 	if(bookButton == _button){
 		onBook = true;
+		transitioning = true;
+		transDirection = true;
+		transStart = ofGetElapsedTimeMillis();
 		[self removeButtons];
 	}
 }
 -(void)render
 {
-	if(onWall){
-		wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 2);
-	}else if(onBook){
-		wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 2);
+	if(transitioning){
+		glPushMatrix();
+		if(transDirection){
+			glTranslatef(-transPos, 0, 0);
+			wallHelper->drawRect(0, 0, 320, 480, 256, 384, 512, 0, 2);
+			if(onWall){
+				wallHelper->drawRect(320, 0, 320, 480, 256, 384, 256, 0, 2);
+			}else{
+				wallHelper->drawRect(320, 0, 320, 480, 256, 384, 0, 0, 2);
+			}
+		}else{
+			glTranslatef(transPos, 0, 0);
+			wallHelper->drawRect(-320, 0, 320, 480, 256, 384, 512, 0, 2);
+			if(onWall){
+				wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 2);
+			}else{
+				wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 2);
+			}
+		}
+		glPopMatrix();
+		transPos += ((ofGetElapsedTimeMillis()-transStart)/20);
+		if(transPos >= 320){
+			transitioning = false;
+			if(!transDirection){
+				onWall = false;
+				onBook = false;
+			}
+			transPos = 0;
+		}
 	}else{
-		wallHelper->drawRect(0, 0, 320, 480, 256, 384, 512, 0, 2);
+		if(onWall){
+			wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 2);
+		}else if(onBook){
+			wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 2);
+		}else{
+			wallHelper->drawRect(0, 0, 320, 480, 256, 384, 512, 0, 2);
+		}
 	}
-	[super render];
+	[super removeSubviewTask];
+	[super addSubviewTask];
 }
 -(void)touchDown:(TouchEvent *)_tEvent
 {
 	if(onWall||onBook){
-		onWall = false;
-		onBook = false;
+		transitioning = true;
+		transDirection = false;
+		transStart = ofGetElapsedTimeMillis();
 		[self addButtons];
 	}
 }
