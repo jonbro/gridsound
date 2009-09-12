@@ -36,7 +36,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(switchToPhraseSave:)
 												 name:@"switchToPhraseSave" object:nil];
-	
+	transitionDirection = true;
 	return self;
 }
 -(void)initialStart
@@ -67,6 +67,7 @@
 }
 -(void)switchToBank:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = bankC;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToBank"];
@@ -74,6 +75,7 @@
 }
 -(void)switchToMain:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = parentC;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToMain"];
@@ -81,6 +83,7 @@
 }
 -(void)switchToHelp:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = helpC;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToHelp"];
@@ -88,6 +91,7 @@
 }
 -(void)switchToInfo:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = infoC;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToInfo"];
@@ -95,6 +99,7 @@
 }
 -(void)switchToMenu:(NSNotification *)notification
 {
+	[self startTransitionBack];
 	[self removeSubview:currentView];
 	currentView = menuC;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToMenu"];
@@ -102,6 +107,7 @@
 }
 -(void)switchToPhraseSave:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = phraseC;
 	phraseC.loading = false;
@@ -110,11 +116,54 @@
 }
 -(void)switchToPhraseLoad:(NSNotification *)notification
 {
+	[self startTransition];
 	[self removeSubview:currentView];
 	currentView = phraseC;
 	phraseC.loading = true;
 	aModel.currentScreen = [NSMutableString stringWithString:@"switchToPhraseLoad"];
 	[self addSubview:phraseC];
 }
-
+-(void)startTransition
+{
+	transitioning = true;
+	transitionDirection = false;
+	transition_pos = 0;
+	transitionStart = ofGetElapsedTimeMillis();
+	outgoingView = currentView;
+}
+-(void)startTransitionBack
+{
+	transitioning = true;
+	transitionDirection = true;
+	transition_pos = 0;
+	transitionStart = ofGetElapsedTimeMillis();
+	outgoingView = currentView;	
+}
+-(void)render
+{
+	if(transitioning){
+		glPushMatrix();
+		if(transitionDirection){
+			glTranslatef(transition_pos, 0, 0);
+			[outgoingView render];
+			glTranslatef(-320, 0, 0);
+			[currentView render];
+		}else{
+			glTranslatef(-transition_pos, 0, 0);
+			[outgoingView render];
+			glTranslatef(320, 0, 0);
+			[currentView render];
+		}
+		glPopMatrix();			
+		transition_pos += ((ofGetElapsedTimeMillis()-transitionStart)/20);;
+		if(transition_pos >= 320){
+			transition_pos = 0;
+			transitioning = false;
+		}
+		[super removeSubviewTask];
+		[super addSubviewTask];
+	}else{
+		[super render];
+	}
+}
 @end

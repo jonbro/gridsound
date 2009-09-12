@@ -111,7 +111,6 @@
 				GLButton *this_button = [phraseButtons objectAtIndex:i];
 				CGRect buttonFrame = this_button.frame;
 				wallHelper->drawRect(buttonFrame.origin.x, buttonFrame.origin.y, buttonFrame.size.width, buttonFrame.size.height, round(buttonFrame.size.width*sizeScale), round(buttonFrame.size.height*sizeScale), round(256+(buttonFrame.origin.x*sizeScale)), round(384+(buttonFrame.origin.y*sizeScale)), 2);
-//				[(GLButton*)[phraseButtons objectAtIndex:i] setColor:0x277fb1];
 			}
 		}
 	}

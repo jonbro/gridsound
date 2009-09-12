@@ -24,7 +24,11 @@
 	infoController *infoC;
 	phraseController *phraseC;
 	appModel *aModel;
+	bool transitioning, transitionDirection;
+	float transition_pos;
 	CustomEventResponder *currentView;
+	int transitionStart;
+	CustomEventResponder *outgoingView;
 }
 
 @property (nonatomic, retain) bankController *bankC;
