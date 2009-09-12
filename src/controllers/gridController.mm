@@ -109,13 +109,12 @@
 	}
 	gcHelper->drawDirection([[pModel.directions objectAtIndex:channel] boolValue]);
 	gcHelper->drawLocation(gridNumber);
-	gcHelper->showBelt([player.bankInfo objectForKey:@"samples"]);
-	
 	if(![model.autoMujik boolValue]){
 		wallHelper->drawRect(14, 311, 109, 55, 657, 384, 2);
 	}else{
 		wallHelper->drawRect(14, 311, 109, 55, 657, 439, 2);
-	}
+	}	
+	gcHelper->showBelt([player.bankInfo objectForKey:@"samples"]);	
 }
 -(void)update
 {

@@ -60,9 +60,11 @@ void parentControllerHelper::drawBackground()
 			[[children objectAtIndex:[model.currentGrid intValue]] render];
 		}
 		wallHelper->drawWall();
-		for(int i=0;i<3;i++){
-			if([[model.mutes objectAtIndex:i]boolValue]){
-				wallHelper->drawMute(i);
+		if([[model valueForKey:@"currentState"] isEqual:@"small"]){
+			for(int i=0;i<3;i++){
+				if([[model.mutes objectAtIndex:i]boolValue]){
+					wallHelper->drawMute(i);
+				}
 			}
 		}
 	}else{

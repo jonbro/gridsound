@@ -443,7 +443,6 @@ void wallFolderHelper::drawWall()
 			glTranslatef(320, 0, 0);
 			glRotatef(90, 0, 1, 0);
 			this->drawRect(0, 0, 27, 480, 686, 0, 1);
-			//this->drawScalerWall(686, 0, 1);
 			glPopMatrix();
 			glDisable(GL_DEPTH_TEST);			
 		}
@@ -462,7 +461,6 @@ void wallFolderHelper::drawWall()
 			glTranslatef(320, 0, 0);
 			glRotatef(90, 0, 1, 0);
 			this->drawRect(0, 0, 27, 480, 686, 0, 1);
-			//this->drawScalerWall(686, 0, 1);
 			glPopMatrix();
 			glDisable(GL_DEPTH_TEST);
 		}else{
