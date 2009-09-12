@@ -124,7 +124,12 @@ void testApp::loadDefaults(){
 	if (dataRepresentingSavedArray != nil)
 	{
 		aModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
-		[mainC setApp:[aModel retain]];
+		if([aModel isKindOfClass:[appModel class]]){
+			[mainC setApp:[aModel retain]];
+		}else{
+			aModel = [[appModel alloc] init];
+			[mainC setApp:[aModel retain]];
+		}		
 	}else{
 		aModel = [[appModel alloc] init];
 		[mainC setApp:[aModel retain]];
