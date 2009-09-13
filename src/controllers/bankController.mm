@@ -29,7 +29,7 @@
 		[bankButton setColor:0x000000];
 		[bankButton setFontColor:0xFFFFFF];
 		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
-		[self addSubview:bankButton];
+		//[self addSubview:bankButton];
 		[bankData addObject:bank_info];
     }
 	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 400, 200, 45)]retain];
@@ -38,6 +38,10 @@
 	[exitButton setFontColor:0xFFFFFF];
 	[exitButton setTitle:[NSString stringWithString:@"Exit"]];
 	[self addSubview:exitButton];
+	
+	testBankButton = [[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)];
+	testBankButton.currentTranslation = CGAffineTransformRotate(testBankButton.currentTranslation, degreesToRadians(45));
+	[self addSubview:testBankButton];
 	
 	return self;
 }
@@ -66,6 +70,19 @@
 			}
 		}
 	}
+}
+-(void)render
+{
+	//background
+	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 3);
+	//buttons
+//	wallHelper->setColor(0xDDEEDD);
+//	wallHelper->drawRect(0, 0, 255, 380, 521, 9, 3);
+//	//foreground
+	[testBankButton render];
+	wallHelper->setColor(0xFFFFFF);
+	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 3);
+	[super render];
 }
 -(void)setModel:(bankModel*)_bModel
 {

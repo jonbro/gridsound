@@ -16,11 +16,16 @@
 #import "bankModel.h"
 #import "appModel.h"
 #import "parentModel.h"
+#import "globals.h"
+#import "GLbankButton.h"
+
+#define degreesToRadians(x) (M_PI * x / 180.0)
 
 @interface bankController : CustomEventResponder {
 	RemoteIOPlayer *player;
 	NSMutableArray *bankData;
 	GLButton *exitButton;
+	GLbankButton *testBankButton;
 	ofxDirList DIR;
 	ofImage atlas;
 	ofTexture atlasTex;

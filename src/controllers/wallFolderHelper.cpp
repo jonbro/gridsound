@@ -22,6 +22,10 @@ wallFolderHelper::wallFolderHelper()
 	helpAtlas.loadImage("help_atlas.png");
 	helpAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
 	helpAtlasTex = helpAtlas.getTextureReference();	
+
+	bankAtlas.loadImage("bank_atlas.png");
+	bankAtlas.setImageType(OF_IMAGE_COLOR_ALPHA);
+	bankAtlasTex = bankAtlas.getTextureReference();	
 	
 	myShape = new ofxMSAShape3D();
 	currentFrame = 0;
@@ -48,6 +52,7 @@ wallFolderHelper::wallFolderHelper()
 	firstZoom = true;
 	zoomerAtlasTex.bind();
 	zoomerAtlasTex.unbind();
+	hasColor = false;
 }
 
 //--------------------------------------------------------------
@@ -605,13 +610,18 @@ void wallFolderHelper::drawScalerWall(int offset_x, int offset_y, float scale){
 	myShape->end();				
 	zoomerAtlasTex.unbind();
 }
+void wallFolderHelper::setColor(int color)
+{
+	hasColor = true;
+	currentColor = color;
+}
 void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWidth, int inputHeight, int offset_x, int offset_y, int texture){
 	
 	int atlasWidth = 1024;
 	int atlasHeight = 1024;
-//	if(texture == 2){
-//		atlasHeight = 512;
-//	}
+	if(texture == 3){
+		atlasHeight = 512;
+	}
 	float t_1 = (float)offset_x/(float)atlasWidth;
 	float t_2 = (float)(offset_x+inputWidth)/(float)atlasWidth;
 	
@@ -624,10 +634,15 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWi
 		zoomerAtlasTex.bind();
 	}else if(texture == 2){
 		helpAtlasTex.bind();	
+	}else if(texture == 3){
+		bankAtlasTex.bind();
 	}
 	
 	glPushMatrix();
 	myShape->begin(GL_TRIANGLE_STRIP);
+	if(hasColor){
+		myShape->setColor(currentColor);
+	}
 	myShape->setTexCoord(t_1, u_1);
 	myShape->addVertex(x, y);
 	
@@ -649,7 +664,10 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWi
 		zoomerAtlasTex.unbind();
 	}else if(texture == 2){
 		helpAtlasTex.unbind();
-	}	
+	}else if(texture == 3){
+		bankAtlasTex.unbind();
+	}
+	hasColor = false;
 }
 void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
 	this->drawRect(x, y, width, height, width, height, offset_x, offset_y, texture);

@@ -141,6 +141,8 @@
 		5ECCA3AE1036404100A25328 /* FreeSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AB1036404100A25328 /* FreeSans.ttf */; };
 		5ECCA3B01036406D00A25328 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECCA3AF1036406D00A25328 /* dist.plist */; };
 		5ED129D91040A5B300636A42 /* gridController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ED129D81040A5B300636A42 /* gridController.mm */; };
+		5EDAE93A105D6B7400BC4EDE /* bank_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDAE939105D6B7400BC4EDE /* bank_atlas.png */; };
+		5EDAE9A1105D7A7E00BC4EDE /* GLbankButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EDAE9A0105D7A7E00BC4EDE /* GLbankButton.mm */; };
 		5EEA1C511044CFC900131C5D /* CGPointUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C441044CFC900131C5D /* CGPointUtils.m */; };
 		5EEA1C521044CFC900131C5D /* CustomEventResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C461044CFC900131C5D /* CustomEventResponder.mm */; };
 		5EEA1C531044CFC900131C5D /* Events.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C481044CFC900131C5D /* Events.mm */; };
@@ -295,6 +297,9 @@
 		5ECCA3AB1036404100A25328 /* FreeSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FreeSans.ttf; path = data/fonts/FreeSans.ttf; sourceTree = SOURCE_ROOT; };
 		5ECCA3AF1036406D00A25328 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dist.plist; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/dist.plist; sourceTree = DEVELOPER_DIR; };
 		5ED129D81040A5B300636A42 /* gridController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = gridController.mm; sourceTree = "<group>"; };
+		5EDAE939105D6B7400BC4EDE /* bank_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank_atlas.png; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/data/book_design_images/bank_atlas.png; sourceTree = DEVELOPER_DIR; };
+		5EDAE99F105D7A7E00BC4EDE /* GLbankButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLbankButton.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/GLbankButton.h; sourceTree = DEVELOPER_DIR; };
+		5EDAE9A0105D7A7E00BC4EDE /* GLbankButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLbankButton.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/GLbankButton.mm; sourceTree = DEVELOPER_DIR; };
 		5EEA1BC31044CAD500131C5D /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = globals.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/globals.h; sourceTree = DEVELOPER_DIR; };
 		5EEA1C431044CFC900131C5D /* CGPointUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGPointUtils.h; path = ../events_raw/CGPointUtils.h; sourceTree = SOURCE_ROOT; };
 		5EEA1C441044CFC900131C5D /* CGPointUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGPointUtils.m; path = ../events_raw/CGPointUtils.m; sourceTree = SOURCE_ROOT; };
@@ -715,6 +720,8 @@
 				5EFF326E105317CC0090604B /* helpController.mm */,
 				5EFF34821055D9110090604B /* infoController.h */,
 				5EFF34831055D9110090604B /* infoController.mm */,
+				5EDAE99F105D7A7E00BC4EDE /* GLbankButton.h */,
+				5EDAE9A0105D7A7E00BC4EDE /* GLbankButton.mm */,
 			);
 			name = controllers;
 			path = src/controllers;
@@ -723,6 +730,7 @@
 		5ECCA38610363F1C00A25328 /* book_design_images */ = {
 			isa = PBXGroup;
 			children = (
+				5EDAE939105D6B7400BC4EDE /* bank_atlas.png */,
 				5E2048A3104DE3DF00049B39 /* main_menu.png */,
 				5ECCA38710363F1C00A25328 /* help_atlas.png */,
 				5ECCA38810363F1C00A25328 /* texture_atlas_belt.png */,
@@ -1329,6 +1337,7 @@
 				5ECCA3B01036406D00A25328 /* dist.plist in Resources */,
 				5E7B9391104086F700EEA5E8 /* banks in Resources */,
 				5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */,
+				5EDAE93A105D6B7400BC4EDE /* bank_atlas.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,6 +1446,7 @@
 				5EFF34841055D9110090604B /* infoController.mm in Sources */,
 				5EFF34CB1055E0D00090604B /* appModel.m in Sources */,
 				5EFF34CE1055E1BD0090604B /* bankModel.m in Sources */,
+				5EDAE9A1105D7A7E00BC4EDE /* GLbankButton.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
