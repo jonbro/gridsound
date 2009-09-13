@@ -6,6 +6,8 @@
 	<real>131.8237</real>
 	<key>bank_name</key>
 	<string>Tibtem</string>
+	<key>author_name</key>
+	<string>Nick Janaway</string>
 	<key>samples</key>
 	<array>
 		<string>Beat</string>

@@ -5,7 +5,9 @@
 	<key>bpm</key>
 	<integer>106</integer>
 	<key>bank_name</key>
-	<string>bilda</string>
+	<string>Bilda</string>
+	<key>author_name</key>
+	<string>Surachai</string>
 	<key>samples</key>
 	<array>
 		<string>earth1</string>

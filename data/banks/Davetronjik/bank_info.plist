@@ -5,7 +5,9 @@
 	<key>bpm</key>
 	<integer>118</integer>
 	<key>bank_name</key>
-	<string>DaveTronjik</string>
+	<string>Tronjik</string>
+	<key>author_name</key>
+	<string>Dave the Machine</string>
 	<key>samples</key>
 	<array>
 		<string>Bass1</string>

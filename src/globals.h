@@ -13,6 +13,7 @@
 #define GLOBAL_H
 
 extern ofTrueTypeFont sampleFont;
+extern ofTrueTypeFont teleType;
 extern wallFolderHelper *wallHelper;
 
 #endif

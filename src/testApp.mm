@@ -6,6 +6,7 @@ const char *notes__[12] = {
 } ;
 
 ofTrueTypeFont sampleFont;
+ofTrueTypeFont teleType;
 wallFolderHelper *wallHelper;
 
 //--------------------------------------------------------------
@@ -24,7 +25,7 @@ void testApp::setup(){
 	ofxAccelerometer.setup();
 		
 	sampleFont.loadFont("DejaVuSerifCondensed-Bold.ttf", 11);
-
+	teleType.loadFont("TELETYPE.TTF", 10);
 	//setup sound
 	player = [[RemoteIOPlayer alloc]init];
 

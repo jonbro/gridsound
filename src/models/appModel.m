@@ -23,7 +23,7 @@
 	bankSet = [[NSMutableArray alloc] initWithCapacity:0];
 	
 	[bankSet addObject:currentBank];
-	
+		
 	return self;
 }
 // when loading bank, check to see if the bank is already in the bankSet and initialize from there

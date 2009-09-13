@@ -14,6 +14,10 @@
 #import "globals.h"
 
 @interface GLbankButton : GLButton {
+	NSString	*author_title;
 }
 @property int color;
+
+-(void)setAuthorTitle:(NSString *)_title;
+
 @end

@@ -24,6 +24,7 @@
 		NSMutableDictionary *bank_info = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 		[bank_info setObject:bank_path forKey:@"bank_path"];
 		GLbankButton *bankButton = [[[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)]retain];
+		
 		if(i==0){
 			bankButton.color = 0xFFFFFF;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 167, 20);
@@ -43,9 +44,10 @@
 		
 		[bank_info setObject:bankButton forKey:@"bank_button"];
 		bankButton._delegate = self;
-//		[bankButton setColor:0x000000];
 		[bankButton setFontColor:0xFFFFFF];
 		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
+		[bankButton setAuthorTitle:[bank_info objectForKey:@"author_name"]];
+		NSLog([bank_info objectForKey:@"author_name"]);
 		[self addSubview:bankButton];
 		[bankData addObject:bank_info];
     }
