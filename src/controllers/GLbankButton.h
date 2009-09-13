@@ -14,7 +14,6 @@
 #import "globals.h"
 
 @interface GLbankButton : GLButton {
-		
 }
-
+@property int color;
 @end

@@ -23,13 +23,30 @@
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
 		NSMutableDictionary *bank_info = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 		[bank_info setObject:bank_path forKey:@"bank_path"];
-		GLButton *bankButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 6+48*i, 200, 45)]retain];
+		GLbankButton *bankButton = [[[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)]retain];
+		if(i==0){
+			bankButton.color = 0xFFFFFF;
+			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 167, 20);
+			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(10));
+		}else if(i==1){
+			bankButton.color = 0xEECCCC;
+			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 0, 114);
+		}else if(i==2){
+			bankButton.color = 0xCCEECC;
+			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 156, 133);
+			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(7));
+		}else if(i==3){
+			bankButton.color = 0xFFFFFF;			
+			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 96, 248);
+			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(-5));
+		}
+		
 		[bank_info setObject:bankButton forKey:@"bank_button"];
 		bankButton._delegate = self;
-		[bankButton setColor:0x000000];
+//		[bankButton setColor:0x000000];
 		[bankButton setFontColor:0xFFFFFF];
 		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
-		//[self addSubview:bankButton];
+		[self addSubview:bankButton];
 		[bankData addObject:bank_info];
     }
 	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 400, 200, 45)]retain];
@@ -39,9 +56,9 @@
 	[exitButton setTitle:[NSString stringWithString:@"Exit"]];
 	[self addSubview:exitButton];
 	
-	testBankButton = [[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)];
-	testBankButton.currentTranslation = CGAffineTransformRotate(testBankButton.currentTranslation, degreesToRadians(45));
-	[self addSubview:testBankButton];
+//	testBankButton = [[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)];
+//	testBankButton.currentTranslation = CGAffineTransformRotate(testBankButton.currentTranslation, degreesToRadians(45));
+//	[self addSubview:testBankButton];
 	
 	return self;
 }
@@ -75,14 +92,14 @@
 {
 	//background
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 3);
+	[super render];
 	//buttons
 //	wallHelper->setColor(0xDDEEDD);
 //	wallHelper->drawRect(0, 0, 255, 380, 521, 9, 3);
 //	//foreground
-	[testBankButton render];
+	//[testBankButton render];
 	wallHelper->setColor(0xFFFFFF);
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 3);
-	[super render];
 }
 -(void)setModel:(bankModel*)_bModel
 {

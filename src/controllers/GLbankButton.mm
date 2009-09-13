@@ -9,6 +9,7 @@
 #import "GLbankButton.h"
 
 @implementation GLbankButton
+@synthesize color;
 -(void)render
 {
 	glPushMatrix();
@@ -16,8 +17,8 @@
 	CGAffineToGL(&currentTranslation, m);
 	glMultMatrixf(m);
 	
-	wallHelper->setColor(0xDDEEDD);
-	wallHelper->drawRect(0, 0, 255, 380, 521, 9, 3);
+	wallHelper->setColor(color);
+	wallHelper->drawRect(0, 0, 254, 380, 521, 9, 3);
 	//foreground
 	wallHelper->setColor(0xFFFFFF);
 	
@@ -29,9 +30,4 @@
 	pos = CGPointApplyAffineTransform(pos, CGAffineTransformInvert(currentTranslation));
 	return (pos.x>frame.origin.x && pos.y>frame.origin.y && pos.x<frame.origin.x+frame.size.width && pos.y<frame.origin.y+frame.size.height);
 }
--(void)touchDown:(TouchEvent*)_tEvent
-{
-	NSLog(@"on button");
-}
-
 @end
