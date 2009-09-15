@@ -18,26 +18,24 @@
 	bankData = [[NSMutableArray alloc]initWithCapacity:0];
 	NSBundle* myBundle = [NSBundle mainBundle];
 	int nBanks = DIR.listDir("banks");
+	bankButtons = [[NSMutableArray alloc] initWithCapacity:0];
 	for(int i = 0; i < nBanks; i++){
 		NSString *bank_path = [[NSString alloc] initWithCString:DIR.getPath(i).c_str()];
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
 		NSMutableDictionary *bank_info = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 		[bank_info setObject:bank_path forKey:@"bank_path"];
 		GLbankButton *bankButton = [[[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)]retain];
+		[bankButton setColor:0xFFFFFF];
 		
 		if(i==0){
-			[bankButton setColor:0xFFFFFF];
-			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 167, 20);
+			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 127, 20);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(10));
 		}else if(i==1){
-			[bankButton setColor:0xEECCCC];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 0, 114);
 		}else if(i==2){
-			[bankButton setColor:0xCCEECC];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 156, 133);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(7));
 		}else if(i==3){
-			[bankButton setColor:0xFFFFFF];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 96, 248);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(-5));
 		}
@@ -48,8 +46,8 @@
 		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
 		[bankButton setAuthorTitle:[bank_info objectForKey:@"author_name"]];
 		NSLog([bank_info objectForKey:@"author_name"]);
-		[self addSubview:bankButton];
 		[bankData addObject:bank_info];
+		[bankButtons addObject:bankButton];
     }
 	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 400, 200, 45)]retain];
 	exitButton._delegate = self;
@@ -79,28 +77,18 @@
 		[[NSNotificationCenter defaultCenter]
 		 postNotificationName:@"switchToMenu" object:self];
 
-	}else{
-		for(int i=0;i<[bankData count];i++){
-			if([[bankData objectAtIndex:i] objectForKey:@"bank_button"] == _button){
-				[self loadBank:[NSNumber numberWithInt:i]];
-				[bModel release];
-				bModel = [[aModel loadBank:[[bankData objectAtIndex:i] objectForKey:@"bank_name"]]retain];
-				break;
-			}
-		}
 	}
 }
 -(void)render
 {
 	//background
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 3);
+	for(int i=0;i<[bankButtons count];i++){
+		[[bankButtons objectAtIndex:i] render];
+	}
 	[super render];
-	//buttons
-//	wallHelper->setColor(0xDDEEDD);
-//	wallHelper->drawRect(0, 0, 255, 380, 521, 9, 3);
-//	//foreground
-	//[testBankButton render];
 	wallHelper->setColor(0xFFFFFF);
+	// foreground
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 0, 0, 3);
 }
 -(void)setModel:(bankModel*)_bModel
@@ -124,6 +112,11 @@
 }
 -(void)loadBank:(NSNumber*)bankNumber
 {
+	// wipe all the bank colors
+	for(int i=0;i<[bankButtons count];i++){
+		[(GLButton*)[bankButtons objectAtIndex:i] setColor:0xFFFFFF];
+	}
+	[(GLButton*)[bankButtons objectAtIndex:[bankNumber intValue]] setColor:0xCCEECC];
 	// pause the player
 	//[player stop];
 	// destroy whatever is in the bank
@@ -159,6 +152,19 @@
 }
 -(void)touchDown:(TouchEvent *)_tEvent
 {
+	int touchedButton;
+	bool buttonTouched = false;
+	for(int i=0;i<[bankButtons count];i++){
+		if([[bankButtons objectAtIndex:i] insideX:_tEvent.pos.x Y:_tEvent.pos.y]){
+			buttonTouched = true;
+			touchedButton = i;
+		}
+	}
+	if(buttonTouched){
+		[self loadBank:[NSNumber numberWithInt:touchedButton]];
+		[bModel release];
+		bModel = [[aModel loadBank:[[bankData objectAtIndex:touchedButton] objectForKey:@"bank_name"]]retain];		
+	}
 	NSLog(@"pressed");
 }
 @end
