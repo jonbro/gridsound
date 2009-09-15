@@ -14,12 +14,21 @@
 
 - (void)dealloc {
 	//release the AudioBuffer
+	NSLog(@"dropping everything");
+	OSStatus result = AudioFileClose(mAudioFile);
+	if (result != noErr) {
+		NSLog(@"error: %i", result);
+	}
 	free(audioData);
     [super dealloc];
 }
 -(UInt32)getPacket:(int)packetIndex
 {
-	return audioData[packetIndex];
+	if(packetIndex<packetCount){
+		return audioData[packetIndex];
+	}else{
+		return 0;
+	}
 }
 -(int)getPacketCount
 {
@@ -36,9 +45,13 @@
 	CFURLRef audioFileURL = CFURLCreateFromFileSystemRepresentation (NULL, (const UInt8 *)[filePath cStringUsingEncoding:[NSString defaultCStringEncoding]] , strlen([filePath cStringUsingEncoding:[NSString defaultCStringEncoding]]), false);
 	
 	//open the audio file
-	OSStatus result = AudioFileOpenURL (audioFileURL, kAudioFileWAVEType, 0, &mAudioFile);
+
+	OSStatus result = AudioFileOpenURL(audioFileURL, kAudioFileWAVEType, 0, &mAudioFile);
+	CFRelease (audioFileURL);     
+	
 	//were there any errors reading? if so deal with them first
 	if (result != noErr) {
+		NSLog(@"error: %i", result);
 		NSLog([NSString stringWithFormat:@"Could not open file: %s", filePath]);
 		packetCount = -1;
 	}
@@ -77,7 +90,6 @@
 		}
 	}
 	
-	CFRelease (audioFileURL);     
 	
 	return result;
 }

@@ -37,6 +37,7 @@ AudioStreamBasicDescription audioFormat;
 		[[[self instrumentGroup] objectAtIndex:k]setCurrentSample:k];
 		[[[self instrumentGroup] objectAtIndex:k]reset];
 	}
+	AudioSessionSetActive(true);
 	OSStatus status = AudioOutputUnitStart(audioUnit);
 	playing = true;
 	return status;

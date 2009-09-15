@@ -26,18 +26,18 @@
 		GLbankButton *bankButton = [[[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)]retain];
 		
 		if(i==0){
-			bankButton.color = 0xFFFFFF;
+			[bankButton setColor:0xFFFFFF];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 167, 20);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(10));
 		}else if(i==1){
-			bankButton.color = 0xEECCCC;
+			[bankButton setColor:0xEECCCC];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 0, 114);
 		}else if(i==2){
-			bankButton.color = 0xCCEECC;
+			[bankButton setColor:0xCCEECC];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 156, 133);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(7));
 		}else if(i==3){
-			bankButton.color = 0xFFFFFF;			
+			[bankButton setColor:0xFFFFFF];
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 96, 248);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(-5));
 		}
@@ -125,7 +125,7 @@
 -(void)loadBank:(NSNumber*)bankNumber
 {
 	// pause the player
-	[player stop];
+	//[player stop];
 	// destroy whatever is in the bank
 	for (int i=0; i<[player.samplePool count]; i++) {
 		[[player.samplePool objectAtIndex:i]release];
@@ -137,14 +137,21 @@
 	bModel.bankName = [NSMutableString stringWithString:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_name"]];
 	
 	NSArray *sampleArray = [[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"samples"];
+	NSLog(@"sample array: %@", sampleArray);
+	bool loaded = true;
 	for(int i=0;i<[sampleArray count];i++){
 		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
-		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
 		[player.samplePool addObject:inMemoryAudioFile];
+		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
 	}
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
-	[player start];
+	//if(loaded){
+		//[player start];
+	//}else{
+//		ofSleepMillis(1000);
+//		[self loadBank:bankNumber];
+//	}
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {

@@ -87,7 +87,7 @@ void testApp::setup(){
 		[sampleInstrument release];
 	}
 	currentGrid = 0;
-	[player start];
+	//[player start];
 	
 	[Events setFirstResponder:mainC];
 
@@ -97,7 +97,7 @@ void testApp::lostFocus(){
 	[player stop];
 }
 void testApp::gotFocus(){
-	[player start];
+	//[player start];
 }
 
 //--------------------------------------------------------------

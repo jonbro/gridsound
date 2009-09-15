@@ -9,7 +9,6 @@
 #import "GLbankButton.h"
 
 @implementation GLbankButton
-@synthesize color;
 -(void)render
 {
 	glPushMatrix();
