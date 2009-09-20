@@ -36,6 +36,10 @@
 
 -(OSStatus)start;
 -(OSStatus)stop;
+
+-(void)pause;
+-(void)unpause;
+
 -(void)setStep:(int)i stepValue:(int)j;
 -(int)getStep:(int)i;
 

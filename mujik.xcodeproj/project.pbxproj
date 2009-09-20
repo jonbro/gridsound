@@ -226,10 +226,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1D6058910D05DD3D006BFB54 /* Mujik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mujik.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5E033370104AEA4700AAD7F5 /* mainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.h; sourceTree = DEVELOPER_DIR; };
 		5E033371104AEA4700AAD7F5 /* mainController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = mainController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/mainController.mm; sourceTree = DEVELOPER_DIR; };
@@ -249,12 +249,12 @@
 		5E73A9DD10363C290019086B /* SampleInstrument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SampleInstrument.mm; sourceTree = "<group>"; };
 		5E73A9DE10363C290019086B /* TunableFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TunableFilter.h; sourceTree = "<group>"; };
 		5E73A9DF10363C290019086B /* TunableFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TunableFilter.mm; sourceTree = "<group>"; };
-		5E73A9E610363C4F0019086B /* gridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gridModel.h; sourceTree = "<group>"; };
-		5E73A9E710363C4F0019086B /* gridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gridModel.m; sourceTree = "<group>"; };
-		5E73A9E810363C4F0019086B /* parentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parentModel.h; sourceTree = "<group>"; };
-		5E73A9E910363C4F0019086B /* parentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parentModel.m; sourceTree = "<group>"; };
-		5E73A9EA10363C4F0019086B /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phrase.h; sourceTree = "<group>"; };
-		5E73A9EB10363C4F0019086B /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Phrase.m; sourceTree = "<group>"; };
+		5E73A9E610363C4F0019086B /* gridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gridModel.h; path = src/models/gridModel.h; sourceTree = SOURCE_ROOT; };
+		5E73A9E710363C4F0019086B /* gridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = gridModel.m; path = src/models/gridModel.m; sourceTree = SOURCE_ROOT; };
+		5E73A9E810363C4F0019086B /* parentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parentModel.h; path = src/models/parentModel.h; sourceTree = SOURCE_ROOT; };
+		5E73A9E910363C4F0019086B /* parentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = parentModel.m; path = src/models/parentModel.m; sourceTree = SOURCE_ROOT; };
+		5E73A9EA10363C4F0019086B /* Phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Phrase.h; path = src/models/Phrase.h; sourceTree = SOURCE_ROOT; };
+		5E73A9EB10363C4F0019086B /* Phrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Phrase.m; path = src/models/Phrase.m; sourceTree = SOURCE_ROOT; };
 		5E73A9F010363C6A0019086B /* ripple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripple.h; sourceTree = "<group>"; };
 		5E73A9F110363C6A0019086B /* ripple.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ripple.mm; sourceTree = "<group>"; };
 		5E73A9F410363CAF0019086B /* ofxiPhoneKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiPhoneKeyboard.h; sourceTree = "<group>"; };
@@ -322,10 +322,10 @@
 		5EFF326E105317CC0090604B /* helpController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = helpController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/helpController.mm; sourceTree = DEVELOPER_DIR; };
 		5EFF34821055D9110090604B /* infoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = infoController.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/infoController.h; sourceTree = DEVELOPER_DIR; };
 		5EFF34831055D9110090604B /* infoController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = infoController.mm; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/controllers/infoController.mm; sourceTree = DEVELOPER_DIR; };
-		5EFF34C91055E0D00090604B /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = appModel.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/appModel.h; sourceTree = DEVELOPER_DIR; };
-		5EFF34CA1055E0D00090604B /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = appModel.m; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/appModel.m; sourceTree = DEVELOPER_DIR; };
-		5EFF34CC1055E1BD0090604B /* bankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankModel.h; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/bankModel.h; sourceTree = DEVELOPER_DIR; };
-		5EFF34CD1055E1BD0090604B /* bankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bankModel.m; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/src/models/bankModel.m; sourceTree = DEVELOPER_DIR; };
+		5EFF34C91055E0D00090604B /* appModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = appModel.h; path = src/models/appModel.h; sourceTree = SOURCE_ROOT; };
+		5EFF34CA1055E0D00090604B /* appModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = appModel.m; path = src/models/appModel.m; sourceTree = SOURCE_ROOT; };
+		5EFF34CC1055E1BD0090604B /* bankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankModel.h; path = src/models/bankModel.h; sourceTree = SOURCE_ROOT; };
+		5EFF34CD1055E1BD0090604B /* bankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bankModel.m; path = src/models/bankModel.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
 		BB16E9970F2B1E6900518274 /* ofAppGlutWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofAppGlutWindow.cpp; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 		BB16E9C50F2B1E6900518274 /* ofVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVideoGrabber.h; sourceTree = "<group>"; };
 		BB16E9C60F2B1E6900518274 /* ofVideoPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVideoPlayer.cpp; sourceTree = "<group>"; };
 		BB16E9C70F2B1E6900518274 /* ofVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVideoPlayer.h; sourceTree = "<group>"; };
-		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		BB16F3A80F2B73B000518274 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = main.cpp; path = main.mm; sourceTree = "<group>"; };
 		BB16F3AA0F2B73B000518274 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
 		BB4B3DE40F7AFE100030C0C6 /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
@@ -492,7 +492,7 @@
 		BBE5E9F20F497D5F00F28951 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
 		BBE5E9F30F497D5F00F28951 /* libGLU.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLU.a; sourceTree = "<group>"; };
 		BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLU_arm.a; sourceTree = "<group>"; };
-		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

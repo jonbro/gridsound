@@ -49,11 +49,9 @@
 		[bankData addObject:bank_info];
 		[bankButtons addObject:bankButton];
     }
-	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(6, 400, 200, 45)]retain];
+	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(14, 190, 77, 78)]retain];
 	exitButton._delegate = self;
-	[exitButton setColor:0x000000];
-	[exitButton setFontColor:0xFFFFFF];
-	[exitButton setTitle:[NSString stringWithString:@"Exit"]];
+	exitButton.visible = false;
 	[self addSubview:exitButton];
 	
 //	testBankButton = [[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)];
@@ -83,9 +81,12 @@
 {
 	//background
 	wallHelper->drawRect(0, 0, 320, 480, 256, 384, 256, 0, 3);
+	//bank cards
 	for(int i=0;i<[bankButtons count];i++){
 		[[bankButtons objectAtIndex:i] render];
 	}
+	//back button
+	wallHelper->drawRect(14, 190, 77, 78, 0, 384, 3);
 	[super render];
 	wallHelper->setColor(0xFFFFFF);
 	// foreground
@@ -112,13 +113,13 @@
 }
 -(void)loadBank:(NSNumber*)bankNumber
 {
+	// pause the player
+	[player stop];
 	// wipe all the bank colors
 	for(int i=0;i<[bankButtons count];i++){
 		[(GLButton*)[bankButtons objectAtIndex:i] setColor:0xFFFFFF];
 	}
 	[(GLButton*)[bankButtons objectAtIndex:[bankNumber intValue]] setColor:0xCCEECC];
-	// pause the player
-	//[player stop];
 	// destroy whatever is in the bank
 	for (int i=0; i<[player.samplePool count]; i++) {
 		[[player.samplePool objectAtIndex:i]release];
@@ -139,12 +140,7 @@
 	}
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
-	//if(loaded){
-		//[player start];
-	//}else{
-//		ofSleepMillis(1000);
-//		[self loadBank:bankNumber];
-//	}
+	[player start];
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {

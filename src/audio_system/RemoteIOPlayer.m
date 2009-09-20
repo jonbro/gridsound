@@ -45,8 +45,19 @@ AudioStreamBasicDescription audioFormat;
 
 -(OSStatus)stop{
 	OSStatus status = AudioOutputUnitStop(audioUnit);
+	AudioSessionSetActive(false);
 	playing = false;
 	return status;
+}
+-(void)pause
+{
+	playing = false;
+}
+-(void)unpause
+{
+	AudioSessionSetActive(true);
+	OSStatus status = AudioOutputUnitStart(audioUnit);
+	playing = true;
 }
 
 -(void)cleanUp{
@@ -83,65 +94,65 @@ static OSStatus playbackCallback(void *inRefCon,
 	
 	//get a copy of the objectiveC class "self" we need this to get the next sample to fill the buffer
 	RemoteIOPlayer *remoteIOplayer = (RemoteIOPlayer *)inRefCon;
-	if(remoteIOplayer.playing){
-	//loop through all the buffers that need to be filled
-	SInt16 leftChannel = 0;
-	SInt16 rightChannel = 0;
-	UInt32 *nextPacket;	
-	Float32 startPercentage;
-	Float32 endPercentage;
-	int currentTick = 0;
-	int remainder = 0;
-	int groupCount = [[remoteIOplayer instrumentGroup] count];
-	float beatLength = 22050.0*60/remoteIOplayer.bpm;
-	
-	for (int i = 0 ; i < ioData->mNumberBuffers; i++){
-		//get the buffer to be filled
+	if([remoteIOplayer playing]){
+		//loop through all the buffers that need to be filled
+		SInt16 leftChannel = 0;
+		SInt16 rightChannel = 0;
+		UInt32 *nextPacket;	
+		Float32 startPercentage;
+		Float32 endPercentage;
+		int currentTick = 0;
+		int remainder = 0;
+		int groupCount = [[remoteIOplayer instrumentGroup] count];
+		float beatLength = 22050.0*60/remoteIOplayer.bpm;
 		
-		AudioBuffer buffer = ioData->mBuffers[i];
-		UInt32 *frameBuffer = buffer.mData;
-		
-		//loop through the buffer and fill the frames
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-		for (int j = 0; j < inNumberFrames; j++){
-			rightChannel = 0;
-			leftChannel = 0;
-			frameCounter++;
-			remainder = fmod(frameCounter, beatLength);			
+		for (int i = 0 ; i < ioData->mNumberBuffers; i++){
+			//get the buffer to be filled
+			
+			AudioBuffer buffer = ioData->mBuffers[i];
+			UInt32 *frameBuffer = buffer.mData;
+			
+			//loop through the buffer and fill the frames
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+			for (int j = 0; j < inNumberFrames; j++){
+				rightChannel = 0;
+				leftChannel = 0;
+				frameCounter++;
+				remainder = fmod(frameCounter, beatLength);			
 
-			// loop through all of the instruments
-			if(remainder == 0){
-				remoteIOplayer.tick++;
-				currentTick = fmod(remoteIOplayer.tick, 8);
-				
-				for(int k=0;k<groupCount;k++) {
-					//should move this into the sample player to save on instantiation
-					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-					if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
-						[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
-						startPercentage = ((Float32)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
-						[samplePlayer setNote:1];
-						[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
-						[samplePlayer setDirection:[[samplePlayer.controllers objectForKey:@"lpof"] getDirection]];
+				// loop through all of the instruments
+				if(remainder == 0){
+					remoteIOplayer.tick++;
+					currentTick = fmod(remoteIOplayer.tick, 8);
+					
+					for(int k=0;k<groupCount;k++) {
+						//should move this into the sample player to save on instantiation
+						SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
+						if([samplePlayer.controllers objectForKey:@"lpof"] != nil){
+							[samplePlayer setCurrentSample:[[samplePlayer.controllers objectForKey:@"lpof"] getSample]];
+							startPercentage = ((Float32)[[samplePlayer.controllers objectForKey:@"lpof"] getStep:currentTick])/8;
+							[samplePlayer setNote:1];
+							[samplePlayer setVolume:[[samplePlayer.controllers objectForKey:@"lpof"] volumeLevel]];
+							[samplePlayer setDirection:[[samplePlayer.controllers objectForKey:@"lpof"] getDirection]];
+						}
+						endPercentage = startPercentage+1/(8.0*([[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick]+1));
+						if([samplePlayer.controllers objectForKey:@"note"] != nil){	
+							[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
+						}
+						[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
+						[samplePlayer reset];					
 					}
-					endPercentage = startPercentage+1/(8.0*([[samplePlayer.controllers objectForKey:@"rtgr"] getStep:currentTick]+1));
-					if([samplePlayer.controllers objectForKey:@"note"] != nil){	
-						[samplePlayer setNote:[[samplePlayer.controllers objectForKey:@"note"] getStep:currentTick]];
-					}
-					[samplePlayer setLoopOffsetStartPercentage:startPercentage endPercentage:endPercentage];
-					[samplePlayer reset];					
 				}
+				nextPacket = &frameBuffer[j];
+				for(int k=0;k<groupCount;k++) {
+					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
+					[samplePlayer getNextPacket:nextPacket];
+					leftChannel += (SInt16)(*nextPacket>>16);
+				}
+				*nextPacket = (UInt32)(leftChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
 			}
-			nextPacket = &frameBuffer[j];
-			for(int k=0;k<groupCount;k++) {
-				SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
-				[samplePlayer getNextPacket:nextPacket];
-				leftChannel += (SInt16)(*nextPacket>>16);
-			}
-			*nextPacket = (UInt32)(leftChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
+			[pool release];
 		}
-		[pool release];
-	}
 	}
     return noErr;
 }
