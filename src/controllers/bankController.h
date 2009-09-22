@@ -28,8 +28,6 @@
 	GLButton *exitButton;
 	GLbankButton *testBankButton;
 	ofxDirList DIR;
-	ofImage atlas;
-	ofTexture atlasTex;
 	bankModel *bModel;
 	appModel *aModel;
 	ofxMSAShape3D *myShape;

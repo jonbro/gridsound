@@ -49,7 +49,7 @@
 		ofRect(0, 0, frame.size.width, frame.size.height);
 		ofSetColor(fontColor);
 		if(title != nil){
-			sampleFont.drawString([title UTF8String], 10, frame.size.height/2+font.getLineHeight()/2);
+			sampleFont.drawString([title UTF8String], 10, frame.size.height/2+sampleFont.getLineHeight()/2);
 		}
 		glPopMatrix();
 	}

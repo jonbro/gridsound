@@ -17,7 +17,6 @@
 	NSString	*title;
 	int			color, fontColor;
 	bool		visible;
-	ofTrueTypeFont	font;
 }
 
 @property(nonatomic, assign) id<GLButtonDelegate> _delegate;
