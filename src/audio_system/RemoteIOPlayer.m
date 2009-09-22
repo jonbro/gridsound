@@ -14,7 +14,7 @@
 
 @implementation RemoteIOPlayer
 
-@synthesize instrumentGroup, samplePool, bpm, bankInfo, playing;
+@synthesize instrumentGroup, samplePool, bpm, bankInfo, playing, internalPlaying;
 @synthesize offsetArray;
 @synthesize tick;
 @synthesize frameCounter;
@@ -55,8 +55,10 @@ AudioStreamBasicDescription audioFormat;
 }
 -(void)unpause
 {
-	AudioSessionSetActive(true);
-	OSStatus status = AudioOutputUnitStart(audioUnit);
+	for(int k=0;k<[[self instrumentGroup] count];k++) {
+		[[[self instrumentGroup] objectAtIndex:k]setCurrentSample:k];
+		[[[self instrumentGroup] objectAtIndex:k]reset];
+	}
 	playing = true;
 }
 
@@ -94,7 +96,8 @@ static OSStatus playbackCallback(void *inRefCon,
 	
 	//get a copy of the objectiveC class "self" we need this to get the next sample to fill the buffer
 	RemoteIOPlayer *remoteIOplayer = (RemoteIOPlayer *)inRefCon;
-	if([remoteIOplayer playing]){
+	if(remoteIOplayer.playing){
+		remoteIOplayer.internalPlaying = true;
 		//loop through all the buffers that need to be filled
 		SInt16 leftChannel = 0;
 		SInt16 rightChannel = 0;
@@ -153,6 +156,10 @@ static OSStatus playbackCallback(void *inRefCon,
 			}
 			[pool release];
 		}
+	}else{
+		remoteIOplayer.internalPlaying = false;
+		for (UInt32 i=0; i < ioData->mNumberBuffers; i++)
+			memset(ioData->mBuffers[i].mData, 0, ioData->mBuffers[i].mDataByteSize);
 	}
     return noErr;
 }

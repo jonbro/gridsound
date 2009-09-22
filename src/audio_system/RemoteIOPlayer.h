@@ -19,7 +19,7 @@
 	float bpm;
 	int tick;
 	bool toMute[2];
-	bool playing;
+	bool playing, internalPlaying;
 	int frameCounter;
 	int steps[8];
 }
@@ -32,6 +32,7 @@
 @property int tick;
 @property float bpm;
 @property bool playing;
+@property bool internalPlaying;
 @property int frameCounter;
 
 -(OSStatus)start;

@@ -41,6 +41,7 @@
 		5E477E3D0FE598AB003EF4A7 /* libGLU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F30F497D5F00F28951 /* libGLU.a */; };
 		5E477E3E0FE598AB003EF4A7 /* libGLU_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */; };
 		5E477E3F0FE598AB003EF4A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
+		5E5DE26F10685EAF00F458BC /* TELETYPE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DE26E10685EAF00F458BC /* TELETYPE.TTF */; };
 		5E73A9E010363C290019086B /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9D710363C290019086B /* InMemoryAudioFile.m */; };
 		5E73A9E110363C290019086B /* MoogFilter2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9D910363C290019086B /* MoogFilter2.mm */; };
 		5E73A9E210363C290019086B /* RemoteIOPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9DB10363C290019086B /* RemoteIOPlayer.m */; };
@@ -234,6 +235,7 @@
 		5E39BBB80FC0CD2200122C40 /* ofxMSAShape3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxMSAShape3D.h; path = of_preRelease_v0.06_iphone/addons/ofxMSAShape3D/src/ofxMSAShape3D.h; sourceTree = DEVELOPER_DIR; };
 		5E477E440FE598AB003EF4A7 /* MujikSW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikSW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E477E460FE598AB003EF4A7 /* Info copy 3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy 3.plist"; sourceTree = SOURCE_ROOT; };
+		5E5DE26E10685EAF00F458BC /* TELETYPE.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = TELETYPE.TTF; path = data/fonts/TELETYPE.TTF; sourceTree = SOURCE_ROOT; };
 		5E73A9D610363C290019086B /* InMemoryAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InMemoryAudioFile.h; sourceTree = "<group>"; };
 		5E73A9D710363C290019086B /* InMemoryAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InMemoryAudioFile.m; sourceTree = "<group>"; };
 		5E73A9D810363C290019086B /* MoogFilter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoogFilter2.h; sourceTree = "<group>"; };
@@ -745,6 +747,7 @@
 		5ECCA3A81036404100A25328 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5E5DE26E10685EAF00F458BC /* TELETYPE.TTF */,
 				5ECCA3A91036404100A25328 /* 04B_11__.TTF */,
 				5ECCA3AA1036404100A25328 /* DejaVuSerifCondensed-Bold.ttf */,
 				5ECCA3AB1036404100A25328 /* FreeSans.ttf */,
@@ -1338,6 +1341,7 @@
 				5E7B9391104086F700EEA5E8 /* banks in Resources */,
 				5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */,
 				5EDAE93A105D6B7400BC4EDE /* bank_atlas.png in Resources */,
+				5E5DE26F10685EAF00F458BC /* TELETYPE.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

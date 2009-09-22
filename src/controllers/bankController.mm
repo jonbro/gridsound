@@ -114,7 +114,11 @@
 -(void)loadBank:(NSNumber*)bankNumber
 {
 	// pause the player
-	[player stop];
+	[player pause];
+	// check the internal state of the player
+	while (player.internalPlaying) {
+		NSLog(@"waiting to stop");
+	}
 	// wipe all the bank colors
 	for(int i=0;i<[bankButtons count];i++){
 		[(GLButton*)[bankButtons objectAtIndex:i] setColor:0xFFFFFF];
@@ -140,7 +144,7 @@
 	}
 	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
 	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
-	[player start];
+	[player unpause];
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {
