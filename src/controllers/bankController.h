@@ -23,6 +23,7 @@
 
 @interface bankController : CustomEventResponder {
 	RemoteIOPlayer *player;
+	int currentBank;
 	NSMutableArray *bankData;
 	NSMutableArray *bankButtons;
 	GLButton *exitButton;

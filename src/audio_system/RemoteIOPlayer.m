@@ -150,7 +150,7 @@ static OSStatus playbackCallback(void *inRefCon,
 				for(int k=0;k<groupCount;k++) {
 					SampleInstrument *samplePlayer = [[remoteIOplayer instrumentGroup] objectAtIndex:k];
 					[samplePlayer getNextPacket:nextPacket];
-					leftChannel += (SInt16)(*nextPacket>>16);
+					leftChannel += (SInt16)(*nextPacket>>16)/3.0;
 				}
 				*nextPacket = (UInt32)(leftChannel+sizeof(UInt32)/2)+((UInt32)leftChannel+sizeof(UInt32)/2<<16);
 			}

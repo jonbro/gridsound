@@ -148,9 +148,6 @@ float sampleIndex = 0;
 {
 	loopStart = [currentSampleObject getPacketCount]*startPercentage/2;
 	loopEnd = [currentSampleObject getPacketCount]*endPercentage/2;
-	if(loopStart>loopEnd){
-		NSLog(@"overloop");
-	}
 }
 -(void)fixDelta
 {

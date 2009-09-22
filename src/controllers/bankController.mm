@@ -113,38 +113,41 @@
 }
 -(void)loadBank:(NSNumber*)bankNumber
 {
-	// pause the player
-	[player pause];
-	// check the internal state of the player
-	while (player.internalPlaying) {
-		NSLog(@"waiting to stop");
+	if(currentBank != [bankNumber intValue]){
+		currentBank = [bankNumber intValue];
+		// pause the player
+		[player pause];
+		// check the internal state of the player
+		while (player.internalPlaying) {
+			NSLog(@"waiting to stop");
+		}
+		// wipe all the bank colors
+		for(int i=0;i<[bankButtons count];i++){
+			[(GLButton*)[bankButtons objectAtIndex:i] setColor:0xFFFFFF];
+		}
+		[(GLButton*)[bankButtons objectAtIndex:[bankNumber intValue]] setColor:0xCCEECC];
+		// destroy whatever is in the bank
+		for (int i=0; i<[player.samplePool count]; i++) {
+			[[player.samplePool objectAtIndex:i]release];
+		}
+		[player.samplePool removeAllObjects];
+		// load up the new bank
+		// load the plist from the selected bank
+		
+		bModel.bankName = [NSMutableString stringWithString:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_name"]];
+		
+		NSArray *sampleArray = [[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"samples"];
+		NSLog(@"sample array: %@", sampleArray);
+		bool loaded = true;
+		for(int i=0;i<[sampleArray count];i++){
+			InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
+			[player.samplePool addObject:inMemoryAudioFile];
+			[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
+		}
+		player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
+		player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
+		[player unpause];
 	}
-	// wipe all the bank colors
-	for(int i=0;i<[bankButtons count];i++){
-		[(GLButton*)[bankButtons objectAtIndex:i] setColor:0xFFFFFF];
-	}
-	[(GLButton*)[bankButtons objectAtIndex:[bankNumber intValue]] setColor:0xCCEECC];
-	// destroy whatever is in the bank
-	for (int i=0; i<[player.samplePool count]; i++) {
-		[[player.samplePool objectAtIndex:i]release];
-	}
-	[player.samplePool removeAllObjects];
-	// load up the new bank
-	// load the plist from the selected bank
-	
-	bModel.bankName = [NSMutableString stringWithString:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_name"]];
-	
-	NSArray *sampleArray = [[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"samples"];
-	NSLog(@"sample array: %@", sampleArray);
-	bool loaded = true;
-	for(int i=0;i<[sampleArray count];i++){
-		InMemoryAudioFile *inMemoryAudioFile = [[InMemoryAudioFile alloc]init];
-		[player.samplePool addObject:inMemoryAudioFile];
-		[inMemoryAudioFile open:[NSBundle pathForResource:[sampleArray objectAtIndex:i] ofType:@"wav" inDirectory:[[bankData objectAtIndex:[bankNumber intValue]]objectForKey:@"bank_path"]]];
-	}
-	player.bpm = [[[bankData objectAtIndex:[bankNumber intValue]] objectForKey:@"bpm"] floatValue];
-	player.bankInfo = [bankData objectAtIndex:[bankNumber intValue]];
-	[player unpause];
 }
 -(void)setPlayer:(RemoteIOPlayer *)_player
 {
