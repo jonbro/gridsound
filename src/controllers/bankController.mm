@@ -19,6 +19,7 @@
 	NSBundle* myBundle = [NSBundle mainBundle];
 	int nBanks = DIR.listDir("banks");
 	bankButtons = [[NSMutableArray alloc] initWithCapacity:0];
+	GLbankButton *bankButton1, *bankButton2, *bankButton3, *bankButton4;
 	for(int i = 0; i < nBanks; i++){
 		NSString *bank_path = [[NSString alloc] initWithCString:DIR.getPath(i).c_str()];
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
@@ -27,15 +28,19 @@
 		GLbankButton *bankButton = [[[GLbankButton alloc] initWithFrame:CGRectMake(0, 0, 217, 320)]retain];
 		[bankButton setColor:0xFFFFFF];
 		
-		if(i==0){
+		if([[bank_info objectForKey:@"bank_name"] isEqual:@"Tronjik"]){
+			bankButton1 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 127, 20);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(10));
-		}else if(i==1){
+		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Bilda"]){
+			bankButton2 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 0, 114);
-		}else if(i==2){
+		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Tibtem"]){
+			bankButton3 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 156, 133);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(7));
-		}else if(i==3){
+		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Mijka"]){
+			bankButton4 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 96, 248);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(-5));
 		}
@@ -47,8 +52,14 @@
 		[bankButton setAuthorTitle:[bank_info objectForKey:@"author_name"]];
 		NSLog([bank_info objectForKey:@"author_name"]);
 		[bankData addObject:bank_info];
-		[bankButtons addObject:bankButton];
+		
     }
+	
+	[bankButtons addObject:bankButton1];
+	[bankButtons addObject:bankButton2];
+	[bankButtons addObject:bankButton3];
+	[bankButtons addObject:bankButton4];
+	
 	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(14, 190, 77, 78)]retain];
 	exitButton._delegate = self;
 	exitButton.visible = false;

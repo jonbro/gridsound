@@ -8,7 +8,8 @@
 
 #import "RemoteIOPlayer.h"
 #include <AudioUnit/AudioUnit.h>
-
+#include <AudioToolbox/AudioToolbox.h>
+#include <CoreAudio/CoreAudioTypes.h>
 #define kOutputBus 0
 #define kInputBus 1
 
@@ -37,7 +38,10 @@ AudioStreamBasicDescription audioFormat;
 		[[[self instrumentGroup] objectAtIndex:k]setCurrentSample:k];
 		[[[self instrumentGroup] objectAtIndex:k]reset];
 	}
+	
+
 	AudioSessionSetActive(true);
+	
 	OSStatus status = AudioOutputUnitStart(audioUnit);
 	playing = true;
 	return status;
