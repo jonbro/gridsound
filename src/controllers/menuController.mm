@@ -14,32 +14,32 @@
 {
 	self = [super init];
 	
-	bankButton = [[GLButton alloc] initWithFrame:CGRectMake(101, 200, 209, 45)];
+	backButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 111, 243, 61)];
+	backButton._delegate = self;
+	backButton.visible = false;
+	[self addSubview:backButton];
+
+	bankButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 172, 243, 54)];
 	bankButton._delegate = self;
 	bankButton.visible = false;
 	[self addSubview:bankButton];
 
-	helpButton = [[GLButton alloc] initWithFrame:CGRectMake(128, 396, 184, 49)];
-	helpButton._delegate = self;
-	helpButton.visible = false;
-	[self addSubview:helpButton];
-
-	phraseSaveButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 254, 243, 62)];
+	phraseSaveButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 226, 243, 52)];
 	phraseSaveButton._delegate = self;
 	phraseSaveButton.visible = false;
 	[self addSubview:phraseSaveButton];
 	
-	phraseLoadButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 122, 243, 67)];
+	phraseLoadButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 278, 243, 56)];
 	phraseLoadButton._delegate = self;
 	phraseLoadButton.visible = false;
 	[self addSubview:phraseLoadButton];
 	
-	backButton = [[GLButton alloc] initWithFrame:CGRectMake(103, 16, 204, 100)];
-	backButton._delegate = self;
-	backButton.visible = false;
-	[self addSubview:backButton];
+	helpButton = [[GLButton alloc] initWithFrame:CGRectMake(128, 334, 184, 56)];
+	helpButton._delegate = self;
+	helpButton.visible = false;
+	[self addSubview:helpButton];
 	
-	infoButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 316, 243, 68)];
+	infoButton = [[GLButton alloc] initWithFrame:CGRectMake(77, 390, 243, 62)];
 	infoButton._delegate = self;
 	infoButton.visible = false;
 	[self addSubview:infoButton];
