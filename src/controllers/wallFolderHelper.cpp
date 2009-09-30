@@ -53,6 +53,7 @@ wallFolderHelper::wallFolderHelper()
 	zoomerAtlasTex.bind();
 	zoomerAtlasTex.unbind();
 	hasColor = false;
+	hasAlpha = false;
 }
 
 //--------------------------------------------------------------
@@ -615,6 +616,11 @@ void wallFolderHelper::setColor(int color)
 	hasColor = true;
 	currentColor = color;
 }
+void wallFolderHelper::setAlpha(float alpha)
+{
+	hasAlpha = true;
+	currentAlpha = alpha;
+}
 void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWidth, int inputHeight, int offset_x, int offset_y, int texture){
 	
 	int atlasWidth = 1024;
@@ -643,6 +649,10 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWi
 	if(hasColor){
 		myShape->setColor(currentColor);
 	}
+	if(hasAlpha){
+		myShape->setColor(1.0, 1.0, 1.0, currentAlpha);
+		hasAlpha = false;
+	}
 	myShape->setTexCoord(t_1, u_1);
 	myShape->addVertex(x, y);
 	
@@ -668,6 +678,7 @@ void wallFolderHelper::drawRect(int x, int y, int width, int height, int inputWi
 		bankAtlasTex.unbind();
 	}
 	hasColor = false;
+	hasAlpha = false;
 }
 void wallFolderHelper::drawRect(int x, int y, int width, int height, int offset_x, int offset_y, int texture){
 	this->drawRect(x, y, width, height, width, height, offset_x, offset_y, texture);

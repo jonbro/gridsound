@@ -21,13 +21,14 @@
 	bankController *bankC;
 	parentController *parentC;
 	NSMutableArray *phraseButtons;
-	bool loading, toDialog, atDialog;
-	int dialogStart, direction, dialog_pos, jar_to_save;
+	bool loading, toDialog, atDialog, tweenDirection, tweening;
+	int dialogStart, direction, dialog_pos, jar_to_save, fadeStart, jar_to_load;
 }
 
 @property (assign) bool loading;
 
 -(void)setBankController:(bankController*)_bankC;
 -(void)setParentController:(parentController*)_parentC;
+-(void)renderHighlight;
 
 @end

@@ -97,18 +97,17 @@
 					parentModel *pModel = [bankC.bModel.phraseSet objectForKey:[NSNumber numberWithInt:i]];
 					if(pModel != nil){
 						[parentC setModel:[pModel copy]];
+						fadeStart = ofGetElapsedTimeMillis();
+						jar_to_load = i;
+						tweenDirection = true;
+						tweening = true;
 					}
 				}else{
-					parentModel *pModel = [bankC.bModel.phraseSet objectForKey:[NSNumber numberWithInt:i]];
-					if(pModel == nil){
-						[bankC.bModel.phraseSet setObject:[parentC.model copy] forKey:[NSNumber numberWithInt:i]];
-					}else{
-						dialogStart = ofGetElapsedTimeMillis();
-						direction = 1;
-						jar_to_save = i;
-						dialog_pos = 1;
-						toDialog = true;
-					}
+					dialogStart = ofGetElapsedTimeMillis();
+					direction = 1;
+					jar_to_save = i;
+					dialog_pos = 1;
+					toDialog = true;
 				}
 			}
 		}
@@ -175,6 +174,7 @@
 		}
 		[self renderDialogFrame:dialog_pos];
 	}
+	[self renderHighlight];
 	[super render];
 }
 -(void)renderDialogFrame:(int)frameNumber
@@ -209,5 +209,43 @@
 			wallHelper->drawRect(offset_x, offset_y, 270, 265, 629, 656, 2);
 			break;
 	}
+}
+-(void)renderHighlight
+{
+	int offset_x = -35;
+	int offset_y = -30;
+	if(jar_to_load<2){
+		offset_x = -40;
+		offset_y = -20;
+	}
+	if(jar_to_load<5){
+		offset_x = -40;
+	}
+	if(jar_to_load==3){
+		offset_x = -35;
+	}
+	if(jar_to_load==5){
+		offset_x = -50;
+	}
+	if(jar_to_load==6){
+		offset_x = -30;
+	}
+	if(jar_to_load==7){
+		offset_x = -40;
+	}
+	int currentTime = ofGetElapsedTimeMillis() - fadeStart;
+	GLButton *loaded_jar = [phraseButtons objectAtIndex:jar_to_load];
+	if(tweening){
+		if(currentTime > 700){
+			tweening = false;
+			wallHelper->setAlpha(0.0);
+		}else if(currentTime > 350){
+			wallHelper->setAlpha(((float)(700-currentTime))/350.0);
+		}else{
+			wallHelper->setAlpha(((float)currentTime)/350.0);
+		}
+		wallHelper->drawRect(loaded_jar.frame.origin.x+offset_x, loaded_jar.frame.origin.y+offset_y, 144, 168, 0, 794, 2);
+	}
+	wallHelper->setAlpha(1.0);
 }
 @end

@@ -31,6 +31,7 @@ class wallFolderHelper
 		void drawNonZoom();
 		void toInfo();
 		void setColor(int color);
+		void setAlpha(float alpha);
 		void fromInfo();
 		void toHelp(int help);
 		void fromHelp();
@@ -43,8 +44,8 @@ class wallFolderHelper
 		int zoomSpeed, zoomSpeedSecondary, infoDirection, infoPosition, infoStart;
 		int helpDirection, helpPosition, helpStart, helpScreen;
 		int currentColor;
-		float cloud1XPosition, cloud2XPosition, cloud3XPosition;
+		float cloud1XPosition, cloud2XPosition, cloud3XPosition, currentAlpha;
 		float balloonX, balloonY, scaleTarget;
-		bool hasColor;
+		bool hasColor, hasAlpha;
 	};
 
