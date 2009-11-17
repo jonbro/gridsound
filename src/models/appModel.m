@@ -19,7 +19,7 @@
 	currentBank = [[bankModel alloc] init];
 	
 	currentScreen = [[NSMutableString stringWithString:@"switchToMain"]retain];
-	version = [[NSNumber numberWithFloat:1.1]retain];
+	version = [[NSNumber numberWithFloat:1.11]retain];
 	bankSet = [[NSMutableArray alloc] initWithCapacity:0];
 	
 	[bankSet addObject:currentBank];

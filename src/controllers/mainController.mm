@@ -55,6 +55,7 @@
 	// should roll this into a "setModel" reciever
 	[bankC setModel:aModel.currentBank];
 	[bankC setAppModel:aModel];
+	NSLog(@"bank about to be loaded: %@", aModel.currentBank.bankName);
 	[bankC loadBankByName:aModel.currentBank.bankName];
 	
 	[phraseC setBankController:bankC];

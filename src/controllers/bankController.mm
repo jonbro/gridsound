@@ -14,12 +14,12 @@
 -(id)init
 {
 	self = [super init];
+	firstRun = true;
 	myShape = new ofxMSAShape3D();
 	bankData = [[NSMutableArray alloc]initWithCapacity:0];
-	NSBundle* myBundle = [NSBundle mainBundle];
 	int nBanks = DIR.listDir("banks");
-	bankButtons = [[NSMutableArray alloc] initWithCapacity:0];
-	GLbankButton *bankButton1, *bankButton2, *bankButton3, *bankButton4;
+	bankButtons = [[NSMutableArray alloc] initWithCapacity:4];
+	NSLog(@"num banks: %i", nBanks);
 	for(int i = 0; i < nBanks; i++){
 		NSString *bank_path = [[NSString alloc] initWithCString:DIR.getPath(i).c_str()];
 		NSString *path = [NSBundle pathForResource:@"bank_info" ofType:@"plist" inDirectory:bank_path];
@@ -29,18 +29,14 @@
 		[bankButton setColor:0xFFFFFF];
 		
 		if([[bank_info objectForKey:@"bank_name"] isEqual:@"Tronjik"]){
-			bankButton1 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 127, 20);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(10));
 		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Bilda"]){
-			bankButton2 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 0, 114);
 		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Tibtem"]){
-			bankButton3 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 156, 133);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(7));
 		}else if([[bank_info objectForKey:@"bank_name"] isEqual:@"Mijka"]){
-			bankButton4 = bankButton;
 			bankButton.currentTranslation = CGAffineTransformTranslate(bankButton.currentTranslation, 96, 248);
 			bankButton.currentTranslation = CGAffineTransformRotate(bankButton.currentTranslation, degreesToRadians(-5));
 		}
@@ -50,15 +46,16 @@
 		[bankButton setFontColor:0xFFFFFF];
 		[bankButton setTitle:[bank_info objectForKey:@"bank_name"]];
 		[bankButton setAuthorTitle:[bank_info objectForKey:@"author_name"]];
-		NSLog([bank_info objectForKey:@"author_name"]);
+//		[bankButton setAuthorTitle:@"treeet"];
+		NSLog(@"bank data: %@", bank_info);
 		[bankData addObject:bank_info];
-		
+		[bankButtons addObject:bankButton];
     }
 	
-	[bankButtons addObject:bankButton1];
-	[bankButtons addObject:bankButton2];
-	[bankButtons addObject:bankButton3];
-	[bankButtons addObject:bankButton4];
+//	[bankButtons addObject:bankButton1];
+//	[bankButtons addObject:bankButton2];
+//	[bankButtons addObject:bankButton3];
+//	[bankButtons addObject:bankButton4];
 	
 	exitButton = [[[GLButton alloc] initWithFrame:CGRectMake(14, 190, 77, 78)]retain];
 	exitButton._delegate = self;
@@ -124,7 +121,8 @@
 }
 -(void)loadBank:(NSNumber*)bankNumber
 {
-	if(currentBank != [bankNumber intValue]){
+	if(currentBank != [bankNumber intValue] || firstRun){
+		firstRun = false;
 		currentBank = [bankNumber intValue];
 		// pause the player
 		[player pause];

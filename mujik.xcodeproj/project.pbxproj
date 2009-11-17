@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5E033372104AEA4700AAD7F5 /* mainController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E033371104AEA4700AAD7F5 /* mainController.mm */; };
 		5E204899104DD3BA00049B39 /* menuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E204898104DD3BA00049B39 /* menuController.mm */; };
 		5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E2048A3104DE3DF00049B39 /* main_menu.png */; };
@@ -33,14 +32,10 @@
 		5E477E1D0FE598AB003EF4A7 /* ofxMultiTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E2B0F7AFE100030C0C6 /* ofxMultiTouch.cpp */; };
 		5E477E1E0FE598AB003EF4A7 /* ofxAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E320F7AFE100030C0C6 /* ofxAccelerometer.cpp */; };
 		5E477E250FE598AB003EF4A7 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
-		5E477E360FE598AB003EF4A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		5E477E390FE598AB003EF4A7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
-		5E477E3A0FE598AB003EF4A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		5E477E3B0FE598AB003EF4A7 /* libFreeType_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9AB0F497C3100F28951 /* libFreeType_iphone_universal.a */; };
 		5E477E3C0FE598AB003EF4A7 /* libFreeImage_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9B00F497C3100F28951 /* libFreeImage_iphone_universal.a */; };
 		5E477E3D0FE598AB003EF4A7 /* libGLU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F30F497D5F00F28951 /* libGLU.a */; };
 		5E477E3E0FE598AB003EF4A7 /* libGLU_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */; };
-		5E477E3F0FE598AB003EF4A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		5E5DE26F10685EAF00F458BC /* TELETYPE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5E5DE26E10685EAF00F458BC /* TELETYPE.TTF */; };
 		5E73A9E010363C290019086B /* InMemoryAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9D710363C290019086B /* InMemoryAudioFile.m */; };
 		5E73A9E110363C290019086B /* MoogFilter2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9D910363C290019086B /* MoogFilter2.mm */; };
@@ -55,6 +50,7 @@
 		5E73A9F910363CAF0019086B /* ofxiPhonePickerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E73A9F710363CAF0019086B /* ofxiPhonePickerView.mm */; };
 		5E7B923C1040712000EEA5E8 /* bankController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B923B1040712000EEA5E8 /* bankController.mm */; };
 		5E7B92AF10407ECE00EEA5E8 /* ofxDirList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B92AD10407ECE00EEA5E8 /* ofxDirList.cpp */; };
+		5E85BFDA10B0DD61000C05BF /* banks in Resources */ = {isa = PBXBuildFile; fileRef = 5E85BFA510B0DD61000C05BF /* banks */; };
 		5EA1F66E0FE58758005BA012 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		5EA1F66F0FE58758005BA012 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
 		5EA1F68A0FE58758005BA012 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -77,14 +73,10 @@
 		5EA1F69B0FE58758005BA012 /* ofxMultiTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E2B0F7AFE100030C0C6 /* ofxMultiTouch.cpp */; };
 		5EA1F69C0FE58758005BA012 /* ofxAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E320F7AFE100030C0C6 /* ofxAccelerometer.cpp */; };
 		5EA1F6A30FE58758005BA012 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
-		5EA1F6B40FE58758005BA012 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		5EA1F6B70FE58758005BA012 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
-		5EA1F6B80FE58758005BA012 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		5EA1F6B90FE58758005BA012 /* libFreeType_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9AB0F497C3100F28951 /* libFreeType_iphone_universal.a */; };
 		5EA1F6BA0FE58758005BA012 /* libFreeImage_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9B00F497C3100F28951 /* libFreeImage_iphone_universal.a */; };
 		5EA1F6BB0FE58758005BA012 /* libGLU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F30F497D5F00F28951 /* libGLU.a */; };
 		5EA1F6BC0FE58758005BA012 /* libGLU_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */; };
-		5EA1F6BD0FE58758005BA012 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		5EA1F6F70FE58A0C005BA012 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2760F39143F007FCFB3 /* Default.png */; };
 		5EA1F6F80FE58A0C005BA012 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBD1C2770F39143F007FCFB3 /* Icon.png */; };
 		5EA1F7190FE58A0C005BA012 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
@@ -107,14 +99,10 @@
 		5EA1F72A0FE58A0C005BA012 /* ofxMultiTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E2B0F7AFE100030C0C6 /* ofxMultiTouch.cpp */; };
 		5EA1F72B0FE58A0C005BA012 /* ofxAccelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E320F7AFE100030C0C6 /* ofxAccelerometer.cpp */; };
 		5EA1F7320FE58A0C005BA012 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
-		5EA1F7430FE58A0C005BA012 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		5EA1F7460FE58A0C005BA012 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
-		5EA1F7470FE58A0C005BA012 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		5EA1F7480FE58A0C005BA012 /* libFreeType_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9AB0F497C3100F28951 /* libFreeType_iphone_universal.a */; };
 		5EA1F7490FE58A0C005BA012 /* libFreeImage_iphone_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9B00F497C3100F28951 /* libFreeImage_iphone_universal.a */; };
 		5EA1F74A0FE58A0C005BA012 /* libGLU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F30F497D5F00F28951 /* libGLU.a */; };
 		5EA1F74B0FE58A0C005BA012 /* libGLU_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */; };
-		5EA1F74C0FE58A0C005BA012 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 		5ECCA36010363D1200A25328 /* drawingHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA35B10363D1100A25328 /* drawingHelper.mm */; };
 		5ECCA36110363D1200A25328 /* fixed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA35C10363D1100A25328 /* fixed.cpp */; };
 		5ECCA36210363D1200A25328 /* vmath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ECCA35E10363D1200A25328 /* vmath.cpp */; };
@@ -143,65 +131,21 @@
 		5EEA1C561044CFC900131C5D /* Vector2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1C4E1044CFC900131C5D /* Vector2d.m */; };
 		5EEA1CC71044D43000131C5D /* GLButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA1CC61044D43000131C5D /* GLButton.mm */; };
 		5EEEB79D0FA3947A00D766A5 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEB79C0FA3947A00D766A5 /* testApp.mm */; };
-		5EF78BB81068687F001FCAAB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF78BB71068687F001FCAAB /* CoreAudio.framework */; };
-		5EF78CBF10686E5E001FCAAB /* bank_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9110686E5E001FCAAB /* bank_info.plist */; };
-		5EF78CC010686E5E001FCAAB /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9210686E5E001FCAAB /* Bass1.wav */; };
-		5EF78CC110686E5E001FCAAB /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9310686E5E001FCAAB /* Bass2.wav */; };
-		5EF78CC210686E5E001FCAAB /* Chords1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9410686E5E001FCAAB /* Chords1.wav */; };
-		5EF78CC310686E5E001FCAAB /* Chords2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9510686E5E001FCAAB /* Chords2.wav */; };
-		5EF78CC410686E5E001FCAAB /* DrumBeat1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9610686E5E001FCAAB /* DrumBeat1.wav */; };
-		5EF78CC510686E5E001FCAAB /* DrumBeat2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9710686E5E001FCAAB /* DrumBeat2.wav */; };
-		5EF78CC610686E5E001FCAAB /* DrumBeat3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9810686E5E001FCAAB /* DrumBeat3.wav */; };
-		5EF78CC710686E5E001FCAAB /* DrumBeat4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9910686E5E001FCAAB /* DrumBeat4.wav */; };
-		5EF78CC810686E5E001FCAAB /* Melody1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9A10686E5E001FCAAB /* Melody1.wav */; };
-		5EF78CC910686E5E001FCAAB /* Melody2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9B10686E5E001FCAAB /* Melody2.wav */; };
-		5EF78CCA10686E5E001FCAAB /* bank_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9D10686E5E001FCAAB /* bank_info.plist */; };
-		5EF78CCB10686E5E001FCAAB /* earth1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9E10686E5E001FCAAB /* earth1.wav */; };
-		5EF78CCC10686E5E001FCAAB /* earth2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78C9F10686E5E001FCAAB /* earth2.wav */; };
-		5EF78CCD10686E5E001FCAAB /* earth3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA010686E5E001FCAAB /* earth3.wav */; };
-		5EF78CCE10686E5E001FCAAB /* fire1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA110686E5E001FCAAB /* fire1.wav */; };
-		5EF78CCF10686E5E001FCAAB /* fire2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA210686E5E001FCAAB /* fire2.wav */; };
-		5EF78CD010686E5E001FCAAB /* fire3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA310686E5E001FCAAB /* fire3.wav */; };
-		5EF78CD110686E5E001FCAAB /* vapor1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA410686E5E001FCAAB /* vapor1.wav */; };
-		5EF78CD210686E5E001FCAAB /* vapor2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA510686E5E001FCAAB /* vapor2.wav */; };
-		5EF78CD310686E5E001FCAAB /* vapor3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA610686E5E001FCAAB /* vapor3.wav */; };
-		5EF78CD410686E5E001FCAAB /* bank_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA810686E5E001FCAAB /* bank_info.plist */; };
-		5EF78CD510686E5E001FCAAB /* Beat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CA910686E5E001FCAAB /* Beat.wav */; };
-		5EF78CD610686E5E001FCAAB /* Bipbip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAA10686E5E001FCAAB /* Bipbip.wav */; };
-		5EF78CD710686E5E001FCAAB /* Brazil.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAB10686E5E001FCAAB /* Brazil.wav */; };
-		5EF78CD810686E5E001FCAAB /* Cello.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAC10686E5E001FCAAB /* Cello.wav */; };
-		5EF78CD910686E5E001FCAAB /* Grimy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAD10686E5E001FCAAB /* Grimy.wav */; };
-		5EF78CDA10686E5E001FCAAB /* GrimySlow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAE10686E5E001FCAAB /* GrimySlow.wav */; };
-		5EF78CDB10686E5E001FCAAB /* Piano.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CAF10686E5E001FCAAB /* Piano.wav */; };
-		5EF78CDC10686E5E001FCAAB /* PianoCello.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB010686E5E001FCAAB /* PianoCello.wav */; };
-		5EF78CDD10686E5E001FCAAB /* Waves.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB110686E5E001FCAAB /* Waves.wav */; };
-		5EF78CDE10686E5E001FCAAB /* bank_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB310686E5E001FCAAB /* bank_info.plist */; };
-		5EF78CDF10686E5E001FCAAB /* Bass1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB410686E5E001FCAAB /* Bass1.wav */; };
-		5EF78CE010686E5E001FCAAB /* Bass2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB510686E5E001FCAAB /* Bass2.wav */; };
-		5EF78CE110686E5E001FCAAB /* Bass3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB610686E5E001FCAAB /* Bass3.wav */; };
-		5EF78CE210686E5E001FCAAB /* Drums1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB710686E5E001FCAAB /* Drums1.wav */; };
-		5EF78CE310686E5E001FCAAB /* Drums2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB810686E5E001FCAAB /* Drums2.wav */; };
-		5EF78CE410686E5E001FCAAB /* Drums3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CB910686E5E001FCAAB /* Drums3.wav */; };
-		5EF78CE510686E5E001FCAAB /* Drums4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CBA10686E5E001FCAAB /* Drums4.wav */; };
-		5EF78CE610686E5E001FCAAB /* Glock1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CBB10686E5E001FCAAB /* Glock1.wav */; };
-		5EF78CE710686E5E001FCAAB /* Glock2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CBC10686E5E001FCAAB /* Glock2.wav */; };
-		5EF78CE810686E5E001FCAAB /* Glock3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CBD10686E5E001FCAAB /* Glock3.wav */; };
-		5EF78CE910686E5E001FCAAB /* Percussion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5EF78CBE10686E5E001FCAAB /* Percussion.wav */; };
+		5EF5014E10B0CCE500C1CC95 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014610B0CCE500C1CC95 /* AudioToolbox.framework */; };
+		5EF5014F10B0CCE500C1CC95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014710B0CCE500C1CC95 /* QuartzCore.framework */; };
+		5EF5015010B0CCE500C1CC95 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014810B0CCE500C1CC95 /* OpenGLES.framework */; };
+		5EF5015110B0CCE500C1CC95 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014910B0CCE500C1CC95 /* UIKit.framework */; };
+		5EF5015210B0CCE500C1CC95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014A10B0CCE500C1CC95 /* Foundation.framework */; };
+		5EF5015310B0CCE500C1CC95 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014B10B0CCE500C1CC95 /* CoreGraphics.framework */; };
+		5EF5015410B0CCE500C1CC95 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014C10B0CCE500C1CC95 /* OpenAL.framework */; };
+		5EF5015510B0CCE500C1CC95 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF5014D10B0CCE500C1CC95 /* CoreLocation.framework */; };
 		5EFF326F105317CC0090604B /* helpController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF326E105317CC0090604B /* helpController.mm */; };
 		5EFF34841055D9110090604B /* infoController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34831055D9110090604B /* infoController.mm */; };
 		5EFF34CB1055E0D00090604B /* appModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34CA1055E0D00090604B /* appModel.m */; };
 		5EFF34CE1055E1BD0090604B /* bankModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF34CD1055E1BD0090604B /* bankModel.m */; };
-		AA89B9AA1066A246000269E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9A91066A246000269E7 /* UIKit.framework */; };
-		AA89B9AD1066A260000269E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9AC1066A260000269E7 /* CoreGraphics.framework */; };
-		AA89B9B91066A303000269E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9B81066A303000269E7 /* UIKit.framework */; };
-		AA89B9C51066A3AE000269E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9B81066A303000269E7 /* UIKit.framework */; };
-		AA89B9C61066A3AE000269E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9B81066A303000269E7 /* UIKit.framework */; };
-		AA89B9C71066A3AF000269E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA89B9B81066A303000269E7 /* UIKit.framework */; };
 		BB16E9C90F2B1E6900518274 /* ofAppRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9990F2B1E6900518274 /* ofAppRunner.cpp */; };
 		BB16E9D40F2B1E6900518274 /* ofMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9B90F2B1E6900518274 /* ofMath.cpp */; };
 		BB16E9D50F2B1E6900518274 /* ofUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9BC0F2B1E6900518274 /* ofUtils.cpp */; };
-		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
-		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB16EDCB0F2B368400518274 /* ofGraphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9A90F2B1E6900518274 /* ofGraphics.cpp */; };
 		BB16F3AD0F2B73B000518274 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB16F3A80F2B73B000518274 /* main.mm */; };
 		BB4B3E4D0F7AFE100030C0C6 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB4B3E1A0F7AFE100030C0C6 /* EAGLView.mm */; };
@@ -224,7 +168,6 @@
 		BBE5E9F60F497D5F00F28951 /* libGLU_arm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */; };
 		BBE5E9F90F497D9200F28951 /* ofImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9AB0F2B1E6900518274 /* ofImage.cpp */; };
 		BBE5E9FA0F497D9500F28951 /* ofTrueTypeFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB16E9AF0F2B1E6900518274 /* ofTrueTypeFont.cpp */; };
-		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -267,7 +210,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Mujik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mujik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5E033370104AEA4700AAD7F5 /* mainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mainController.h; path = src/controllers/mainController.h; sourceTree = SOURCE_ROOT; };
@@ -305,6 +247,7 @@
 		5E7B923B1040712000EEA5E8 /* bankController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = bankController.mm; path = src/controllers/bankController.mm; sourceTree = SOURCE_ROOT; };
 		5E7B92AD10407ECE00EEA5E8 /* ofxDirList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxDirList.cpp; path = ../../../addons/ofxDirList/src/ofxDirList.cpp; sourceTree = SOURCE_ROOT; };
 		5E7B92AE10407ECE00EEA5E8 /* ofxDirList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxDirList.h; path = ../../../addons/ofxDirList/src/ofxDirList.h; sourceTree = SOURCE_ROOT; };
+		5E85BFA510B0DD61000C05BF /* banks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = banks; path = of_preRelease_v0.06_iphone/apps/my_apps/mujik/data/banks; sourceTree = DEVELOPER_DIR; };
 		5EA1F6C20FE58758005BA012 /* MujikHR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikHR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA1F6C40FE58758005BA012 /* Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = SOURCE_ROOT; };
 		5EA1F7510FE58A0C005BA012 /* MujikGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MujikGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,50 +299,14 @@
 		5EEA1CC51044D43000131C5D /* GLButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = GLButton.h; sourceTree = "<group>"; };
 		5EEA1CC61044D43000131C5D /* GLButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLButton.mm; sourceTree = "<group>"; };
 		5EEEB79C0FA3947A00D766A5 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
-		5EF78BB71068687F001FCAAB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk/System/Library/Frameworks/CoreAudio.framework; sourceTree = DEVELOPER_DIR; };
-		5EF78C9110686E5E001FCAAB /* bank_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bank_info.plist; path = data/banks/Davetronjik/bank_info.plist; sourceTree = SOURCE_ROOT; };
-		5EF78C9210686E5E001FCAAB /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = data/banks/Davetronjik/Bass1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9310686E5E001FCAAB /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = data/banks/Davetronjik/Bass2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9410686E5E001FCAAB /* Chords1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Chords1.wav; path = data/banks/Davetronjik/Chords1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9510686E5E001FCAAB /* Chords2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Chords2.wav; path = data/banks/Davetronjik/Chords2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9610686E5E001FCAAB /* DrumBeat1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DrumBeat1.wav; path = data/banks/Davetronjik/DrumBeat1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9710686E5E001FCAAB /* DrumBeat2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DrumBeat2.wav; path = data/banks/Davetronjik/DrumBeat2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9810686E5E001FCAAB /* DrumBeat3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DrumBeat3.wav; path = data/banks/Davetronjik/DrumBeat3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9910686E5E001FCAAB /* DrumBeat4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = DrumBeat4.wav; path = data/banks/Davetronjik/DrumBeat4.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9A10686E5E001FCAAB /* Melody1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Melody1.wav; path = data/banks/Davetronjik/Melody1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9B10686E5E001FCAAB /* Melody2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Melody2.wav; path = data/banks/Davetronjik/Melody2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9D10686E5E001FCAAB /* bank_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bank_info.plist; path = data/banks/surachai_bilda/bank_info.plist; sourceTree = SOURCE_ROOT; };
-		5EF78C9E10686E5E001FCAAB /* earth1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earth1.wav; path = data/banks/surachai_bilda/earth1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78C9F10686E5E001FCAAB /* earth2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earth2.wav; path = data/banks/surachai_bilda/earth2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA010686E5E001FCAAB /* earth3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earth3.wav; path = data/banks/surachai_bilda/earth3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA110686E5E001FCAAB /* fire1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fire1.wav; path = data/banks/surachai_bilda/fire1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA210686E5E001FCAAB /* fire2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fire2.wav; path = data/banks/surachai_bilda/fire2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA310686E5E001FCAAB /* fire3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = fire3.wav; path = data/banks/surachai_bilda/fire3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA410686E5E001FCAAB /* vapor1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = vapor1.wav; path = data/banks/surachai_bilda/vapor1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA510686E5E001FCAAB /* vapor2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = vapor2.wav; path = data/banks/surachai_bilda/vapor2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA610686E5E001FCAAB /* vapor3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = vapor3.wav; path = data/banks/surachai_bilda/vapor3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CA810686E5E001FCAAB /* bank_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bank_info.plist; path = data/banks/Tibtem/bank_info.plist; sourceTree = SOURCE_ROOT; };
-		5EF78CA910686E5E001FCAAB /* Beat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Beat.wav; path = data/banks/Tibtem/Beat.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAA10686E5E001FCAAB /* Bipbip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bipbip.wav; path = data/banks/Tibtem/Bipbip.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAB10686E5E001FCAAB /* Brazil.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Brazil.wav; path = data/banks/Tibtem/Brazil.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAC10686E5E001FCAAB /* Cello.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Cello.wav; path = data/banks/Tibtem/Cello.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAD10686E5E001FCAAB /* Grimy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Grimy.wav; path = data/banks/Tibtem/Grimy.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAE10686E5E001FCAAB /* GrimySlow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = GrimySlow.wav; path = data/banks/Tibtem/GrimySlow.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CAF10686E5E001FCAAB /* Piano.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Piano.wav; path = data/banks/Tibtem/Piano.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB010686E5E001FCAAB /* PianoCello.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = PianoCello.wav; path = data/banks/Tibtem/PianoCello.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB110686E5E001FCAAB /* Waves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Waves.wav; path = data/banks/Tibtem/Waves.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB310686E5E001FCAAB /* bank_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bank_info.plist; path = data/banks/z_glock_107_wav/bank_info.plist; sourceTree = SOURCE_ROOT; };
-		5EF78CB410686E5E001FCAAB /* Bass1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass1.wav; path = data/banks/z_glock_107_wav/Bass1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB510686E5E001FCAAB /* Bass2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass2.wav; path = data/banks/z_glock_107_wav/Bass2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB610686E5E001FCAAB /* Bass3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Bass3.wav; path = data/banks/z_glock_107_wav/Bass3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB710686E5E001FCAAB /* Drums1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums1.wav; path = data/banks/z_glock_107_wav/Drums1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB810686E5E001FCAAB /* Drums2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums2.wav; path = data/banks/z_glock_107_wav/Drums2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CB910686E5E001FCAAB /* Drums3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums3.wav; path = data/banks/z_glock_107_wav/Drums3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CBA10686E5E001FCAAB /* Drums4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Drums4.wav; path = data/banks/z_glock_107_wav/Drums4.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CBB10686E5E001FCAAB /* Glock1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock1.wav; path = data/banks/z_glock_107_wav/Glock1.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CBC10686E5E001FCAAB /* Glock2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock2.wav; path = data/banks/z_glock_107_wav/Glock2.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CBD10686E5E001FCAAB /* Glock3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Glock3.wav; path = data/banks/z_glock_107_wav/Glock3.wav; sourceTree = SOURCE_ROOT; };
-		5EF78CBE10686E5E001FCAAB /* Percussion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Percussion.wav; path = data/banks/z_glock_107_wav/Percussion.wav; sourceTree = SOURCE_ROOT; };
+		5EF5014610B0CCE500C1CC95 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5EF5014710B0CCE500C1CC95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5EF5014810B0CCE500C1CC95 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5EF5014910B0CCE500C1CC95 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5EF5014A10B0CCE500C1CC95 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5EF5014B10B0CCE500C1CC95 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5EF5014C10B0CCE500C1CC95 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		5EF5014D10B0CCE500C1CC95 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5EFF326D105317CC0090604B /* helpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = helpController.h; path = src/controllers/helpController.h; sourceTree = SOURCE_ROOT; };
 		5EFF326E105317CC0090604B /* helpController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = helpController.mm; path = src/controllers/helpController.mm; sourceTree = SOURCE_ROOT; };
 		5EFF34821055D9110090604B /* infoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = infoController.h; path = src/controllers/infoController.h; sourceTree = SOURCE_ROOT; };
@@ -409,9 +316,6 @@
 		5EFF34CC1055E1BD0090604B /* bankModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankModel.h; path = src/models/bankModel.h; sourceTree = SOURCE_ROOT; };
 		5EFF34CD1055E1BD0090604B /* bankModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bankModel.m; path = src/models/bankModel.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		AA89B9A91066A246000269E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = "of_preRelease_v0.06_iphone/apps/my_apps/jonbro-gridsound-c76746a184e2a2cf1b5928fc05ec66a3de8773c9/iphoneos2.2/System/Library/Frameworks/UIKit.framework"; sourceTree = DEVELOPER_DIR; };
-		AA89B9AC1066A260000269E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = "of_preRelease_v0.06_iphone/apps/my_apps/jonbro-gridsound-c76746a184e2a2cf1b5928fc05ec66a3de8773c9/iphoneos2.2/System/Library/Frameworks/CoreGraphics.framework"; sourceTree = DEVELOPER_DIR; };
-		AA89B9B81066A303000269E7 /* UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AA89B9D21066A720000269E7 /* bankController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bankController.h; path = src/controllers/bankController.h; sourceTree = SOURCE_ROOT; };
 		BB16E9960F2B1E6900518274 /* ofAppBaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofAppBaseWindow.h; sourceTree = "<group>"; };
 		BB16E9970F2B1E6900518274 /* ofAppGlutWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofAppGlutWindow.cpp; sourceTree = "<group>"; };
@@ -457,8 +361,6 @@
 		BB16E9C50F2B1E6900518274 /* ofVideoGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVideoGrabber.h; sourceTree = "<group>"; };
 		BB16E9C60F2B1E6900518274 /* ofVideoPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofVideoPlayer.cpp; sourceTree = "<group>"; };
 		BB16E9C70F2B1E6900518274 /* ofVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofVideoPlayer.h; sourceTree = "<group>"; };
-		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB16F3A80F2B73B000518274 /* main.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = main.mm; sourceTree = "<group>"; };
 		BB16F3AA0F2B73B000518274 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testApp.h; sourceTree = "<group>"; };
 		BB4B3DE40F7AFE100030C0C6 /* changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
@@ -578,7 +480,6 @@
 		BBE5E9F20F497D5F00F28951 /* gluos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gluos.h; sourceTree = "<group>"; };
 		BBE5E9F30F497D5F00F28951 /* libGLU.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLU.a; sourceTree = "<group>"; };
 		BBE5E9F40F497D5F00F28951 /* libGLU_arm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLU_arm.a; sourceTree = "<group>"; };
-		BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -586,18 +487,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */,
-				BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */,
 				BBE5E9B10F497C3100F28951 /* libFreeType_iphone_universal.a in Frameworks */,
 				BBE5E9B20F497C3100F28951 /* libFreeImage_iphone_universal.a in Frameworks */,
 				BBE5E9F50F497D5F00F28951 /* libGLU.a in Frameworks */,
 				BBE5E9F60F497D5F00F28951 /* libGLU_arm.a in Frameworks */,
-				BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */,
-				AA89B9AA1066A246000269E7 /* UIKit.framework in Frameworks */,
-				AA89B9AD1066A260000269E7 /* CoreGraphics.framework in Frameworks */,
-				AA89B9B91066A303000269E7 /* UIKit.framework in Frameworks */,
-				5EF78BB81068687F001FCAAB /* CoreAudio.framework in Frameworks */,
+				5EF5014E10B0CCE500C1CC95 /* AudioToolbox.framework in Frameworks */,
+				5EF5014F10B0CCE500C1CC95 /* QuartzCore.framework in Frameworks */,
+				5EF5015010B0CCE500C1CC95 /* OpenGLES.framework in Frameworks */,
+				5EF5015110B0CCE500C1CC95 /* UIKit.framework in Frameworks */,
+				5EF5015210B0CCE500C1CC95 /* Foundation.framework in Frameworks */,
+				5EF5015310B0CCE500C1CC95 /* CoreGraphics.framework in Frameworks */,
+				5EF5015410B0CCE500C1CC95 /* OpenAL.framework in Frameworks */,
+				5EF5015510B0CCE500C1CC95 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,15 +506,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E477E360FE598AB003EF4A7 /* Foundation.framework in Frameworks */,
-				5E477E390FE598AB003EF4A7 /* OpenGLES.framework in Frameworks */,
-				5E477E3A0FE598AB003EF4A7 /* QuartzCore.framework in Frameworks */,
 				5E477E3B0FE598AB003EF4A7 /* libFreeType_iphone_universal.a in Frameworks */,
 				5E477E3C0FE598AB003EF4A7 /* libFreeImage_iphone_universal.a in Frameworks */,
 				5E477E3D0FE598AB003EF4A7 /* libGLU.a in Frameworks */,
 				5E477E3E0FE598AB003EF4A7 /* libGLU_arm.a in Frameworks */,
-				5E477E3F0FE598AB003EF4A7 /* AudioToolbox.framework in Frameworks */,
-				AA89B9C71066A3AF000269E7 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,15 +517,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA1F6B40FE58758005BA012 /* Foundation.framework in Frameworks */,
-				5EA1F6B70FE58758005BA012 /* OpenGLES.framework in Frameworks */,
-				5EA1F6B80FE58758005BA012 /* QuartzCore.framework in Frameworks */,
 				5EA1F6B90FE58758005BA012 /* libFreeType_iphone_universal.a in Frameworks */,
 				5EA1F6BA0FE58758005BA012 /* libFreeImage_iphone_universal.a in Frameworks */,
 				5EA1F6BB0FE58758005BA012 /* libGLU.a in Frameworks */,
 				5EA1F6BC0FE58758005BA012 /* libGLU_arm.a in Frameworks */,
-				5EA1F6BD0FE58758005BA012 /* AudioToolbox.framework in Frameworks */,
-				AA89B9C51066A3AE000269E7 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,15 +528,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EA1F7430FE58A0C005BA012 /* Foundation.framework in Frameworks */,
-				5EA1F7460FE58A0C005BA012 /* OpenGLES.framework in Frameworks */,
-				5EA1F7470FE58A0C005BA012 /* QuartzCore.framework in Frameworks */,
 				5EA1F7480FE58A0C005BA012 /* libFreeType_iphone_universal.a in Frameworks */,
 				5EA1F7490FE58A0C005BA012 /* libFreeImage_iphone_universal.a in Frameworks */,
 				5EA1F74A0FE58A0C005BA012 /* libGLU.a in Frameworks */,
 				5EA1F74B0FE58A0C005BA012 /* libGLU_arm.a in Frameworks */,
-				5EA1F74C0FE58A0C005BA012 /* AudioToolbox.framework in Frameworks */,
-				AA89B9C61066A3AE000269E7 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,14 +573,14 @@
 		29B97323FDCFA39411CA2CEA /* core frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5EF78BB71068687F001FCAAB /* CoreAudio.framework */,
-				AA89B9B81066A303000269E7 /* UIKit.framework */,
-				AA89B9AC1066A260000269E7 /* CoreGraphics.framework */,
-				AA89B9A91066A246000269E7 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */,
-				BB16EBD80F2B2AB500518274 /* QuartzCore.framework */,
-				BB16EBD10F2B2A9500518274 /* OpenGLES.framework */,
+				5EF5014610B0CCE500C1CC95 /* AudioToolbox.framework */,
+				5EF5014710B0CCE500C1CC95 /* QuartzCore.framework */,
+				5EF5014810B0CCE500C1CC95 /* OpenGLES.framework */,
+				5EF5014910B0CCE500C1CC95 /* UIKit.framework */,
+				5EF5014A10B0CCE500C1CC95 /* Foundation.framework */,
+				5EF5014B10B0CCE500C1CC95 /* CoreGraphics.framework */,
+				5EF5014C10B0CCE500C1CC95 /* OpenAL.framework */,
+				5EF5014D10B0CCE500C1CC95 /* CoreLocation.framework */,
 			);
 			name = "core frameworks";
 			sourceTree = "<group>";
@@ -872,93 +758,6 @@
 			);
 			name = gl_gui;
 			sourceTree = "<group>";
-		};
-		5EF78C8F10686E5E001FCAAB /* banks */ = {
-			isa = PBXGroup;
-			children = (
-				5EF78C9010686E5E001FCAAB /* Davetronjik */,
-				5EF78C9C10686E5E001FCAAB /* surachai_bilda */,
-				5EF78CA710686E5E001FCAAB /* Tibtem */,
-				5EF78CB210686E5E001FCAAB /* z_glock_107_wav */,
-			);
-			name = banks;
-			path = data/banks;
-			sourceTree = SOURCE_ROOT;
-		};
-		5EF78C9010686E5E001FCAAB /* Davetronjik */ = {
-			isa = PBXGroup;
-			children = (
-				5EF78C9110686E5E001FCAAB /* bank_info.plist */,
-				5EF78C9210686E5E001FCAAB /* Bass1.wav */,
-				5EF78C9310686E5E001FCAAB /* Bass2.wav */,
-				5EF78C9410686E5E001FCAAB /* Chords1.wav */,
-				5EF78C9510686E5E001FCAAB /* Chords2.wav */,
-				5EF78C9610686E5E001FCAAB /* DrumBeat1.wav */,
-				5EF78C9710686E5E001FCAAB /* DrumBeat2.wav */,
-				5EF78C9810686E5E001FCAAB /* DrumBeat3.wav */,
-				5EF78C9910686E5E001FCAAB /* DrumBeat4.wav */,
-				5EF78C9A10686E5E001FCAAB /* Melody1.wav */,
-				5EF78C9B10686E5E001FCAAB /* Melody2.wav */,
-			);
-			name = Davetronjik;
-			path = data/banks/Davetronjik;
-			sourceTree = SOURCE_ROOT;
-		};
-		5EF78C9C10686E5E001FCAAB /* surachai_bilda */ = {
-			isa = PBXGroup;
-			children = (
-				5EF78C9D10686E5E001FCAAB /* bank_info.plist */,
-				5EF78C9E10686E5E001FCAAB /* earth1.wav */,
-				5EF78C9F10686E5E001FCAAB /* earth2.wav */,
-				5EF78CA010686E5E001FCAAB /* earth3.wav */,
-				5EF78CA110686E5E001FCAAB /* fire1.wav */,
-				5EF78CA210686E5E001FCAAB /* fire2.wav */,
-				5EF78CA310686E5E001FCAAB /* fire3.wav */,
-				5EF78CA410686E5E001FCAAB /* vapor1.wav */,
-				5EF78CA510686E5E001FCAAB /* vapor2.wav */,
-				5EF78CA610686E5E001FCAAB /* vapor3.wav */,
-			);
-			name = surachai_bilda;
-			path = data/banks/surachai_bilda;
-			sourceTree = SOURCE_ROOT;
-		};
-		5EF78CA710686E5E001FCAAB /* Tibtem */ = {
-			isa = PBXGroup;
-			children = (
-				5EF78CA810686E5E001FCAAB /* bank_info.plist */,
-				5EF78CA910686E5E001FCAAB /* Beat.wav */,
-				5EF78CAA10686E5E001FCAAB /* Bipbip.wav */,
-				5EF78CAB10686E5E001FCAAB /* Brazil.wav */,
-				5EF78CAC10686E5E001FCAAB /* Cello.wav */,
-				5EF78CAD10686E5E001FCAAB /* Grimy.wav */,
-				5EF78CAE10686E5E001FCAAB /* GrimySlow.wav */,
-				5EF78CAF10686E5E001FCAAB /* Piano.wav */,
-				5EF78CB010686E5E001FCAAB /* PianoCello.wav */,
-				5EF78CB110686E5E001FCAAB /* Waves.wav */,
-			);
-			name = Tibtem;
-			path = data/banks/Tibtem;
-			sourceTree = SOURCE_ROOT;
-		};
-		5EF78CB210686E5E001FCAAB /* z_glock_107_wav */ = {
-			isa = PBXGroup;
-			children = (
-				5EF78CB310686E5E001FCAAB /* bank_info.plist */,
-				5EF78CB410686E5E001FCAAB /* Bass1.wav */,
-				5EF78CB510686E5E001FCAAB /* Bass2.wav */,
-				5EF78CB610686E5E001FCAAB /* Bass3.wav */,
-				5EF78CB710686E5E001FCAAB /* Drums1.wav */,
-				5EF78CB810686E5E001FCAAB /* Drums2.wav */,
-				5EF78CB910686E5E001FCAAB /* Drums3.wav */,
-				5EF78CBA10686E5E001FCAAB /* Drums4.wav */,
-				5EF78CBB10686E5E001FCAAB /* Glock1.wav */,
-				5EF78CBC10686E5E001FCAAB /* Glock2.wav */,
-				5EF78CBD10686E5E001FCAAB /* Glock3.wav */,
-				5EF78CBE10686E5E001FCAAB /* Percussion.wav */,
-			);
-			name = z_glock_107_wav;
-			path = data/banks/z_glock_107_wav;
-			sourceTree = SOURCE_ROOT;
 		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
 			isa = PBXGroup;
@@ -1193,8 +992,8 @@
 		BBD1C2750F39143F007FCFB3 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				5EF78C8F10686E5E001FCAAB /* banks */,
 				5ECCA3AF1036406D00A25328 /* dist.plist */,
+				5E85BFA510B0DD61000C05BF /* banks */,
 				5ECCA3A81036404100A25328 /* fonts */,
 				5ECCA38610363F1C00A25328 /* book_design_images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -1516,49 +1315,7 @@
 				5E2048A4104DE3DF00049B39 /* main_menu.png in Resources */,
 				5EDAE93A105D6B7400BC4EDE /* bank_atlas.png in Resources */,
 				5E5DE26F10685EAF00F458BC /* TELETYPE.TTF in Resources */,
-				5EF78CBF10686E5E001FCAAB /* bank_info.plist in Resources */,
-				5EF78CC010686E5E001FCAAB /* Bass1.wav in Resources */,
-				5EF78CC110686E5E001FCAAB /* Bass2.wav in Resources */,
-				5EF78CC210686E5E001FCAAB /* Chords1.wav in Resources */,
-				5EF78CC310686E5E001FCAAB /* Chords2.wav in Resources */,
-				5EF78CC410686E5E001FCAAB /* DrumBeat1.wav in Resources */,
-				5EF78CC510686E5E001FCAAB /* DrumBeat2.wav in Resources */,
-				5EF78CC610686E5E001FCAAB /* DrumBeat3.wav in Resources */,
-				5EF78CC710686E5E001FCAAB /* DrumBeat4.wav in Resources */,
-				5EF78CC810686E5E001FCAAB /* Melody1.wav in Resources */,
-				5EF78CC910686E5E001FCAAB /* Melody2.wav in Resources */,
-				5EF78CCA10686E5E001FCAAB /* bank_info.plist in Resources */,
-				5EF78CCB10686E5E001FCAAB /* earth1.wav in Resources */,
-				5EF78CCC10686E5E001FCAAB /* earth2.wav in Resources */,
-				5EF78CCD10686E5E001FCAAB /* earth3.wav in Resources */,
-				5EF78CCE10686E5E001FCAAB /* fire1.wav in Resources */,
-				5EF78CCF10686E5E001FCAAB /* fire2.wav in Resources */,
-				5EF78CD010686E5E001FCAAB /* fire3.wav in Resources */,
-				5EF78CD110686E5E001FCAAB /* vapor1.wav in Resources */,
-				5EF78CD210686E5E001FCAAB /* vapor2.wav in Resources */,
-				5EF78CD310686E5E001FCAAB /* vapor3.wav in Resources */,
-				5EF78CD410686E5E001FCAAB /* bank_info.plist in Resources */,
-				5EF78CD510686E5E001FCAAB /* Beat.wav in Resources */,
-				5EF78CD610686E5E001FCAAB /* Bipbip.wav in Resources */,
-				5EF78CD710686E5E001FCAAB /* Brazil.wav in Resources */,
-				5EF78CD810686E5E001FCAAB /* Cello.wav in Resources */,
-				5EF78CD910686E5E001FCAAB /* Grimy.wav in Resources */,
-				5EF78CDA10686E5E001FCAAB /* GrimySlow.wav in Resources */,
-				5EF78CDB10686E5E001FCAAB /* Piano.wav in Resources */,
-				5EF78CDC10686E5E001FCAAB /* PianoCello.wav in Resources */,
-				5EF78CDD10686E5E001FCAAB /* Waves.wav in Resources */,
-				5EF78CDE10686E5E001FCAAB /* bank_info.plist in Resources */,
-				5EF78CDF10686E5E001FCAAB /* Bass1.wav in Resources */,
-				5EF78CE010686E5E001FCAAB /* Bass2.wav in Resources */,
-				5EF78CE110686E5E001FCAAB /* Bass3.wav in Resources */,
-				5EF78CE210686E5E001FCAAB /* Drums1.wav in Resources */,
-				5EF78CE310686E5E001FCAAB /* Drums2.wav in Resources */,
-				5EF78CE410686E5E001FCAAB /* Drums3.wav in Resources */,
-				5EF78CE510686E5E001FCAAB /* Drums4.wav in Resources */,
-				5EF78CE610686E5E001FCAAB /* Glock1.wav in Resources */,
-				5EF78CE710686E5E001FCAAB /* Glock2.wav in Resources */,
-				5EF78CE810686E5E001FCAAB /* Glock3.wav in Resources */,
-				5EF78CE910686E5E001FCAAB /* Percussion.wav in Resources */,
+				5E85BFDA10B0DD61000C05BF /* banks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1762,10 +1519,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(DEVELOPER_DIR)/of_preRelease_v0.06_iphone/apps/my_apps/jonbro-gridsound-c76746a184e2a2cf1b5928fc05ec66a3de8773c9/iphoneos2.2/System/Library/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2096,7 +1850,7 @@
 				OTHER_CFLAGS = "-fno-regmove";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphonesimulator2.2.1;
 			};
 			name = Distribution;
 		};
@@ -2141,7 +1895,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphonesimulator2.2.1;
 			};
 			name = Debug;
 		};
@@ -2174,7 +1928,7 @@
 				BBD1C20B0F391092007FCFB3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5E477E400FE598AB003EF4A7 /* Build configuration list for PBXNativeTarget "SWTarget" */ = {
 			isa = XCConfigurationList;
@@ -2184,7 +1938,7 @@
 				5E477E430FE598AB003EF4A7 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5EA1F6BE0FE58758005BA012 /* Build configuration list for PBXNativeTarget "HRTarget" */ = {
 			isa = XCConfigurationList;
@@ -2194,7 +1948,7 @@
 				5EA1F6C10FE58758005BA012 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5EA1F74D0FE58A0C005BA012 /* Build configuration list for PBXNativeTarget "GSTarget" */ = {
 			isa = XCConfigurationList;
@@ -2204,7 +1958,7 @@
 				5EA1F7500FE58A0C005BA012 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "mujik" */ = {
 			isa = XCConfigurationList;
@@ -2214,7 +1968,7 @@
 				BBD1C20A0F391092007FCFB3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

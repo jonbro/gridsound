@@ -126,11 +126,12 @@ void testApp::loadDefaults(){
 	{
 		aModel = [[NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray] retain];
 		if([aModel isKindOfClass:[appModel class]]){
+			NSLog(@"loaded app model: %@", aModel);
 			[mainC setApp:[aModel retain]];
 		}else{
 			aModel = [[appModel alloc] init];
 			[mainC setApp:[aModel retain]];
-		}		
+		}
 	}else{
 		aModel = [[appModel alloc] init];
 		[mainC setApp:[aModel retain]];
